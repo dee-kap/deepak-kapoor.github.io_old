@@ -1,0 +1,680 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="In an earlier post I created a Linux virtual machine on Windows Azure. In this post I will show you how to establish a SSH connection to the virtual &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://deepak-kapoor.github.io/blog/page/2">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:deepak-kapoor.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/31/windows-azure-connect-to-linux-virtual-machine/">Windows Azure - Connect to Linux Virtual Machine</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-31T00:00:00+10:00" pubdate data-updated="true">May 31<span>st</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">In an <a href="http://www.debugrelease.com/2013/05/30/windows-azure-create-linux-virtual-machine-through-management-portal/">earlier post</a> I created a Linux virtual machine on Windows Azure. In this post I will show you how to establish a SSH connection to the virtual machine.
+
+&nbsp;
+<h4>Windows</h4>
+Windows does not come with a SSH client but we can use <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY</a> to make SSH connections from a Windows machine.
+
+Open putty.exe and enter host information as it is on the management portal.
+
+&nbsp;
+
+<a href="http://www.debugrelease.com/wp-content/uploads/2013/05/SNAGHTML3b92ce5e.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="SNAGHTML3b92ce5e" alt="SNAGHTML3b92ce5e" src="http://www.debugrelease.com/wp-content/uploads/2013/05/SNAGHTML3b92ce5e_thumb.png" width="470" height="453" border="0" /></a>
+
+&nbsp;
+
+Click Open and you are asked to login. Enter username and password and you are logged into the Linux virtual machine.
+
+&nbsp;
+
+<a href="http://www.debugrelease.com/wp-content/uploads/2013/05/SNAGHTML3b9558d2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="SNAGHTML3b9558d2" alt="SNAGHTML3b9558d2" src="http://www.debugrelease.com/wp-content/uploads/2013/05/SNAGHTML3b9558d2_thumb.png" width="644" height="406" border="0" /></a>
+
+&nbsp;
+<h4>Linux Terminal</h4>
+Logging into Linux virtual machine on Windows Azure from a Linux terminal is dead simple. Linux already comes with a OpenSSH client so there is nothing to be installed.
+
+Just run the ssh command with correct port number and host. In my case the command is
+<p class="text-info"><span>ssh –p 58473 azureuser@debrelubuntu.cloudapp.net</span></p>
+&nbsp;
+
+Enter the correct password when prompted and <a href="http://en.wikipedia.org/wiki/Bob%27s_your_uncle">Bob’s your uncle</a>.
+
+&nbsp;
+
+<a href="http://www.debugrelease.com/wp-content/uploads/2013/05/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/05/image_thumb6.png" width="644" height="402" border="0" /></a>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/30/windows-azure-create-linux-virtual-machine-through-management-portal/">Windows Azure - Create Linux Virtual Machine Through Management Portal</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-30T00:00:00+10:00" pubdate data-updated="true">May 30<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Windows Azure along with PaaS is also a full on IaaS cloud service. At the time of this writing you can create a variety of Windows VMs and Linux VMs. This post shows you how easy it is to create a Linux virtual machine on Windows Azure.</p>  <p>Step 1</p>  <p>Login to the <a href="https://manage.windowsazure.com/">management portal</a></p>  <p>&#160;</p>  <p><a href="http://www.debugrelease.com/wp-content/uploads/2013/05/image4.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/05/image_thumb.png" width="644" height="348" /></a></p>  <p>&#160;</p>  <p>Step 2</p>  <p>Go to Virtual Machines</p>  <p><a href="http://www.debugrelease.com/wp-content/uploads/2013/05/image5.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/05/image_thumb1.png" width="644" height="346" /></a></p>  <p>&#160;</p>  <p>Step&#160; 3</p>  <p>Click on CREATE A VIRTUAL MACHINE</p>  <p>You are presented with a form where you can fill in the details. For IMAGE select Ubuntu Server 13.04 or any other version if you like. </p>  <p>&#160;</p>  <p><a href="http://www.debugrelease.com/wp-content/uploads/2013/05/image6.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/05/image_thumb2.png" width="644" height="326" /></a></p>  <p>&#160;</p>  <p>After clicking on CREATE A VIRTUAL MACHINE below the form, you will see your machine being provisioned.</p>  <p>&#160;</p>  <p><a href="http://www.debugrelease.com/wp-content/uploads/2013/05/image7.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/05/image_thumb3.png" width="938" height="509" /></a></p>  <p>&#160;</p>  <p>In about 2-3 minutes the machine will be provisioned and the status will change to starting.</p>  <p>&#160;</p>  <p><a href="http://www.debugrelease.com/wp-content/uploads/2013/05/image8.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/05/image_thumb4.png" width="643" height="192" /></a></p>  <p>&#160;</p>  <p>Once you see the status to say Running, you can click on the name of your virtual machine which will bring you to this page.</p>  <p>&#160;</p>  <p><a href="http://www.debugrelease.com/wp-content/uploads/2013/05/image9.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/05/image_thumb5.png" width="644" height="452" /></a></p>  <p>&#160;</p>  <p>Congratulations. You now have a Linux virtual machine running on Windows Azure.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/29/managing-startups-best-blog-posts-book-review/">Managing Startups Best Blog Posts - Book Review</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-29T00:00:00+10:00" pubdate data-updated="true">May 29<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><a href="http://www.amazon.com/gp/product/1449367879/ref=as_li_tf_il?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1449367879&amp;linkCode=as2&amp;tag=blogs06-20"><img style="margin-left: 0px; display: inline; margin-right: 0px" border="0" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&amp;ASIN=1449367879&amp;Format=_SL160_&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=blogs06-20" /></a><img style="border-top-style: none !important; border-left-style: none !important; border-bottom-style: none !important; border-right-style: none !important; margin: 0px" border="0" alt="" src="http://www.assoc-amazon.com/e/ir?t=blogs06-20&amp;l=as2&amp;o=1&amp;a=1449367879" width="1" height="1" />   <p>Managing Startups: Best Blog Posts by Tom Eisenmann is is a collection of blog posts about management of technology startups. There are a total of 75 posts which provide with valuable guidance for existing entrepreneurs and those who are at initial stages of creating a startup. </p>  <p>When I started reading this book, in my mind I started pretending that I am about to launch a startup which builds an online product targeting a niche market. I am sure that one day such a thing will happen. Reading the book as a startup founder gave me appreciation towards the practical information captured in the collected posts. There are posts which I would like to read again and keep them in my knowledge base. </p>  <p>I suggest that you read it once and then re-read the posts you like most. </p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/26/find-homepage-on-internet-explorer/">Find Homepage on Internet Explorer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-26T00:00:00+10:00" pubdate data-updated="true">May 26<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When I visit google.com in Internet Explorer, Google is able to detect my homepage. I thought this was not possible but seems like it is as google is doing it. It turns out that there is a <strong>isHomePage</strong> method which only works on Internet Explorer and it can be used to find a user’s home page. </p>  <p><a href="http://samples.msdn.microsoft.com/workshop/samples/author/behaviors/homepage1.htm">This link</a> explains it all. </p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/24/net-framework-serialize-and-deserialize-c-sharp/">.NET Framework - Serialize and Deserialize</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-24T00:00:00+10:00" pubdate data-updated="true">May 24<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This article is about serialization and deserialization in Microsoft .NET Framework. At the time of writing this article I am using .NET Framework 4.5. The concepts I talk about here also apply to all earlier versions.</p>
+
+<p>Motivation to write this article came from a colleague on one of the projects I am busy with these days. I am mentoring a couple of developers who have joined the project straight out of university. They are here to learn the ropes of Microsoft .NET centric software development. Yesterday during a design discussion we talked about serialization of objects in our system. They are well familiar with the concepts of serialization, I showed them how it is done in .NET world.</p>
+<p>Serialization is a technique we use to convert the state of an object to a format which can be persisted for later retrieval. Last sentence perhaps sounded very bookish. Let&#8217;s try some plain English and understand the concept using an example. We will use an example which involves pizza.</p>
+
+<p>We will write a class to represent a Pizza. The class has a property Slices to hold the number of slices. When pizza object is initialized, the number of slices are set to 8. Pizza class also has methods for eating a slice, saving the pizza for later consumption and a method to get leftover pizza. Here are the stubs for properties and methods.</p>
+<pre class="lang:c# decode:true " >public int Slices
+public bool IsThereAnyPizzaLeftForMe
+
+public void EatSlice()
+public void SaveForLater()
+public static Pizza GetLeftOverPizza()</pre> 
+<p>We will now fill in the stubs for SaveForLater() and GetLeftOverPizza(). This is where we will serialize and deserialize our pizza object.</p>
+ 
+<pre class="lang:c# decode:true " >public void SaveForLater()
+{
+	XmlSerializer serializer = new XmlSerializer(typeof(Pizza));
+
+	using (StreamWriter writer = new StreamWriter(@"c:\temp\pizza.xml"))
+	{
+		serializer.Serialize(writer,this);
+	}
+}</pre> 
+
+<p>In the code above we are saying that serialize the pizza object to XML file. XmlSerializer comes with .NET framework and can be found in System.Xml.Serialization namespace. Objects can also be serialized to binary format. We can look at that some other day. For now let&#8217;s go with XML.</p>
+
+<p>Here is the code from a console application which creates an instance of Pizza class, eats a slice and calls SaveForLater() to serialize the object state to XML.</p>
+ 
+<pre class="lang:c# decode:true " >static void Main(string[] args)
+{
+	Pizza pizza = new Pizza();
+	Console.WriteLine("{0} slices left in the pizza", pizza.Slices);
+	
+	pizza.EatSlice();
+	Console.WriteLine("{0} slices left in the pizza", pizza.Slices);
+
+	pizza.SaveForLater();
+}</pre> 
+
+<p>Let&#8217;s look at the XML to which our pizza object was serialized. </p>
+ 
+<pre class="lang:xhtml decode:true " >&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;Pizza xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;Slices&gt;7&lt;/Slices&gt;
+&lt;/Pizza&gt;</pre> 
+
+<p>Note that it only saves Slices property. There is no need to save/serialize the IsThereAnyPizzaLeftForMe property because it&#8217;s value can be determined by checking if Slices is equal to zero. XmlSerializer is smart enough to know which data is absolutely required to deserialize an object. Also methods are behaviors which act upon data so there is no need to retain them.</p>
+
+<p>GetLefOverPizza() method creates an instance of Pizza object from XML. To be technically correct, it deserializes a pizza object from XML.</p>
+ 
+<pre class="lang:c# decode:true " >public static Pizza GetLeftOverPizza()
+{
+	Pizza pizza = null;
+	XmlSerializer serializer = new XmlSerializer(typeof(Pizza));
+
+	using (FileStream fileStream = new FileStream(@"c:\temp\pizza.xml", FileMode.Open))
+	{
+	pizza = (Pizza)serializer.Deserialize(fileStream);
+	}
+
+	return pizza;
+}</pre> 
+
+<p>Another console application shows retrieving a left over pizza, eating a slice and then again saving it for later.</p>
+
+<pre class="lang:c# decode:true " >static void Main(string[] args)
+{
+	Pizza pizza = Pizza.GetLeftOverPizza();
+	Console.WriteLine("{0} slices left in the pizza", pizza.Slices);
+
+	pizza.EatSlice();
+	Console.WriteLine("{0} slices left in the pizza", pizza.Slices);
+
+	pizza.SaveForLater();
+	
+}</pre> 
+
+<p>So there you have it. A simple example which shows how to serialize and deserialize an object in .NET Framework.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/20/my-windows-phone-app-is-runner-up-in-lifehacker-and-microsofts-developer-challenge/">My Windows Phone App Is Runner-up in Lifehacker and Microsoft’s Developer Challenge</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-20T00:00:00+10:00" pubdate data-updated="true">May 20<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Found an uplifting email today in my mailbox which informed me that my app for Windows Phone has been a runner-up in <a href="http://www.lifehacker.com.au/2013/05/round-5-winners-lifehacker-and-microsofts-developer-challenge/">round 5 of Lifehacker and Microsoft’s developer challenge</a>. I am very happy about this and I&#8217;d like to thank those who judged my app to be worthy of recognition.&nbsp; I would also like to congratulate <a href="http://apps.microsoft.com/windows/en-ph/app/fair-football-coach/13eaa6b2-f12d-433a-8d50-5f5385c5ea99">Jared Homes</a> who won round 5 and <a href="https://twitter.com/almichener">Alistair Michener</a> who is also a runner-up for his awesome app <a href="http://apps.microsoft.com/windows/en-US/app/drawboard-pdf/6d65bcd8-8390-4533-af58-307d2e1ec1dd">Drawboard PDF</a>.</p><p>Thanks also to <a href="http://blogs.msdn.com/b/acoat/">Andrew Coates</a> and <a href="http://blogs.msdn.com/b/dglover/">Dave Glover</a> for their support and feedback.</p><p>Link to my app: <a href="http://www.windowsphone.com/en-au/store/app/visuals/f5fae584-ed47-4e26-a606-cd424767b632?appid=f5fae584-ed47-4e26-a606-cd424767b632">Visuals</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/03/disable-stylecop-settings-for-a-project/">Disable StyleCop Settings for a Project</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-03T00:00:00+10:00" pubdate data-updated="true">May 3<span>rd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">Tools like <a href="http://www.debugrelease.com/stylecop-tutorial/">StyleCop</a> have their place in the world and I have nothing against using them to produce consistently formatted code. It kinda makes the person higher up in the food chain brag to those higher above him about the quality of code being produced. However when I write code to try out things , I want the bloody thing to just go away and stop irritating me with you are missing a file header, using statements must be within namespace declaration etc.
+
+It turns out that all the rules can be disabled easily by right clicking the project &#8211;&gt; StyleCop Settings. Then in the Rules tab by unchecking Enabled rules.
+
+<a href="http://www.debugrelease.com/wp-content/uploads/2013/05/stylecopsettings.png"><img class="alignnone size-full wp-image-1909" alt="stylecopsettings" src="http://www.debugrelease.com/wp-content/uploads/2013/05/stylecopsettings.png" width="579" height="478" /></a>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/04/11/nuget-packages-and-source-control/">Nuget Packages and Source Control</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-11T00:00:00+10:00" pubdate data-updated="true">Apr 11<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I use NuGet packages all the time for most of my projects. I ran into an issue on a project I am working on with another developer. We are using Github for source control and we are using many NuGet packages in our solution. The issue was that after adding NuGet packages and making sure that the code compiles and pushing my changes, my developer friend pulled the solution and could not build it. The reason being missing references. </p> <p>The solution:</p> <p>Right click on the solution and click <strong>Enable NuGet Package Restore</strong>. </p> <p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/04/image40.png" width="380" height="592"></p> <p>This option saved many hours of cannot-compile frustration.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/04/09/select-photos-on-windows-phone-with-photochoosertask/">Select Photos on Windows Phone With PhotoChooserTask</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-09T00:00:00+10:00" pubdate data-updated="true">Apr 9<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">It is a common feature of many apps to select photos stored on the device. The feature can be implemented by using PhotoChooserTask class. In this post I will show you how to use PhotoChooserTask to select existing photos and also take photos using the camera.
+
+Code for this post is available on <a href="https://github.com/deepak-kapoor/photochooser">Github</a>.
+
+The UI for this app is very simple. It contains just one Image control and a button
+
+<pre class="font:courier-new lang:xhtml decode:true">&lt;StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"&gt;
+  &lt;Image x:Name="ImageChosen" /&gt;
+  &lt;Button x:Name="ButtonChoosePhoto"
+    Content="choose photo"
+    Click="ButtonChoosePhoto_OnClick"/&gt;
+&lt;/StackPanel</pre>
+
+In the OnClick event handler I instantiate a PhotoChooserTask object, hook it with an event handler when Completed event is fired and finally call Show method on PhotoChooserTask.
+
+ 
+<pre class="lang:c# decode:true " >private void ButtonChoosePhoto_OnClick(object sender, RoutedEventArgs e)
+{
+  PhotoChooserTask photoChooser = new PhotoChooserTask();
+  photoChooser.Completed += photoChooser_Completed;
+  photoChooser.Show();
+}</pre> 
+
+
+Within the event handler I place this code. The code checks if the TaskResult is OK and then creates a new BitmapImage object from the stream in PhotoResult object which is supplied as an argument to the handler.
+
+ 
+<pre class="lang:c# decode:true " >void photoChooser_Completed(object sender, PhotoResult e)
+{
+  if (e.TaskResult == TaskResult.OK)
+  {
+    BitmapImage bitmap = new BitmapImage();
+    bitmap.SetSource(e.ChosenPhoto);
+    ImageChosen.Source = bitmap;
+  }
+}</pre> 
+
+
+Here is the app in working.
+
+<img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Photo Chooser" alt="Photo Chooser" src="http://www.debugrelease.com/wp-content/uploads/2013/04/image.png" width="332" height="599" border="0" />
+
+<img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/04/image1.png" width="332" height="599" border="0" />
+
+<img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/04/image2.png" width="332" height="599" border="0" />
+
+<img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/04/image3.png" width="332" height="599" border="0" />
+<h3>What about the camera?</h3>
+What if the photo I am interested in is not on the phone and I’d like to use the camera. That’s very easy. PhotoChooserTask has an boolean property ShowCamera. I can set it to true to get an option to use camera.
+
+ 
+<pre class="lang:c# decode:true " >private void ButtonChoosePhoto_OnClick(object sender, RoutedEventArgs e)
+{
+  PhotoChooserTask photoChooser = new PhotoChooserTask();
+  photoChooser.Completed += photoChooser_Completed;
+  photoChooser.ShowCamera = true;
+  photoChooser.Show();
+}</pre> 
+
+
+Easy, isn’t it?
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/03/25/free-python-books/">Free Python Books</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-25T00:00:00+11:00" pubdate data-updated="true">Mar 25<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Found a great collection of Python books available for free. Sharing it with readers of Therefore Systems. Screenshot below is just a small sample. </p> <p><a href="http://pythonbooks.revolunet.com/"><img title="Free Python Books" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="Free Python Books" src="http://www.debugrelease.com/wp-content/uploads/2013/03/image2.png" width="640" height="532"></a></p> <p><a href="http://pythonbooks.revolunet.com/">Link</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/3/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/31/android-expandablelistview-tutorial/">Android - ExpandableListView Tutorial</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/28/linux-install-handbrake-on-linux-mint-15/">Linux - Install Handbrake on Linux Mint 15</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/">Linux VirtualBox - Windows Host Share in Ubuntu Guest</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: News | My Octopress Blog]]></title>
+  <link href="http://deepak-kapoor.github.io/blog/categories/news/atom.xml" rel="self"/>
+  <link href="http://deepak-kapoor.github.io/"/>
+  <updated>2013-08-06T06:50:20+10:00</updated>
+  <id>http://deepak-kapoor.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Visual Studio 2010 Feature Pack 2 Available For Download]]></title>
+    <link href="http://deepak-kapoor.github.io/blog/2010/11/16/visual-studio-2010-feature-pack-2-available-for-download/"/>
+    <updated>2010-11-16T00:00:00+11:00</updated>
+    <id>http://deepak-kapoor.github.io/blog/2010/11/16/visual-studio-2010-feature-pack-2-available-for-download</id>
+    <content type="html"><![CDATA[<p>Visual Studio 2010 Feature pack is now available for <a href="http://msdn.microsoft.com/en-au/vstudio/ff655021.aspx">download</a>. You must have access to MSDN subscribers download to get the Feature pack. Here is a list of what’s included straight from the download page.</p>
+
+
+<p>  <p>Testing features:</p>  <ul>   <li>Use Microsoft Test Manager to capture and playback action recordings for Silverlight 4 applications. </li>    <li>Create coded UI tests for Silverlight 4 applications with Visual Studio 2010 Premium or Visual Studio 2010 Ultimate. </li>    <li>Edit coded UI tests using a graphical editor with Visual Studio 2010 Premium or Visual Studio 2010 Ultimate. </li>    <li>Use action recordings to fast forward through manual tests that need to support Mozilla Firefox 3.5 and 3.6. </li>    <li>Run coded UI tests for web applications using Mozilla Firefox 3.5 and 3.6 with Microsoft Visual Studio 2010 Premium or Visual Studio 2010 Ultimate.</li> </ul>  <p>Code visualization and modeling features (requires Visual Studio 2010 Ultimate):</p>  <ul>   <li>Use the Generate Code command to generate skeleton code from elements on UML class diagrams. You can use the default transformations, or you can write custom transformations to translate UML types into code. </li>    <li>Create UML class diagrams from existing code. </li>    <li>Explore the organization and relationships in C, C++, and ASP.NET projects by generating dependency graphs. </li>    <li>Import elements from UML sequence diagrams, class diagrams, and use case diagrams as XMI 2.1 files that are exported from other modeling tools. </li>    <li>Create links and view links from work items to model elements. </li>    <li>Create layer diagrams from C or C++ code and validate dependencies. </li>    <li>Write code to modify layer diagrams and to validate code against layer diagrams.</li> </ul></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Book Review Programming Entity Framework Second Edition]]></title>
+    <link href="http://deepak-kapoor.github.io/blog/2010/11/11/book-review-programming-entity-framework-second-edition/"/>
+    <updated>2010-11-11T00:00:00+11:00</updated>
+    <id>http://deepak-kapoor.github.io/blog/2010/11/11/book-review-programming-entity-framework-second-edition</id>
+    <content type="html"><![CDATA[<div style="padding-bottom: 10px; padding-left: 10px; padding-right: 10px; float: right; padding-top: 10px"><iframe style="width: 120px; height: 240px" marginheight="0" src="http://rcm.amazon.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=000000&amp;t=blogs06-20&amp;o=1&amp;p=8&amp;l=as1&amp;m=amazon&amp;f=ifr&amp;asins=0596807260" frameborder="0" marginwidth="0" scrolling="no"></iframe></div>
+
+
+<p>  <p>Few days ago I finished reading Programming Entity Framework Second Edition by Julia Lerman. This is a review of the book.</p>  <p>Julia has written a book which targets a broad spectrum of EF expertise. If you are a beginner then this book is for you to learn Entity Framework. If you are an expert then this book is for you to learn advance Entity Framework concepts. Her writing style is seldom found in technical books these days. The ability to write chapters that just flow one after another is not something many technical authors these days can accomplish. The book was very easy to read with sensible examples and well balanced code to content ratio.</p>  <p>I am a LINQ To SQL kinda guy and I’ve always had something against Entity Framework. I guess a part of it was my first benchmark which I did with Entity Framework version 1.0 and I was shocked to see abysmal performance. My second reason for staying away from EF was the fear of learning LINQ To Entities. This book took that fear away after one reading of the chapter on LINQ To Entities. BTW: Entity Framework 4 is a much better ORM than its predecessor and it is my preferred choice now.&#160; Microsoft has addressed most of the issues with performance.</p>  <p>Back to the book review. One thing which underwhelms me about programming books is either they have too much code or they don’t have much code at all. Julia maintained a perfect balance between code examples and explanatory text. </p>  <p>Chapters on Customizing Entities, POCOs and performance optimization are by themselves worth the money and time you’ll spend reading this book. </p>  <p>Overall a well written, highly enjoyable and substantially informative book. </p>  <p>Julia also maintains a site for this book <a href="http://learnentityframework.com/">LearningEntityFramework</a>.</p></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Announcement: Rocket SVN From Axosoft Free Download]]></title>
+    <link href="http://deepak-kapoor.github.io/blog/2010/11/03/announcement-rocket-svn-from-axosoft-free-download/"/>
+    <updated>2010-11-03T00:00:00+11:00</updated>
+    <id>http://deepak-kapoor.github.io/blog/2010/11/03/announcement-rocket-svn-from-axosoft-free-download</id>
+    <content type="html"><![CDATA[<p>Once in a while I have to step out of the known environment of TFS and VSS and find myself in SVN land. Honestly I don’t mind SVN at all. In fact I think that certain features in SVN are much more intuitive and overall it’s a good source control system. If you work with Visual Studio and use SVN for source control then you need a SVN client which integrates well with Visual Studio. Till now there has been Visual SVN, but recently Axosoft announced their own product called Rocket SVN. I downloaded and installed Rocket SVN and I am using it with an online SVN repository. I have to say that I am impressed. Other than few icons which can be tidied up, the tool works without any issues.</p>
+
+<p>Rocket SVN which is integrated with Visual Studio provides easily access information on pending changes.</p>
+
+<p><img style="display: inline; border: 0px;" title="image" src="http://www.debugrelease.com/wp-content/uploads/2010/11/image.png" border="0" alt="image" width="450" height="450" /></p>
+
+<p>You also get a repository explorer and a working copy explorer.</p>
+
+<p><img style="display: inline; border: 0px;" title="image" src="http://www.debugrelease.com/wp-content/uploads/2010/11/image1.png" border="0" alt="image" width="450" height="450" /></p>
+
+<p>Also within the Solution Explorer, Rocket SVN indicates with little icons the files that have changed and the files which have not.</p>
+
+<p>I’ve been running Rocket SVN for last 3 days and I’m very happy with the tool.</p>
+
+<p>Rocket SVN is <a href="http://axosoft.com/rocketsvn">available for free download</a>. Axosoft has indicated that sometime in future they will start charging for the product.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[A Little Milestone in ThereforeSystems Journey]]></title>
+    <link href="http://deepak-kapoor.github.io/blog/2010/11/03/a-little-milestone-in-thereforesystems-journey/"/>
+    <updated>2010-11-03T00:00:00+11:00</updated>
+    <id>http://deepak-kapoor.github.io/blog/2010/11/03/a-little-milestone-in-thereforesystems-journey</id>
+    <content type="html"><![CDATA[<p>This post is to mark a little milestone for ThereforeSystems. My second post on this site was a <a href="http://www.debugrelease.com/linq-to-sql-tutorial/">LINQ To SQL Tutorial</a> which was a basic tutorial to get the reader started with LINQ To SQL. This post has also been one of the most popular I have ever written. I don’t check the site too often due to a busy schedule with work and family. However yesterday when I looked at the site I found that LINQ To SQL crossed 100,000 views. Even though this is miniscule compared to traffic that some other more established sites receive, I nevertheless thought this was a mini milestone which should be marked and celebrated. </p>
+
+
+<p>  <p>As always, I thank the visitors and hope that content on ThereforeSystems has been helpful.</p></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Five Reasons Why Google Wave Failed]]></title>
+    <link href="http://deepak-kapoor.github.io/blog/2010/08/06/five-reasons-why-google-wave-failed/"/>
+    <updated>2010-08-06T00:00:00+10:00</updated>
+    <id>http://deepak-kapoor.github.io/blog/2010/08/06/five-reasons-why-google-wave-failed</id>
+    <content type="html"><![CDATA[<p>Hopefully most planet earth inhabitants know that Google pulled the plug on Wave or maybe most inhabitants who care about it. Together with my friend Graham we came up with these reasons for failure over a Japanese lunch today. Here’s the list.</p>
+
+
+<p>  <ol>   <li>It did not ripple through masses.</li>    <li>The tide was not on it’s side.</li>    <li>It did not create waves in hearts or minds of people.</li>    <li>The sail was in opposite direction.</li>    <li>The product itself was shallow.</li> </ol>  <p>&#160;</p>  <p>So it is finally time to wave it goodbye.</p> For the record this was getting way out of hand for our geeky minds and we were attracting unwanted attention at the restaurant. We decided to abandon the idea of coming out with more reasons.</p>
+]]></content>
+  </entry>
+  
+</feed>

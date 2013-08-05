@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Hadoop | My Octopress Blog]]></title>
+  <link href="http://deepak-kapoor.github.io/blog/categories/hadoop/atom.xml" rel="self"/>
+  <link href="http://deepak-kapoor.github.io/"/>
+  <updated>2013-08-06T06:50:20+10:00</updated>
+  <id>http://deepak-kapoor.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Hadoop Word Count Revised]]></title>
+    <link href="http://deepak-kapoor.github.io/blog/2012/07/11/hadoop-word-count-revised/"/>
+    <updated>2012-07-11T00:00:00+10:00</updated>
+    <id>http://deepak-kapoor.github.io/blog/2012/07/11/hadoop-word-count-revised</id>
+    <content type="html"><![CDATA[<p>This is a follow up to my <a href="http://www.debugrelease.com/yet-another-hadoop-word-count-tutorial/">last post</a> in which I showed you how to write a word count MapReduce job. Have a look at <a href="http://www.debugrelease.com/yet-another-hadoop-word-count-tutorial/">that earlier post</a> before reading on. It will put things into perspective. </p>
+
+
+<p> <p>As you saw we implemented our map and reduce methods in their own classes by extending Mapper and Reducer class from Hadoop framework. It turns out that there is a way to implement a word count example without doing that. Hadoop framework already ships with two classes which can be used as our mapper and reducer. They are TokenCounterMapper from org.apache.hadoop.mapreduce.lib.map package and IntSumReducer from org.apache.hadoop.mapreduce.lib.reduce package. </p> <p>Here is a revised word count which uses built-in TokenCounterMapper and IntSumReducer classes.</p></p>
+
+<pre class="lang:java decode:true " >
+package com.thereforesystems.hadoop;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.map.TokenCounterMapper;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.mapreduce.lib.reduce.IntSumReducer;
+import org.apache.hadoop.util.GenericOptionsParser;
+
+public class HadoopWordCountRevised {
+
+    public static void main(String[] args) throws Exception {
+        
+        Configuration config = new Configuration();
+        String[] otherArgs = 
+            new GenericOptionsParser(config, args).getRemainingArgs();
+        
+        Job job = new Job(config, "Word Count Tutorial");
+        job.setJarByClass(HadoopWordCountRevised.class);
+        job.setMapperClass(TokenCounterMapper.class);
+        job.setReducerClass(IntSumReducer.class);
+        
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(IntWritable.class);
+        
+        FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
+        FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
+        
+        System.exit(job.waitForCompletion(true) ? 0 : 1);
+    }
+}
+</pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Yet Another Hadoop Word Count Tutorial]]></title>
+    <link href="http://deepak-kapoor.github.io/blog/2012/07/10/yet-another-hadoop-word-count-tutorial/"/>
+    <updated>2012-07-10T00:00:00+10:00</updated>
+    <id>http://deepak-kapoor.github.io/blog/2012/07/10/yet-another-hadoop-word-count-tutorial</id>
+    <content type="html"><![CDATA[<p>Here is another Word Count count Hadoop tutorial. Why? You ask. It is a learning exercise for me. I am writing it out so that I can refer to it in future. Also, rather than just copying the example already available with Hadoop installation, I will try to fix some shortcomings of the word count program. Before I do that, let’s just write a stock-standard one. </p>
+
+
+<p> <p>For this walkthrough if you want to call it that, I have Hadoop running on a single node setup on Ubuntu 11.10. My preferred IDE is Netbeans.</p> <p>Here it goes.</p> <h3>Create a project</h3> <p>First of all create a Java project in Netbeans. Call it HadoopWordCountTutorial. I also like to use proper package names so my class HadoopWordCountTutorial is in package com.thereforesystems.hadoop.</p> <p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2012/07/image.png" width="640" height="398"></p> <p>&nbsp;</p> <h3>Add Libraries</h3> <p>Next thing we need to do is add some libraries. Here is a list of libraries required to compile our Hadoop project.</p> <p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2012/07/image1.png" width="459" height="261"></p> <p>These jars can be found in your Hadoop folders. An easy way to find where things are is by using locate command. For example to locate hadoop-core-0.20.2-cdh3u4.jar execute the command in terminal.</p> <p><font color="#0000ff">locate hadoop-core-0.20.2-cdh3u4.jar</font></p> <p>On my machine the file is located in </p> <p>/usr/lib/hadoop-0.20/</p> <p>Once we have added required libraries, we are all set to write some code. </p> <h3>Writing code</h3> <p>Hadoop is a framework which provides us plumbing to write MapReduce operations (This is such an understatement). Here is a <a href="http://code.google.com/edu/parallel/mapreduce-tutorial.html">good tutorial on MapReduce</a>. If you are not familiar with MapReduce then I suggest that you read it before continuing with this tutorial. </p> <p>There are two operations we will write. One is the mapper and the other is reducer. Our objective is to count words in a file or many files and write the results to an output location. We will start with our mapper.</p> <h3>Mapper</h3> <p>Mapper in Hadoop is implemented by extending Mapper class found in org.apache.hadoop.mapreduce. This class implements a map method in which we will write our logic. Here is the code for our class.</p></p>
+
+<pre class="lang:java decode:true " >
+public static class WordCountMapper extends Mapper<Object /* KEYIN */, 
+            Text /* VALUEIN */, 
+            Text /* KEYOUT */, 
+            IntWritable /* VALUEOUT */> {
+
+    private Text word = new Text();
+    private final static IntWritable numberOne = new IntWritable(1);
+
+    public void map(Object key, Text value, Context context) 
+        throws IOException, InterruptedException {
+
+        StringTokenizer tokenizer = new StringTokenizer(value.toString());
+        while (tokenizer.hasMoreTokens()) {
+            word.set(tokenizer.nextToken());
+            context.write(word, numberOne);
+             
+        }
+    }
+}
+</pre>
+
+
+
+
+<p>Let’s look at the map method. The map method tokenizes the text passed in. What gets passed in is handled by Hadoop. Keep in mind that text for the entire file may not be passed in to the mapper. And this is a good thing. Imagine if the file was many gigabytes in size, Hadoop will take care of splitting the file into blocks and will spin off <em>n</em> number of mappers to handle the chunked file.</p>
+
+
+<p> <h3>Reducer</h3> <p>The reducer is implemented in a class which extends Reducer. Here is the code for Reducer.</p></p>
+
+<pre class="lang:java decode:true " >
+public static class WordCountReducer extends Reducer<Text /* KEYIN */, 
+            IntWritable /* VALUEIN */, 
+            Text /* KEYOUT */, 
+            IntWritable /* VALUEOUT */> {
+        
+    public void reduce(Text key, Iterable<IntWritable> values, Context context) 
+        throws IOException, InterruptedException {
+        
+        int sum = 0;
+        for(IntWritable val : values){
+            sum += val.get();
+        }
+            
+        context.write(key, new IntWritable(sum));
+    }
+}
+</pre>
+
+
+
+
+<p>The method of interest here is reduce() which receives a list of IntWritable objects for a key. In our example a key will be a word. For example the word could be “Imagine” which occurs many times in our file. After Mapper is done, Reducer will be called for key “Imagine” and values [1, 2, 1, 1]. Within our reduce method we sum the values up for each key and write it out. Writing out part is handled by the Context for us.</p>
+
+
+<p> <h3>Main method</h3> <p>Main method is where it all get’s tied up. Let’s look at the main method.</p></p>
+
+<pre class="lang:java decode:true " >
+public static void main(String[] args) 
+    throws IOException, InterruptedException, ClassNotFoundException {
+        
+    Configuration config = new Configuration();
+    String[] otherArgs = new GenericOptionsParser(config, args).getRemainingArgs();
+        
+    Job job = new Job(config, "Word Count Tutorial");
+    job.setJarByClass(HadoopWordCountTutorial.class);
+    job.setMapperClass(WordCountMapper.class);
+    job.setReducerClass(WordCountReducer.class);
+        
+    job.setOutputKeyClass(Text.class);
+    job.setOutputValueClass(IntWritable.class);
+        
+    FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
+    FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
+        
+    System.exit(job.waitForCompletion(true) ? 0 : 1);
+}
+</pre>
+
+
+
+
+<p>The first thing we do is create an instance of Configuration object. This returns us the default configuration for our installation.&nbsp; Next we parse arguments passed in. These arguments for the purpose of this example are input-directory and output-directory. Note that Hadoop will create output directory for us and it should not already exist.</p>
+
+
+<p> <p>We then create an instance of Job object by passing in the configuration instance and a name for our job. Next three lines tell Hadoop about our Jar file, the mapper it should use and the reducer it should use for the job.</p> <p>After this we call setOutputKeyClass and setOutputValueClass on the job instance. This tells Hadoop about data types we expect it to deal with.</p> <p>Finally we set the locations for input directory and output directory. </p> <h3>Running the job</h3><p>We are all set to run this job. I executed this job by pointing it to a directory which contains only one file. This file is lyrics for Imagine by John Lennon. </p></p>
+
+<p>On my machine I executed the job with this command.</p>
+
+
+<p><font color="#0000ff">java -jar /home/deepak/NetBeansProjects/HadoopWordCountTutorial/dist/HadoopWordCountTutorial.jar /home/deepak/temp/HadoopWordCountTutorial/input /home/deepak/temp/HadoopWordCountTutorial/output</font></p>
+
+
+
+
+<p>After the job is run, the output shows me how many times a particular word occured in the file. Here is partial output.</p>
+
+
+<p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2012/07/image2.png" width="134" height="460"></p> <p>What is wrong with this output? Take a look at the partial output above, you will notice that “A” has been counted as 1 and “a” is counted as 2. To resolve this issue we can tell our StringTokenizer to ignore certain characters.</p></p>
+
+<pre class="lang:java decode:true " >
+StringTokenizer tokenizer = 
+    new StringTokenizer(value.toString(), " tnrf,.:;?[]'(),~!@#%^&*()_");
+</pre>
+
+
+
+
+<p>Also when we all word.set we can call toLowerCase method. This will make all our keys lowercase and provide expected ouput.</p>
+
+
+<p></p>
+
+<pre class="lang:java decode:true " >
+word.set(tokenizer.nextToken().toLowerCase());
+</pre>
+
+
+
+
+<p>Here is the output after making two minor changes. We now have the count for “a” as 3. This is what we expected.</p>
+
+
+<p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2012/07/image3.png" width="127" height="310"></p> <p>&nbsp;</p> <h3>Conclusion</h3> <p>This concludes the post. I hope you learned a thing or two here. These days I am spending more and more time with Hadoop and most importantly I am enjoying my time with it. Stay tuned for more ramblings as I make my way through this massive framework.</p></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[java.lang.NoClassDefFoundError: …/guava/common/primitives/UnsignedBytes]]></title>
+    <link href="http://deepak-kapoor.github.io/blog/2012/07/04/java-lang-noclassdeffounderror-orgapachehadoopthirdpartyguavacommonprimitivesunsignedbytes/"/>
+    <updated>2012-07-04T00:00:00+10:00</updated>
+    <id>http://deepak-kapoor.github.io/blog/2012/07/04/java-lang-noclassdeffounderror-orgapachehadoopthirdpartyguavacommonprimitivesunsignedbytes</id>
+    <content type="html"><![CDATA[<p>No idea why this happened today on a Hadoop project which was running fine till now. </p>
+
+
+<p> <p><font color="#c0504d">java.lang.NoClassDefFoundError: org/apache/hadoop/thirdparty/guava/common/primitives/UnsignedBytes<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.FastByteComparisons$LexicographicalComparerHolder</font></p> <p><font color="#c0504d">$UnsafeComparer.compareTo(FastByteComparisons.java:226)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.FastByteComparisons$LexicographicalComparerHolder</font></p> <p><font color="#c0504d">$UnsafeComparer.compareTo(FastByteComparisons.java:113)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.FastByteComparisons.compareTo(FastByteComparisons.java:42)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.WritableComparator.compareBytes(WritableComparator.java:150)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.Text$Comparator.compare(Text.java:306)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask$MapOutputBuffer.compare(MapTask.java:968)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.util.QuickSort.fix(QuickSort.java:30)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.util.QuickSort.sortInternal(QuickSort.java:83)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.util.QuickSort.sort(QuickSort.java:59)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask$MapOutputBuffer.sortAndSpill(MapTask.java:1254)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask$MapOutputBuffer.flush(MapTask.java:1155)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask$NewOutputCollector.close(MapTask.java:582)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:649)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask.run(MapTask.java:323)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:210)<br>Caused by: java.lang.ClassNotFoundException: org.apache.hadoop.thirdparty.guava.common.primitives.UnsignedBytes<br>&nbsp;&nbsp;&nbsp; at java.net.URLClassLoader$1.run(URLClassLoader.java:202)<br>&nbsp;&nbsp;&nbsp; at java.security.AccessController.doPrivileged(Native Method)<br>&nbsp;&nbsp;&nbsp; at java.net.URLClassLoader.findClass(URLClassLoader.java:190)<br>&nbsp;&nbsp;&nbsp; at java.lang.ClassLoader.loadClass(ClassLoader.java:306)<br>&nbsp;&nbsp;&nbsp; at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:301)<br>&nbsp;&nbsp;&nbsp; at java.lang.ClassLoader.loadClass(ClassLoader.java:247)<br>&nbsp;&nbsp;&nbsp; &hellip; 15 more</font></p> <p>Anyhow, the way to fix this issue is by adding guava-r09-jarjar.jar to build path. In Netbeans add the jar to Libraries for your project.</p> <p>guava-r09-jarjar.jar can be found in /usr/lib/hadoop-0.20/lib</p> <p>or use the locate command to find it on your system</p> <p><font color="#0000ff">locate guava-r09-jarjar.jar</font></p></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[IBM BigInsights Web Console Issue With BigDataUniversity VM]]></title>
+    <link href="http://deepak-kapoor.github.io/blog/2012/06/30/ibm-biginsights-web-console-issue-with-bigdatauniversity-vm/"/>
+    <updated>2012-06-30T00:00:00+10:00</updated>
+    <id>http://deepak-kapoor.github.io/blog/2012/06/30/ibm-biginsights-web-console-issue-with-bigdatauniversity-vm</id>
+    <content type="html"><![CDATA[<p>BigInsights web console error in IBM Infosphere BigInsights VM usually occurs because web console is not running. It can be started by executing start.sh which can be found in /opt/ibm/biginsights/bin. I discovered this issue while working through lab 3 of Hadoop Fundamentals 1 course from <a href="http://bigdatauniversity.com/">BigDataUniversity</a>. </p>
+
+
+<p> <p>Steps to resolve the issue:</p> <p>Assuming that you are logged in as root. Execute these commands on terminal.</p> <p><font color="#0000ff">cd /opt/ibm/biginsights/bin</font></p> <p><font color="#0000ff">./start.sh console</font></p></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,596 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="If you are creating a SQL Server login using a script then it is advisable to check if the login you are creating already exists. If you do not do &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://deepak-kapoor.github.io/blog/page/16">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:deepak-kapoor.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/03/02/check-if-a-login-exists-in-sql-server-2008/">Check if a Login Exists in SQL Server 2008</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-02T00:00:00+11:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you are creating a SQL Server login using a script then it is advisable to check if the login you are creating already exists. If you do not do this then SQL Server will throw an error. For example if I execute this statement when a login with name test_user already exists, I will get the following error.</p>  <pre class="code"><span style="color: blue">CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'Password123'</span></pre>
+
+<pre class="code"><span style="color: red">
+</span></pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+<pre class="code"><font color="#ff0000">Msg 15025, Level 16, State 1, Line 1
+The server principal 'test_user' already exists.</font></pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+<p>To avoid this a check can be used before creating the login. One way to do this is to write a statement like this.</p>
+
+<pre class="code"><span style="color: blue">IF </span><span style="color: gray">NOT EXISTS(</span><span style="color: blue">SELECT </span>name <span style="color: blue">FROM master</span><span style="color: gray">.</span>dbo<span style="color: gray">.</span><span style="color: green">syslogins </span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'test_user'</span><span style="color: gray">)
+</span><span style="color: blue">BEGIN
+    CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'Password123'
+</span><span style="color: blue">END
+</span></pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+<p>&#160;</p>
+
+<p>The above statement will check for the login and it will only create it if the login does not already exist. This works but it is not the best way to do it in SQL Server 2008. The problem is that we are querying <strong>master.dbo.syslogins</strong> which is available only for backward compatibility and as per Microsoft it will be removed in future versions. So the best way to do a check before creating a login is to use <strong>sys.sql_logins</strong> or <strong>sys.server_principals</strong> system view. Our statement can be re-written in following two ways.</p>
+
+<pre class="code"><span style="color: blue">IF </span><span style="color: gray">NOT EXISTS(</span><span style="color: blue">SELECT </span>name <span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">server_principals </span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'test_user'</span><span style="color: gray">)
+</span><span style="color: blue">BEGIN
+    CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'Password123'
+</span><span style="color: blue">END</span></pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+<p>&#160;</p>
+
+<p>OR</p>
+
+<pre class="code"><span style="color: blue">IF </span><span style="color: gray">NOT EXISTS(</span><span style="color: blue">SELECT </span>name <span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">sql_logins </span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'test_user'</span><span style="color: gray">)
+</span><span style="color: blue">BEGIN
+    CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'Password123'
+</span><span style="color: blue">END</span></pre>
+
+<p><a href="http://11011.net/software/vspaste"></a></p>
+
+<p>This approach will ensure that your script will work in future versions of SQL Server when Microsoft decides to remove master.dbo.syslogins.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/03/02/bypass-windows-password-requirements-for-sql-login/">Bypass Windows Password Requirements for SQL Login</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-02T00:00:00+11:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>SQL Server by default follows Windows password policy requirements for SQL Server Login accounts. This forces you to follow the same policy for SQL Server logins as you would for windows logins and this is a good thing. But sometimes you want to bypass that validation maybe to get a test login in place. You can do this by using CHECK_POLICY = OFF. For example when I try to create a login using this statement I get an error.</p>  <pre class="code"><span style="color: blue">CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'password123'
+</span></pre>
+
+<p><a href="http://11011.net/software/vspaste"></a></p>
+
+<p><font color="#ff0000">Msg 15118, Level 16, State 1, Line 1
+    <br />Password validation failed. The password does not meet Windows policy requirements because it is not complex enough.</font></p>
+
+<p>&#160;</p>
+
+<p>The error itself tells me that my password does not meet policy requirements. The policy on my machine requires me to have at-least one upper case letter in my password. To bypass this requirement I can execute this statement which will create my SQL Login. </p>
+
+<pre class="code"><span style="color: blue">CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'password123'</span><span style="color: gray">, </span><span style="color: blue">CHECK_POLICY </span><span style="color: gray">= </span><span style="color: blue">OFF
+</span></pre>
+
+<p><a href="http://11011.net/software/vspaste"></a></p>
+
+<p>You should however use this with caution because password policies are there for a reason i.e. to make your environment more secure.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/26/programmatically-take-screenshot-using-c/">Programmatically Take Screenshot Using C#</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-26T00:00:00+11:00" pubdate data-updated="true">Feb 26<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>To do this you will need to add references to System.Drawing and System.Windows.Forms. Make sure that you have following using statements:</p>  
+
+<pre class="lang:c# decode:true " >
+using System;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Windows.Forms;
+</pre>
+
+<p>In your method add this code. It will take a screenshot of your primary screen and save it to a file.</p>
+
+<pre class="lang:c# decode:true " >
+Bitmap bitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width, 
+                  Screen.PrimaryScreen.Bounds.Height);
+Graphics graphics = Graphics.FromImage(bitmap as Image);
+graphics.CopyFromScreen(0, 0, 0, 0, bitmap.Size);
+bitmap.Save(@"c:tempscreenshot.bmp", ImageFormat.Bmp);
+</pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/25/mystery-of-scott-and-tiger-in-oracle/">Mystery of Scott and Tiger in Oracle</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-25T00:00:00+11:00" pubdate data-updated="true">Feb 25<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I found this very interesting.</p>  <p>When you install Oracle, a user by the name of Scott is always created for you. This users’ password is Tiger. The user is actually named after Bruce Scott who was one of the first employees at Oracle and Tiger was his cat’s name.</p>  <p><a href="http://www.go4expert.com/forums/showthread.php?t=2252">Original Source.</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/23/sql-server-get-database-mail-configuration-settings/">SQL Server – Get Database Mail Configuration Settings</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-23T00:00:00+11:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Database Mail configuration settings can be retrieved using <strong>sysmail_help_configure_sp</strong> stored procedure. Like other database mail object, this stored procedure also resides in msdb database. Running the stored procedure on my machine gives the following results.</p>  
+
+<pre class="lang:tsql decode:true " >sysmail_help_configure_sp</pre>
+
+<p><img title="sysmail_help_configure_sp" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="165" alt="sysmail_help_configure_sp" src="http://www.debugrelease.com/wp-content/uploads/2009/02/image12.png" width="525" border="0" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/23/sql-server-2008-get-space-used-by-a-table/">SQL Server 2008 – Get Space Used by a Table</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-23T00:00:00+11:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>You can easily get information on how much space a table is using by executing <strong>sp_spaceused </strong>stored procedure. Executing the following query on AdventureWorks database shows me how much space Person.Contact table is using. Information presented is detailed which includes the number of rows, reserved space, index size, space used by data and any unused space in kilo-bytes.</p>  
+
+ 
+<pre class="lang:tsql decode:true " >exec sp_spaceused [Person.Contact]</pre> 
+
+
+<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="68" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/02/image11.png" width="423" border="0" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/18/microsoft-museum-microsoft-1978-picture-at-museum-of-hoaxes/">Microsoft Museum: Microsoft 1978 Picture at Museum of Hoaxes</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-18T00:00:00+11:00" pubdate data-updated="true">Feb 18<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img title="Microsoft 1978" style="border-right: 0px; border-top: 0px; display: inline; margin-left: 0px; border-left: 0px; margin-right: 0px; border-bottom: 0px" height="154" alt="Microsoft 1978" src="http://www.debugrelease.com/wp-content/uploads/2009/02/image10.png" width="226" align="left" border="0" /> This famous picture of the main crew at Microsoft Corporation in 1978 is perhaps one of the most famous photos of Microsoft employees of that time. The picture is mostly seen with the slogan “Would you have invested?” This photo also made it to <a href="http://www.museumofhoaxes.com">Museum Of Hoaxes</a> website which lists facts about people in the photo. While the accuracy of the numbers mentioned is questionable as there is no hard fact and information on the time it was calculated is missing, it however makes an interesting read. From <a href="http://www.museumofhoaxes.com/photos/microsoft.html">Museum Of Hoaxes</a>:</p>  <blockquote>   <p><b>Bill Gates:</b> Still with Microsoft as it&#8217;s chairman and chief software architect. His fortune is somewhere in the range of $50 billion.      <br /><b>Paul Allen:</b> Left Microsoft in 1983 but remains a senior strategy advisor to the company. Worth around $25 billion.      <br /><b>Bob O&#8217;Rear:</b> Left Microsoft in 1983. Is now a cattle rancher and is worth around $100 million.      <br /><b>Bob Greenberg:</b> Left Microsoft in 1981 and then helped launch those Cabbage Patch Dolls that were so popular in the 1980s. Last time anyone checked, he was worth around $20 million.      <br /><b>Jim Lane:</b> Left Microsoft in 1985. Now has his own software company and is worth around $20 million.      <br /><b>Gordon Letwin:</b> Left Microsoft in 1993 and now devotes himself to environmental causes. Is worth around $20 million.      <br /><b>Steve and Marla Wood:</b> They both left Microsoft in 1980 and Marla then sued the company for sex discrimination. They&#8217;re worth around $15 million.      <br /><b>Bob Wallace:</b> Left Microsoft in 1983. Worth around $5 million.      <br /><b>Andrea Lewis:</b> Was Microsoft&#8217;s first technical writer. Left the company in 1983. Worth around $2 million.      <br /><b>Marc McDonald:</b> Was Microsoft&#8217;s first employee. Left the company in 1984, but recently rejoined the company when Microsoft bought Design Intelligence, the company he was working for. Has the honor of getting to wear badge number 00001. Probably worth at least $1 million.</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/17/microsoft-museum-windows-2000-windows-nt-4-source-code-leaks/">Microsoft Museum: Windows 2000 & Windows NT 4 Source Code Leaks</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-17T00:00:00+11:00" pubdate data-updated="true">Feb 17<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Today I am starting a series of posts in which I will post some interesting tit-bits about Microsoft. Mostly past stuff. I will prefix these posts with “Microsoft Museum” and tag them the same for easy search ability. The idea is to have light hearted and interesting posts about Microsoft. The ones that you read and go “…oh yes, I remember that…”.&#160; Hope you enjoy them. </p>  <p>So here is the first piece for my museum. Back in February 2004 Neowin <a href="http://www.neowin.net/news/main/04/02/12/exclusive-windows-2000--windows-nt-4-source-code-leaks">broke the story</a> that Windows 2000 and NT 4 source code was leaked on the internet. The story was legitimized by Microsoft posting a <a href="http://www.microsoft.com/presspass/press/2004/Feb04/02-12windowssource.mspx">response</a> on their site which went something like this:</p>  <blockquote>   <p><b>REDMOND, Wash., Updated, Feb. 20, 2004 — </b>On Thursday, February 12, Microsoft became aware that portions of the Microsoft Windows 2000 and Windows NT 4.0 source code were illegally made available on the Internet. Subsequent investigation has shown this was not the result of any breach of Microsofts corporate network or internal security, nor is it related to Microsofts Shared Source Initiative or its Government Security Program, which enable our customers and partners, as well as governments, to legally access Microsoft source code. Microsoft reaffirms its support for both the Shared Source Initiative and the Government Security Program. </p>    <p>Microsoft continues to work closely with the U.S. Federal Bureau of Investigation and other law enforcement authorities on this matter. Microsoft source code is both copyrighted and protected as a trade secret. As such, it is illegal to post it, make it available to others, download it or use it. Microsoft will take all appropriate legal actions to protect its intellectual property. These actions include communicating both directly and indirectly with those who possess or seek to possess, post, download or share the illegally disclosed source code. </p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/17/create-silverlight-game-and-win-5000/">Create Silverlight Game and Win $5000</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-17T00:00:00+11:00" pubdate data-updated="true">Feb 17<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Participants of this contest will create a game in Silverlight and the winner will get $5000 as the first prize. The contest is open to residents of US and you must be 16 years or older to enter. You can find the official rules <a href="http://www.serverquestcontest.com/rules.aspx">here</a>.&#160; You&#160; are allowed to submit 3 entries which will be judged by a panel. Best of the lot will be chosen as 18 finalists. The contest will then go into a stage where visitors will cast their votes on the finalist entries. </p>  <p><img title="Silverlight Contest" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="329" alt="Silverlight Contest" src="http://www.debugrelease.com/wp-content/uploads/2009/02/image9.png" width="516" border="0" /> </p>  <p>There are also second and third place prizes. Read more about the contest and prizes at <a href="http://www.serverquestcontest.com/">serverquest</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/11/t-sql-return-empty-string-instead-of-null/">T-SQL Return Empty String Instead of Null</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-11T00:00:00+11:00" pubdate data-updated="true">Feb 11<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>There are times when we want to return empty strings for column(s) which have NULL values. T-SQL makes this easy with ISNULL function. Two parameters for this function are:    <br /></p>  <ol>   <li>The column in question </li>    <li>Replacement value </li> </ol>  <p>&#160;</p>  <p>Here is an example query for Customers table in Northwind database. This query will select Region column from the table and return blank strings where it finds NULL.</p>  
+
+<pre class="lang:tsql decode:true " >SELECT ISNULL(Region,'') FROM Customers</pre>
+
+<p>Here is a partial screenshot of the resultset returned. You can see that the value for top rows is blank. These are actually NULL in database.</p>
+
+<p><img title="image" style="border-top-width: 0px; display: inline; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="226" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/02/image7.png" width="135" border="0" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/17/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/15/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/31/android-expandablelistview-tutorial/">Android - ExpandableListView Tutorial</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/28/linux-install-handbrake-on-linux-mint-15/">Linux - Install Handbrake on Linux Mint 15</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/">Linux VirtualBox - Windows Host Share in Ubuntu Guest</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Mac | My Octopress Blog]]></title>
+  <link href="http://deepak-kapoor.github.io/blog/categories/mac/atom.xml" rel="self"/>
+  <link href="http://deepak-kapoor.github.io/"/>
+  <updated>2013-08-06T06:50:20+10:00</updated>
+  <id>http://deepak-kapoor.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Connect To SQL Server 2008 From NetBeans IDE On A Mac]]></title>
+    <link href="http://deepak-kapoor.github.io/blog/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac/"/>
+    <updated>2010-08-24T00:00:00+10:00</updated>
+    <id>http://deepak-kapoor.github.io/blog/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac</id>
+    <content type="html"><![CDATA[<p>In this post I will show you how to establish a connection to Microsoft SQL Server  from NetBeans IDE.</p>
+
+
+<p>I use a Mac so the screenshots here are from Mac but NetBeans IDE is the same on all other platforms. There should not be any differences.</p>
+
+
+<p>First thing we need to do is download the JDBC driver for Microsoft SQL Server from Microsoft. Current version of driver is 3.0 and it can be downloaded <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=%20a737000d-68d0-4531-b65d-da0f2a735707&amp;displaylang=en">here</a>. Download the drivers for UNIX and extract the archive on your machine. Once you have extracted the archive you'll get a folder sqljdbc_3.0 under which there is another folder enu. Within enu are the jar files which implement JDBC drivers.</p>
+
+
+<p>Now we will start the process to establish our connection to SQL Server from NetBeans. First thing click on Services tab and the Right Click on Databases and then click on New Connection.</p>
+
+
+<p><img title="SQLServerNetBeans.png" src="http://www.debugrelease.com/wp-content/uploads/2010/08/SQLServerNetBeans.png" border="0" alt="Screen shot 2010-08-23 at 6.20.33 PM.png" width="371" height="316" /></p>
+
+
+<p>You will see this window. Next to Driver Name click on the drop-down and choose New Driver...</p>
+
+
+<p><img title="NewImage.jpg" src="http://www.debugrelease.com/wp-content/uploads/2010/08/NewImage.jpg" border="0" alt="NewImage.jpg" width="540" height="532" /></p>
+
+
+<p>Here click on the Add button and browse to your jar file for SQL Server JDBC driver.</p>
+
+
+<p><img title="NewImage.jpg" src="http://www.debugrelease.com/wp-content/uploads/2010/08/NewImage1.jpg" border="0" alt="NewImage.jpg" width="482" height="379" /></p>
+
+
+<p>NetBeans is now aware of SQL Server JDBC driver.  You can now start creating the connection to SQL Server. Enter the details for SQL Server. You will need the IP address, port which by default is 1433 and username and password.</p>
+
+
+<p><img title="NewImage3.jpg" src="http://www.debugrelease.com/wp-content/uploads/2010/08/NewImage3.jpg" border="0" alt="NewImage3.jpg" width="540" height="554" /></p>
+
+
+<p>Click OK and you will be connected to SQL Server.</p>
+
+
+<p>On the Server tab in NetBeans under Database you'll see your SQL Server. You can browse server objects, view tables, stored procedures etc.</p>
+
+
+<p><img title="NewImage5.jpg" src="http://www.debugrelease.com/wp-content/uploads/2010/08/NewImage5.jpg" border="0" alt="NewImage5.jpg" width="356" height="433" /></p>
+
+
+<p>You can also run SQL queries on your SQL Server from NetBeans IDE.</p>
+
+
+<p><img title="NewImage6.jpg" src="http://www.debugrelease.com/wp-content/uploads/2010/08/NewImage6.jpg" border="0" alt="NewImage6.jpg" width="540" height="489" /></p>
+
+]]></content>
+  </entry>
+  
+</feed>

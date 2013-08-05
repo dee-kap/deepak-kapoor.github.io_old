@@ -1,0 +1,756 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="Vish Viswanathan is conducting his famous TOGAF training course in Sydney and Melbourne in the month of September. I have attended his course in &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://deepak-kapoor.github.io/blog/page/25">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:deepak-kapoor.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/08/04/togaf-training-in-sydney-and-melbourne/">TOGAF Training in Sydney and Melbourne</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-04T00:00:00+10:00" pubdate data-updated="true">Aug 4<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">Vish Viswanathan is conducting his famous TOGAF training course in Sydney and Melbourne in the month of September. I have attended his course in Sydney and I can confidently say that Vish is one of the finest trainers I have met. The best part of his course is the interaction among attendees. After the course I left with a much better understanding of Enterprise Architecture.
+
+So if you are looking to get TOGAF certification or you are working in an environment where TOGAF is used or will be used then this course is worth the buck.
+
+You can find more details about the course and fees <a href="http://www.ccandcsolutions.com/">here</a>.
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:92a2be75-fb3e-461f-a695-51634854fc3e" class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; float: none; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/Certification">Certification</a>,<a rel="tag" href="http://technorati.com/tags/Training">Training</a>,<a rel="tag" href="http://technorati.com/tags/TOGAF">TOGAF</a></div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/08/04/dynamic-sort-with-linq/">Dynamic Sort With LINQ</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-04T00:00:00+10:00" pubdate data-updated="true">Aug 4<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">In this post I will show you how to perform dynamic sorting with LINQ. I will work with a simple collection of City class. City class is defined below.
+
+<code lang="csharp">
+public class City
+{
+  public string Name { get; set; }
+  public string Country { get; set; }
+}
+</code>
+
+The collection is initialised using this code
+
+<code lang="csharp">
+List<City> cities = new List<City>
+  {
+    new City{ Name = "Sydney", Country = "Australia" },
+    new City{ Name = "New York", Country = "USA" },
+    new City{ Name = "Paris", Country = "France" },
+    new City{ Name = "Milan", Country = "Spain" },
+    new City{ Name = "Melbourne", Country = "Australia" },
+    new City{ Name = "Auckland", Country = "New Zealand" },
+    new City{ Name = "Tokyo", Country = "Japan" },
+    new City{ Name = "New Delhi", Country = "India" },
+    new City{ Name = "Hobart", Country = "Australia" }
+  };
+</code>
+
+A typical example of applying a sort will be to write such a query.
+
+<code lang="csharp">
+var collection =
+  from c in cities
+  orderby c.Country
+  select c;
+</code>
+Here we are sorting the collection on country. Note that this is static in nature.
+
+Code above as you can see can only sort by country. If I wanted to sort by city name then I&#8217;d be writing another query and maybe use a conditional construct such as if or switch and write a method which takes in a parameter. While this will work, it is not the best way to do it.
+
+LINQ gives us the ability to make our code dynamic. I can provide sort functionality for my query by writing a method which takes in a Func&lt;TElement, TKey&gt; delegate. This delegate is used by the OrderBy extension method. This is how I can write my method.
+
+<code lang="csharp">
+public static void Sort<TKey>(List<City> cities, Func<City, TKey> selector)
+{
+  var sortedCollection =
+    from c in cities
+    orderby selector(c)
+    select c;
+
+  foreach (var item in sortedCollection)
+  {
+    Console.WriteLine(item.Name);
+  }
+}
+</code>
+
+This method can be called like this by passing in the cities collection which has been initialised earlier.
+
+<code lang="csharp">
+Sort(cities, c => c.Name);
+</code>
+
+I can also sort by country without changing my query. To sort by country I just need to call my sort method like this.
+
+<code lang="csharp">
+Sort(cities, c => c.Country);
+</code>
+
+LINQ is very powerful when you start using it on daily bases. It would not be very useful if everything was static. In this post I showed you how you can make your sorting code dynamic. Stay tuned for more LINQ goodness.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/08/02/participate-in-microsoft-beta-exams/">Participate in Microsoft Beta Exams</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-02T00:00:00+10:00" pubdate data-updated="true">Aug 2<span>nd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">Before a certification exam goes live it is released as beta. Beta exams are by invite only and there are limited number of places. These exams also run for a short period of time. Till now finding about beta exams has been a bit of a trick. Your best bets are forums or various blogs. However this is changing. There is a new blog called <a href="http://blogs.technet.com/betaexams/">Beta Exam Announcements</a> where you can find out about upcoming beta exams.
+
+If you are interested in finding about beta exams then subscribe to the <a href="http://blogs.technet.com/betaexams/rss.xml">feed</a> of <a href="http://blogs.technet.com/betaexams/">Beta Exam Announcements</a>.
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:36778ad7-afe7-4ed5-88a5-c2154283c1b4" class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/Microsoft">Microsoft</a>,<a rel="tag" href="http://technorati.com/tags/Certification">Certification</a></div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/08/01/why-microsoft-is-not-leading-in-web/">Why Microsoft Is Not Leading in Web</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-01T00:00:00+10:00" pubdate data-updated="true">Aug 1<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">It is clear that when it comes to Web, Microsoft is not the leading player. That batch goes to a startup(when compared to Microsoft) named Google. At times I feel that in the process of introducing new products Microsoft at times forgets about their old products which could be widely in use. For example Hotmail. It looks like Microsoft has totally forgotten about Hotmail which was once their crown jewel.
+
+Why have they slipped? I think because they have stopped paying attention to small things. Here is an example: After reading an email on Hotmail if you wish to delete it then you must scroll all the way up to top to find the delete button. How hard can it be to put a delete button and maybe the entire toolbar at the end of each message? And while logging in why do users have to type in &lt;xyz&gt;@hotmail.com. It isn&#8217;t like any other domain names can be used.
+
+<a href="http://www.debugrelease.com/wp-content/uploads/2008/08/image.png"><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="http://www.debugrelease.com/wp-content/uploads/2008/08/image-thumb.png" border="0" alt="hotmail" width="467" height="37" /></a>
+
+As a user I am looking for simple ways to achieve my goals. Web based Hotmail isn&#8217;t just cutting it anymore. It really should not be a surprise if millions of people have moved to GMail. Ray Ozzie in his Internet Services Disruption memo said
+<blockquote>But for all our great progress, our efforts have not always led to the degree that perhaps they could have. We should&#8217;ve been leaders with all our web properties in harnessing the potential of AJAX, following our pioneering work in OWA.</blockquote>
+My 2 cents to Microsoft is that maybe you have stopped looking for simple solutions. How about getting your users involved in improving Hotmail. Ask them what they want and I am sure you will get valuable feedback. While Microsoft has done a great job in giving users previews of their software through beta and CTP programs, such an effort is lacking in web based products. So if this post is ever read by anyone who has anything to do with Hotmail or other Microsoft web based products, my suggestion is to have conversations with your users. And have a conversation without noise. Announcing a product after product is great but pause and ask your users what they think about those products.
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:2c6f86d4-eb93-4c9a-9716-8464f4c9cd39" class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/Microsoft">Microsoft</a>,<a rel="tag" href="http://technorati.com/tags/Hotmail">Hotmail</a></div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/08/01/more-details-emerge-on-microsoft-master-certification/">More Details Emerge on Microsoft Master Certification</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-01T00:00:00+10:00" pubdate data-updated="true">Aug 1<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">Few weeks ago Microsoft announced a new certification called <a href="http://www.microsoft.com/learning/mcp/master/default.mspx">Microsoft Certified Master</a>. In an ever growing cluster of Microsoft certification this one allows you to specialise in a particular technology area. So what does this mean? Aren&#8217;t other certifications specialising as well? According to Microsoft, Master certification is intended towards candidates who spend most of their time working with one product. This is different than your average developer who needs to know about many technologies such as ASP.NET, SQL Server, WCF, WFP etc.
+<h4>Master Tracks</h4>
+At present Microsoft has announced Master certifications for Windows Server 2008, Exchange Server 2007 and SQL Server 2008. Other Master certifications in pipeline are for SharePoint Server 2007 and Office Communications Server 2007.
+<h4>How do I get one?</h4>
+The process to achieve the master status includes a three week training course in Redmond. You then have to write three written exams and in addition you must clear one lab exam.
+<h4>When can I enrol?</h4>
+Registration process is expected to start within one month.
+<h4>How much does it cost?</h4>
+Now this is a big one. The cost of Master Certification is $18,500 USD. This straight away puts it off radar for a majority of population. But if you break it up then you are paying approximately $6000 per week to be trained by some of the best brains in the world. On weekly based this is not much more than what you would pay for a specialising technology course.
+<h4>How do I prepare?</h4>
+This is not the kind of certification where you an buy a book and read it page-to-page and then work all the examples out and you are ready for exam. In my opinion, you will walk into the course being an expert++ and you will be polished and given more knowledge than mere mortals in the training course.
+<h4>What do people think?</h4>
+From what I can observe after talking to friends, colleagues and by reading blogs that Master Certification is receiving mixed signals. After not so jubilant reception of Microsoft Certified Architect many people are questioning the benefits of Master Certification. But this is yet to be verified.
+
+You can read more about Microsoft Master Certification and community&#8217;s opinions <a href="http://blogs.msdn.com/trika/archive/2008/06/26/more-on-the-certified-master-programs-from-me-per-the-program-owner.aspx">here</a>.
+
+<a href="http://www.dotnetkicks.com/kick/?url=http%3a%2f%2fwww.thereforesystems.com%2fmore-details-emerge-on-microsoft-master-certification%2f"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fwww.thereforesystems.com%2fmore-details-emerge-on-microsoft-master-certification%2f" border="0" alt="kick it on DotNetKicks.com" /></a>
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:2ce84b81-ec16-4664-bdd2-6cc5fba70986" class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/Microsoft">Microsoft</a>,<a rel="tag" href="http://technorati.com/tags/Certification">Certification</a></div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/08/01/different-ways-of-retrieving-data-from-collections/">Different Ways of Retrieving Data From Collections</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-01T00:00:00+10:00" pubdate data-updated="true">Aug 1<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">C# as a language has matured over years. We have come a long way from the first version of C# to the current which incorporates LINQ. Here is an example I recently used in a training session. My objective was to show students how we can retrieve items from a collection based on a certain criteria in different ways. The collection in question here is a collection of cities. City class looks like this:
+<div class="csharpcode">
+<pre class="alt"><span class="kwrd">public</span> <span class="kwrd">class</span> City</pre>
+<pre>    {</pre>
+<pre class="alt">        <span class="kwrd">public</span> <span class="kwrd">string</span> Name { get; set; }</pre>
+<pre>        <span class="kwrd">public</span> <span class="kwrd">string</span> Country { get; set; }</pre>
+<pre class="alt">    }</pre>
+</div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+
+Cities collection is initialised using this code:
+<div class="csharpcode">
+<pre class="alt">List&lt;City&gt; cities =</pre>
+<pre>                <span class="kwrd">new</span> List&lt;City&gt;</pre>
+<pre class="alt">                {</pre>
+<pre>                    <span class="kwrd">new</span> City{ Name = <span class="str">"Sydney"</span>, Country = <span class="str">"Australia"</span> },</pre>
+<pre class="alt">                    <span class="kwrd">new</span> City{ Name = <span class="str">"New York"</span>, Country = <span class="str">"USA"</span> },</pre>
+<pre>                    <span class="kwrd">new</span> City{ Name = <span class="str">"Paris"</span>, Country = <span class="str">"France"</span> },</pre>
+<pre class="alt">                    <span class="kwrd">new</span> City{ Name = <span class="str">"Milan"</span>, Country = <span class="str">"Spain"</span> },</pre>
+<pre>                    <span class="kwrd">new</span> City{ Name = <span class="str">"Melbourne"</span>, Country = <span class="str">"Australia"</span> },</pre>
+<pre class="alt">                    <span class="kwrd">new</span> City{ Name = <span class="str">"Auckland"</span>, Country = <span class="str">"New Zealand"</span> },</pre>
+<pre>                    <span class="kwrd">new</span> City{ Name = <span class="str">"Tokyo"</span>, Country = <span class="str">"Japan"</span> },</pre>
+<pre class="alt">                    <span class="kwrd">new</span> City{ Name = <span class="str">"New Delhi"</span>, Country = <span class="str">"India"</span> },</pre>
+<pre>                    <span class="kwrd">new</span> City{ Name = <span class="str">"Hobart"</span>, Country = <span class="str">"Australia"</span> }</pre>
+<pre class="alt">                };</pre>
+</div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+
+The objective is to find all cities in Australia and write their name to console. Here are the different ways it can be done.
+
+Old Fashioned
+<div class="csharpcode">
+<pre class="alt"><span class="kwrd">foreach</span> (City item <span class="kwrd">in</span> cities)</pre>
+<pre>{</pre>
+<pre class="alt">  <span class="kwrd">if</span> (item.Country == <span class="str">"Australia"</span>)</pre>
+<pre>    Console.WriteLine(item.Name);</pre>
+<pre class="alt">}</pre>
+</div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+
+Using FindAll extension method
+<div class="csharpcode">
+<pre class="alt"><span class="kwrd">foreach</span> (City item <span class="kwrd">in</span> cities.FindAll(IsAustralianCity))</pre>
+<pre>{</pre>
+<pre class="alt">  Console.WriteLine(item.Name);</pre>
+<pre>}</pre>
+<pre class="alt"></pre>
+<pre><span class="kwrd">private</span> <span class="kwrd">static</span> <span class="kwrd">bool</span> IsAustralianCity(City c)</pre>
+<pre class="alt">{</pre>
+<pre>  <span class="kwrd">if</span> (c.Country == <span class="str">"Australia"</span>)</pre>
+<pre class="alt">    <span class="kwrd">return</span> <span class="kwrd">true</span>;</pre>
+<pre>  <span class="kwrd">else</span></pre>
+<pre class="alt">    <span class="kwrd">return</span> <span class="kwrd">false</span>;</pre>
+<pre>}</pre>
+</div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+
+using FindAll with anonymous method
+<div class="csharpcode">
+<pre class="alt"><span class="kwrd">foreach</span> (City item <span class="kwrd">in</span> cities.FindAll(</pre>
+<pre>  <span class="kwrd">delegate</span>(City c)</pre>
+<pre class="alt">  {</pre>
+<pre>    <span class="kwrd">return</span> c.Country == <span class="str">"Australia"</span>;</pre>
+<pre class="alt">  }))</pre>
+<pre>{</pre>
+<pre class="alt">Console.WriteLine(item.Name);</pre>
+<pre>}</pre>
+</div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+
+Using a LINQ query
+<div class="csharpcode">
+<pre class="alt">var collection =</pre>
+<pre>  from c <span class="kwrd">in</span> cities</pre>
+<pre class="alt">  <span class="kwrd">where</span> c.Country == <span class="str">"Australia"</span></pre>
+<pre>  select c;</pre>
+<pre class="alt"></pre>
+<pre><span class="kwrd">foreach</span> (City item <span class="kwrd">in</span> collection)</pre>
+<pre class="alt">{</pre>
+<pre>  Console.WriteLine(item.Name);</pre>
+<pre class="alt">}</pre>
+</div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+
+One liner using Lambda. My absolute favourite.
+<div class="csharpcode">
+<pre class="alt">cities.FindAll(c =&gt; c.Country == <span class="str">"Australia"</span>)</pre>
+<pre>  .ForEach(c =&gt; Console.WriteLine(c.Name));</pre>
+</div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+
+Quite interesting to see how the language has evolved over time. I guess this is the kind of stuff which keeps us developers going. Good on you Microsoft! Keep it coming.
+
+<a href="http://www.dotnetkicks.com/kick/?url=http%3a%2f%2fwww.thereforesystems.com%2fdifferent-ways-of-retrieving-data-from-collections%2f"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fwww.thereforesystems.com%2fdifferent-ways-of-retrieving-data-from-collections%2f" border="0" alt="kick it on DotNetKicks.com" /></a>
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:702526be-e7a7-48ad-afd0-1604d867aa9b" class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/C#">C#</a>,<a rel="tag" href="http://technorati.com/tags/LINQ">LINQ</a></div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/07/31/starting-one-net-way/">Starting One .NET Way</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-31T00:00:00+10:00" pubdate data-updated="true">Jul 31<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">I have been thinking about splitting my blogging adventures between <a href="http://www.deepakkapoor.net/">personal</a> and <a href="http://www.debugrelease.com/">technical</a> for some time. Due to legitimate reasons such as procrastination I have held back. Finally the day has come when the sun is shining, birds are chirping and most importantly domain of choice is available. Hence a journey starts.
+
+I am planning to put in similar effort and provide valuable content for all .NET developers as I did with my old blog. Other than just code oriented posts I will try to write tips-n-tricks, news, information about products, books and everything that is touched by .NET.
+
+I will also use this blog to conduct an ever going experiment in which I will study the ins and outs of building a community using a blog. Now such a thing has been done many times before. I know many people who have built great communities through blogs. So this is not about re-re-inventing the wheel. This is a learning exercise to observe and participate in the process of creating something.  In any experiment it is fundamental to produce, analyse and report data. Thus I will endeavour to publish a monthly progress report about this site.
+
+This blog runs on <a href="http://www.wordpress.org">WordPress</a>. Now you may ask; why WordPress and why not a .NET based solution? The simple answer is because presently WordPress is the best blogging platform on the planet.  I would love to host it using a .NET/ASP.NET based solution but there isn’t much out there to match the might of WordPress when it comes to blogging. So essentially it is picking the best solution. I adapt the same approach in my consultancy engagements where I study the requirements carefully and recommend the best solution. One DotNet Way uses a free theme provided by <a href="http://www.uniqueblogdesigns.com">Unique Blog Designs</a>. Sometime in future I may move to a customised theme. But that is for later.
+
+I hope you will enjoy your visit here and I hope to see you again.
+
+Till my next post&#8230;
+
+Deepak
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/07/31/linq-to-sql-tutorial/">LINQ to SQL Tutorial</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-31T00:00:00+10:00" pubdate data-updated="true">Jul 31<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h4>Introduction</h4>  <p>With .NET Framework 3.5 Microsoft released Language Integrated Query aka LINQ. LINQ enables developers to query data sources using a query like syntax with both C# and VB.NET. These data sources can be collections, SQL Server databases, XML, DataSets etc. Other than what is supplied by Microsoft, LINQ is also extensible. This means that you can query data sources beyond what Microsoft ships. Examples of such implementations are LINQ To Flickr, LINQ To Amazon, LINQ to Google etc. In this article I will show you how you can use LINQ To SQL to perform CRUD operations on a SQL Server database. I will use Northwind database and build an ASP.NET application to demonstrated the capabilities of LINQ To SQL. You can download Northwind database <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=06616212-0356-46A0-8DA2-EEBC53A68034&amp;displaylang=en">here</a>.</p>  <h4>Toolset for this article</h4>  <ol>   <li>Visual Studio 2008 </li>    <li>.NET Framework 3.5 (This is already installed if you have Visual Studio 2008) </li>    <li>SQL Server 2005 (You can also work with SQL Server Express) </li> </ol>  <h4>Solution Structure</h4>  <p>For this article we will need two projects. One is a data layer (created as a Class Library)which we will generate and the other is an ASP.NET Web Application. The solutions structure looks like this in Solution Explorer.</p>  <p><img style="border-right-width: 0px; margin: 0px 10px 10px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="LINQ" src="http://www.debugrelease.com/wp-content/uploads/2008/07/image-thumb3.png" width="297" height="280" /></p>  <h4>Creating Data Layer</h4>  <p>Before we generate our data layer we must create a new connection in Server Explorer which points to Northwind database.</p>  <p><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="LINQ" src="http://www.debugrelease.com/wp-content/uploads/2008/07/image-thumb8.png" width="251" height="311" /></p>  <p>We will now generate our data layer using LINQ To SQL. To do this you need to add a new item to the data layer project of type LINQ to SQL Classes. We will name it Northwind as shown below.</p>  <p><img style="border-right-width: 0px; margin: 0px 10px 10px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="LINQ" src="http://www.debugrelease.com/wp-content/uploads/2008/07/image41.png" width="540" height="381" /></p>  <p>After adding a LINQ to SQL Class we are presented with a designer surface. Here we can simply drag the tables which will become part of our data layer. For this article we will drag all tables on the designer by selecting them all in one go. Our designer should look like this after dragging all tables on it.</p>  <p><img style="border-right-width: 0px; margin: 0px 10px 10px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="LINQ" src="http://www.debugrelease.com/wp-content/uploads/2008/07/image30-thumb.png" width="451" height="638" /></p>  <p>We should now build our solution to make sure everything is okay. And that&#8217;s it. We have successfully generated our data layer. In Solution Explorer we can see that we have two new files namely Northwind.dbml.layout and Northwind.designer.cs. We can also see that references required to compile and run our code have been added by Visual Studio.</p>  <p><img style="border-right-width: 0px; margin: 0px 10px 10px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="LINQ" src="http://www.debugrelease.com/wp-content/uploads/2008/07/image36.png" width="282" height="509" /></p>  <p>The .cs file contains the code for our data layer. Let&#8217;s examine the code that has been generated for us. We will look at the Region class.</p>  
+
+<pre class="lang:c# decode:true " >
+[Table(Name="dbo.Region")]
+public partial class Region : INotifyPropertyChanging, INotifyPropertyChanged
+</pre>
+
+<p>The class itself is decorated with Table attribute and the Name property has been assigned the actual table name we have in our database. Region class also implements INotifyPropertyChanging and INotifyPropertyChanged interfaces. These interfaces are used for databinding. Region class also contains one property per column. Let&#8217;s look at the RegionDescription property.</p>
+
+<pre class="lang:c# decode:true " >
+[Column(Storage="_RegionDescription", DbType="NChar(50) NOT NULL",
+CanBeNull=false)]
+public string RegionDescription
+{
+  get
+  {
+    return this._RegionDescription;
+  }
+  set
+  {
+    if ((this._RegionDescription != value))
+    {
+      this.OnRegionDescriptionChanging(value);
+      this.SendPropertyChanging();
+      this._RegionDescription = value;
+      this.SendPropertyChanged("RegionDescription");
+      this.OnRegionDescriptionChanged();
+    }
+  }
+}
+</pre>
+
+<p>Columns are decorated with Column attribute and values are passed in for Storage, DbType and CanBeNull which indicates if the column can be null or not.</p>
+
+<h4>Using Data Layer</h4>
+
+<p>Now that we have generated our data layer. We will work on ASP.NET web application where we will use our data layer. To keep things simple we will create a web forms to search for customers and display search results. We will also create a web form to insert new customers. Let&#8217;s start by creating our web form for customer search. For this we will use the Default.aspx page. We will place few controls on the web form. These controls will give us search parameters and a button which will do the search and display results when clicked. This is what the form will look like after placing our controls.</p>
+
+<p><img style="border-right-width: 0px; margin: 0px 10px 10px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="LINQ" src="http://www.debugrelease.com/wp-content/uploads/2008/07/image-thumb13-thumb.png" width="396" height="160" /></p>
+
+<p>We will also place a GridView control on our form to display search results. We will now put in some code in our button&#8217;s click event handler to do the search and display results in GridView. Make sure that we have a reference to Data Layer project, System.Data.Linq and appropriate using statement. Here is what our button click event handler will contain.</p>
+
+<pre class="lang:c# decode:true " >
+protected void buttonSearch_Click(object sender, EventArgs e)
+{
+  using (NorthwindDataContext context = new NorthwindDataContext())
+  {
+    var customers =
+      from c in context.Customers
+      select c;
+
+    gridViewCustomers.DataSource = customers;
+    gridViewCustomers.DataBind();
+  }
+}
+</pre>
+
+<p>This code will query the customers table in northwind database and will return all customers. We will now modify it slightly to accept customer name and company name as parameters for our query. After modification our event handler looks like this.</p>
+
+<pre class="lang:c# decode:true " >
+protected void buttonSearch_Click(object sender, EventArgs e)
+{
+  using (NorthwindDataContext context = new NorthwindDataContext())
+  {
+    var customers =
+      from c in context.Customers
+      where (c.ContactName.Contains(textBoxCustomerName.Text.Trim())
+      &amp;&amp;
+      c.CompanyName.Contains(textBoxCompanyName.Text.Trim()))
+      select c;
+
+	gridViewCustomers.DataSource = customers;
+    gridViewCustomers.DataBind();
+  }
+}
+</pre>
+
+<p>Our search results will now be filtered.</p>
+
+<p>Let us now created a data entry form for customers.&#160; We will insert a new web form in our ASP.NET project and call it CustomerEntry. To start with we will make sure that our form contains fields required to insert a customer. Our form after completion will look like this.</p>
+
+<p><img style="border-right-width: 0px; margin: 0px 10px 10px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="LINQ" src="http://www.debugrelease.com/wp-content/uploads/2008/07/image.png" width="357" height="549" /></p>
+
+<p>We expect a new row to be inserted into customers table when Save Customer button is clicked. This code achieves data insertion into customers table for us.</p>
+
+<pre class="lang:c# decode:true " >
+protected void buttonSave_Click(object sender, EventArgs e)
+{
+  using (NorthwindDataContext context = new NorthwindDataContext())
+  {
+    Customer customer = new Customer
+    {
+      CustomerID = textBoxCustomerID.Text,
+	  CompanyName = textBoxCompanyName.Text,
+	  ContactName = textBoxCustomerName.Text,
+	  ContactTitle = textBoxTitle.Text,
+	  Address = textBoxAddress.Text,
+	  City = textBoxCity.Text,
+	  Region = textBoxRegion.Text,
+	  PostalCode = textBoxPostalCode.Text,
+	  Country = textBoxCountry.Text,
+	  Phone = textBoxPhone.Text,
+	  Fax = textBoxFax.Text
+	};
+
+	context.Customers.InsertOnSubmit(customer);
+	context.SubmitChanges();
+  }
+}
+</pre>
+
+<p>Similarly an existing row in database can be updated by first retrieving the data and then submitting it via DataContext.</p>
+
+<h4>Conclusion</h4>
+
+<p>In this tutorial we have not written a single SQL statement to retrieve or insert data into a database. This is the beauty of LINQ To SQL. Further our retrieval code while in C# looks a lot like a query. We can already appreciate the benefits of such a streamlined and unified approach in dealing with data.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/24/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/31/android-expandablelistview-tutorial/">Android - ExpandableListView Tutorial</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/28/linux-install-handbrake-on-linux-mint-15/">Linux - Install Handbrake on Linux Mint 15</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/">Linux VirtualBox - Windows Host Share in Ubuntu Guest</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

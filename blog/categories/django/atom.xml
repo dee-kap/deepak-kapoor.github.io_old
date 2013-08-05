@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Django | My Octopress Blog]]></title>
+  <link href="http://deepak-kapoor.github.io/blog/categories/django/atom.xml" rel="self"/>
+  <link href="http://deepak-kapoor.github.io/"/>
+  <updated>2013-08-06T06:50:20+10:00</updated>
+  <id>http://deepak-kapoor.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Enable GZip Compression in Django]]></title>
+    <link href="http://deepak-kapoor.github.io/blog/2012/03/26/enable-gzip-compression-in-django/"/>
+    <updated>2012-03-26T00:00:00+11:00</updated>
+    <id>http://deepak-kapoor.github.io/blog/2012/03/26/enable-gzip-compression-in-django</id>
+    <content type="html"><![CDATA[<p>GZip compression reduces size of payload sent to browser which in turn increases performance for your site. If you are not doing this then stop everything and <a title="Benefits of GZip compression." href="http://developer.yahoo.com/performance/rules.html#gzip">read this</a>. Hopefully you will be convinced. I for one use it all the time. </p>
+
+
+<p> <p>How do we do it in Django? Just include GZip Middleware. How? Easy. In your settings.py file look for MIDDLEWARE_CLASSES and add</p> <blockquote> <p>django.middleware.gzip.GZipMiddleware</p></blockquote> <p>Here it is in my settings.py along with other middleware classes I am using.</p></p>
+
+<pre class="lang:python decode:true " >MIDDLEWARE_CLASSES = (
+    'django.middleware.gzip.GZipMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+)</pre>
+
+
+<p></p>
+
+<p>I created a test page with lots of lorem ipsum and look at the difference in size of data transferred to the browser.</p>
+
+
+<p>Without GZip.</p>
+
+
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Django GZip compression" border="0" alt="Django GZip compression" src="http://www.debugrelease.com/wp-content/uploads/2012/03/image3.png" width="599" height="41"></p>
+
+
+<p>With GZip.</p>
+
+
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Django GZip compression" border="0" alt="Django GZip compression" src="http://www.debugrelease.com/wp-content/uploads/2012/03/image4.png" width="600" height="44"></p>
+
+
+<p>&nbsp;</p>
+
+
+<p>Of course there are many other steps you can and you must take to improve performance of your site. Here is the <a title="Rules to increase performance of a website." href="http://developer.yahoo.com/performance/rules.html">link</a> again to the site which you must read if you care about performance.</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Customize Response Headers in Django]]></title>
+    <link href="http://deepak-kapoor.github.io/blog/2012/03/26/customize-response-headers-in-django/"/>
+    <updated>2012-03-26T00:00:00+11:00</updated>
+    <id>http://deepak-kapoor.github.io/blog/2012/03/26/customize-response-headers-in-django</id>
+    <content type="html"><![CDATA[<p>Django makes it as easy as it can be to work with Response Headers. These headers in case you did not know are sent to the browser along with the response to a request. You can customize values for existing headers and also add new headers. In this example we will look at how easily it is done in Django. </p>
+
+
+<p> <p>We will use a simple example of a page which displays current server date and time. The output of the page does not matter for this example because we are focusing on Response Headers here. Our example page is served by this view:</p></p>
+
+<pre class="lang:python decode:true " >
+def current_datetime(request):
+    now = datetime.datetime.now()
+    t = get_template('current_datetime.html')
+    c = Context({'current_date': now})
+    r = HttpResponse(t.render(c))
+    return r
+</pre>
+
+
+<p></p>
+
+<p>By default Django will send <strong>Content-Type</strong>, <strong>Date</strong> and <strong>Server</strong> response headers to the browser as seen in the screenshot below. </p>
+
+
+<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="Default Response Headers from Django" border="0" alt="Default Response Headers from Django" src="http://www.debugrelease.com/wp-content/uploads/2012/03/image1.png" width="644" height="370"></p>
+
+
+<p>Let’s say that we want to modify the value for Server header. You know, to feel the false satisfaction of making it hard for hackers to find out the technology stack used by our website. Besides the sarcasm, it can be done by modifying our view like this:</p>
+
+
+
+
+<pre class="lang:python decode:true " >def current_datetime(request):
+    now = datetime.datetime.now()
+    t = get_template('current_datetime.html')
+    c = Context({'current_date': now})
+    r = HttpResponse(t.render(c))
+    r['Server'] = 'Served by 3cpo'
+    return r
+</pre>
+
+
+
+
+<p>Each view in Django returns a HttpResponse and we can work with it as we would work with a dictionary. We can see that the value for Server response header has been changed to ‘Served by 3cpo’.</p>
+
+
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Server Header Served by Django" border="0" alt="Server Header Served by Django" src="http://www.debugrelease.com/wp-content/uploads/2012/03/image2.png" width="638" height="362"></p>
+
+
+<p>Adding a new header is also simple. It is done by adding a new element to HttpResponse we send back. As shown here.</p>
+
+
+
+
+<pre class="lang:python decode:true " >def current_datetime(request):
+    now = datetime.datetime.now()
+    t = get_template('current_datetime.html')
+    c = Context({'current_date': now})
+    r = HttpResponse(t.render(c))
+    r['Server'] = 'Served by 3cpo'
+    r['x-powered-by'] = 'my Linux server'
+    return r
+</pre>
+
+
+
+
+<p>We have just included a new response header ‘x-powered-by’ which is set to ‘my Linux server’.</p>
+
+
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Adding new Response Header in Django" border="0" alt="Adding new Response Header in Django" src="http://www.debugrelease.com/wp-content/uploads/2012/03/image7.png" width="641" height="373"></p>
+
+
+<p>Simple enough, right? Well, this is what I like about Django and its batteries included approach.</p>
+
+]]></content>
+  </entry>
+  
+</feed>

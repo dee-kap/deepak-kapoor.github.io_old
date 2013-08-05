@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Complex Event Processing | My Octopress Blog]]></title>
+  <link href="http://deepak-kapoor.github.io/blog/categories/complex-event-processing/atom.xml" rel="self"/>
+  <link href="http://deepak-kapoor.github.io/"/>
+  <updated>2013-08-06T06:50:20+10:00</updated>
+  <id>http://deepak-kapoor.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Complex Event Processing with Esper–Tutorial For Beginners]]></title>
+    <link href="http://deepak-kapoor.github.io/blog/2012/06/14/complex-event-processing-with-esper-tutorial-for-beginners/"/>
+    <updated>2012-06-14T00:00:00+10:00</updated>
+    <id>http://deepak-kapoor.github.io/blog/2012/06/14/complex-event-processing-with-esper-tutorial-for-beginners</id>
+    <content type="html"><![CDATA[<h3>Introduction</h3>
+
+
+<p> <p>This is a tutorial for beginners who are interested in CEP (Complex Event Processing) using Esper. We will build a fictional real-time surveillance system which alerts on conditions we will define. You will learn how to use Esper to process real-time events and you may also learn a thing or two about sockets in Java. </p> <p>&nbsp;</p> <h3>The Story</h3> <p>Boys at the station have been tipped off regarding some illegal activities at The Genco Pura Olive Oil Company. They suspect that some illegal cargo is about to move through the company. In order to bust the gig they have come out with a plan to monitor phone calls to and from certain phone numbers. They have identified phone numbers used by Vito and Tom and they’d like to know when they make a call or they receive a call. The scenario can be expanded to record their conversations but that would require a court’s approval and it’s just too much work for a Esper tutorial.</p> <p>&nbsp;</p> <h3>Tools of Trade</h3> <p>This tutorial is about Esper which should be downloaded and extracted to an accessible location.</p> <p>Language of choice is Java so it’s <a href="http://esper.codehaus.org/">Esper</a> for Java we are after.</p> <p>Phone numbers are fictitious and taken from this site. <a title="http://www.acma.gov.au/WEB/STANDARD..PC/pc=PC_2330" href="http://www.acma.gov.au/WEB/STANDARD..PC/pc=PC_2330"><a href="http://www.acma.gov.au/WEB/STANDARD..PC/pc=PC_2330">http://www.acma.gov.au/WEB/STANDARD..PC/pc=PC_2330</a></a></p> <p>Vito’s number is: 1800 160 401. Yes he has a 1800 number. He does not mind paying when other people call him.</p> <p>Tom’s number is: 0491 570 110</p> <p>IDE: I use Netbeans but it doesn’t really matter. Any IDE or text editor of choice will do.</p> <p>&nbsp;</p> <h3>Design</h3> <p>Our bust the bad guys solution relies on a server component which sends messages about calls being made. These messages are received by a client application which feeds them into Esper engine. Esper then looks at these messages and based on instructions given to it, alerts the user. Alert mechanism is simply displaying attention grabbing text on console. This is a CEP and Esper tutorial remember? Do not get carried away. </p> <p>Below is a pictorial representation of the design.</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2012/06/image.png" width="488" height="786"></p> <p>&nbsp;</p> <h3>The Message</h3> <p>The server sends a message to the client whenever a call is made. This message is then received by client. We can express our message as a POJO which are supported by Esper. The message object maintains information about from and to phone numbers, time of call and duration of call. For this tutorial we are only interested in the phone numbers. </p></p>
+
+<pre class="lang:c# decode:true " >
+package com.thereforesystems.cdrlibrary;
+
+import java.io.Serializable;
+import java.util.Date;
+
+public class CallDataRecord implements Serializable{
+
+    String fromNumber;
+    String toNumber;
+    Date callDateTime;
+    int duration;
+
+    public Date getCallDateTime() {
+        return callDateTime;
+    }
+
+    public String getFromNumber() {
+        return fromNumber;
+    }
+
+    public String getToNumber() {
+        return toNumber;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public CallDataRecord(String from, String to, Date time, int dur) {
+
+        fromNumber = from;
+        toNumber = to;
+        callDateTime = time;
+        duration = dur;
+    }
+
+    @Override
+    public String toString() {
+        return "From : " + fromNumber + " To: " + toNumber;
+    }
+}
+</pre>
+
+
+
+
+<h3>Server</h3>
+
+
+<p> <p>The server application accepts socket connections on a port and then starts sending messages to the connected client. It maintains a list of phone numbers and simulates call data records also known as CDR in telco lingo.&nbsp; This is a stock standard sockets server which has nothing to do with Esper.</p></p>
+
+<pre class="lang:c# decode:true " >
+package com.thereforesystems.cdrserver;
+
+import com.thereforesystems.cdrlibrary.CallDataRecord;
+import java.io.*;
+import java.net.*;
+import java.util.Calendar;
+import java.util.Random;
+
+public class CDRServer {
+
+    String phoneNumbers[] = {"0491 570 156",
+        "0491 570 157",
+        "0491 570 158",
+        "0491 570 159",
+        "0491 570 110",
+        "1800 160 401",
+        "1800 975 707",
+        "1800 975 708",
+        "1800 975 709",
+        "1800 975 710",
+        "1800 975 711",
+        "1300 975 707",
+        "1300 975 708",
+        "1300 975 709",
+        "1300 975 710",
+        "1300 975 711"};
+    
+    ServerSocket providerSocket;
+    Socket connection = null;
+    ObjectOutputStream out;
+    String message;
+    private static Random generator = new Random();
+
+    void run() {
+        try {
+            providerSocket = new ServerSocket(9999, 10);
+            System.out.println("Waiting for connection to CDR Server");
+            connection = providerSocket.accept();
+            System.out.println("Connection received from " + 
+                    connection.getInetAddress().getHostName());
+            out = new ObjectOutputStream(connection.getOutputStream());
+            out.flush();
+
+            String from;
+            String to;
+            int duration;
+            while (true) {
+
+                if (connection.isConnected()) {
+                    from = phoneNumbers[generator.nextInt(phoneNumbers.length - 1)];
+                    to = phoneNumbers[generator.nextInt(phoneNumbers.length - 1)];
+                    if (!from.equals(to)) { // no need to send when from and to are same numbers
+                        duration = generator.nextInt(10);
+                        Calendar calendar = Calendar.getInstance();
+                        CallDataRecord cdr = 
+                                new CallDataRecord(from, to, calendar.getTime(), duration);
+                        sendMessage(cdr);
+                    }
+                } else {
+                    break;
+                }
+
+            }
+
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        } finally {
+            try {
+                out.close();
+                connection.close();
+                providerSocket.close();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        }
+    }
+
+    void sendMessage(CallDataRecord cdr) {
+        try {
+            out.writeObject(cdr);
+            out.flush();
+            System.out.println("Sending CDR: " + cdr);
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        CDRServer server = new CDRServer();
+        while (true) {
+            server.run();
+        }
+    }
+}
+</pre>
+
+
+
+
+<h3>Client</h3>
+
+
+<p>Client application is where interesting stuff happens. By establishing a socket connection it receives a message for each call from server. 
+</p>
+
+
+
+
+<pre class="lang:c# decode:true " >
+requestSocket = new Socket("localhost", 9999);
+System.out.println("Connected to localhost in port 9999");
+in = new ObjectInputStream(requestSocket.getInputStream());
+
+while (true) {
+    try {
+        cdr = (CallDataRecord) in.readObject();
+        runtime.sendEvent(cdr);
+    } catch (ClassNotFoundException ex) {
+        Logger.getLogger(CallDetector.class.getName())
+            .log(Level.SEVERE, null, ex);
+    }
+}
+</pre>
+
+
+
+
+<p>You can see in the code above that an instance of CallDataRecord class is created from data in ObjectInputStream. A call is made to sendEvent method of EPRuntime object and retrieved CallDataRecord is sent as an argument. How is this data handled by Esper? We have two classes which are Esper listeners and they are ready to act when invoked. We have one listener for calls made “from” and another for calls made “to”. For a class to act as a listener in Esper it must implement UpdateListener interface.</p>
+
+
+<p></p>
+
+<pre class="lang:c# decode:true " >
+public static class FromListener implements UpdateListener {
+
+    @Override
+    public void update(EventBean[] newData, EventBean[] oldData) {
+        System.out.println("Bad guy made a call: " + newData[0].getUnderlying());
+    }
+}
+    
+public static class ToListener implements UpdateListener {
+
+    @Override
+    public void update(EventBean[] newData, EventBean[] oldData) {
+        System.out.println("Bad guy received a call: " + newData[0].getUnderlying());
+    }
+}
+</pre>
+
+
+
+
+<p>So what invokes a particular listener? This is handled by Esper when we register a listener to a particular EPL statement. An EPL statement is like a SQL query with the familiar Select * from syntax. This is our EPL statement for “from” calls. Note that after creating an instance of EPStatement class we register the appropriate listener.</p>
+
+
+<p></p>
+
+<pre class="lang:c# decode:true " >
+EPStatement eplFrom = 
+        admin.createEPL("select * from CDR(fromNumber='1800 160 401' "
+                + "or fromNumber='0491 570 110')");
+eplFrom.addListener(new FromListener());
+        
+EPStatement eplTo = 
+        admin.createEPL("select * from CDR(toNumber='1800 160 401' "
+                + "or toNumber='0491 570 110')");
+eplTo.addListener(new ToListener());
+</pre>
+
+
+
+
+<p>For it to all work there is a little more setup required. Let’s go through it. First of all we need a Configuration object to which we will add an event type. Note that in our EPL statements we are querying from CDR. This CDR is defined as a Event Type in the configuration object.</p>
+
+
+<p></p>
+
+<pre class="lang:c# decode:true " >
+Configuration config = new Configuration();
+config.addEventType("CDR", CallDataRecord.class.getName());
+</pre>
+
+
+
+
+<p>Next thing we need is a EPRuntime which is the Esper runtime object.</p>
+
+
+<p></p>
+
+<pre class="lang:c# decode:true " >
+EPServiceProvider provider = 
+        EPServiceProviderManager.getProvider("CDREngine", config);
+EPRuntime runtime = provider.getEPRuntime();
+</pre>
+
+
+
+
+<p>Finally we run our client and pass it an instance of EPRuntime so that our client can send events to Esper engine.</p>
+
+
+<p></p>
+
+<pre class="lang:c# decode:true " >
+CallDetector client = new CallDetector();
+client.run(runtime);
+</pre>
+
+
+
+
+<p>Here is the full code for Client application. </p>
+
+
+<p></p>
+
+<pre class="lang:c# decode:true " >
+package com.thereforesystems.calldetector;
+
+import com.espertech.esper.client.*;
+import com.thereforesystems.cdrlibrary.CallDataRecord;
+import java.io.*;
+import java.net.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class CallDetector {
+
+    Socket requestSocket;
+    ObjectInputStream in;
+    CallDataRecord cdr;
+
+    void run(EPRuntime runtime) {
+        try {
+            requestSocket = new Socket("localhost", 9999);
+            System.out.println("Connected to localhost in port 9999");
+            in = new ObjectInputStream(requestSocket.getInputStream());
+
+            while (true) {
+                try {
+                    cdr = (CallDataRecord) in.readObject();
+                    runtime.sendEvent(cdr);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(CallDetector.class.getName())
+                            .log(Level.SEVERE, null, ex);
+                }
+            }
+
+        } catch (UnknownHostException unknownHost) {
+            System.err.println("You are trying to connect to an unknown host!");
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        } finally {
+            try {
+                in.close();
+                requestSocket.close();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        }
+    }
+
+    public static class FromListener implements UpdateListener {
+
+        @Override
+        public void update(EventBean[] newData, EventBean[] oldData) {
+            System.out.println("Bad guy made a call: " 
+                    + newData[0].getUnderlying());
+        }
+    }
+
+    public static class ToListener implements UpdateListener {
+
+        @Override
+        public void update(EventBean[] newData, EventBean[] oldData) {
+            System.out.println("Bad guy received a call: " 
+                    + newData[0].getUnderlying());
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Configuration config = new Configuration();
+        config.addEventType("CDR", CallDataRecord.class.getName());
+
+        EPServiceProvider provider =
+                EPServiceProviderManager.getProvider("CDREngine", config);
+        EPRuntime runtime = provider.getEPRuntime();
+
+        EPAdministrator admin = provider.getEPAdministrator();
+
+        EPStatement eplFrom =
+                admin.createEPL("select * from CDR(fromNumber='1800 160 401' "
+                + "or fromNumber='0491 570 110')");
+        eplFrom.addListener(new FromListener());
+
+        EPStatement eplTo =
+                admin.createEPL("select * from CDR(toNumber='1800 160 401' "
+                + "or toNumber='0491 570 110')");
+        eplTo.addListener(new ToListener());
+
+        CallDetector client = new CallDetector();
+        client.run(runtime);
+    }
+}
+</pre>
+
+
+
+
+<p>For the client to build we need to reference following libraries.</p>
+
+
+<p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Esper Libraries " border="0" alt="Esper Libraries " src="http://www.debugrelease.com/wp-content/uploads/2012/06/image1.png" width="249" height="143"></p> <p>These jars can be found in the root esper folder and root esper/esper/lib folders. </p></p>
+
+<p>&nbsp;</p>
+
+
+<h3>Output</h3>
+
+
+<p> <p>After running Server and Client for few seconds we can see that Esper is notifying us of calls made to or from Vito or Tom’s mobile. Watch out guys. </p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Esper Output" border="0" alt="Esper Output" src="http://www.debugrelease.com/wp-content/uploads/2012/06/image2.png" width="512" height="215"></p></p>
+
+<p>&nbsp;</p>
+
+
+<h3>Conclusion</h3>
+
+
+<p> <p>In this tutorial we saw how simple it is to create an application which can process events in real-time. Real power of Esper is the raw speed by which it can do complex real-time processing. Esper is also simple to understand and work with. There is a lot more to Esper than this simple tutorial. Maybe I will write a bit more in future posts. </p></p>
+]]></content>
+  </entry>
+  
+</feed>

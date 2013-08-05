@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ADO.NET Data Services With ASP.NET - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="Introduction
+In this tutorial we will look at how ADO.NET Data Services can be used to create services which are consumed by ASP.NET client. We will &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://deepak-kapoor.github.io/blog/2009/07/28/adonet-data-services-tutorial-with-aspnet">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:deepak-kapoor.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">ADO.NET Data Services With ASP.NET</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-28T00:00:00+10:00" pubdate data-updated="true">Jul 28<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h3>Introduction</h3>
+In this tutorial we will look at how ADO.NET Data Services can be used to create services which are consumed by ASP.NET client. We will use Adventure works Lite database as an example to demonstrate the concepts. Code for this article can be downloaded at the bottom of the article.
+
+ADO.NET Data Services as the name says is a services layer between your application and an underlying data source. It uses REST principals to access and persist information to and from the data source. Services layer itself can be created very easily. Most of the work is done by  Visual Studio for you.
+
+In this tutorial we will build an application for AdventureWorks Lite database. We will build a page which let’s a user browse through products. The reason for picking up AdventureWorks Lite as an example is so that we can work with a variety of data including images. If you do not have AdventureWorks Lite then you can download it <a href="http://www.codeplex.com/Wiki/View.aspx?ProjectName=SqlServerSamples">here</a>. For our application we will work with this data model
+
+<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image46.png" border="0" alt="image" width="540" height="406" />
+<h3>Creating Service</h3>
+Creating a ADO.NET Data Service in Visual Studio is a no brainer. All we need to do is add a new item of type ADO.NET Data Service, give it an appropriate name and we are done.
+
+<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image47.png" border="0" alt="image" width="540" height="432" />
+
+Our ADO.NET Service will interact with some kind of data source and Entity Framework perfectly fits that purpose. We now need to create a EDM (Entity Data Model) which includes tables we want to interact with via our services. If you never worked with Entity Framework then <a href="http://msdn.microsoft.com/en-us/library/bb399182.aspx">this quickstart</a> will get you going.
+
+By creating a service and our Entity Data Model we have put together two major components of our solution. Before we can hit F5 to see our service running, there are few things we need to put in place. We must tell our service that there is a Data Layer that we want it to use. Now all ADO.NET Data Services inherit from DataService&lt;T&gt; which can be found in System.Data.Services namespace. The code produced by Visual Studio for our service leaves a placeholder for &lt;T&gt; with a comment. All we need to do is specify the correct type. Our class declaration for our service should look like this.
+ 
+<pre class="lang:c# decode:true " >public class AdventureWorksService : DataService&lt;AdventureWorksEntities&gt;</pre> 
+
+Here we have established integration between our service and our data source. Next thing we need to do is configure appropriate access levels for our service and its operations. Code below when executed initializes our service to have all possible access over all entities defined in our EDM and all access over all operations. Note the asterix, basically we are saying here that include all Entity Sets and all operations.
+ 
+<pre class="lang:c# decode:true " >public static void InitializeService(IDataServiceConfiguration config)
+{
+  config.SetEntitySetAccessRule("*", EntitySetRights.All);
+  config.SetServiceOperationAccessRule("*", ServiceOperationRights.All);
+}</pre> 
+
+We are now ready to go and hit F5. If we set AdventureWorksService.svc as a start page and run our project we can see our service running. Now that we have our service running, we will start building our ASP.NET pages which will query our service, receive and display data.
+
+<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image48.png" border="0" alt="image" width="540" height="597" />
+<h3>Creating Proxy Objects</h3>
+Our ASP.NET application will need to access the service through a proxy. Creating a proxy is very easy. After making sure that our service is running, we need to add a service reference to our serivce. This can be done this way.
+
+<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image49.png" border="0" alt="image" width="540" height="434" />
+
+It is also a good idea to change the Namespace from ServiceReference1 to AdventureWorksService.
+<h3>Creating Web Page To Display Data</h3>
+We can now make calls to our service and retrieve data. First thing we need to do is load data from ProductCategory and bind it to a dropdown. But before that let’s have a look at what we will produce.
+
+<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image50.png" border="0" alt="image" width="540" height="521" />
+
+Getting back to binding our dropdown control. We should write a query which calls our service which in turns fetches data from database and delivers to us. One good thing about ADO.NET Data Services is that you can write LINQ queries with it. ADO.NET Data Services comes with a LINQ provider popularly known as LINQ To REST.  Without LINQ support ADO.NET Data Services will be just too complicated and IMO useless. However LINQ support is limited. Here are things you cannot do:
+<ol>
+	<li>You cannot write queries which involve joins or sub queries.</li>
+	<li>You cannot create anonymous types in your queries.</li>
+	<li>Aggregates such as Count, Min, Max are not available.</li>
+	<li>There is no GroupBy support available.</li>
+</ol>
+Besides the list of can’t do above, LINQ To REST still makes working with ADO.NET Data Services much easier than otherwise. Following code will make a service call and bind our drop down.
+ 
+<pre class="lang:c# decode:true " >private void BindProductCategories()
+{
+  DataServiceQuery&lt;ProductCategory&gt; productCategories =
+    context.CreateQuery&lt;ProductCategory&gt;("/ProductCategory");
+
+  var query = from p in productCategories
+    orderby p.Name
+    select p;
+
+  ddlProductCategory.DataSource = query;
+  ddlProductCategory.DataBind();
+}</pre> 
+
+We’d also like to refresh data in our grid when the user selects another category. This is done by BindProductsGrid method.
+
+ 
+<pre class="lang:c# decode:true " >private void BindProductsGrid()
+{
+  int productCategoryID = Convert.ToInt32(ddlProductCategory.SelectedValue);
+
+  DataServiceQuery&lt;Product&gt; products =
+    context.CreateQuery&lt;Product&gt;("/Product");
+
+  var query = from p in products
+    where p.ProductCategory.ProductCategoryID == productCategoryID
+    select p;
+
+  gdvProducts.DataSource = query;
+  gdvProducts.DataBind();
+}</pre> 
+
+
+The way I bind the image is by using another page which just does Response.BinaryWrite.  Here is the markup of default.aspx page which is the entire UI. You can play with it by downloading the entire solution. The markup is here just to make the post look good ;)
+
+ 
+<pre class="lang:xhtml decode:true " >&lt;form id="form1" runat="server"&gt;
+  &lt;div&gt;
+    &lt;div&gt;
+      Product Category
+      &lt;asp:DropDownList ID="ddlProductCategory" runat="server"
+        DataValueField="ProductCategoryID"
+        AutoPostBack="true"
+        DataTextField="Name"
+        OnSelectedIndexChanged="ddlProductCategory_SelectedIndexChanged"&gt;
+      &lt;/asp:DropDownList&gt;
+    &lt;/div&gt;
+    &lt;br /&gt;
+    Products
+    &lt;br /&gt;
+    &lt;div&gt;
+      &lt;asp:GridView ID="gdvProducts" runat="server"
+        CssClass="sample"
+        Width="600px"
+        AutoGenerateColumns="false"
+        OnRowCreated="gdvProducts_RowCreated"&gt;
+        &lt;Columns&gt;
+          &lt;asp:BoundField DataField="ProductNumber" HeaderText="Number" /&gt;
+          &lt;asp:BoundField DataField="Name" HeaderText="Name" /&gt;
+          &lt;asp:TemplateField&gt;
+            &lt;ItemTemplate&gt;
+              &lt;asp:Image ID="Image1" runat="server" ImageUrl='ImageHelper.aspx' /&gt;
+            &lt;/ItemTemplate&gt;
+          &lt;/asp:TemplateField&gt;
+        &lt;/Columns&gt;
+      &lt;/asp:GridView&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/form&gt;</pre> 
+
+
+<h3>Conclusion</h3>
+This was a brief introduction to ADO.NET Data Services. We looked at how to create a service and consume it in a ASP.NET website. We also looked at some limitations of LINQ provider used by ADO.NET Data Services. In future posts I will talk about other features of ADO.NET Data Services.
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-28T00:00:00+10:00" pubdate data-updated="true">Jul 28<span>th</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/dot-net/'>.NET</a>, <a class='category' href='/blog/categories/microsoft/'>Microsoft</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://deepak-kapoor.github.io/blog/2009/07/28/adonet-data-services-tutorial-with-aspnet/" data-via="" data-counturl="http://deepak-kapoor.github.io/blog/2009/07/28/adonet-data-services-tutorial-with-aspnet/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/07/27/10-ways-to-bing-it/" title="Previous Post: 10 Ways To Bing It!">&laquo; 10 Ways To Bing It!</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2009/08/05/pdc-2009-registration-is-open/" title="Next Post: PDC 2009 Registration Is Open">PDC 2009 Registration Is Open &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/31/android-expandablelistview-tutorial/">Android - ExpandableListView Tutorial</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/28/linux-install-handbrake-on-linux-mint-15/">Linux - Install Handbrake on Linux Mint 15</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/">Linux VirtualBox - Windows Host Share in Ubuntu Guest</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

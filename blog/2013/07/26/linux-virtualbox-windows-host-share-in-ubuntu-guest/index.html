@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Linux VirtualBox - Windows host share in Ubuntu guest - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="In this post I will show you how to mount and access Windows host shares on your Ubuntu guest OS running within VirtualBox. First thing you need to &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://deepak-kapoor.github.io/blog/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:deepak-kapoor.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Linux VirtualBox - Windows Host Share in Ubuntu Guest</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-26T00:00:00+10:00" pubdate data-updated="true">Jul 26<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>In this post I will show you how to mount and access Windows host shares on your Ubuntu guest OS running within VirtualBox.</p> 
+
+<p>First thing you need to do is install VirtualBox Guest Additions.</p>
+
+<p>Attach VBoxGuestAdditions.iso in machine settings on VirtualBox. On a 64bit machine the iso file can be found at C:\Program Files\Oracle\VirtualBox.</p>
+
+<a href="http://www.debugrelease.com/wp-content/uploads/2013/07/vboxguestadditions.png"><img src="http://www.debugrelease.com/wp-content/uploads/2013/07/vboxguestadditions.png" alt="" width="628" height="442" class="alignleft size-full wp-image-2083" /></a>
+
+<p>Then mount the iso in Ubuntu guest.</p>
+
+<pre class="prettyprint" lang="bash">deepak@ubuntu:~$ sudo mount /dev/cdrom /media/cdrom</pre>
+
+<p>You can now access the iso within Ubuntu. Run the following command to install Guest Additions.</p>
+
+<pre class="prettyprint" lang="bash">deepak@ubuntu:~$ sudo ./VBoxLinuxAdditions.run</pre>
+
+<p>This will install Guest Additions. A new group called vboxsf will also be created. Verify that the group exists by running this command.</p>
+
+<pre class="prettyprint" lang="bash">deepak@ubuntu:~$ cat /etc/group | grep vboxsf
+
+vboxsf:x:1005:</pre>
+
+<p>Next go to machine settings and click on Shared Folders. Add a host folder you&#8217;d like to share. In the screenshot below I have shared temp folder on my D drive.</p>
+
+<a href="http://www.debugrelease.com/wp-content/uploads/2013/07/vboxsharefolder.png"><img src="http://www.debugrelease.com/wp-content/uploads/2013/07/vboxsharefolder.png" alt="" width="626" height="440" class="alignleft size-full wp-image-2084" /></a>
+
+<p>The shared folder is now accessible within Ubuntu. Just mount it to a directory.</p>
+
+<pre class="prettyprint" lang="bash">deepak@ubuntu:~$ makedir /media/host-share
+deepak@ubuntu:~$ sudo mount -t vboxsf temp /media/host-share</pre>
+
+<p>The <code>-t</code> option is used to specify a file system which in this case is <strong>vboxsf</strong>.</p>
+
+<p>You can now access host temp folder within Ubuntu which has been mounted at /media/host-share.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-26T00:00:00+10:00" pubdate data-updated="true">Jul 26<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/linux/'>Linux</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://deepak-kapoor.github.io/blog/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/" data-via="" data-counturl="http://deepak-kapoor.github.io/blog/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/" title="Previous Post: Linux - setgid on directory and share directory with users">&laquo; Linux - setgid on directory and share directory with users</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/07/28/linux-install-handbrake-on-linux-mint-15/" title="Next Post: Linux - Install Handbrake on Linux Mint 15">Linux - Install Handbrake on Linux Mint 15 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/31/android-expandablelistview-tutorial/">Android - ExpandableListView Tutorial</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/28/linux-install-handbrake-on-linux-mint-15/">Linux - Install Handbrake on Linux Mint 15</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/">Linux VirtualBox - Windows Host Share in Ubuntu Guest</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

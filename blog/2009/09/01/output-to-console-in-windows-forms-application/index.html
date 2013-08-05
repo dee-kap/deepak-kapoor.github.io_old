@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Output To Console In Windows Forms Application - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="This post shows you how to output data to a Console in a Windows Forms Application. I use this technique religiously when developing Windows Forms &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://deepak-kapoor.github.io/blog/2009/09/01/output-to-console-in-windows-forms-application">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:deepak-kapoor.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Output to Console in Windows Forms Application</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-01T00:00:00+10:00" pubdate data-updated="true">Sep 1<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content">This post shows you how to output data to a Console in a Windows Forms Application. I use this technique religiously when developing Windows Forms applications. Debugging is much simpler when you can see information on what your application is doing in a Console. Of course the onus is on you as developer to output data which will help you.
+
+In this post I will use a simple Windows Forms application which adds two numbers.
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Windows Forms" src="http://www.debugrelease.com/wp-content/uploads/2009/09/image.png" border="0" alt="Windows Forms" width="300" height="188" />
+
+By default a Windows Forms application does not output to a Console even if you write a Console.Write() or Console.WriteLine(). This shortcoming can be addressed by using Win32 API. In your Windows Forms application you can declare a class which provides a wrapper around Win32 functions.
+
+<pre class="lang:c++ decode:true " >public class Win32
+{
+  /// &lt;summary&gt;
+  /// Allocates a new console for current process.
+  /// &lt;/summary&gt;
+  [DllImport("kernel32.dll")]
+  public static extern Boolean AllocConsole();
+
+  /// &lt;summary&gt;
+  /// Frees the console.
+  /// &lt;/summary&gt;
+  [DllImport("kernel32.dll")]
+  public static extern Boolean FreeConsole();
+}</pre> 
+
+A Console must be started to accept input and display our messages. This can be done by calling Win32.AllocConsole() function. For my example I will start the console in my form’s constructor.
+ 
+<pre class="lang:c# decode:true " >public Form1()
+{
+  InitializeComponent();
+
+  Win32.AllocConsole();
+}</pre> 
+
+Now when I write to Console, I will see data appear in the console window which was started in my constructor.
+
+ 
+<pre class="lang:c# decode:true " >private void Add(int num1, int num2)
+{
+  int result = num1 + num2;
+
+  Console.WriteLine(
+    string.Format("{0} + {1} = {2}", num1, num2, result));
+}</pre> 
+
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Console" src="http://www.debugrelease.com/wp-content/uploads/2009/09/image1.png" border="0" alt="Console" width="419" height="189" />
+
+As a good practice you should also close the console window by calling Win32.FreeConsole() method before your application exits.
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-09-01T00:00:00+10:00" pubdate data-updated="true">Sep 1<span>st</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/dot-net/'>.NET</a>, <a class='category' href='/blog/categories/microsoft/'>Microsoft</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://deepak-kapoor.github.io/blog/2009/09/01/output-to-console-in-windows-forms-application/" data-via="" data-counturl="http://deepak-kapoor.github.io/blog/2009/09/01/output-to-console-in-windows-forms-application/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/08/26/adonet-data-services-logical-operators/" title="Previous Post: ADO.NET Data Services Logical Operators">&laquo; ADO.NET Data Services Logical Operators</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2009/09/08/teched-australia-day-1/" title="Next Post: TechEd Australia Day 1">TechEd Australia Day 1 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/31/android-expandablelistview-tutorial/">Android - ExpandableListView Tutorial</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/28/linux-install-handbrake-on-linux-mint-15/">Linux - Install Handbrake on Linux Mint 15</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/">Linux VirtualBox - Windows Host Share in Ubuntu Guest</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Windows Phone | My Octopress Blog]]></title>
+  <link href="http://deepak-kapoor.github.io/blog/categories/windows-phone/atom.xml" rel="self"/>
+  <link href="http://deepak-kapoor.github.io/"/>
+  <updated>2013-08-06T06:50:20+10:00</updated>
+  <id>http://deepak-kapoor.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[My Windows Phone app is runner-up in Lifehacker and Microsoft’s developer challenge]]></title>
+    <link href="http://deepak-kapoor.github.io/blog/2013/05/20/my-windows-phone-app-is-runner-up-in-lifehacker-and-microsofts-developer-challenge/"/>
+    <updated>2013-05-20T00:00:00+10:00</updated>
+    <id>http://deepak-kapoor.github.io/blog/2013/05/20/my-windows-phone-app-is-runner-up-in-lifehacker-and-microsofts-developer-challenge</id>
+    <content type="html"><![CDATA[<p>Found an uplifting email today in my mailbox which informed me that my app for Windows Phone has been a runner-up in <a href="http://www.lifehacker.com.au/2013/05/round-5-winners-lifehacker-and-microsofts-developer-challenge/">round 5 of Lifehacker and Microsoft’s developer challenge</a>. I am very happy about this and I'd like to thank those who judged my app to be worthy of recognition.&nbsp; I would also like to congratulate <a href="http://apps.microsoft.com/windows/en-ph/app/fair-football-coach/13eaa6b2-f12d-433a-8d50-5f5385c5ea99">Jared Homes</a> who won round 5 and <a href="https://twitter.com/almichener">Alistair Michener</a> who is also a runner-up for his awesome app <a href="http://apps.microsoft.com/windows/en-US/app/drawboard-pdf/6d65bcd8-8390-4533-af58-307d2e1ec1dd">Drawboard PDF</a>.</p>
+
+
+<p>Thanks also to <a href="http://blogs.msdn.com/b/acoat/">Andrew Coates</a> and <a href="http://blogs.msdn.com/b/dglover/">Dave Glover</a> for their support and feedback.</p>
+
+
+<p>Link to my app: <a href="http://www.windowsphone.com/en-au/store/app/visuals/f5fae584-ed47-4e26-a606-cd424767b632?appid=f5fae584-ed47-4e26-a606-cd424767b632">Visuals</a></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Select photos on Windows Phone with PhotoChooserTask]]></title>
+    <link href="http://deepak-kapoor.github.io/blog/2013/04/09/select-photos-on-windows-phone-with-photochoosertask/"/>
+    <updated>2013-04-09T00:00:00+10:00</updated>
+    <id>http://deepak-kapoor.github.io/blog/2013/04/09/select-photos-on-windows-phone-with-photochoosertask</id>
+    <content type="html"><![CDATA[<p>It is a common feature of many apps to select photos stored on the device. The feature can be implemented by using PhotoChooserTask class. In this post I will show you how to use PhotoChooserTask to select existing photos and also take photos using the camera.</p>
+
+<p>Code for this post is available on <a href="https://github.com/deepak-kapoor/photochooser">Github</a>.</p>
+
+<p>The UI for this app is very simple. It contains just one Image control and a button</p>
+
+<pre class="font:courier-new lang:xhtml decode:true">&lt;StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"&gt;
+  &lt;Image x:Name="ImageChosen" /&gt;
+  &lt;Button x:Name="ButtonChoosePhoto"
+    Content="choose photo"
+    Click="ButtonChoosePhoto_OnClick"/&gt;
+&lt;/StackPanel</pre>
+
+
+<p>In the OnClick event handler I instantiate a PhotoChooserTask object, hook it with an event handler when Completed event is fired and finally call Show method on PhotoChooserTask.</p>
+
+<pre class="lang:c# decode:true " >private void ButtonChoosePhoto_OnClick(object sender, RoutedEventArgs e)
+{
+  PhotoChooserTask photoChooser = new PhotoChooserTask();
+  photoChooser.Completed += photoChooser_Completed;
+  photoChooser.Show();
+}</pre>
+
+
+<p></p>
+
+<p>Within the event handler I place this code. The code checks if the TaskResult is OK and then creates a new BitmapImage object from the stream in PhotoResult object which is supplied as an argument to the handler.</p>
+
+<pre class="lang:c# decode:true " >void photoChooser_Completed(object sender, PhotoResult e)
+{
+  if (e.TaskResult == TaskResult.OK)
+  {
+    BitmapImage bitmap = new BitmapImage();
+    bitmap.SetSource(e.ChosenPhoto);
+    ImageChosen.Source = bitmap;
+  }
+}</pre>
+
+
+<p></p>
+
+<p>Here is the app in working.</p>
+
+<p><img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Photo Chooser" alt="Photo Chooser" src="http://www.debugrelease.com/wp-content/uploads/2013/04/image.png" width="332" height="599" border="0" /></p>
+
+<p><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/04/image1.png" width="332" height="599" border="0" /></p>
+
+<p><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/04/image2.png" width="332" height="599" border="0" /></p>
+
+<p><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/04/image3.png" width="332" height="599" border="0" /></p>
+
+<h3>What about the camera?</h3>
+
+
+<p>What if the photo I am interested in is not on the phone and I’d like to use the camera. That’s very easy. PhotoChooserTask has an boolean property ShowCamera. I can set it to true to get an option to use camera.</p>
+
+<pre class="lang:c# decode:true " >private void ButtonChoosePhoto_OnClick(object sender, RoutedEventArgs e)
+{
+  PhotoChooserTask photoChooser = new PhotoChooserTask();
+  photoChooser.Completed += photoChooser_Completed;
+  photoChooser.ShowCamera = true;
+  photoChooser.Show();
+}</pre>
+
+
+<p></p>
+
+<p>Easy, isn’t it?</p>
+]]></content>
+  </entry>
+  
+</feed>

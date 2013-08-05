@@ -1,0 +1,700 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="While browsing forums today I came across a question which asked for a solution to download a file from a web server programmatically. The solution &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://deepak-kapoor.github.io/blog/page/21">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:deepak-kapoor.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/09/17/code-sample-programmatically-download-file-using-c/">Code Sample: Programmatically Download File Using C#</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-17T00:00:00+10:00" pubdate data-updated="true">Sep 17<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">While browsing forums today I came across a question which asked for a solution to download a file from a web server programmatically. The solution is very simple and below is the code which achieves the goal. Here I am downloading a file asynchronously on Button Click.
+
+<pre class="lang:c# decode:true " >
+private void buttonDownloadFile_Click(object sender, EventArgs e)
+{
+	string url
+		= @"http://www.debugrelease.com/wp-content/uploads/2008/08/image35.png";
+
+	// Create an instance of WebClient
+	WebClient client = new WebClient();
+
+	// Hookup DownloadFileCompleted Event
+	client.DownloadFileCompleted +=
+	new AsyncCompletedEventHandler(client_DownloadFileCompleted);
+
+	// Start the download and copy the file to c:temp
+	client.DownloadFileAsync(new Uri(url), @"c:tempimage35.png");
+ }
+
+ void client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+ {
+	MessageBox.Show("File downloaded");
+ }
+</pre>
+
+You can also download the file synchronously using WebClient.DownloadFile() method.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/09/17/code-sample-find-difference-between-two-datetime-values/">Code Sample: Find Difference Between Two DateTime Values</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-17T00:00:00+10:00" pubdate data-updated="true">Sep 17<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">This code shows you how to find the difference between two DateTime values. The easiest way to do this is to use the TimeSpan class and subtract one DateTime from another.
+
+<pre class="lang:c# decode:true " >
+DateTime firstDate = new DateTime(2008, 8, 1);
+DateTime secondDate = DateTime.Now;
+TimeSpan timeSpan = secondDate.Subtract(firstDate);
+
+// Get Difference 
+Console.WriteLine("Days : " + timeSpan.Days.ToString());
+Console.WriteLine("Hours : " + timeSpan.Hours.ToString());
+Console.WriteLine("Minutes : " + timeSpan.Minutes.ToString());
+
+// Get Total Hours
+Console.WriteLine("Total Hours " + timeSpan.TotalHours.ToString());
+</pre> 
+
+Here is the output.
+
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="http://www.debugrelease.com/wp-content/uploads/2008/09/image6.png" border="0" alt="image" width="255" height="72" />
+
+Note the difference between Hours and TotalHours.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/09/16/use-sqlconnection-with-linq-to-sql/">Use SqlConnection With LINQ to SQL</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-16T00:00:00+10:00" pubdate data-updated="true">Sep 16<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">LINQ To SQL allows us to use a SqlConnection object to connect to a database. The way to use a SqlConnection is to pass it as a parameter to DataContext object. DataContext object has constructor which takes in a IDbConnection and SqlConnection implements this Interface. Here I create a SqlConnection object and use it to establish a connection to database.
+
+<pre class="lang:c# decode:true " >
+
+  // Create a Connection String
+  string connectionString
+    = "Data Source=.;Initial Catalog=Northwind2;Integrated Security=True";
+
+  // Create a SqlConnection
+  using (SqlConnection connection = new SqlConnection(connectionString))
+  {
+    // Create DataContext and pass in the connection 
+    using (NorthwindDataContext context = new NorthwindDataContext(connection))
+    {
+      var query = from c in context.Customers
+        select c.CompanyName;
+      foreach (var item in query)
+      {
+        Console.WriteLine(item);
+
+      }
+    }
+  }
+</pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/09/16/linq-to-sql-join-on-multiple-conditions/">LINQ to SQL Join on Multiple Conditions</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-16T00:00:00+10:00" pubdate data-updated="true">Sep 16<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">LINQ To SQL or just plain LINQ allows us to do a join on multiple conditions using an elegant technique. In this post I will show you how to perform a Join on multiple conditions. As an example I will take two tables called House and ShoppingMall.
+
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="http://www.debugrelease.com/wp-content/uploads/2008/09/image5.png" border="0" alt="image" width="415" height="150" />
+
+Both these tables have PostCode and CouncilCode as common fields. Lets say that we want to retrieve all records from ShoppingMall where both PostCode and CouncilCode on House match. This requires us to do a join using two columns. In LINQ such a join can be done using <strong>anonymous types</strong>. Here is an example.
+
+<pre class="lang:c# decode:true " >
+var query = from s in context.ShoppingMalls
+            join h in context.Houses
+            on
+            new { s.CouncilCode, s.PostCode }
+            equals
+             new { h.CouncilCode, h.PostCode }
+            select s;
+</pre>
+
+The code above gets translated into this SQL query.
+
+<pre class="lang:tsql decode:true " >
+SELECT [t0].[ShoppingMallId], [t0].[Address],
+[t0].[PostCode], [t0].[CouncilCode]
+FROM [dbo].[ShoppingMall] AS [t0]
+INNER JOIN [dbo].[House] AS [t1]
+ON ([t0].[CouncilCode] = [t1].[CouncilCode])
+AND ([t0].[PostCode] = [t1].[PostCode])
+</pre>
+
+And when the above query is executed it produces the results we want.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/09/10/geek-rap-at-cern/">Geek Rap at CERN</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-10T00:00:00+10:00" pubdate data-updated="true">Sep 10<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">Yesterday <a href="http://news.bbc.co.uk/2/hi/science/nature/7604293.stm">Large Hardon Collider</a> went RTM at CERN. The Collider will provide insightful information about moments after Big Bang. Now for most of us Big Bang is just a very very big bang and starting of everything including space and time. But if you are not willing to settle at that and if you are interested in learning more about the Collider and Big Bang then satch this rap video. All I can say about the video is that Snoop Dogg has got nothing to worry about.
+
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="425" height="344" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="src" value="http://www.youtube.com/v/j50ZssEojtM&amp;color1=0xb1b1b1&amp;color2=0xcfcfcf&amp;hl=en&amp;fs=1" /><embed type="application/x-shockwave-flash" width="425" height="344" src="http://www.youtube.com/v/j50ZssEojtM&amp;color1=0xb1b1b1&amp;color2=0xcfcfcf&amp;hl=en&amp;fs=1"></embed></object>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/09/09/presenting-entity-framework-at-wdnug/">Presenting Entity Framework at WDNUG</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-09T00:00:00+10:00" pubdate data-updated="true">Sep 9<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">Tomorrow i.e. Wednesday 10th September, I will present Entity Framework at <a href="http://www.wdnug.org.au/">Wollongong .NET User Group (WDNUG)</a>. My presentation will focus on What, Why and How of Entity Framework. WDNUG meets at CSC Offices in Wollongong. You can find more details of the venue <a href="http://www.wdnug.org.au/Default.aspx?tabid=103">here</a>.
+
+I hope to see you there.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/09/09/channel-9-visits-one-net-way/">Channel 9 Visits One .Net Way</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-09T00:00:00+10:00" pubdate data-updated="true">Sep 9<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><a href="http://channel9.msdn.com">Channel 9</a> does a &#8221;<a href="http://channel9.msdn.com/shows/This%20Week%20On%20Channel%209/This-Week-on-C9-Dynamic-Silverlight-VSTS-buying-Caio-and-Mech-Wars/">This Week On Channel 9</a>&#8221; video every week and <a href="http://channel9.msdn.com/shows/This%20Week%20On%20Channel%209/This-Week-on-C9-Dynamic-Silverlight-VSTS-buying-Caio-and-Mech-Wars/">this week</a> they paid a visit to One .Net Way. They mentioned my post about <a href="http://www.debugrelease.com/get-a-list-of-installed-applications-using-linq-and-c/">Retrieving a list of applications using LINQ</a> in their news video. I am very happy to see One .Net Way mentioned on Channel 9. It feels good when your work is recognised and you have contributed to the community.
+
+Thank you Channel 9. I hope you&#8217;ll come again soon.
+<a href="http://channel9.msdn.com/shows/This+Week+On+Channel+9/This-Week-on-C9-Dynamic-Silverlight-VSTS-buying-Caio-and-Mech-Wars/">This Week on C9: Dynamic Silverlight, VSTS, buying Caio, and Mech Wars</a>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/09/04/tech-ed-nz-2008-content-available-online/">Tech Ed NZ 2008 Content Available Online</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-04T00:00:00+10:00" pubdate data-updated="true">Sep 4<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><a href="http://www.microsoft.com/nz/teched08/live.aspx"><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="http://www.debugrelease.com/wp-content/uploads/2008/09/image3.png" border="0" alt="image" width="530" height="134" /></a>
+
+If you are like me who is missing Tech Ed in Sydney and sulking about it then sulk not anymore my friend. Keynote and other presentations from Tech Ed NZ are <a href="http://www.microsoft.com/nz/teched08/live.aspx">available online</a> for your viewing pleasures. I am sure Australian content is not too far away.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/09/01/use-edmgen-to-generate-entity-framework-model/">Use EDMGEN to Generate Entity Framework Model</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-01T00:00:00+10:00" pubdate data-updated="true">Sep 1<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">.NET Framework 3.5 SP1 ships with a tool called edmgen. This tool can be used to generate the EDM (Entity Data Model). Being a command line tool it can be executed from a batch file or a Powershell script.
+
+Edmgen can be used to generate either a full model or selected artifacts such as CSDL, MSI, source code etc. In order to generate a full model which includes CSDL, SSDL, MSL, C#/VB.NET code you can use
+
+<span style="color: #0000ff;">/mode:FullGeneration</span>
+
+edmgen also allows you to generate code in either C# or VB.NET using the /language option. To generate code in VB.NET you will use pass the language name to /language option
+
+<span style="color: #0000ff;">/language:VB</span>
+
+Lets say that you only have the SSDL which basically defines what your source database is. In such a scenario you can use FromSSDLGeneration mode
+
+<span style="color: #0000ff;">/mode:FromSSDLGeneration</span>
+
+If you just want to validate your CSDL, SSDL and MSL files before actually generating any code then you can use ValidateArtifacts mode.
+
+<span style="color: #0000ff;">/mode:ValidateArtifacts</span>
+
+This command generates a full model for AdventureWorks database from a local machine.
+
+<span style="color: #0000ff;">EdmGen /mode:FullGeneration /project:Northwind /provider:System.Data.SqlClient </span>
+
+<span style="color: #0000ff;">/connectionstring:&#8221;server=.;integrated security=true;database=AdventureWorks&#8221;</span>
+
+edmgen is a great tool when working with Entity Framework. It also works well if you have a large number of database objects and do not want to stress Visual Studio designer.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/09/01/fundamentals-deep-cloning-in-c/">Fundamentals: Deep Cloning in C#</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-01T00:00:00+10:00" pubdate data-updated="true">Sep 1<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">To make an object cloneable in .NET we should implement ICloneable interface. ICloneable is a simple interface with only one method Clone(). In this post I will show you how to make a deep clone of an object.
+
+ 
+<pre class="lang:c# decode:true " >class Program
+    {
+        static void Main(string[] args)
+        {
+            Customer c1 = new Customer
+            {
+                FirstName = "John",
+                LastName = "Smith",
+                Limit = new CreditLimit
+                {
+                    AccountOverdue = false,
+                    ApprovedAmount = 1000
+                }
+            };
+
+            Customer c2 = (Customer)c1.Clone();
+            c2.FirstName = "Deepak";
+            c2.LastName = "Kapoor";
+            c2.Limit.AccountOverdue = true;
+            c2.Limit.ApprovedAmount = 5000;
+            Console.WriteLine("C1.FirstName = {0}, C2.FirstName = {1}", c1.FirstName, c2.FirstName);
+            Console.WriteLine("C1.LastName = {0}, C2.LastName = {1}", c1.LastName, c2.LastName);
+            Console.WriteLine("C1.Limit.AccountOverdue = {0}, C2.Limit.AccountOverdue = {1}",
+                c1.Limit.AccountOverdue, c2.Limit.AccountOverdue);
+            Console.WriteLine("C1.Limit.ApprovedAmount = {0}, C2.Limit.ApprovedAmount = {1}",
+                c1.Limit.ApprovedAmount, c2.Limit.ApprovedAmount);
+            Console.ReadKey();
+        }
+    }
+
+    [Serializable]
+    public class Customer : ICloneable
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public CreditLimit Limit { get; set; }
+
+        #region ICloneable Members
+        public object Clone()
+        {
+            object clone;
+            using (MemoryStream stream = new MemoryStream())
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                // Serialize this object
+                formatter.Serialize(stream, this);
+                stream.Position = 0;
+                // Deserialize to another object
+                clone = formatter.Deserialize(stream);
+            }
+            return clone;
+        }
+        #endregion
+    }
+
+    [Serializable]
+    public class CreditLimit
+    {
+        public int ApprovedAmount { get; set; }
+        public bool AccountOverdue { get; set; }
+    }</pre> 
+
+
+In the code above I have a Customer class which has three properties. In the clone method I use a MemoryStream to serialize and then de-serialize to another object. One of the properties of customer class is called Limit which is of type CreditLimit. I have done this to illustrated deep cloning. As a test I write property values of the original customer class and its clone to console. Note that I modify values for the cloned object. That&#8217;s all you need to do for cloning. Nice and simple.
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/22/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/20/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/31/android-expandablelistview-tutorial/">Android - ExpandableListView Tutorial</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/28/linux-install-handbrake-on-linux-mint-15/">Linux - Install Handbrake on Linux Mint 15</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/">Linux VirtualBox - Windows Host Share in Ubuntu Guest</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

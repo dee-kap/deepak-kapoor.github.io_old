@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: IBM | My Octopress Blog]]></title>
+  <link href="http://deepak-kapoor.github.io/blog/categories/ibm/atom.xml" rel="self"/>
+  <link href="http://deepak-kapoor.github.io/"/>
+  <updated>2013-08-06T06:50:20+10:00</updated>
+  <id>http://deepak-kapoor.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[IBM BigInsights Web Console Issue With BigDataUniversity VM]]></title>
+    <link href="http://deepak-kapoor.github.io/blog/2012/06/30/ibm-biginsights-web-console-issue-with-bigdatauniversity-vm/"/>
+    <updated>2012-06-30T00:00:00+10:00</updated>
+    <id>http://deepak-kapoor.github.io/blog/2012/06/30/ibm-biginsights-web-console-issue-with-bigdatauniversity-vm</id>
+    <content type="html"><![CDATA[<p>BigInsights web console error in IBM Infosphere BigInsights VM usually occurs because web console is not running. It can be started by executing start.sh which can be found in /opt/ibm/biginsights/bin. I discovered this issue while working through lab 3 of Hadoop Fundamentals 1 course from <a href="http://bigdatauniversity.com/">BigDataUniversity</a>. </p>
+
+
+<p> <p>Steps to resolve the issue:</p> <p>Assuming that you are logged in as root. Execute these commands on terminal.</p> <p><font color="#0000ff">cd /opt/ibm/biginsights/bin</font></p> <p><font color="#0000ff">./start.sh console</font></p></p>
+]]></content>
+  </entry>
+  
+</feed>

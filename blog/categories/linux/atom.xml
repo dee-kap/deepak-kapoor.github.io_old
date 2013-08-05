@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Linux | My Octopress Blog]]></title>
+  <link href="http://deepak-kapoor.github.io/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://deepak-kapoor.github.io/"/>
+  <updated>2013-08-06T06:50:20+10:00</updated>
+  <id>http://deepak-kapoor.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Linux - Set wireless bit rate permanently on Ubuntu or Linux Mint]]></title>
+    <link href="http://deepak-kapoor.github.io/blog/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/"/>
+    <updated>2013-07-31T00:00:00+10:00</updated>
+    <id>http://deepak-kapoor.github.io/blog/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint</id>
+    <content type="html"><![CDATA[<pre><code>&lt;p&gt;Recently I moved my desktop from the home office to another room. Due to this move I lost access to wired LAN and had to install a wireless adapter in my desktop. The adapter I am using is &lt;a href="http://www.tp-link.com/en/products/details/?model=TL-WN781ND"&gt;TP-Link 150Mbps Wireless N PCI Express Adapter&lt;/a&gt;. I noticed slow network speed ever since I connected to wireless on my desktop. I understand that there is a difference between wired and wireless connection, but I didn't expect the wireless to be so slow. After some investigation, I found that the real culprit was the bit rate for my wireless adapter. I resolved the speed issue by setting the bit rate to 54Mbps. In this post I will show you how to do that.&lt;/p&gt;
+&lt;p&gt;
+    Check the current bit rate
+&lt;/p&gt;
+</code></pre>
+
+<pre class="prettyprint" lang="bash">
+$ iwconfig
+
+eth0      no wireless extensions.
+
+lo        no wireless extensions.
+
+wlan0     IEEE 802.11bgn  ESSID:"Gibberish"  
+          Mode:Managed  Frequency:2.452 GHz  Access Point: 00:00:00:00:EE:EE   
+          Bit Rate=11 Mb/s   Tx-Power=20 dBm   
+          Retry  long limit:7   RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=37/70  Signal level=-73 dBm  
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:2  Invalid misc:73   Missed beacon:0</pre>
+
+
+<pre><code>&lt;p&gt;
+    The output above shows that the bit rate is set to 11Mb/s. To change it, execute this command.
+&lt;/p&gt;
+
+&lt;pre class="prettyprint" lang="bash"&gt;$ sudo iwconfig wlan0 rate 54M&lt;/pre&gt;
+
+&lt;p&gt;
+    The command will set the bit rate to be 54Mbps. This can be verified by executing &lt;code&gt;iwconfig&lt;/code&gt; again
+&lt;/p&gt;
+</code></pre>
+
+<pre class="prettyprint" lang="bash">
+$ iwconfig
+
+eth0      no wireless extensions.
+
+lo        no wireless extensions.
+
+wlan0     IEEE 802.11bgn  ESSID:"Gibberish"  
+          Mode:Managed  Frequency:2.452 GHz  Access Point: 00:00:00:00:EE:EE   
+          Bit Rate=54 Mb/s   Tx-Power=20 dBm   
+          Retry  long limit:7   RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=45/70  Signal level=-65 dBm  
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:9  Invalid misc:120   Missed beacon:0</pre>
+
+
+
+
+<p><p>Now the bit rate is 54Mbps.<p></p>
+
+<pre><code>&lt;p&gt;
+    To make this change permanent, we have to create a script in &lt;strong&gt;/etc/network/if-up.d&lt;/strong&gt; directory. All the scripts in this directory are executed when network interfaces are coming up. The script can be called anything. I decided to call it &lt;i&gt;speedup&lt;/i&gt; but you can name it anything you like. Below is the script which changes bit rate for wireless adapter wlan0 to 54Mbps.
+&lt;/p&gt;
+</code></pre>
+
+<p><pre class="prettyprint" lang="bash"></p>
+
+<h1>!/bin/bash -e</h1>
+
+<p>if [ &ldquo;$IFACE&rdquo; = &ldquo;wlan0&rdquo; ]
+then
+  iwconfig wlan0 rate 54M
+fi
+</pre>
+  <p></p>
+
+<pre><code>    The -e option in the script instructs an exit if there is an error.
+&lt;/p&gt;
+
+&lt;p&gt;
+    Also make the script executable with this command
+&lt;/p&gt;
+</code></pre>
+
+<p><pre class="prettyprint" lang="bash">
+$ sudo chmod 755 /etc/network/if-up.d/speedup</pre>
+<p>
+And that&rsquo;s it. The bit rate from now will always be 54Mbps.
+</p></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Linux - Install Handbrake on Linux Mint 15]]></title>
+    <link href="http://deepak-kapoor.github.io/blog/2013/07/28/linux-install-handbrake-on-linux-mint-15/"/>
+    <updated>2013-07-28T00:00:00+10:00</updated>
+    <id>http://deepak-kapoor.github.io/blog/2013/07/28/linux-install-handbrake-on-linux-mint-15</id>
+    <content type="html"><![CDATA[<p> <a href="http://handbrake.fr/">Handbrake</a>&nbsp;is a popular open source video transcoder software. It can be used to rip DVDs and does a lot more. Handbrake is packed with features which let you control many details of your operations. </p>
+
+
+<p> <p>Below are the commands which will install Handbrake on Linux Mint. Enjoy.</p></p>
+
+<pre class="prettyprint" lang="bash">
+sudo add-apt-repository ppa:stebbins/handbrake-releases 
+sudo apt-get update 
+sudo apt-get install handbrake-gtk</pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Linux VirtualBox - Windows host share in Ubuntu guest]]></title>
+    <link href="http://deepak-kapoor.github.io/blog/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/"/>
+    <updated>2013-07-26T00:00:00+10:00</updated>
+    <id>http://deepak-kapoor.github.io/blog/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest</id>
+    <content type="html"><![CDATA[<p>In this post I will show you how to mount and access Windows host shares on your Ubuntu guest OS running within VirtualBox.</p>
+
+
+<p></p>
+
+<p>First thing you need to do is install VirtualBox Guest Additions.</p>
+
+
+
+
+<p>Attach VBoxGuestAdditions.iso in machine settings on VirtualBox. On a 64bit machine the iso file can be found at C:\Program Files\Oracle\VirtualBox.</p>
+
+
+<p><a href="http://www.debugrelease.com/wp-content/uploads/2013/07/vboxguestadditions.png"><img src="http://www.debugrelease.com/wp-content/uploads/2013/07/vboxguestadditions.png" alt="" width="628" height="442" class="alignleft size-full wp-image-2083" /></a></p>
+
+<p>Then mount the iso in Ubuntu guest.</p>
+
+
+
+
+<pre class="prettyprint" lang="bash">deepak@ubuntu:~$ sudo mount /dev/cdrom /media/cdrom</pre>
+
+
+
+
+<p>You can now access the iso within Ubuntu. Run the following command to install Guest Additions.</p>
+
+
+
+
+<pre class="prettyprint" lang="bash">deepak@ubuntu:~$ sudo ./VBoxLinuxAdditions.run</pre>
+
+
+
+
+<p>This will install Guest Additions. A new group called vboxsf will also be created. Verify that the group exists by running this command.</p>
+
+
+
+
+<pre class="prettyprint" lang="bash">deepak@ubuntu:~$ cat /etc/group | grep vboxsf
+
+vboxsf:x:1005:</pre>
+
+
+
+
+<p>Next go to machine settings and click on Shared Folders. Add a host folder you'd like to share. In the screenshot below I have shared temp folder on my D drive.</p>
+
+
+<p><a href="http://www.debugrelease.com/wp-content/uploads/2013/07/vboxsharefolder.png"><img src="http://www.debugrelease.com/wp-content/uploads/2013/07/vboxsharefolder.png" alt="" width="626" height="440" class="alignleft size-full wp-image-2084" /></a></p>
+
+<p>The shared folder is now accessible within Ubuntu. Just mount it to a directory.</p>
+
+
+
+
+<pre class="prettyprint" lang="bash">deepak@ubuntu:~$ makedir /media/host-share
+deepak@ubuntu:~$ sudo mount -t vboxsf temp /media/host-share</pre>
+
+
+
+
+<p>The <code>-t</code> option is used to specify a file system which in this case is <strong>vboxsf</strong>.</p>
+
+
+
+
+<p>You can now access host temp folder within Ubuntu which has been mounted at /media/host-share.</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Linux - setgid on directory and share directory with users]]></title>
+    <link href="http://deepak-kapoor.github.io/blog/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/"/>
+    <updated>2013-07-25T00:00:00+10:00</updated>
+    <id>http://deepak-kapoor.github.io/blog/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users</id>
+    <content type="html"><![CDATA[<p>I came across a scenario which warranted using <code>setgid</code>. The requirement was to allow multiple users to create files and read files in a directory. I also wanted to ensure that this requirement can be easily met for any future users. I will explain what I did with a simple example.</p>
+
+
+<p>To make it simple we will work with two users and one directory. The directory will be called <strong>shareddocs</strong>. As there are multiple users involved, it is not a good idea to create it in home but some place like <strong>/usr/share</strong>. Only a user with superuser privileges can create a directory in /usr/share, so we will need to use <code>sudo</code>. On my machine I am the master of unixverse and I have permissions to sudo.</p>
+
+
+
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ sudo mkdir /usr/share/shareddocs</pre>
+
+
+
+
+<p>Two users in this example are <strong>deepak</strong> and <strong>chewbacca</strong>. deepak already exists and we need to create chewbacca. If you are trying this at home then replace deepak with whatever your username is. Just remember that you will need to use sudo for some commands so make sure that the account you are using has appropriate permissions.</p>
+
+
+
+
+<p>Let's create chewbacca and set chewbacca's password.</p>
+
+
+
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ sudo useradd chewbacca
+deepak@ubuntu:~$ sudo passwd chewbacca</pre>
+
+
+
+
+<p>Let's also create a group called warriors.</p>
+
+
+
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ sudo groupadd warriors</pre>
+
+
+
+
+<p>Next we need to make deepak and chewbacca members of warrirors group.</p>
+
+
+
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ sudo usermod -a -G warriors deepak
+deepak@ubuntu:~$ sudo usermod -a -G warriors chewbacca</pre>
+
+
+
+
+<p>To see groups a user belongs to, we can run this command.</p>
+
+
+
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ groups chewbacca</pre>
+
+
+
+
+<p>And now the fun starts. Logged in as deepak, let's create a file in /usr/share/shareddocs</p>
+
+
+
+
+<pre class="prettyprint lang-bash">
+deepak@ubuntu:~$ sudo touch /usr/share/shareddocs/story1.txt</pre>
+
+
+
+
+<p>View permissions for /usr/share/shareddocs</p>
+
+
+
+
+<pre class="prettyprint lang-bash">
+deepak@ubuntu:~$ ls -ld /usr/share/shareddocs/
+
+drwxr-xr-x 2 root root 4096 Jul 24 22:43 /usr/share/shareddocs/</pre>
+
+
+
+
+<p>Notice how both owner and group are root for /usr/share/sharedocs directory. Now if we try to create a file as chewbacca we will get an error.</p>
+
+
+
+
+<pre class="prettyprint lang-bash">
+chewbacca@ubuntu:~$ touch /usr/share/shareddocs/story2.txt
+touch: cannot touch 'story2.txt': Permission denied</pre>
+
+
+
+
+<p>This is because only root has read and write permissions to the directory. We can fix the situation by first giving the group ownership to warriors group we created earlier.</p>
+
+
+
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ sudo chown :warriors /usr/share/shareddocs/</pre>
+
+
+
+
+<p>Now if we look at the permissions, we see that our directory is owned by warriors group.</p>
+
+
+
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ ls -ld /usr/share/shareddocs/
+
+drwxr-xr-x 2 root warriors 4096 Jul 24 22:43 /usr/share/shareddocs/</pre>
+
+
+
+
+<p>So can chewbacca create a file now? Well not yet. We still need to enable write permission for the group.</p>
+
+
+
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ sudo chmod 775 /usr/share/shareddocs/</pre>
+
+
+
+
+<p>By executing the above command we have given read, write and execute to owner and the group.</p>
+
+
+
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ ls -ld /usr/share/shareddocs/
+
+drwxrwxr-x 2 root warriors 4096 Jul 24 22:43 /usr/share/shareddocs/</pre>
+
+
+<p>chewbacca can now create files in /usr/share/shareddocs/</p>
+
+<pre class="prettyprint lang-bash">chewbacca@ubuntu:~$ touch story2.txt</pre>
+
+
+
+
+<p>One problem still remains. Files created by chewbacca are owned by group chewbacca. We want all files within the directory to be owned by <strong>warriors</strong> group. This is where <code>setgid</code> comes in. Finally! you say. Let's run the following command.</p>
+
+
+
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ sudo chmod g+s /usr/share/shareddocs</pre>
+
+
+
+
+<p>From here on any files created by either deepak or chewbacca will be owned by warriors group. Now if deepak created story3.txt and chewbacca created story4.txt, they will both be owned by warriors group.</p>
+
+
+<pre class="prettyprint lang-bash">
+-rw-r--r-- 1 root root 16 Jul 25 15:26 story1.txt
+-rw-rw-r-- 1 chewbacca chewbacca 0 Jul 25 15:36 story2.txt
+-rw-rw-r-- 1 deepak warriors 0 Jul 25 15:42 story3.txt
+-rw-rw-r-- 1 chewbacca warriors 0 Jul 25 15:44 story4.txt</pre>
+
+
+
+
+<p>Note that two files we created earlier are still not owned by warriors. They cannot be shared and we should just delete them.</p>
+
+
+
+
+<p>Let's talk a bit more about <code>setgid</code>. The command sets group id bits. This means that any new files or directories created within the directory will inherit the same group as containing directory.</p>
+
+
+
+
+<p>To remove the group id bit we can use <code>g-s</code>.</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Linux  - Number of files in directory]]></title>
+    <link href="http://deepak-kapoor.github.io/blog/2013/07/03/linux-number-of-files-in-directory/"/>
+    <updated>2013-07-03T00:00:00+10:00</updated>
+    <id>http://deepak-kapoor.github.io/blog/2013/07/03/linux-number-of-files-in-directory</id>
+    <content type="html"><![CDATA[<p><p>The command to get the number of files in a directory is. <p>
+<pre class="prettyprint">ls –l | grep ^&ndash; | wc –l</pre>
+<p>If you are here just to get the command then no need to read further. However if you&rsquo;d like to understand a bit more then read on.</p>
+<p>At home I have a media centre which runs XMBC on Ubuntu. I was in mood for doing an audit on the content I have and I came across a need to find the number of files in a directory. Of course being a Linux person my first preference is to do things from command line. Hence this post. </p>
+<p>In this post I will show you how to get a count of files in a directory. You can pick any directory you like. /var/log is always a good place to find some files you can mess with. Or you can create a bunch of files to follow along. This way our numbers will match and will be less confusing. Execute following commands. These will create some directories and a bunch of empty files.</p></p>
+
+<p><pre class="prettyprint lang-bash">mkdir testdir
+mkdir testdir/dir1
+touch testdir/hello
+touch testdir/goodmorning
+touch testdir/goodafternoon
+touch testdir/bye
+</pre></p>
+
+<p><p>Running a simple <code>ls -la</code> command gives us the list of all files and directories</p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/07/image.png" width="579" height="127" /></p>
+<p>A helpful option if you want to see the files listed per line is <code>-1</code>. If we run <code>ls -1</code> we get the following output.</p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/07/image1.png" width="572" height="111" /></p>
+<p>With the output above we can simply count the number of lines and we have the count of files. Counting lines can be done by using <code>wc -l</code> command. The <code>-l</code> option prints the count of newlines. Let’s see what happens if we execute this command.</p>
+<pre class="prettyprint">ls –1 | wc –l</pre>
+<p>The result is <strong>5</strong>. </p>
+<p>This is not accurate. If you are working with the files we created earlier in this post then you will see that we have 4 files and one directory. We are only interested in the count of files. This can easily be achieved by using some simple <code>grep</code> magic and rather than using <code>-1</code> option on <code>ls</code> command, we will use <code>-l</code> option. Command below does the job.</p>
+<pre class="prettyprint">ls –l | grep ^&ndash; | wc –l</pre>
+<p>The command above deserves some love. What we are doing is first get a list of all files and directories then we <code>grep</code> them to filter out only files. In the output of <code>ls -l</code>, files start with <strong>–</strong> and directories start with <strong>d</strong>. We finally use the <code>wc</code> command and use the option which prints the count of newlines. And there you have it, the count of files in a directory.</p></p>
+]]></content>
+  </entry>
+  
+</feed>
