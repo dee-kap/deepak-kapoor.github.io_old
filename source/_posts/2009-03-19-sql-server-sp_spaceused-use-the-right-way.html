@@ -1,0 +1,38 @@
+---
+layout: post
+title: SQL Server – sp_spaceused Use The Right Way
+categories:
+- Microsoft
+- SQL Server
+tags:
+- SQL Server
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '8430'
+  _edit_last: '1'
+  _aioseop_title: SQL Server sp_spaceused Use The Right Way
+  _aioseop_keywords: sp_spaceused, SQL Server, space
+  _aioseop_description: sql server sp_spaceused can be used to get physical space
+    used by a table. This post shows you how to use sp_spaceused in a right way.
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image243-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image243.png
+  simplecatch-sidebarlayout: ''
+---
+To find out the space used by a table we can use sp_spaceused procedure. Most of the times sp_spaceused will give correct information. Why do I say most of the time? Well consider this example. I just inserted a large amount of data in Orders table in Northwind database and ran sp_spaceused.
+<pre class="code"><span style="color: blue">EXEC </span><span style="color: maroon">sp_spaceused </span><span style="color: red">'Orders'</span></pre>
+which returns this result
+
+<img style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/03/image24.png" border="0" alt="image" width="431" height="47" />
+
+But if I run sp_spaceused with true for its second parameter which is updateusage
+<pre class="code"><span style="color: blue">EXEC </span><span style="color: maroon">sp_spaceused </span><span style="color: red">'Orders'</span><span style="color: gray">, </span>TRUE</pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+I get the following result
+
+<img style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/03/image25.png" border="0" alt="image" width="430" height="48" />
+
+Notice the difference in reserved space and index size. What has happened here is that by passing in true for updateusage SQL Server automatically runs DBCC UPDATEUSAGE which corrects any inaccuracies in catalog views. So it is a good idea to run sp_spaceused by supplying true for updateusage parameter if you absolutely must get accurate information. And especially after inserting large amounts of data.

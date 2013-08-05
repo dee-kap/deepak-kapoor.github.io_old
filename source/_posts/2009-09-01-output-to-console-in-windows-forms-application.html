@@ -1,0 +1,74 @@
+---
+layout: post
+title: Output To Console In Windows Forms Application
+categories:
+- .NET
+- Microsoft
+tags:
+- C#
+- Win32
+- Windows Forms
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '21736'
+  _edit_last: '1'
+  _aioseop_keywords: Console
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image35-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image35.png
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+This post shows you how to output data to a Console in a Windows Forms Application. I use this technique religiously when developing Windows Forms applications. Debugging is much simpler when you can see information on what your application is doing in a Console. Of course the onus is on you as developer to output data which will help you.
+
+In this post I will use a simple Windows Forms application which adds two numbers.
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Windows Forms" src="http://www.debugrelease.com/wp-content/uploads/2009/09/image.png" border="0" alt="Windows Forms" width="300" height="188" />
+
+By default a Windows Forms application does not output to a Console even if you write a Console.Write() or Console.WriteLine(). This shortcoming can be addressed by using Win32 API. In your Windows Forms application you can declare a class which provides a wrapper around Win32 functions.
+
+<pre class="lang:c++ decode:true " >public class Win32
+{
+  /// &lt;summary&gt;
+  /// Allocates a new console for current process.
+  /// &lt;/summary&gt;
+  [DllImport("kernel32.dll")]
+  public static extern Boolean AllocConsole();
+
+  /// &lt;summary&gt;
+  /// Frees the console.
+  /// &lt;/summary&gt;
+  [DllImport("kernel32.dll")]
+  public static extern Boolean FreeConsole();
+}</pre> 
+
+A Console must be started to accept input and display our messages. This can be done by calling Win32.AllocConsole() function. For my example I will start the console in my form’s constructor.
+ 
+<pre class="lang:c# decode:true " >public Form1()
+{
+  InitializeComponent();
+
+  Win32.AllocConsole();
+}</pre> 
+
+Now when I write to Console, I will see data appear in the console window which was started in my constructor.
+
+ 
+<pre class="lang:c# decode:true " >private void Add(int num1, int num2)
+{
+  int result = num1 + num2;
+
+  Console.WriteLine(
+    string.Format("{0} + {1} = {2}", num1, num2, result));
+}</pre> 
+
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Console" src="http://www.debugrelease.com/wp-content/uploads/2009/09/image1.png" border="0" alt="Console" width="419" height="189" />
+
+As a good practice you should also close the console window by calling Win32.FreeConsole() method before your application exits.

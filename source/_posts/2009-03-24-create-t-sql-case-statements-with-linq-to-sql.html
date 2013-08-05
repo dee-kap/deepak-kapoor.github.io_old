@@ -1,0 +1,92 @@
+---
+layout: post
+title: Create T-SQL CASE Statements With LINQ To SQL
+categories:
+- .NET
+- SQL Server
+tags:
+- LINQ
+- T-SQL
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '16828'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image381-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image381.png
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+<p>I was recently helping <a href="http://twitter.com/nosherwan">Nosh</a> with a LINQ To SQL query where he wanted the resulting T-SQL query to have CASE statements. Having CASE statements in T-SQL queries is a common scenario but how do we it in LINQ To SQL .After some investigation I found the solution which I am presenting here using an example.</p>  <p>I have created a table called CityWeather. This table has&#160; two fields: Name and Temperature. Here is the script if you wish to create the table on your machine.</p>  
+
+<pre class="lang:tsql decode:true " >
+CREATE TABLE [dbo].[CityWeather](
+    [Name] [nvarchar](100) NOT NULL,
+    [Temperature] [decimal](18, 0) NOT NULL
+) ON [PRIMARY]
+</pre>
+
+<p>My objective is to get LINQ To SQL to produce a T-SQL statement similar to this.</p>
+
+<pre class="lang:tsql decode:true " >
+SELECT 
+    Name, 
+    Temperature, 
+    CASE Temperature
+        WHEN 30 THEN 'Toasted'
+        WHEN 25 THEN 'I like it'
+        WHEN 10 THEN 'Just perfect'
+        WHEN -15 THEN 'Gonna freeze my'
+    END AS 'Message'
+FROM CityWeather
+</pre>
+
+<p>Using my trusted LINQPad here is how I wrote my LINQ To SQL query.</p>
+
+<pre class="lang:c# decode:true " >
+from c in CityWeathers
+select new
+        {
+          c.Name,
+          c.Temperature,
+          Messaage = c.Temperature == 30 ? "Toasted" : 
+          c.Temperature == 25 ? "I like it" :
+          c.Temperature == 10 ? "Just perfect" :
+          c.Temperature == -15 ? "Gonna freeze my" : ""
+        }
+</pre>
+
+
+<p>My LINQ To SQL query produced the following T-SQL Query</p>
+
+<pre class="lang:tsql decode:true " >
+SELECT [t0].[Name], [t0].[Temperature], 
+    (CASE 
+        WHEN [t0].[Temperature] = @p0 THEN CONVERT(NVarChar(15),@p1)
+        WHEN [t0].[Temperature] = @p2 THEN CONVERT(NVarChar(15),@p3)
+        WHEN [t0].[Temperature] = @p4 THEN CONVERT(NVarChar(15),@p5)
+        WHEN [t0].[Temperature] = @p6 THEN @p7
+        ELSE CONVERT(NVarChar(15),@p8)
+     END) AS [Messaage]
+FROM [CityWeather] AS [t0]
+-- @p0: Input Decimal (Size = 0; Prec = 33; Scale = 4) [30]
+-- @p1: Input NVarChar (Size = 7; Prec = 0; Scale = 0) [Toasted]
+-- @p2: Input Decimal (Size = 0; Prec = 33; Scale = 4) [25]
+-- @p3: Input NVarChar (Size = 9; Prec = 0; Scale = 0) [I like it]
+-- @p4: Input Decimal (Size = 0; Prec = 33; Scale = 4) [10]
+-- @p5: Input NVarChar (Size = 12; Prec = 0; Scale = 0) [Just perfect]
+-- @p6: Input Decimal (Size = 0; Prec = 33; Scale = 4) [-15]
+-- @p7: Input NVarChar (Size = 15; Prec = 0; Scale = 0) [Gonna freeze my]
+-- @p8: Input NVarChar (Size = 0; Prec = 0; Scale = 0) []
+-- Context: SqlProvider(Sql2008) Model: AttributedMetaModel Build: 3.5.30729.1
+</pre>
+
+<p>And here is the output.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="LINQ To SQL When Case" border="0" alt="LINQ To SQL When Case" src="http://www.debugrelease.com/wp-content/uploads/2009/03/image38.png" width="329" height="147" /></p>

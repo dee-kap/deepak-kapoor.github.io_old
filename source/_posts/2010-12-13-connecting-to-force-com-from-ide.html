@@ -1,0 +1,47 @@
+---
+layout: post
+title: Connecting to Force.com from IDE
+categories:
+- Force.com
+tags:
+- Apex
+- Cloud Computing
+- Eclipse
+- Force.com
+- Mac
+- Salesforce
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '15498'
+  _edit_last: '1'
+  _wp_old_slug: connecting-to-salesforce-from-ide
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/201012101021-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/201012101021.jpg
+  simplecatch-sidebarlayout: ''
+---
+Working through Force.com tutorials I came to the point where I wrote some Apex code. Instead of doing this via Browser based interface, I decided to use Force.com IDE which as you know is an Eclipse plugin. This post documents the steps I went through to get connectivity to the warehouse application created as part of the tutorial.
+
+I created a new Force.com project in IDE and entered my username and password.
+
+<img src="http://www.debugrelease.com/wp-content/uploads/2010/12/201012101021.jpg" alt="201012101021.jpg" width="480" height="472" />
+
+Things did not go well and I got the following message.
+
+<img src="http://www.debugrelease.com/wp-content/uploads/2010/12/201012101025.jpg" alt="201012101025.jpg" width="480" height="225" />
+
+But I thought that I already have a security token. I've been logging into developer.force.com from this computer. However I decided to follow the suggestion in the message and logged into developer.force.com and went through the Reset Security Token process.
+
+<img src="http://www.debugrelease.com/wp-content/uploads/2010/12/201012131251.jpg" alt="201012131251.jpg" width="480" height="200" />
+
+I got the token emailed to me and used is as per the instructions on Reset Security Token page. The instruction is to append the token to the password.
+
+And finally I was connected.
+
+<img src="http://www.debugrelease.com/wp-content/uploads/2010/12/201012131248.jpg" alt="201012131248.jpg" width="480" height="472" />
+
+I could now see my project in the project explorer.
+
+<img src="http://www.debugrelease.com/wp-content/uploads/2010/12/201012101037.jpg" alt="201012101037.jpg" width="323" height="265" />

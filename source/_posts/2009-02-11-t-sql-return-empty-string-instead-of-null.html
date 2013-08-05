@@ -1,0 +1,31 @@
+---
+layout: post
+title: T-SQL Return Empty String Instead Of Null
+categories:
+- SQL Server
+tags:
+- Code Snippets
+- SQL Server
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '7854'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image71-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image71.png
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+<p>There are times when we want to return empty strings for column(s) which have NULL values. T-SQL makes this easy with ISNULL function. Two parameters for this function are:    <br /></p>  <ol>   <li>The column in question </li>    <li>Replacement value </li> </ol>  <p>&#160;</p>  <p>Here is an example query for Customers table in Northwind database. This query will select Region column from the table and return blank strings where it finds NULL.</p>  
+
+<pre class="lang:tsql decode:true " >SELECT ISNULL(Region,'') FROM Customers</pre>
+
+<p>Here is a partial screenshot of the resultset returned. You can see that the value for top rows is blank. These are actually NULL in database.</p>
+
+<p><img title="image" style="border-top-width: 0px; display: inline; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="226" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/02/image7.png" width="135" border="0" /></p>

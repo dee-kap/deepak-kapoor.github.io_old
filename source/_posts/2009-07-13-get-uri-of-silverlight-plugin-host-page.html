@@ -1,0 +1,48 @@
+---
+layout: post
+title: Get URI Of Silverlight Plugin Host Page
+categories:
+- .NET
+- Microsoft
+tags:
+- Silverlight
+- Tips
+- XAML
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '7521'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image18-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image18.png
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+<p>Within our Silverlight application if we want to know the URI where our Silverlight content is running, we can tap into System.Windows.Browser namespace. This namespace contains object which are full of Browser related information. This is an example of retrieving the URI from within Silverlight application.</p>  
+
+ 
+<pre class="lang:xhtml decode:true " >&lt;StackPanel x:Name="LayoutRoot" Margin="10"&gt;
+  &lt;TextBlock Text="Your URL is: " /&gt;
+  &lt;TextBlock Text="{Binding AbsoluteUri}" /&gt;
+&lt;/StackPanel&gt;</pre> 
+
+
+<p>In our C# code we can set the DataContext so that the second TextBlock above displays the information we desire.</p>
+
+ 
+<pre class="lang:c# decode:true " >private void UserControl_Loaded(object sender, RoutedEventArgs e)
+{
+  LayoutRoot.DataContext = 
+    System.Windows.Browser.HtmlPage.Document.DocumentUri;
+}</pre> 
+
+
+<p>Here is my output which displays the URL at which my Silverlight plugin is hosted. </p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image18.png" width="240" height="46" /></p>

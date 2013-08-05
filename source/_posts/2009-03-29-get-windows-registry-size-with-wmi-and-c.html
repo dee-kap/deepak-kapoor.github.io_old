@@ -1,0 +1,40 @@
+---
+layout: post
+title: Get Windows Registry Size With WMI And C#
+categories:
+- .NET
+tags:
+- Code Snippets
+- WMI
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '5690'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image451-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image451.png
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+<p>Windows Registry Size can be retrieved using WMI objects. This code snippet shows you how to get current size and maximum size for Windows registry.</p>  
+
+<pre class="lang:c# decode:true " >
+ManagementObjectSearcher mgmtObjects = 
+  new ManagementObjectSearcher("Select * from Win32_Registry");
+
+foreach (var item in mgmtObjects.Get())
+{
+  Console.WriteLine(string.Format("Current Size: {0}MB", item["CurrentSize"]));
+  Console.WriteLine(string.Format("Maximum Size: {0}MB", item["MaximumSize"]));
+}
+</pre>
+
+<p>The output.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Windows Registry Size" border="0" alt="Windows Registry Size" src="http://www.debugrelease.com/wp-content/uploads/2009/03/image45.png" width="186" height="41" /></p>

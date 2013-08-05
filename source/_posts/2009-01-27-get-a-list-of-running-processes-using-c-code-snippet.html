@@ -1,0 +1,35 @@
+---
+layout: post
+title: Get A List Of Running Processes Using C# – Code Snippet
+categories:
+- .NET
+- Microsoft
+tags:
+- C#
+- Code Snippets
+- Diagnostics
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '5754'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: ''
+  _wp_rp_extracted_image_url_full: ''
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+This code will retrieve a list of currently running process on a machine and write their names to console.
+
+<pre class="lang:c# decode:true " >
+// Get A List of process using 
+// System.Diagnostics.Process class
+List<Process> processes = Process.GetProcesses().ToList();
+// Write them out to Console
+processes.ForEach(x => Console.WriteLine(x.ProcessName));
+</pre>

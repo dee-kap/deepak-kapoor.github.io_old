@@ -1,0 +1,76 @@
+---
+layout: post
+title: Select photos on Windows Phone with PhotoChooserTask
+categories:
+- Windows Phone
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+  _featured_post: ''
+  _syntaxhighlighter_encoded: '1'
+  simplecatch-sidebarlayout: ''
+---
+It is a common feature of many apps to select photos stored on the device. The feature can be implemented by using PhotoChooserTask class. In this post I will show you how to use PhotoChooserTask to select existing photos and also take photos using the camera.
+
+Code for this post is available on <a href="https://github.com/deepak-kapoor/photochooser">Github</a>.
+
+The UI for this app is very simple. It contains just one Image control and a button
+
+<pre class="font:courier-new lang:xhtml decode:true">&lt;StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"&gt;
+  &lt;Image x:Name="ImageChosen" /&gt;
+  &lt;Button x:Name="ButtonChoosePhoto"
+    Content="choose photo"
+    Click="ButtonChoosePhoto_OnClick"/&gt;
+&lt;/StackPanel</pre>
+
+In the OnClick event handler I instantiate a PhotoChooserTask object, hook it with an event handler when Completed event is fired and finally call Show method on PhotoChooserTask.
+
+ 
+<pre class="lang:c# decode:true " >private void ButtonChoosePhoto_OnClick(object sender, RoutedEventArgs e)
+{
+  PhotoChooserTask photoChooser = new PhotoChooserTask();
+  photoChooser.Completed += photoChooser_Completed;
+  photoChooser.Show();
+}</pre> 
+
+
+Within the event handler I place this code. The code checks if the TaskResult is OK and then creates a new BitmapImage object from the stream in PhotoResult object which is supplied as an argument to the handler.
+
+ 
+<pre class="lang:c# decode:true " >void photoChooser_Completed(object sender, PhotoResult e)
+{
+  if (e.TaskResult == TaskResult.OK)
+  {
+    BitmapImage bitmap = new BitmapImage();
+    bitmap.SetSource(e.ChosenPhoto);
+    ImageChosen.Source = bitmap;
+  }
+}</pre> 
+
+
+Here is the app in working.
+
+<img style="background-image: none; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border: 0px;" title="Photo Chooser" alt="Photo Chooser" src="http://www.debugrelease.com/wp-content/uploads/2013/04/image.png" width="332" height="599" border="0" />
+
+<img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/04/image1.png" width="332" height="599" border="0" />
+
+<img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/04/image2.png" width="332" height="599" border="0" />
+
+<img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border: 0px;" title="image" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/04/image3.png" width="332" height="599" border="0" />
+<h3>What about the camera?</h3>
+What if the photo I am interested in is not on the phone and I’d like to use the camera. That’s very easy. PhotoChooserTask has an boolean property ShowCamera. I can set it to true to get an option to use camera.
+
+ 
+<pre class="lang:c# decode:true " >private void ButtonChoosePhoto_OnClick(object sender, RoutedEventArgs e)
+{
+  PhotoChooserTask photoChooser = new PhotoChooserTask();
+  photoChooser.Completed += photoChooser_Completed;
+  photoChooser.ShowCamera = true;
+  photoChooser.Show();
+}</pre> 
+
+
+Easy, isn’t it?

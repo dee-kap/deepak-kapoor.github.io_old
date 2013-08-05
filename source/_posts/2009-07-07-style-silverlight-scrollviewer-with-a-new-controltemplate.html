@@ -1,0 +1,71 @@
+---
+layout: post
+title: Style Silverlight ScrollViewer With A New ControlTemplate
+categories:
+- .NET
+- Microsoft
+tags:
+- ScrollViewer
+- Silverlight
+- StackPanel
+- Style
+- XAML
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '15345'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image53-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image53.png
+  simplecatch-sidebarlayout: ''
+---
+<p>In an earlier post I showed you <a href="http://www.debugrelease.com/scrolling-in-silverlight-panels/">how to add ScrollViewer to Panels</a>. In this post I will show you how to change the look of&#160; the ScrollViewer using Expression Blend. I will work with the same example where I placed&#160; ScrollViewer for a StackPanel. Here is the XAML I will use with a screenshot of its output.</p>  <pre class="code"><span style="color: blue">&lt;</span><span style="color: #a31515">ScrollViewer</span><span style="color: blue">&gt;
+  &lt;</span><span style="color: #a31515">StackPanel </span><span style="color: red">x</span><span style="color: blue">:</span><span style="color: red">Name</span><span style="color: blue">=&quot;LayoutRoot&quot; 
+</span><span style="color: red">              Background</span><span style="color: blue">=&quot;Honeydew&quot;&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkBlue&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkRed&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkGoldenrod&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkSeaGreen&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DodgerBlue&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkGreen&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkMagenta&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkOrchid&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkTurquoise&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkViolet&quot; /&gt;
+  &lt;/</span><span style="color: #a31515">StackPanel</span><span style="color: blue">&gt;
+&lt;/</span><span style="color: #a31515">ScrollViewer</span><span style="color: blue">&gt;</span></pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+<p>&#160;</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="StackPanel With ScrollViewer" border="0" alt="StackPanel With ScrollViewer" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image5.png" width="350" height="321" /> </p>
+
+<p>I will now show you how to modify the standard look of the ScrollViewer. Rather than killing myself by typing all the XAML required to achieve the goal, I will use Blend which makes doing this a breeze. In the Objects and Timeline I can see the hierarchy of Controls in my Page.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image6.png" width="257" height="222" />&#160;</p>
+
+<p>What I need to do now is change the default Control Template for ScrollViewer. This can be done by right clicking ScrollViewer in Objects and Timeline –&gt; Edit Control Parts (Template) –&gt; Edit a Copy.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image7.png" width="471" height="368" /> </p>
+
+<p>My Objects and Timeline shows me the hierarchy of controls involved in a ScrollViewer. I now need to modify the template for VerticalScrollBar. This can be done by right clicking VierticalScrollBar –&gt; Edit Control parts (Template) –&gt; Edit a Copy.</p>
+
+<p>In Objects and Timeline I now see this hierarchy.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image8.png" width="258" height="347" /> </p>
+
+<p>To keep things simple, I will just change the background of my ScrollViewer. This can be done by applying a Radial gradient to the first Rectangle (highlighted above). </p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image9.png" width="269" height="284" /> </p>
+
+<p>Screenshot below shows the changed background for ScrollViewer in Expression Blend. </p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image10.png" width="369" height="349" /> </p>
+
+<p>Now when I run my application I can see that the background of my ScrollViewer has a Radial gradient applied to it.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image11.png" width="351" height="322" /> </p>
+
+<p>Similarly we can changes other parts of the ScrollViewer such as top and bottom buttons and the thumb. Silverlight allows us to change look of controls significantly by editing Control Templates. You saw an example of this awesomeness in this article.</p>

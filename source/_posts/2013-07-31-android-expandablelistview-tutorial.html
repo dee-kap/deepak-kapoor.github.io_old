@@ -1,0 +1,265 @@
+---
+layout: post
+title: Android - ExpandableListView Tutorial
+categories:
+- Android
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+  simplecatch-sidebarlayout: default
+---
+<h3>Introduction</h3>
+<p>In this tutorial I will show you how to use <strong>ExpandableListView</strong> widget in your Android app. ExpandableListView widget is used to display hierarchical data which is two levels deep. If your hierarchy is more than two levels then you should look at options other than ExpandableListView. Now let's get started.</p>
+
+<p>We will develop an app which displays a bunch of countries with some of their cities. When a user taps the name of a country, the widget expands to show cities. Below is a screenshot of the app.</p>
+
+<img style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="" src="http://www.debugrelease.com/wp-content/uploads/2013/07/ExpandableList2.png" width="640" height="737" />
+
+<h3>Setup</h3>
+<p>First thing we need is a class to hold information about countries and cities. Let's create a class called Country.</p>
+
+<pre class="prettyprint" lang="java">
+public class Country {
+  private String Name;
+  private List<String> Cities;
+
+  public Country(String name, List<String> cities) {
+    Name = name;
+    Cities = cities;
+  }
+
+  public String getName() {
+    return Name;
+  }
+
+  public List<String> getCities() {
+    return Cities;
+  }
+}
+</pre>
+
+<p>We will later populate a list of countries in our activity.</p>
+
+<h3>Adapter</h3>
+
+<p>Like <a href="http://www.debugrelease.com/2013/06/19/android-listview-tutorial/">ListView</a> widget, ExpandableListView also works with an adapter. Android SDK provides a BaseExpandableListAdapter which we can use for our simple example. We
+will provide a constructor which takes a Context and a List of countries as arguments.</p>
+
+<pre class="prettyprint" lang="java">
+public CountryAdapter(Context context, List<Country> countries) {
+  this.countries = countries;
+  inflater = LayoutInflater.from(context);
+}
+</pre>
+
+<p>The constructor will set the private member countries which will be later used by overriden methods in our adapter. We will also set our private Inflater object by calling LayoutInflater.from() method.</p>
+
+<p>Next come the overrides which do most of the work. Before we get into the methods, let's understand how ExpandableListView works. The concept is very simple, you have groups which in our case are countries. Within each group you have children which are cities in our example. And it is just that simple. Let's look at some of the methods we will override in our adapter.</p>
+
+<pre class="prettyprint" lang="java">
+@Override
+public int getGroupCount() {
+  return countries.size();
+}
+</pre>
+
+<p><strong>getChildrenCount</strong> returns the count of children. This method accepts one argument which is groupPosition. What we return here is the count of children for a particular group. In our example we will return the count of cities for a country.</p>
+
+<pre class="prettyprint" lang="java">
+@Override
+public int getChildrenCount(int groupPosition) {
+  return countries.get(groupPosition).getCities().size();
+}
+</pre>
+
+<p><strong>hasStableIds</strong> method is used to inform if the id values for our objects will change during the course of our app.</p>
+
+<p><strong>getGroupView</strong> is used to return a view which will be drawn for each group item. In this case we are using the simple_expandable_list_item_1 layout which is a part of the SDK.</p>
+
+<pre class="prettyprint" lang="java">
+@Override
+public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+  if (convertView == null) {
+    convertView = inflater.inflate(R.layout.simple_expandable_list_item_1, parent, false);
+  }
+
+  ((TextView) convertView).setText(getGroup(groupPosition).toString());
+  return convertView;
+}
+</pre>
+
+<p>Similarly <strong>getChildView</strong> returns the view used by each child item.</p>
+
+<p>Some of the other methods such as getGroup, getChild, getGroupId and
+getChildId are fairly intuitive.</p>
+
+<p>Below is the entire code for our adapter.</p>
+
+<pre class="prettyprint" lang="java">
+package com.debugrelease.android.ExpandableListViewTutorial;
+
+import android.R;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseExpandableListAdapter;
+import android.widget.TextView;
+
+import java.util.List;
+
+public class CountryAdapter extends BaseExpandableListAdapter {
+  private List<Country> countries;
+  private LayoutInflater inflater;
+
+  public CountryAdapter(Context context, List<Country> countries) {
+    this.countries = countries;
+    inflater = LayoutInflater.from(context);
+  }
+
+  @Override
+  public int getGroupCount() {
+    return countries.size();
+  }
+
+  @Override
+  public int getChildrenCount(int groupPosition) {
+    return countries.get(groupPosition).getCities().size();
+  }
+
+  @Override
+  public Object getGroup(int groupPosition) {
+    return countries.get(groupPosition).getName();
+  }
+
+  @Override
+  public Object getChild(int groupPosition, int childPosition) {
+    return countries.get(groupPosition).getCities().get(childPosition);
+  }
+
+  @Override
+  public long getGroupId(int groupPosition) {
+    return groupPosition;
+  }
+
+  @Override
+  public long getChildId(int groupPosition, int childPosition) {
+    return childPosition;
+  }
+
+  @Override
+  public boolean hasStableIds() {
+    return true;
+  }
+
+  @Override
+  public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+    if (convertView == null) {
+      convertView = inflater.inflate(R.layout.simple_expandable_list_item_1, parent, false);
+    }
+
+    ((TextView) convertView).setText(getGroup(groupPosition).toString());
+    return convertView;
+  }
+
+  @Override
+  public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+    if(convertView == null) {
+      convertView = inflater.inflate(R.layout.simple_list_item_1, parent, false);
+    }
+
+    ((TextView)convertView).setText(getChild(groupPosition,childPosition).toString());
+    return convertView;
+  }
+
+  @Override
+  public boolean isChildSelectable(int i, int i2) {
+    return false;
+  }
+}
+</pre>
+
+<h3>Main Activity</h3>
+<p>The layout for our MainActivity will include an ExpandableListView within a <a href="http://www.debugrelease.com/2013/06/11/android-linear-layout-example/">LinearLayout</a>.</p>
+
+<pre class="prettyprint">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+  package=&quot;com.debugrelease.android.ExpandableListViewTutorial&quot;
+  android:versionCode=&quot;1&quot;
+  android:versionName=&quot;1.0&quot;&gt;
+    &lt;uses-sdk android:minSdkVersion=&quot;15&quot;/&gt;
+    &lt;application android:label=&quot;@string/app_name&quot; android:icon=&quot;@drawable/ic_launcher&quot;&gt;
+        &lt;activity android:name=&quot;MainActivity&quot;
+          android:label=&quot;@string/app_name&quot;&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&quot;android.intent.action.MAIN&quot;/&gt;
+        &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot;/&gt;
+    &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+    &lt;/application&gt;
+&lt;/manifest&gt;
+</pre>
+
+<p>In our MainActivity class we will tie everything together. In this class we will load up a list of countries and in the <strong>onCreate</strong> method, we will set the adapter for our ExpandableListView. Below is the code for MainActivity.java</p>
+
+<pre class="prettyprint" lang="java">
+package com.debugrelease.android.ExpandableListViewTutorial;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.ExpandableListView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class MainActivity extends Activity {
+  private static List<Country> Countries;
+  private ExpandableListView expandableListView;
+  private CountryAdapter adapter;
+
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.main);
+
+    LoadCountries();
+    expandableListView = (ExpandableListView) findViewById(R.id.expandableListView);
+    adapter = new CountryAdapter(this, Countries);
+    expandableListView.setAdapter(adapter);
+  }
+
+  private void LoadCountries() {
+    Countries = new ArrayList<Country>();
+
+    ArrayList<String> citiesAustralia = new ArrayList<String>(
+        Arrays.asList("Brisbane", "Hobart", "Melbourne", "Sydney"));
+    Countries.add(new Country("Australia", citiesAustralia));
+
+    ArrayList<String> citiesChina = new ArrayList<String>(
+        Arrays.asList("Beijing", "Chuzhou", "Dongguan", "Shangzhou"));
+    Countries.add(new Country("China", citiesChina));
+
+    ArrayList<String> citiesIndia = new ArrayList<String>(
+        Arrays.asList("Bombay", "Calcutta", "Delhi", "Madras"));
+    Countries.add(new Country("India", citiesIndia));
+
+    ArrayList<String> citiesNewZealand = new ArrayList<String>(
+        Arrays.asList("Auckland", "Christchurch", "Wellington"));
+    Countries.add(new Country("New Zealand", citiesNewZealand));
+
+    ArrayList<String> citiesRussia = new ArrayList<String>(
+        Arrays.asList("Moscow", "Kursk", "Novosibirsk", "Saint Petersburg"));
+    Countries.add(new Country("Russia", citiesRussia));
+  }
+}
+
+</pre>
+
+<h3>Conclusion</h3>
+<p>Like most of the other widgets, ExpandableListView is also very simple to work with. In this tutorial we saw an example which displays two levels deep hierarchical data of countries and cities using ExpandableListView. I hope you enjoyed it. Please leave a comment if you'd like to discuss something or have any questions.</p>
+<p>The code for this tutorial can be found in my <a href="http://bit.ly/debrel-android-samples">Github repository</a>. Within the repository look for ExpandableListViewTutorial folder.</p>

@@ -1,0 +1,78 @@
+---
+layout: post
+title: Get A List Of Installed Applications Using LINQ And C#
+categories:
+- .NET
+- Microsoft
+tags:
+- C#
+- LINQ
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '26517'
+  _edit_last: '1'
+  _featured_post: ''
+  _wp_rp_extracted_image_url: ''
+  _wp_rp_extracted_image_url_full: ''
+  wpzoom_is_carousel: ''
+  wpzoom_is_featured: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: default
+---
+<p>To get a list of installed applications we need to look into registry. Microsoft.Win32 namespace contains objects which can be used to work with Windows Registry. In this post I will show you some code where I use the power of LINQ to retrieve and display a list of all applications installed on a machine.</p>  <p>The basic idea is that we iterate through a collection of RegistryKey objects within LocalMachineSOFTWAREMicrosoftWindowsCurrentVersionUninstall. We then open the sub keys and get the DisplayName.</p>  <p>Here is the code:</p>  
+
+<pre class="prettyprint" >
+static void DisplayInstalledApplications()
+{
+  string registryKey = 
+    @"SOFTWAREMicrosoftWindowsCurrentVersionUninstall";
+
+  using (Microsoft.Win32.RegistryKey key =
+    Registry.LocalMachine.OpenSubKey(registryKey))
+  {
+    var query = from a in
+              key.GetSubKeyNames()
+              let r = key.OpenSubKey(a)
+              select new
+              {
+                Application = r.GetValue("DisplayName")
+              };
+
+    foreach (var item in query)
+    {
+      if (item.Application != null)
+        Console.WriteLine(item.Application);
+    }
+  }
+}
+</pre>
+
+<div>I can also make this a bit more LINQed by removing the foreach loop. It just adds a bit more C# 3.0 flavour to the code and does the retrieval and writing to console in one line.</div>
+
+<pre class="prettyprint" >
+static void DisplayInstalledApplications2()
+{
+  string registryKey =
+    @"SOFTWAREMicrosoftWindowsCurrentVersionUninstall";
+
+  using (Microsoft.Win32.RegistryKey key = 
+    Registry.LocalMachine.OpenSubKey(registryKey))
+  {
+    (from a in key.GetSubKeyNames()
+    let r = key.OpenSubKey(a)
+    select new
+    {
+      Application = r.GetValue("DisplayName")
+    }).ToList()
+      .FindAll(c => c.Application != null)
+      .ForEach(c => Console.WriteLine(c.Application));
+  }
+}
+</pre>
+
+<div>I hope you found this post useful. If yes, then do not forget to subscribe to <a href="http://feeds.feedburner.com/debug-release">feed</a> .</div>

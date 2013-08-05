@@ -1,0 +1,29 @@
+---
+layout: post
+title: SQL Server 2008 – Find If A Database Is Offline With T-SQL
+categories:
+- Microsoft
+- SQL Server
+tags:
+- SQL Server
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '9134'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: ''
+  _wp_rp_extracted_image_url_full: ''
+  simplecatch-sidebarlayout: default
+---
+<p>In SQL Server 2008 you can find if a database is online of offline by querying databases system view. A simple query such as this one gives me a list of all databases on my server and the second column shows if the database is online or offline. </p>  
+
+ 
+<pre class="lang:tsql decode:true " >SELECT Name, state_desc
+FROM sys.databases</pre> 
+
+
+<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="339" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/03/image.png" width="311" border="0" /> </p>
+
+<p>On my server I have a database called LinqToSqlLab which is currently offline. </p>

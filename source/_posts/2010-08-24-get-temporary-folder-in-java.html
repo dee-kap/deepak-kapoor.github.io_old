@@ -1,0 +1,38 @@
+---
+layout: post
+title: Get Temporary Folder In Java
+categories:
+- Java
+- Oracle
+tags:
+- Exaples
+- Java
+- Mac
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  _syntaxhighlighter_encoded: '1'
+  views: '5969'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: ''
+  _wp_rp_extracted_image_url_full: ''
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+<p>This example shows you how to retrieve the name of temporary folder for your operating system using Java code.</p>
+<p>All it takes is one line of code to get this information.</p>
+
+<pre class="lang:java decode:true " >
+public static void main(String[] args) {
+
+  String property = System.getProperty(&quot;java.io.tmpdir&quot;);
+  System.out.println(property);
+
+}
+</pre>

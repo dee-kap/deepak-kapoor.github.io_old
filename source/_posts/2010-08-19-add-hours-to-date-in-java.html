@@ -1,0 +1,37 @@
+---
+layout: post
+title: Add Hours To Date In Java
+categories:
+- Java
+- Oracle
+tags:
+- Java
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '3593'
+  _edit_last: '1'
+  _aioseop_description: Add Hours, Minutes or Seconds to a Date using Calendar class
+    from java.utils package.
+  _syntaxhighlighter_encoded: '1'
+  _wp_rp_extracted_image_url: ''
+  _wp_rp_extracted_image_url_full: ''
+  simplecatch-sidebarlayout: ''
+---
+<p>I’ll come out clean on this. Lately I’ve been doing some Java and I have to say that the other side is not all that bad as it’s projected to be. Most of my Java work is around integration with .NET&#160; and I’m lovin it.</p>  <p>My forays into Java and other non-Microsoft technologies is a post for another day. Today I just want to share some simple code which I wrote while I was struggling with a simple requirement. The requirement is to add x number of hours to current Date-Time.</p>  <p>I found that the best way to do this is by using <strong>Calendar</strong> class from <strong>java.utils</strong> package. Here is the code I wrote.</p>  <pre class="brush: java;">public static void main(String[] args) {
+
+        // Create a new calendar object
+        Calendar calendar = Calendar.getInstance();
+
+        System.out.println(calendar);
+
+        // Add 5 hours to current time
+        calendar.add(Calendar.HOUR, 5);
+
+        System.out.println(calendar);
+
+    }</pre>
+
+<p>Each day as I work with Java I find things that seem interesting especially for a .NET guy. I’ll keep posting them.</p>

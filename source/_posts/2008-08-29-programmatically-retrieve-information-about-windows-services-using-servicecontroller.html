@@ -1,0 +1,52 @@
+---
+layout: post
+title: Programmatically Retrieve Information About Windows Services Using ServiceController
+categories:
+- .NET
+- Microsoft
+tags:
+- .Net
+- C#
+- Windows Forms
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '8423'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image362-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image362.png
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  _aioseop_title: Use ServiceController class get information about Windows services
+  _aioseop_description: Learn how to use ServiceController class to get information
+    about Windows Services on your computer.
+  _aioseop_keywords: Windows Service, .Net, ServiceController, C#, programming
+  simplecatch-sidebarlayout: ''
+---
+ServiceControl can be used to get information about a Windows Service on a machine.  In this post I will show you how to retrieve information about a service using ServiceControl.
+
+To begin with lets examine the properties for ServiceControl. Through the designer we can set the ServiceName property. This can be set to the name of a service for which we wish to get more information.
+
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="http://www.debugrelease.com/wp-content/uploads/2008/08/image36.png" border="0" alt="image" width="383" height="433" />
+
+Retrieving details about a service is simply calling the appropriate properties.
+
+ 
+<pre class="lang:c# decode:true " >private void buttonServiceInfo_Click(object sender, EventArgs e)
+{
+    listBox1.Items.Add("Status: " + serviceController.Status.ToString());
+    listBox1.Items.Add("ServiceType: " + serviceController.ServiceType.ToString());
+    listBox1.Items.Add("ServiceHandle: " + serviceController.ServiceHandle.ToString());
+    listBox1.Items.Add("CanStop: " + serviceController.CanStop.ToString());
+    listBox1.Items.Add("DisplayName: " + serviceController.DisplayName.ToString());
+}</pre> 
+
+
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="http://www.debugrelease.com/wp-content/uploads/2008/08/image37.png" border="0" alt="image" width="338" height="316" />
+
+Other than properties ServiceControl can also be used to start or stop a service. ServiceControl IMO is a little hidden gem which at times can be very useful.

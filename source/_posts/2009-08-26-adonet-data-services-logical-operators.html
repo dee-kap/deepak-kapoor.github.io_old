@@ -1,0 +1,229 @@
+---
+layout: post
+title: ADO.NET Data Services Logical Operators
+categories:
+- .NET
+- Microsoft
+tags:
+- ADO.NET
+- Data Services
+- LINQ
+- REST
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '12542'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: ''
+  _wp_rp_extracted_image_url_full: ''
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+<p>In this post we will look at Logical Operators in ADO.NET Data Services. These operators can be used as filter expressions in our requests and ADO.NET Data Services applies the filter before results are returned. We will use Data Services generated over Adventureworks Lite database. If you are new to ADO.NET Data Services and would like to know how to generate ADO.NET Data Service then please see this <a href="http://www.debugrelease.com/adonet-data-services-tutorial-with-aspnet/">article</a>.</p>  <p>One thing to keep in mind is that filter expressions are case sensitive. And the syntax of applying filters in ADO.NET Data Services is</p>  <p><font color="#008000">&lt;url&gt;?$filter=&lt;your filter&gt;</font></p>  <p>Let’s now look at all logical operators</p>  <h3>Equal To</h3>  <p><font color="#008000">Parameter: eq</font></p>  <p>Equal To evaluates true when both operands have the same value. Here I am retrieving products where the value of Color matches “Yellow”.</p>  <p><font color="#800000" size="3">http://localhost:6803/DataService.svc/Product?$filter=Color eq 'Yellow'</font></p>  <p>Logical operator can also be applied in code through a LINQ query. </p>  
+
+ 
+<pre class="lang:c# decode:true " >AdventureWorksEntities context = new AdventureWorksEntities(uri);
+DataServiceQuery&lt;Product&gt; products = context.CreateQuery&lt;Product&gt;(@"/Product");
+
+var query = from p in products
+  where p.Color == "Yellow"
+  select p;
+
+foreach (var item in query)
+{
+  Console.WriteLine(item.ProductID + "t" + item.Color);
+}</pre> 
+
+
+<h3>Not Equal To</h3>
+<font color="#008000"></font>
+
+<p><font color="#008000">Parameter: ne</font></p>
+
+<p>Not equal is opposite of equal to and evaluates true when both operands do not have the same value. Here I am retrieving products where the value of Color is NOT “Yellow”.</p>
+
+<p><font color="#800000" size="3">http://localhost:6803/DataService.svc/Product?$filter=Color ne 'Yellow'</font></p>
+
+<p>Following code will also achieve the same result through a LINQ query.</p>
+
+ 
+<pre class="lang:c# decode:true " >AdventureWorksEntities context = new AdventureWorksEntities(uri);
+DataServiceQuery&lt;Product&gt; products = context.CreateQuery&lt;Product&gt;(@"/Product");
+
+var query = from p in products
+  where p.Color != "Yellow"
+  select p;
+
+foreach (var item in query)
+{
+  Console.WriteLine(item.ProductID + "t" + item.Color);
+}</pre> 
+
+
+<h3>Less than</h3>
+
+<p><font color="#008000">Parameter: lt</font></p>
+
+<p>Less than evaluates true when first operand is less than second. In this example I get all products where ListPrice is less than 20.</p>
+
+<p><font color="#800000" size="3">http://localhost:6803/DataService.svc/Product?$filter=ListPrice lt 20</font></p>
+
+<p>Here is the C# version of Less than operator.</p>
+
+ 
+<pre class="lang:c# decode:true " >AdventureWorksEntities context = new AdventureWorksEntities(uri);
+DataServiceQuery&lt;Product&gt; products = context.CreateQuery&lt;Product&gt;(@"/Product");
+
+var query = from p in products
+  where p.ListPrice &lt; 20
+  select p;
+
+foreach (var item in query)
+{
+  Console.WriteLine(item.ProductID + "t" + item.ListPrice);
+}</pre> 
+
+
+<h3>Less than or equal to</h3>
+
+<p><font color="#008000">Parameter: le</font></p>
+
+<p>Less than or equal to evaluates true when first operand is either less than or equal to second operand. In this example I am retrieving all products where ListPrice is less than or equal to 9.5</p>
+
+<p><font color="#800000" size="3">http://localhost:6803/DataService.svc/Product?$filter=ListPrice le 9.5</font></p>
+
+<p>And C# equivalent will look like this.</p>
+
+ 
+<pre class="lang:c# decode:true " >AdventureWorksEntities context = new AdventureWorksEntities(uri);
+DataServiceQuery&lt;Product&gt; products = context.CreateQuery&lt;Product&gt;(@"/Product");
+
+var query = from p in products
+  where p.ListPrice &lt;= 9.5m
+  select p;
+
+foreach (var item in query)
+{
+  Console.WriteLine(item.ProductID + "t" + item.ListPrice);
+}</pre> 
+
+
+<h3>Greater than</h3>
+
+<p><font color="#008000">Parameter: gt</font></p>
+
+<p>Greater than evaluates true if the first operand is greater than the second. In this example I am retrieving all products where ListPrice is greater than 9.5</p>
+
+<p><font color="#800000" size="3">http://localhost:6803/DataService.svc/Product?$filter=ListPrice gt 9.5</font></p>
+
+<p>Greater than is a no brainer with a LINQ query.</p>
+
+ 
+<pre class="lang:c# decode:true " >AdventureWorksEntities context = new AdventureWorksEntities(uri);
+DataServiceQuery&lt;Product&gt; products = context.CreateQuery&lt;Product&gt;(@"/Product");
+
+var query = from p in products
+  here p.ListPrice &gt; 9.5m
+  select p;
+
+foreach (var item in query)
+{
+  Console.WriteLine(item.ProductID + "t" + item.ListPrice);
+}</pre> 
+
+
+<h3>Greater than or equal to</h3>
+
+<p><font color="#008000">Parameter: ge</font></p>
+
+<p>Greater than or equal to evaluates true if the first operand is greater than or equal to second. Here is&#160; an example. I am retrieving all products where ListPrice is greater than or equal to 9.5</p>
+
+<p><font color="#800000" size="3">http://localhost:6803/DataService.svc/Product?$filter=ListPrice ge 9.5</font></p>
+
+<p>C# example</p>
+
+ 
+<pre class="lang:c# decode:true " >AdventureWorksEntities context = new AdventureWorksEntities(uri);
+DataServiceQuery&lt;Product&gt; products = context.CreateQuery&lt;Product&gt;(@"/Product");
+
+var query = from p in products
+  where p.ListPrice &gt;= 9.5m
+  select p;
+
+foreach (var item in query)
+{
+  Console.WriteLine(item.ProductID + "t" + item.ListPrice);
+}</pre> 
+
+
+<h3>And</h3>
+
+<p><font color="#008000">Parameter: and</font></p>
+
+<p>“And” evaluates true when both operands are true. In this example I am retrieving all products where the Color is Black and ListPrice is greater than 1000.</p>
+
+<p><font color="#800000" size="3">http://localhost:6803/DataService.svc/Product?$filter=(Color eq 'Black') and (ListPrice gt 1000)</font></p>
+
+<p>Same results can be retrieved in C# with this code.</p>
+
+ 
+<pre class="lang:c# decode:true " >AdventureWorksEntities context = new AdventureWorksEntities(uri);
+DataServiceQuery&lt;Product&gt; products = context.CreateQuery&lt;Product&gt;(@"/Product");
+
+var query = from p in products
+  where (p.Color == "Black") 
+    &amp;&amp; (p.ListPrice &gt; 1000)
+  select p;
+
+foreach (var item in query)
+{
+  Console.WriteLine(item.Color + "t" + item.ListPrice);
+}</pre> 
+
+
+<h3>Or</h3>
+
+<p><font color="#008000">Parameter: or</font></p>
+
+<p>“Or” evaluates true when either operand is true. In this example I am retrieving all products where either the Color is Black or ListPrice is greater than 1000.</p>
+
+<p><a href="http://localhost:6803/DataService.svc/Product?"><font color="#800000" size="3">http://localhost:6803/DataService.svc/Product?</font></a><font color="#800000" size="3">$filter=(Color eq 'Black') or (ListPrice gt 1000)</font></p>
+
+<p>Now with C#.</p>
+
+ 
+<pre class="lang:c# decode:true " >AdventureWorksEntities context = new AdventureWorksEntities(uri);
+DataServiceQuery&lt;Product&gt; products = context.CreateQuery&lt;Product&gt;(@"/Product");
+
+var query = from p in products
+  where (p.Color == "Black")
+    || (p.ListPrice &gt; 1000)
+  select p;
+
+foreach (var item in query)
+{
+  Console.WriteLine(item.Color + "t" + item.ListPrice);
+}</pre> 
+
+
+<h3>Not</h3>
+
+<p><font color="#008000">Parameter: not</font></p>
+
+<p>“Not” evaluates true if operand is false. An example can be retrieving all products where the Color is not Black. </p>
+
+<p><font color="#800000" size="3">http://localhost:6803/DataService.svc/Product?$filter=not (Color eq 'Black')</font></p>
+
+<p>While this can be achieved using not equal to operator they are not the same. I’ll leave C# code for this one for you :)</p>
+
+<p>&#160;</p>
+
+<h3>Conclusion</h3>
+
+<p>This article demonstrated all logical operators available for ADO.NET Data Services. In a future post I will cover other types of operators for ADO.NET Data Services. </p>

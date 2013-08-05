@@ -1,0 +1,48 @@
+---
+layout: post
+title: Select Max Value With LINQ To SQL
+categories:
+- .NET
+- Microsoft
+- SQL Server
+tags:
+- LINQ
+- T-SQL
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '46653'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image15-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image15.png
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+Today I was asked a question by a developer on my team. The question is “How do you select MAX value for a column in a table with LINQ To SQL?”. I will try to answer the question in this post with an example. Let’s say that we want to retrieve maximum unit price from Products table in Northwind database. In T-SQL such a query can be written like this.
+
+ 
+<pre class="lang:tsql decode:true " >SELECT MAX(UnitPrice)
+FROM products</pre> 
+
+
+Query above produces the correct result.
+
+<img style="display: inline; border-width: 0px;" title="image" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image.png" width="178" height="46" border="0" />
+
+In LINQ To SQL we can write the following query
+
+ 
+<pre class="lang:c# decode:true " >(from p in Products select (p.UnitPrice)).Max()  </pre> 
+
+
+which will get translated into this T-SQL.
+
+<img style="display: inline; border-width: 0px;" title="image" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image1.png" width="294" height="36" border="0" />
+
+Other than MAX we can also use other aggregates such as MIN, SUM etc..

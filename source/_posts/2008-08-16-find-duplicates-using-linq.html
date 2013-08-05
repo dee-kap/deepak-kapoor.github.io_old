@@ -1,0 +1,66 @@
+---
+layout: post
+title: Find Duplicates Using LINQ
+categories:
+- .NET
+- Microsoft
+tags:
+- LINQ
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '22846'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image281-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image281.png
+  simplecatch-sidebarlayout: default
+---
+How can we find duplicate occurrences of values in a collection? I will demonstrate this here using a collection of cities. City class looks like this:
+
+ 
+<pre class="lang:c# decode:true " >public class City
+{
+public string Name { get; set; }
+public string Country { get; set; }
+}</pre> 
+
+
+Cities collection is initialised with this code:
+
+<pre class="lang:c# decode:true " >
+List cities =
+new List
+{
+new City{ Name = "Sydney", Country = "Australia" },
+new City{ Name = "Sydney", Country = "Australia" },
+new City{ Name = "New York", Country = "USA" },
+new City{ Name = "Paris", Country = "France" },
+new City{ Name = "Milan", Country = "Spain" },
+new City{ Name = "Melbourne", Country = "Australia" },
+new City{ Name = "Auckland", Country = "New Zealand" },
+new City{ Name = "Tokyo", Country = "Japan" },
+new City{ Name = "New Delhi", Country = "India" },
+new City{ Name = "Hobart", Country = "Australia" },
+new City{ Name = "Boston", Country = "USA"}
+};
+</pre>
+
+Objective is to find countries which occur more than once in the collection and while I am doing that I would also like to know the number of cities for that country. To do this I can use this query. I am using a foreach loop to output my results.
+
+<pre class="lang:c# decode:true " >
+var query =
+from c in cities
+group c by c.Country into g
+where g.Count() &gt; 1
+select new { Country = g.Key, CityCount = g.Count()};</pre>
+<pre class="lang:c# decode:true " > foreach (var item in query)
+{
+Console.WriteLine("Country {0} has {1} cities", item.Country, item.CityCount);
+}
+</pre>
+
+By running the above query I get this output which is correct as there are only two countries in the collection which have more than one city.
+
+<img style="border: 0px;" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2008/08/image28.png" width="279" height="48" border="0" />

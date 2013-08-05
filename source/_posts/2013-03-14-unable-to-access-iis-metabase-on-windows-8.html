@@ -1,0 +1,21 @@
+---
+layout: post
+title: Unable to access IIS Metabase on Windows 8
+categories:
+- Microsoft
+- Visual Studio
+tags:
+- .Net
+- Microsoft
+- Visual Studio 2010
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '180'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/SNAGHTML3d25f90-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/SNAGHTML3d25f90.png
+  simplecatch-sidebarlayout: ''
+---
+<p>After installing Windows 8, I found that my ASP.NET MVC projects won’t open in Visual Studio. This is the error thrown by Visual Studio 2012.</p> <p><img title="SNAGHTML3d25f90" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="SNAGHTML3d25f90" src="http://www.debugrelease.com/wp-content/uploads/2013/03/SNAGHTML3d25f90.png" width="492" height="185"></p> <p>My first reaction was to execute aspnet_regiis –i command. That did not work.</p> <p><img title="SNAGHTML3d4c20a" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="SNAGHTML3d4c20a" src="http://www.debugrelease.com/wp-content/uploads/2013/03/SNAGHTML3d4c20a.png" width="677" height="343"></p> <p>This was a WTF moment. It turns out that I should be running Visual Studio 2012 as an administrator. After running Visual Studio 2012 as admin, the error went away and life once again seemed a bit normal.</p>

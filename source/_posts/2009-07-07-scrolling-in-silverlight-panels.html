@@ -1,0 +1,69 @@
+---
+layout: post
+title: Scrolling In Silverlight Panels
+categories:
+- .NET
+- Microsoft
+tags:
+- ScrollViewer
+- Silverlight
+- StackPanel
+- XAML
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '30115'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image26-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image26.png
+  simplecatch-sidebarlayout: ''
+---
+<p>Scrolling is a very basic User Interface feature which allows you to navigate vertically or horizontally the content which may take up more than available area. In Silverlight scrolling is not available by default for any of the panels. But it can easily be made available with just a little bit of XAML. In this post I will show you how to enable scrolling for a StackPanel which contains more items than it can fit within its size.</p>  <p>To begin with I will create a StackPanel with about 10 rectangles. </p>  <pre class="code"><span style="color: blue">&lt;</span><span style="color: #a31515">StackPanel </span><span style="color: red">x</span><span style="color: blue">:</span><span style="color: red">Name</span><span style="color: blue">=&quot;LayoutRoot&quot; 
+            </span><span style="color: red">Background</span><span style="color: blue">=&quot;Honeydew&quot;&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkBlue&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkRed&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkGoldenrod&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkSeaGreen&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DodgerBlue&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkGreen&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkMagenta&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkOrchid&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkTurquoise&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkViolet&quot; /&gt;
+&lt;/</span><span style="color: #a31515">StackPanel</span><span style="color: blue">&gt;</span></pre>
+
+<pre class="code"><span style="color: blue"></span></pre>
+
+<p><a href="http://11011.net/software/vspaste"></a></p>
+
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Panel without ScrollViewer" border="0" alt="Panel without ScrollViewer" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image2.png" width="539" height="320" /></p>
+
+<p>To get a ScrollViewer all I need to do is Wrap my StackPanel inside a ScrollViewer.</p>
+
+<pre class="code"><span style="color: blue">&lt;</span><span style="color: #a31515">ScrollViewer</span><span style="color: blue">&gt;
+  &lt;</span><span style="color: #a31515">StackPanel </span><span style="color: red">x</span><span style="color: blue">:</span><span style="color: red">Name</span><span style="color: blue">=&quot;LayoutRoot&quot; 
+              </span><span style="color: red">Background</span><span style="color: blue">=&quot;Honeydew&quot;&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkBlue&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkRed&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkGoldenrod&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkSeaGreen&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DodgerBlue&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkGreen&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkMagenta&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkOrchid&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkTurquoise&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkViolet&quot; /&gt;
+  &lt;/</span><span style="color: #a31515">StackPanel</span><span style="color: blue">&gt;
+&lt;/</span><span style="color: #a31515">ScrollViewer</span><span style="color: blue">&gt;</span></pre>
+
+<p><a href="http://11011.net/software/vspaste"></a></p>
+
+<p>&#160;</p>
+
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="ScrollViewer" border="0" alt="ScrollViewer" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image3.png" width="539" height="321" /></p>
+
+<p>ScrollViewer can also be used with other panels such as Grid, Canvas etc. Other than scrolling vertically ScrollViewer can also be uses to scroll horizontally. This can be done by setting HorizontalScrollBarVisibility property as shown below.</p>
+
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="HorizontalScrollBarVisibility" border="0" alt="HorizontalScrollBarVisibility" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image4.png" width="406" height="115" /></p>

@@ -1,0 +1,85 @@
+---
+layout: post
+title: Silverlight Wrap Panel
+categories:
+- .NET
+- Microsoft
+tags:
+- Silverlight
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '12965'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image28-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image28.png
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+<p>Wrap panel in Silverlight is missing out of the box, but this need is fulfilled by Silverlight Toolkit which also includes many other controls. In this post we will look at WrapPanel. I will show you how to use it and what it is used for.</p>  <p>To use wrap panel you have to install <a href="http://www.codeplex.com/Silverlight">Silverlight Toolkit</a>. Once installed, you will need to add a reference to Silverlight.Windows.Controls.Toolkit</p>  <p>&#160;<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Silverlight.Windows.Controls.Toolkit" border="0" alt="Silverlight.Windows.Controls.Toolkit" src="http://www.debugrelease.com/wp-content/uploads/2009/06/image2.png" width="482" height="406" /> </p>  <p>And you can now use the WrapPanel. In the XAML below you can see that the main container of my user control is a WrapPanel.</p>  
+
+ 
+<pre class="lang:xhtml decode:true " >&lt;UserControl 
+xmlns:controls=
+"clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"  
+  x:Class="SilverlightWrapPanelDemo.Page"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  Width="400" Height="300"&gt;
+  &lt;controls:WrapPanel x:Name="LayoutRoot" Background="White"&gt;
+
+  &lt;/controls:WrapPanel&gt;
+&lt;/UserControl&gt;</pre> 
+
+
+<p>WrapPanel as the name says will wrap controls. Any controls which cannot fit on the first line will be wrapped to next line and so forth. Here is a demo.</p>
+
+ 
+<pre class="lang:xhtml decode:true " >&lt;UserControl 
+xmlns:controls=
+"clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"  
+  x:Class="SilverlightWrapPanelDemo.Page"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  Width="400" Height="300" Background="CornflowerBlue"&gt;
+  &lt;controls:WrapPanel x:Name="LayoutRoot" Background="Honeydew"&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkBlue" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkRed" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkGoldenrod" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkSeaGreen" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DodgerBlue" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkOrchid" /&gt;
+  &lt;/controls:WrapPanel&gt;
+&lt;/UserControl&gt;</pre> 
+
+
+<p>&#160;<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="WrapPanel" border="0" alt="WrapPanel" src="http://www.debugrelease.com/wp-content/uploads/2009/06/image3.png" width="399" height="300" /> </p>
+
+<p>If I reduce the width of UserControl you can see that WrapPanel automatically wraps controls placed inside the container.</p>
+
+ 
+<pre class="lang:xhtml decode:true " >&lt;UserControl 
+xmlns:controls=
+"clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"  
+  x:Class="SilverlightWrapPanelDemo.Page"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  Width="350" Height="300" Background="CornflowerBlue"&gt;
+  &lt;controls:WrapPanel x:Name="LayoutRoot" Background="Honeydew"&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkBlue" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkRed" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkGoldenrod" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkSeaGreen" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DodgerBlue" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkOrchid" /&gt;
+  &lt;/controls:WrapPanel&gt;
+&lt;/UserControl&gt;</pre> 
+
+
+<p>&#160;<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="WrapPanel" border="0" alt="WrapPanel" src="http://www.debugrelease.com/wp-content/uploads/2009/06/image4.png" width="348" height="300" /></p>

@@ -1,0 +1,43 @@
+---
+layout: post
+title: Programmatically Take Screenshot Using C#
+categories:
+- .NET
+- Microsoft
+tags:
+- C#
+- Code Snippets
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '10472'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: ''
+  _wp_rp_extracted_image_url_full: ''
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+<p>To do this you will need to add references to System.Drawing and System.Windows.Forms. Make sure that you have following using statements:</p>  
+
+<pre class="lang:c# decode:true " >
+using System;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Windows.Forms;
+</pre>
+
+<p>In your method add this code. It will take a screenshot of your primary screen and save it to a file.</p>
+
+<pre class="lang:c# decode:true " >
+Bitmap bitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width, 
+                  Screen.PrimaryScreen.Bounds.Height);
+Graphics graphics = Graphics.FromImage(bitmap as Image);
+graphics.CopyFromScreen(0, 0, 0, 0, bitmap.Size);
+bitmap.Save(@"c:tempscreenshot.bmp", ImageFormat.Bmp);
+</pre>

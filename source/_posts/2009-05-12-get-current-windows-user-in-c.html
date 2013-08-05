@@ -1,0 +1,34 @@
+---
+layout: post
+title: Get Current Windows User In C#
+categories:
+- .NET
+- Microsoft
+tags:
+- Code Snippets
+- Security
+- Windows
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '7516'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: ''
+  _wp_rp_extracted_image_url_full: ''
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+<p>This snippet will show you how to get the currently logged in user on windows. </p>  
+
+<pre class="lang:c# decode:true " >
+System.Security.Principal.WindowsIdentity identity =
+  System.Security.Principal.WindowsIdentity.GetCurrent();
+
+Console.WriteLine(identity.Name);
+</pre>

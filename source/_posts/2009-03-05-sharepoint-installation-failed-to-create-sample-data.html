@@ -1,0 +1,19 @@
+---
+layout: post
+title: SharePoint Installation Failed To Create Sample Data
+categories:
+- Microsoft
+tags:
+- SharePoint
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '13009'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: ''
+  _wp_rp_extracted_image_url_full: ''
+  simplecatch-sidebarlayout: ''
+---
+<p>This one always gets me off guard so I’m posting this here for more than anything else to remind me. The issue occurs when you configure your MOSS environment which is normally done after installing MOSS. The issue is that while inserting sample data the wizard throws an error which says “Failed to create sample data”. The reason this occurs is because you’ve not configured MSDTC properly. Here are the steps to resolve the problem picked up from this <a href="http://support.microsoft.com/kb/916894">link</a>. </p>  <p>To resolve this issue, configure the security settings for the Microsoft Distributed Transaction Coordinator (DTC) to use the <strong>Allow Remote Clients</strong> setting. To do this, follow these steps: </p>  <ol>   <li>Click <strong>Start</strong>, point to <strong>Administrative Tools</strong>, and then click <strong>Component Services</strong>. </li>    <li>In the left pane of the Component Services snap-in, expand <strong>Component Services</strong>, and then expand <strong>Computers</strong>. </li>    <li>Right-click <strong>My Computer</strong>, and then click <strong>Properties</strong>. </li>    <li>Click the <strong>MSDTC</strong> tab, and then click <strong>Security Configuration</strong> under <strong>Transaction Configuration</strong>. </li>    <li>Under <strong>Security Settings</strong>, click to select the <strong>Network DTC Access</strong> check box, if it is not already selected. Then, click to select the <strong>Allow Remote Clients</strong> check box </li>    <li>Click <strong>OK</strong>. </li>    <li>When you receive the message that states that the DTC service will be stopped and restarted, click <strong>Yes</strong> to confirm that you want to continue. </li>    <li>Click <strong>OK</strong> when you receive the message that the DTC service was restarted. </li>    <li>Click <strong>OK</strong>.</li> </ol>  <p>&#160;</p>  <p>Once the above steps have been executed, running the wizard inserts sample data without any problem.</p>

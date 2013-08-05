@@ -1,0 +1,32 @@
+---
+layout: post
+title: SQL Server 2008 – Get Space  Used By a Table
+categories:
+- Microsoft
+- SQL Server
+tags:
+- SQL Server
+- T-SQL
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '5127'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image117-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image117.png
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+<p>You can easily get information on how much space a table is using by executing <strong>sp_spaceused </strong>stored procedure. Executing the following query on AdventureWorks database shows me how much space Person.Contact table is using. Information presented is detailed which includes the number of rows, reserved space, index size, space used by data and any unused space in kilo-bytes.</p>  
+
+ 
+<pre class="lang:tsql decode:true " >exec sp_spaceused [Person.Contact]</pre> 
+
+
+<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="68" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/02/image11.png" width="423" border="0" /></p>

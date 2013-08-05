@@ -1,0 +1,45 @@
+---
+layout: post
+title: ! 'Code Sample: Find Difference Between Two DateTime Values'
+categories:
+- .NET
+- Microsoft
+tags:
+- .Net
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '14587'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image63-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image63.png
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+This code shows you how to find the difference between two DateTime values. The easiest way to do this is to use the TimeSpan class and subtract one DateTime from another.
+
+<pre class="lang:c# decode:true " >
+DateTime firstDate = new DateTime(2008, 8, 1);
+DateTime secondDate = DateTime.Now;
+TimeSpan timeSpan = secondDate.Subtract(firstDate);
+
+// Get Difference 
+Console.WriteLine("Days : " + timeSpan.Days.ToString());
+Console.WriteLine("Hours : " + timeSpan.Hours.ToString());
+Console.WriteLine("Minutes : " + timeSpan.Minutes.ToString());
+
+// Get Total Hours
+Console.WriteLine("Total Hours " + timeSpan.TotalHours.ToString());
+</pre> 
+
+Here is the output.
+
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="http://www.debugrelease.com/wp-content/uploads/2008/09/image6.png" border="0" alt="image" width="255" height="72" />
+
+Note the difference between Hours and TotalHours.

@@ -1,0 +1,23 @@
+---
+layout: post
+title: Failed To Load The JNI Shared Library On Windows 7
+categories:
+- Java
+- Microsoft
+- Oracle
+- Windows
+tags:
+- Eclipse
+- Java
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  _edit_last: '1'
+  views: '40400'
+  _wp_rp_extracted_image_url: ''
+  _wp_rp_extracted_image_url_full: ''
+  simplecatch-sidebarlayout: ''
+---
+When starting Eclipse on Windows 7 I came across this error “Failed to load the JNI shared library”. After many trials and errors the solution revealed itself. The problem was that I did not have 64 bit JVM on my machine. I had been running 32 bit JVM and that was the culprit. <strong>If you get this error then Install 64 bit JVM</strong>. <a href="http://www.java.com/en/download/manual.jsp">Here is a link</a> where you can find 64 bit JVM.

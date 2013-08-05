@@ -1,0 +1,31 @@
+---
+layout: post
+title: Convert Hexadecimal To Number In C#
+categories:
+- .NET
+tags:
+- C#
+- Code Snippets
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '6450'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image41-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image41.png
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+<p>To convert a Hexadecimal to a number we can use an overload of Convert.ToInt32 method.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Convert.ToInt32" border="0" alt="Convert.ToInt32" src="http://www.debugrelease.com/wp-content/uploads/2009/03/image41.png" width="397" height="57" /> </p>  <p>Using the overload I can convert for example hex string “BB” to a number.</p>  
+
+<pre class="lang:c# decode:true " >
+int number = Convert.ToInt32("BB", 16);
+</pre>
+
+<p>And the number variable gets assigned value of 187.</p>

@@ -1,0 +1,54 @@
+---
+layout: post
+title: LINQ Equivalent Of Where IN
+categories:
+- .NET
+- Microsoft
+tags:
+- LINQ
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '27780'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: ''
+  _wp_rp_extracted_image_url_full: ''
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+Working with LINQ to SQL I came across a need of writing a LINQ query equivalent of  T-SQL "Where IN" clause. This is what T-SQL query looks like.
+
+ 
+<pre class="lang:tsql decode:true " >SELECT     CustomerID, CompanyName, ContactName, ContactTitle, Address,
+           City, Region, PostalCode, Country, Phone, Fax
+FROM       Customers
+WHERE      (Country IN ('UK', 'USA', 'Australia'))</pre> 
+
+
+<h4>How do I write Where IN in LINQ?</h4>
+Below is the query which can be used for a "WHERE IN" scenario. Query 1 uses query syntax and Query 2 uses lambda expression. I am using using a DataContext for Northwind database. See <a href="http://www.debugrelease.com/linq-to-sql-tutorial/">LINQ To SQL Tutorial</a> to see how to generate a DataContext.
+<h5>LINQ Query 1</h5>
+
+ 
+<pre class="lang:c# decode:true " >string[] countries = new string[] { "UK", "USA", "Australia" };
+var customers =
+    from c in context.Customers
+    where countries.Contains(c.Country)
+    select c;</pre> 
+
+
+<h5>LINQ Query 2</h5>
+
+ 
+<pre class="lang:c# decode:true " >string[] countries = new string[] { "UK", "USA", "Australia" };
+var customers =
+    context.Customers
+    .Where(c =&gt; countries.Contains(c.Country));
+</pre> 
+

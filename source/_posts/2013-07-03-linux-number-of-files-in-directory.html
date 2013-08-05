@@ -1,0 +1,38 @@
+---
+layout: post
+title: Linux  - Number of files in directory
+categories:
+- Linux
+tags:
+- Linux
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+  simplecatch-sidebarlayout: default
+---
+<p>The command to get the number of files in a directory is. <p>
+<pre class="prettyprint">ls –l | grep ^- | wc –l</pre>
+<p>If you are here just to get the command then no need to read further. However if you'd like to understand a bit more then read on.</p>
+<p>At home I have a media centre which runs XMBC on Ubuntu. I was in mood for doing an audit on the content I have and I came across a need to find the number of files in a directory. Of course being a Linux person my first preference is to do things from command line. Hence this post. </p>
+<p>In this post I will show you how to get a count of files in a directory. You can pick any directory you like. /var/log is always a good place to find some files you can mess with. Or you can create a bunch of files to follow along. This way our numbers will match and will be less confusing. Execute following commands. These will create some directories and a bunch of empty files.</p>
+ 
+<pre class="prettyprint lang-bash">mkdir testdir
+mkdir testdir/dir1
+touch testdir/hello
+touch testdir/goodmorning
+touch testdir/goodafternoon
+touch testdir/bye
+</pre> 
+
+<p>Running a simple <code>ls -la</code> command gives us the list of all files and directories</p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/07/image.png" width="579" height="127" /></p>
+<p>A helpful option if you want to see the files listed per line is <code>-1</code>. If we run <code>ls -1</code> we get the following output.</p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/07/image1.png" width="572" height="111" /></p>
+<p>With the output above we can simply count the number of lines and we have the count of files. Counting lines can be done by using <code>wc -l</code> command. The <code>-l</code> option prints the count of newlines. Let’s see what happens if we execute this command.</p>
+<pre class="prettyprint">ls –1 | wc –l</pre>
+<p>The result is <strong>5</strong>. </p>
+<p>This is not accurate. If you are working with the files we created earlier in this post then you will see that we have 4 files and one directory. We are only interested in the count of files. This can easily be achieved by using some simple <code>grep</code> magic and rather than using <code>-1</code> option on <code>ls</code> command, we will use <code>-l</code> option. Command below does the job.</p>
+<pre class="prettyprint">ls –l | grep ^- | wc –l</pre>
+<p>The command above deserves some love. What we are doing is first get a list of all files and directories then we <code>grep</code> them to filter out only files. In the output of <code>ls -l</code>, files start with <strong>–</strong> and directories start with <strong>d</strong>. We finally use the <code>wc</code> command and use the option which prints the count of newlines. And there you have it, the count of files in a directory.</p>

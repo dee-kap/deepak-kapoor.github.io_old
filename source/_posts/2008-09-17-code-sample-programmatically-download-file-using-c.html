@@ -1,0 +1,51 @@
+---
+layout: post
+title: ! 'Code Sample: Programmatically Download File Using C#'
+categories:
+- .NET
+- Microsoft
+tags:
+- .Net
+- C#
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '118631'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: ''
+  _wp_rp_extracted_image_url_full: ''
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+While browsing forums today I came across a question which asked for a solution to download a file from a web server programmatically. The solution is very simple and below is the code which achieves the goal. Here I am downloading a file asynchronously on Button Click.
+
+<pre class="lang:c# decode:true " >
+private void buttonDownloadFile_Click(object sender, EventArgs e)
+{
+	string url
+		= @"http://www.debugrelease.com/wp-content/uploads/2008/08/image35.png";
+
+	// Create an instance of WebClient
+	WebClient client = new WebClient();
+
+	// Hookup DownloadFileCompleted Event
+	client.DownloadFileCompleted +=
+	new AsyncCompletedEventHandler(client_DownloadFileCompleted);
+
+	// Start the download and copy the file to c:temp
+	client.DownloadFileAsync(new Uri(url), @"c:tempimage35.png");
+ }
+
+ void client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+ {
+	MessageBox.Show("File downloaded");
+ }
+</pre>
+
+You can also download the file synchronously using WebClient.DownloadFile() method.

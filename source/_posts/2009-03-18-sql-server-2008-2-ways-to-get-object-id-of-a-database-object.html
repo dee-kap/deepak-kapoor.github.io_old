@@ -1,0 +1,48 @@
+---
+layout: post
+title: SQL Server 2008 – 2 Ways To Get Object Id Of A Database Object
+categories:
+- Microsoft
+- SQL Server
+tags:
+- SQL Server
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '16128'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image221-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image221.png
+  simplecatch-sidebarlayout: ''
+---
+<p>Every object in SQL Server database has an Object Id which is used extensively by SQL Server for most operations. There are times when we would like to know what the object ID is for a particular object. In this example I will show you two ways to retrieve Object Id. My examples will retrieve Object Id for HumanResources.Employee table in AdventureWorks database.</p>  <p>&#160;</p>  <h5>Method 1</h5>  <p>First method is to query sys.objects system view and pass in the name of object and also the name of schema.</p>  <pre class="code"><span style="color: blue">SELECT </span><span style="color: magenta">OBJECT_ID </span><span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">objects
+</span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'Employee'
+</span><span style="color: gray">AND </span><span style="color: magenta">SCHEMA_ID </span><span style="color: gray">= 
+    (</span><span style="color: blue">SELECT </span><span style="color: magenta">SCHEMA_ID 
+    </span><span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">schemas
+    </span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'HumanResources'</span><span style="color: gray">)
+
+</span></pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+<p>This query returns the Object Id shown below.</p>
+
+<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="46" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/03/image22.png" width="141" border="0" /> </p>
+
+<p>&#160;</p>
+
+<h5>Method 2</h5>
+
+<p>While the first approach works, there is a better way to get the Object ID and that is to use the OBJECT_ID function. Here is another query which fetches the Object ID for HumanResources.Employee table in AdventureWorkds database.</p>
+
+<pre class="code"><span style="color: blue">SELECT </span><span style="color: magenta">OBJECT_ID</span><span style="color: gray">(</span><span style="color: red">N'HumanResources.Employee'</span><span style="color: gray">)</span></pre>
+
+<p><a href="http://11011.net/software/vspaste"></a></p>
+
+<p>And as expected I get my result.</p>
+
+<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="46" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/03/image23.png" width="176" border="0" /> </p>
+
+<p>Both approaches are valid. However there are subtle differences. For example method 1 returns the result set in which the column is called ‘OBJECT_ID’, method 2 does not name the column. Another difference is that if you mistype the object name them method 1 will return zero rows while method 2 will simply return a NULL value.</p>

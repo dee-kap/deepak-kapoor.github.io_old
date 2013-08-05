@@ -1,0 +1,47 @@
+---
+layout: post
+title: LINQ To SQL Join On Multiple Conditions
+categories:
+- .NET
+- Microsoft
+tags:
+- LINQ
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '190353'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image51-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image51.png
+  simplecatch-sidebarlayout: default
+---
+LINQ To SQL or just plain LINQ allows us to do a join on multiple conditions using an elegant technique. In this post I will show you how to perform a Join on multiple conditions. As an example I will take two tables called House and ShoppingMall.
+
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="http://www.debugrelease.com/wp-content/uploads/2008/09/image5.png" border="0" alt="image" width="415" height="150" />
+
+Both these tables have PostCode and CouncilCode as common fields. Lets say that we want to retrieve all records from ShoppingMall where both PostCode and CouncilCode on House match. This requires us to do a join using two columns. In LINQ such a join can be done using <strong>anonymous types</strong>. Here is an example.
+
+<pre class="lang:c# decode:true " >
+var query = from s in context.ShoppingMalls
+            join h in context.Houses
+            on
+            new { s.CouncilCode, s.PostCode }
+            equals
+             new { h.CouncilCode, h.PostCode }
+            select s;
+</pre>
+
+The code above gets translated into this SQL query.
+
+<pre class="lang:tsql decode:true " >
+SELECT [t0].[ShoppingMallId], [t0].[Address],
+[t0].[PostCode], [t0].[CouncilCode]
+FROM [dbo].[ShoppingMall] AS [t0]
+INNER JOIN [dbo].[House] AS [t1]
+ON ([t0].[CouncilCode] = [t1].[CouncilCode])
+AND ([t0].[PostCode] = [t1].[PostCode])
+</pre>
+
+And when the above query is executed it produces the results we want.

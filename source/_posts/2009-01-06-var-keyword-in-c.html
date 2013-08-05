@@ -1,0 +1,52 @@
+---
+layout: post
+title: var Keyword In C#
+categories:
+- .NET
+- Microsoft
+tags:
+- .Net
+- C#
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '6633'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image312-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image312.png
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+<p>I have a confession to make. When I saw <strong>var</strong> keyword for the first time I did not like it at all. My first opinion was that var was so variant like. Call me a control freak but I like to clearly see what I am declaring. And var was something I thought made the code less readable. However since I started working with LINQ I got into a habit of using var. I realised that it makes my life easy by letting the compiler figure things out for me. So in this post I will pay due respect to var keyword. </p>  <p>Anything declared using var keyword is implicitly typed which means that compiler will determine the correct type based on what the variable is initialised to. Here I am declaring three variables x, y and z. All of them are initialised to different values which are also of different Types such as DateTime, string and List&lt;T&gt;.</p>  
+
+<pre class="lang:c# decode:true " >
+var x = DateTime.Now;
+var y = "Hello";
+var z = new List<String>();
+</pre>
+
+
+<p>Let's examine the IL to verify that x, y and z are of Types they have been initialised to.</p>
+
+<p><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" height="72" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/01/image3.png" width="550" border="0" /> </p>
+
+<p>Here you can see that x is of valuetype, y is a string and z is of type List&lt;string&gt;.</p>
+
+<p>I find this as neat little syntax sugar to which I have become addicted.</p>
+
+<p>Keep in mind that you cannot write a statement like this. </p>
+
+<pre class="lang:c# decode:true " >
+var x;
+</pre>
+
+
+<p>This will give an error while compiling. And it makes sense because the compiler does not know which Type it should consider x as.</p>
+
+<p><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" height="34" alt="Compiler Error" src="http://www.debugrelease.com/wp-content/uploads/2009/01/image2.png" width="307" border="0" /></p>

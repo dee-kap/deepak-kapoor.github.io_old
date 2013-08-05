@@ -1,0 +1,53 @@
+---
+layout: post
+title: Get Processor Information In .NET Using C#
+categories:
+- .NET
+- Microsoft
+tags:
+- .Net
+- WMI
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '25692'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image82-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image82.png
+  simplecatch-sidebarlayout: ''
+---
+<p>.NET Framework provides classes which give information about the machine on which code is executed. One Such class is <strong>System.Environment</strong> which gives us things like Machine Name, OS Version and much more. I recently had a requirement to programmatically detect the number of Processors on a machine. I thought this was a simple enough task. <strong>System.Environment.ProcessorCount</strong> gives me that information. But I was in for a surprise. Let me walk you through my findings.</p>  <p>On my machine I have a dual core CPU which I can quickly see by opening Task Manager.</p>  <p><img title="Task Manager" style="border-top-width: 0px; display: inline; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="464" alt="Task Manager" src="http://www.debugrelease.com/wp-content/uploads/2009/03/image8.png" width="412" border="0" /></p>  <p>What do you think is the output of this statement.</p>  <pre class="code"><span style="color: #2b91af">Console</span>.WriteLine(System.<span style="color: #2b91af">Environment</span>.ProcessorCount.ToString());</pre>
+
+<p><a href="http://11011.net/software/vspaste"></a></p>
+
+<p>The output is <strong>2</strong>. But I have one physical processor so I expected to see <strong>1</strong>. I could not find a way to get this information from the framework. So I went to good old WMI for this. Running this code gives me accurate information about my processor.</p>
+
+<pre class="code"><span style="color: #2b91af">ManagementObjectSearcher </span>mgmtObjects = </pre>
+
+<pre class="code">  <span style="color: blue">new </span><span style="color: #2b91af">ManagementObjectSearcher</span>(<span style="color: #a31515">&quot;Select * from Win32_ComputerSystem&quot;</span>);
+
+<span style="color: blue">foreach </span>(<span style="color: blue">var </span>item <span style="color: blue">in </span>mgmtObjects.Get())
+{
+<span style="color: #2b91af">  Console</span>.WriteLine(<span style="color: #a31515">&quot;Number Of Processors - &quot; </span>+ </pre>
+
+<pre class="code">                     item[<span style="color: #a31515">&quot;NumberOfProcessors&quot;</span>]);
+<span style="color: #2b91af">  Console</span>.WriteLine(<span style="color: #a31515">&quot;Number Of Logical Processors - &quot; </span>+ </pre>
+
+<pre class="code">                     item[<span style="color: #a31515">&quot;NumberOfLogicalProcessors&quot;</span>]);
+}</pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+<p>&#160;</p>
+
+<p>And the output this time is</p>
+
+<p><strong>Number Of Processors – 1</strong></p>
+
+<p><strong>Number Of Logical Processors – 2 </strong></p>
+
+<p>This is exactly what I need.</p>
+
+<p>So here is my lesson learned. To get detailed and accurate information about number of processors on your machine, WMI is a better approach than <strong>System.Environment.ProcessorCount</strong>.</p>
+<a href="http://www.dotnetkicks.com/kick/?url=http%3a%2f%2fwww.thereforesystems.com%2fget-processor-information-in-net-using-c%2f"><img alt="kick it on DotNetKicks.com" src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fwww.thereforesystems.com%2fget-processor-information-in-net-using-c%2f" border="0" /></a>

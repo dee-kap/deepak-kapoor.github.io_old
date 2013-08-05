@@ -1,0 +1,47 @@
+---
+layout: post
+title: Windows Azure - Connect to Linux Virtual Machine
+categories:
+- Linux
+- Windows Azure
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+  simplecatch-sidebarlayout: default
+---
+In an <a href="http://www.debugrelease.com/2013/05/30/windows-azure-create-linux-virtual-machine-through-management-portal/">earlier post</a> I created a Linux virtual machine on Windows Azure. In this post I will show you how to establish a SSH connection to the virtual machine.
+
+&nbsp;
+<h4>Windows</h4>
+Windows does not come with a SSH client but we can use <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY</a> to make SSH connections from a Windows machine.
+
+Open putty.exe and enter host information as it is on the management portal.
+
+&nbsp;
+
+<a href="http://www.debugrelease.com/wp-content/uploads/2013/05/SNAGHTML3b92ce5e.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="SNAGHTML3b92ce5e" alt="SNAGHTML3b92ce5e" src="http://www.debugrelease.com/wp-content/uploads/2013/05/SNAGHTML3b92ce5e_thumb.png" width="470" height="453" border="0" /></a>
+
+&nbsp;
+
+Click Open and you are asked to login. Enter username and password and you are logged into the Linux virtual machine.
+
+&nbsp;
+
+<a href="http://www.debugrelease.com/wp-content/uploads/2013/05/SNAGHTML3b9558d2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="SNAGHTML3b9558d2" alt="SNAGHTML3b9558d2" src="http://www.debugrelease.com/wp-content/uploads/2013/05/SNAGHTML3b9558d2_thumb.png" width="644" height="406" border="0" /></a>
+
+&nbsp;
+<h4>Linux Terminal</h4>
+Logging into Linux virtual machine on Windows Azure from a Linux terminal is dead simple. Linux already comes with a OpenSSH client so there is nothing to be installed.
+
+Just run the ssh command with correct port number and host. In my case the command is
+<p class="text-info"><span>ssh –p 58473 azureuser@debrelubuntu.cloudapp.net</span></p>
+&nbsp;
+
+Enter the correct password when prompted and <a href="http://en.wikipedia.org/wiki/Bob%27s_your_uncle">Bob’s your uncle</a>.
+
+&nbsp;
+
+<a href="http://www.debugrelease.com/wp-content/uploads/2013/05/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/05/image_thumb6.png" width="644" height="402" border="0" /></a>

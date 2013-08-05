@@ -1,0 +1,21 @@
+---
+layout: post
+title: ! 'Cloudera VirtualBox boot error NET: Registered protocol family 2'
+categories:
+- Linux
+tags:
+- Big Data
+- Cloudera
+- Hadoop
+- Linux
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '982'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image6-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image6.png
+  simplecatch-sidebarlayout: ''
+---
+<p>I downloaded Cloudera <a href="https://ccp.cloudera.com/display/SUPPORT/Downloads">CDH3 Virtual Machine for VirtualBox</a> to have a readymade Hadoop environment to experiment with. While booting the VM I got an error and the boot sequence stalled. </p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Cloudera CDH boot error" border="0" alt="Cloudera CDH boot error" src="http://www.debugrelease.com/wp-content/uploads/2012/05/image.png" width="612" height="339"></p> <p>&nbsp;</p> <p>The issue here is that IOAPIC is disabled for this VM. You can find out more about IOAPIC <a href="http://www.intel.com/design/chipsets/datashts/290566.htm">here</a>.</p> <p>To enable IOAPIC, power off your virtual machine. Go to settings –&gt; System. Click on Motherboard tab and check Enable IO APIC.</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Cloudera VirtualBox image settings" border="0" alt="Cloudera VirtualBox image settings" src="http://www.debugrelease.com/wp-content/uploads/2012/05/image1.png" width="565" height="421"></p> <p>After this Cloudera image boots fine.</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Cloudera CDH3" border="0" alt="Cloudera CDH3" src="http://www.debugrelease.com/wp-content/uploads/2012/05/image2.png" width="645" height="536"></p>

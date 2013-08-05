@@ -1,0 +1,43 @@
+---
+layout: post
+title: Use SqlConnection With LINQ To SQL
+categories:
+- .NET
+- Microsoft
+tags:
+- LINQ
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '64969'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: ''
+  _wp_rp_extracted_image_url_full: ''
+  simplecatch-sidebarlayout: default
+---
+LINQ To SQL allows us to use a SqlConnection object to connect to a database. The way to use a SqlConnection is to pass it as a parameter to DataContext object. DataContext object has constructor which takes in a IDbConnection and SqlConnection implements this Interface. Here I create a SqlConnection object and use it to establish a connection to database.
+
+<pre class="lang:c# decode:true " >
+
+  // Create a Connection String
+  string connectionString
+    = "Data Source=.;Initial Catalog=Northwind2;Integrated Security=True";
+
+  // Create a SqlConnection
+  using (SqlConnection connection = new SqlConnection(connectionString))
+  {
+    // Create DataContext and pass in the connection 
+    using (NorthwindDataContext context = new NorthwindDataContext(connection))
+    {
+      var query = from c in context.Customers
+        select c.CompanyName;
+      foreach (var item in query)
+      {
+        Console.WriteLine(item);
+
+      }
+    }
+  }
+</pre>

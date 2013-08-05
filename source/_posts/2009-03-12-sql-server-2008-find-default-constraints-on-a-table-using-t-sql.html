@@ -1,0 +1,29 @@
+---
+layout: post
+title: SQL Server 2008 – Find Default Constraints On a Table Using T-SQL
+categories:
+- Microsoft
+- SQL Server
+tags:
+- SQL Server
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '6131'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image154-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image154.png
+  simplecatch-sidebarlayout: ''
+---
+<p>This script returns all default constraints on a table in a SQL Server 2008 database. It gives me the name and definition of the constraints on Person.Address table in Adventure Works database. You can substitute the table name with any other table to get the constraints for that table.</p>  <pre class="code"><span style="color: blue">SELECT    </span>[name]<span style="color: gray">,
+        </span>[definition]
+<span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">default_constraints
+</span><span style="color: blue">WHERE </span>parent_object_id <span style="color: gray">= 
+    (</span><span style="color: blue">SELECT </span><span style="color: magenta">OBJECT_ID </span><span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">tables
+    </span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'Address'</span><span style="color: gray">)</span></pre>
+
+<p><a href="http://11011.net/software/vspaste"></a></p>
+
+<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="68" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/03/image15.png" width="317" border="0" /></p>

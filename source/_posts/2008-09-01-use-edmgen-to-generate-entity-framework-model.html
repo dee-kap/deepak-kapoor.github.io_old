@@ -1,0 +1,44 @@
+---
+layout: post
+title: Use EDMGEN To Generate Entity Framework Model
+categories:
+- .NET
+- Microsoft
+tags:
+- Entity Framework
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '11185'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: ''
+  _wp_rp_extracted_image_url_full: ''
+  simplecatch-sidebarlayout: ''
+---
+.NET Framework 3.5 SP1 ships with a tool called edmgen. This tool can be used to generate the EDM (Entity Data Model). Being a command line tool it can be executed from a batch file or a Powershell script.
+
+Edmgen can be used to generate either a full model or selected artifacts such as CSDL, MSI, source code etc. In order to generate a full model which includes CSDL, SSDL, MSL, C#/VB.NET code you can use
+
+<span style="color: #0000ff;">/mode:FullGeneration</span>
+
+edmgen also allows you to generate code in either C# or VB.NET using the /language option. To generate code in VB.NET you will use pass the language name to /language option
+
+<span style="color: #0000ff;">/language:VB</span>
+
+Lets say that you only have the SSDL which basically defines what your source database is. In such a scenario you can use FromSSDLGeneration mode
+
+<span style="color: #0000ff;">/mode:FromSSDLGeneration</span>
+
+If you just want to validate your CSDL, SSDL and MSL files before actually generating any code then you can use ValidateArtifacts mode.
+
+<span style="color: #0000ff;">/mode:ValidateArtifacts</span>
+
+This command generates a full model for AdventureWorks database from a local machine.
+
+<span style="color: #0000ff;">EdmGen /mode:FullGeneration /project:Northwind /provider:System.Data.SqlClient </span>
+
+<span style="color: #0000ff;">/connectionstring:"server=.;integrated security=true;database=AdventureWorks"</span>
+
+edmgen is a great tool when working with Entity Framework. It also works well if you have a large number of database objects and do not want to stress Visual Studio designer.

@@ -1,0 +1,61 @@
+---
+layout: post
+title: Compress File With GZip In Java
+categories:
+- Java
+tags:
+- Eclipse
+- Java
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '6020'
+  _syntaxhighlighter_encoded: '1'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: ''
+  _wp_rp_extracted_image_url_full: ''
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+<p style="clear: both;">This example show you how to apply gzip compression to a file in Java.</p>
+<p style="clear: both;">Java supports both Zip and GZip compression out of the box. You do not need any third party components.</p>
+
+<pre class="lang:java decode:true " >
+import java.io.*;
+import java.util.zip.*;
+
+public class GzipCompressor
+{
+
+  public void Compress(String inputFile, String outputFile)
+  {
+    try
+    {
+      BufferedReader reader =
+        new BufferedReader(new FileReader(inputFile));
+
+      BufferedOutputStream output =
+        new BufferedOutputStream(new GZIPOutputStream(new FileOutputStream(outputFile)));
+
+      int b;
+      while((b =reader.read()) != -1)
+      {
+        output.write(b);
+      }
+
+      reader.close();
+      output.close();
+    }
+    catch(IOException e)
+    {
+      System.out.println(e.getMessage());
+    }
+  }
+}
+</pre>

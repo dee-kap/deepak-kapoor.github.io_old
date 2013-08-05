@@ -1,0 +1,61 @@
+---
+layout: post
+title: Check If A Login Exists In SQL Server 2008
+categories:
+- Microsoft
+- SQL Server
+tags:
+- Code Snippets
+- SQL Server
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '30376'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: ''
+  _wp_rp_extracted_image_url_full: ''
+  simplecatch-sidebarlayout: ''
+---
+<p>If you are creating a SQL Server login using a script then it is advisable to check if the login you are creating already exists. If you do not do this then SQL Server will throw an error. For example if I execute this statement when a login with name test_user already exists, I will get the following error.</p>  <pre class="code"><span style="color: blue">CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'Password123'</span></pre>
+
+<pre class="code"><span style="color: red">
+</span></pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+<pre class="code"><font color="#ff0000">Msg 15025, Level 16, State 1, Line 1
+The server principal 'test_user' already exists.</font></pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+<p>To avoid this a check can be used before creating the login. One way to do this is to write a statement like this.</p>
+
+<pre class="code"><span style="color: blue">IF </span><span style="color: gray">NOT EXISTS(</span><span style="color: blue">SELECT </span>name <span style="color: blue">FROM master</span><span style="color: gray">.</span>dbo<span style="color: gray">.</span><span style="color: green">syslogins </span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'test_user'</span><span style="color: gray">)
+</span><span style="color: blue">BEGIN
+    CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'Password123'
+</span><span style="color: blue">END
+</span></pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+<p>&#160;</p>
+
+<p>The above statement will check for the login and it will only create it if the login does not already exist. This works but it is not the best way to do it in SQL Server 2008. The problem is that we are querying <strong>master.dbo.syslogins</strong> which is available only for backward compatibility and as per Microsoft it will be removed in future versions. So the best way to do a check before creating a login is to use <strong>sys.sql_logins</strong> or <strong>sys.server_principals</strong> system view. Our statement can be re-written in following two ways.</p>
+
+<pre class="code"><span style="color: blue">IF </span><span style="color: gray">NOT EXISTS(</span><span style="color: blue">SELECT </span>name <span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">server_principals </span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'test_user'</span><span style="color: gray">)
+</span><span style="color: blue">BEGIN
+    CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'Password123'
+</span><span style="color: blue">END</span></pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+<p>&#160;</p>
+
+<p>OR</p>
+
+<pre class="code"><span style="color: blue">IF </span><span style="color: gray">NOT EXISTS(</span><span style="color: blue">SELECT </span>name <span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">sql_logins </span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'test_user'</span><span style="color: gray">)
+</span><span style="color: blue">BEGIN
+    CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'Password123'
+</span><span style="color: blue">END</span></pre>
+
+<p><a href="http://11011.net/software/vspaste"></a></p>
+
+<p>This approach will ensure that your script will work in future versions of SQL Server when Microsoft decides to remove master.dbo.syslogins.</p>

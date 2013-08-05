@@ -1,0 +1,32 @@
+---
+layout: post
+title: SQL Server 2008 – Get All Indexes In A Database
+categories:
+- .NET
+- Microsoft
+tags:
+- Code Snippets
+- SQL Server
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '7951'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image391-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image391.png
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+<p>You’ve got to love sys views in SQL Server. While learning about performance tuning on SQL Server 2008 I wanted to get a list of all Indexes on my database and the answer was as simple as it can be. Here i a statement which can be used to get a list of all indexes on a database.</p>  
+
+<pre class="lang:tsql decode:true " >SELECT * FROM sys.indexes</pre>
+
+<p>And here is the partial output from AdventureWorks database.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="sys.indexes" border="0" alt="sys.indexes" src="http://www.debugrelease.com/wp-content/uploads/2009/03/image39.png" width="458" height="279" /></p>

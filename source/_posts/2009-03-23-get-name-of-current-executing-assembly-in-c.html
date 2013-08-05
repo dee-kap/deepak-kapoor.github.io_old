@@ -1,0 +1,48 @@
+---
+layout: post
+title: Get Name Of Current Executing Assembly In C#
+categories:
+- .NET
+- Microsoft
+tags:
+- C#
+- Code Snippets
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '15480'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: ''
+  _wp_rp_extracted_image_url_full: ''
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+<p>This is where reflection comes in handy. The following code snippet shows you how to get the name of executing assembly.</p>  
+
+<pre class="lang:c# decode:true " >
+string assemblyName;
+assemblyName = System.Reflection.Assembly.GetExecutingAssembly().FullName;
+Console.WriteLine(assemblyName);
+</pre>
+
+<p>Output for the above code returns the fully qualified name as shown below</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/03/image36.png" width="540" height="40" /> </p>
+
+<p>To just get the Assembly name we can use this snippet.</p>
+
+<pre class="lang:c# decode:true " >
+string assemblyName;
+assemblyName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+Console.WriteLine(assemblyName);
+</pre>
+
+<p>Here is the output.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/03/image37.png" width="245" height="48" /></p>

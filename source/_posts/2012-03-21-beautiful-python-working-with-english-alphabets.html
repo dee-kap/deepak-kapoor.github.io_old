@@ -1,0 +1,51 @@
+---
+layout: post
+title: ! 'Beautiful Python: Working With English Alphabets'
+categories:
+- Python
+tags:
+- Beautiful Python
+- Python
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '1871'
+  _wp_rp_extracted_image_url: ''
+  _wp_rp_extracted_image_url_full: ''
+  simplecatch-sidebarlayout: default
+  _edit_last: '1'
+---
+<p>Yesterday while working on my website I came across a need to display links which start with alphabets from A – Z. Now there are many ways to skin a cat and one of them is to create an array and fill it with 26 elements, each representing an alphabet. Something like a[0] = ‘A’, a[1] = ‘B’ and so on. But that is not Pythonic. This is:</p>
+<p>First step is to get all alphabets in English language</p>
+<pre class="prettyprint lang-python">
+>>> import string
+>>> alphas = string.ascii_lowercase
+>>> alphas
+‘abcdefghijklmnopqrstuvwxyz’
+>>>
+</pre>
+<p>Great! But I’d like to have them as a list so that I produce links for each element or do something else with them.</p>
+<pre class="prettyprint lang-python">
+>>> import string
+>>> alphas = string.ascii_lowercase
+>>> alphas
+‘abcdefghijklmnopqrstuvwxyz’
+>>> list_of_alphas = list(alphas)
+>>> list_of_alphas
+['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+>>>
+</pre>
+<p>This looks good. How about making them all upper case? Easy enough.</p>
+<pre class="prettyprint lang-python">
+>>> import string
+>>> alphas = string.swapcase(string.ascii_lowercase)
+>>> list_of_alphas = list(alphas)
+>>> list_of_alphas
+['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+>>>
+</pre>
+<p>I think this is pretty cool. </p>

@@ -1,0 +1,33 @@
+---
+layout: post
+title: Get Width And Height Of Image In C#
+categories:
+- .NET
+- Microsoft
+tags:
+- .Net
+- C#
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '10392'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: ''
+  _wp_rp_extracted_image_url_full: ''
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+<p>To get width and height of an image we can use System.Drawing.Image class. This code snippet shows how to retrieve width and height of an image.</p>  
+
+<pre class="lang:c# decode:true " >
+string filePath = @"c:deepakMeeGo.jpg";
+Image img = Image.FromFile(filePath);
+Console.WriteLine(string.Format("Height: {0}",img.Size.Height));
+Console.WriteLine(string.Format("Width: {0}",img.Size.Width));
+</pre>

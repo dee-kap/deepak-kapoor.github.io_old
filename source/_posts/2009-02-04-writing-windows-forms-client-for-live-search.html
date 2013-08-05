@@ -1,0 +1,130 @@
+---
+layout: post
+title: Writing Windows Forms Client for Live Search
+categories:
+- Microsoft
+tags:
+- Windows Forms
+- Windows Live
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '11639'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image49-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image49.png
+  simplecatch-sidebarlayout: ''
+---
+<p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="36" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/02/image.png" width="134" align="left" border="0" /> In this article we will look at how to write a Windows Forms Client to access <strong>Microsoft Live Search API</strong>. Via this API you can use the power of a giant <strong>search engine</strong> within your application. While developing our application we will see that the overall design of the API is simple and easy to work with. We will create a Windows Forms Application which will access Live Search.</p>  <p>&#160;</p>  <h4>Basics</h4>  <p>To access Live Search through our application we will need an Application ID which can be obtained from <a href="http://search.live.com/developers/">Live Search Developer Center</a>. The process requires us to sign in with Live ID and then fill out a form telling Microsoft about our application. Once we have submitted the form an Application ID is issued immediately. This ID is required to query WSDL and access the web services from our application.</p>  <p>Live Search API 2.0 can be accessed via three protocols:</p>  <ol>   <li>SOAP </li>    <li>JSON </li>    <li>XML </li> </ol>  <p>For this article we will work with SOAP protocol. </p>  <p>&#160;</p>  <h4>Creating our application</h4>  <p>We will follow the standard process of creating a Windows Forms application by selecting Windows Forms Application as a template. </p>  <p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="462" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/02/image1.png" width="525" border="0" /> </p>  <p>On our form we will place three controls. </p>  <ol>   <li>Text Box to capture information we will search for. </li>    <li>Button to initiate the search on Live Search </li>    <li>Web Browser to display the search results. </li> </ol>  <p>&#160;</p>  <p>The resulting form will look something like this:</p>  <p>&#160;<img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="535" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/02/image2.png" width="450" border="0" /> </p>  <p>To access the Live Search API which is exposed as a web service we will add a Service Reference in our project. Service References can be added by right clicking on the project in solution explorer and then by clicking Add Service Reference. This brings the following dialog:</p>  <p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="422" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/02/image3.png" width="525" border="0" /> </p>  <p>In the address box we will enter the location of WSDL for Live Search Web Service. The address is </p>  <p><strong>http://api.search.live.net/search.wsdl?AppID=</strong></p>  <p>Before entering the address we need to append our application ID to the URL.</p>  <p><strong>http://api.search.live.net/search.wsdl?AppID=&lt;substitute this with your application ID&gt;</strong></p>  <p>After entering the address and hitting Go, Visual Studio comes back with a list of services available at the address we entered. In our case it finds one service called &quot;LiveSearchService&quot; </p>  <p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="422" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/02/image4.png" width="525" border="0" /> </p>  <p>Things look good so we will change the default namespace to LiveSerchClient and click OK. Visual Studio at this stage generates a proxy and creates a App.config file which contains address, bindings and contract information required to access the service.</p>  <p>Most of the work our application does happens in the click event of the button. Within the event handler we will create objects required to conduct the search and receive a response. </p>  <div style="font-size: 10pt; background: white; color: black; font-family: courier new">   <pre style="margin: 0px"><span style="color: blue">private</span> <span style="color: blue">void</span> btnSearch_Click(<span style="color: blue">object</span> sender, <span style="color: #2b91af">EventArgs</span> e)</pre>
+
+  <pre style="margin: 0px">{</pre>
+
+  <pre style="margin: 0px"><span style="color: green">  // Create an instance for client which is used</span></pre>
+
+  <pre style="margin: 0px"><span style="color: green">  // to make web service calls</span></pre>
+
+  <pre style="margin: 0px"><span style="color: #2b91af">  LiveSearchPortTypeClient</span> client = <span style="color: blue">new</span> <span style="color: #2b91af">LiveSearchPortTypeClient</span>();</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px"><span style="color: green">  // SearchRequest is used to define search parameters</span></pre>
+
+  <pre style="margin: 0px"><span style="color: #2b91af">  SearchRequest</span> request = <span style="color: blue">new</span> <span style="color: #2b91af">SearchRequest</span>();</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px"><span style="color: green">  // assign the required Application Id</span></pre>
+
+  <pre style="margin: 0px">  request.AppId = appId;</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px"><span style="color: green">  // we are conducting a web search</span></pre>
+
+  <pre style="margin: 0px">  request.Sources = <span style="color: blue">new</span> <span style="color: #2b91af">SourceType</span>[] { <span style="color: #2b91af">SourceType</span>.Web };</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px"><span style="color: green">  // thing we are searching for</span></pre>
+
+  <pre style="margin: 0px">  request.Query = txtSearchFor.Text;</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px"><span style="color: green">  // response we recieve from Live Search is stored here</span></pre>
+
+  <pre style="margin: 0px"><span style="color: #2b91af">  SearchResponse</span> response = client.Search(request);</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px"><span style="color: green">  // Display the results</span></pre>
+
+  <pre style="margin: 0px">  DisplayResults(response.Web.Results);</pre>
+
+  <pre style="margin: 0px">}</pre>
+</div>
+
+<p></p>
+
+<p>&#160;</p>
+
+<p>Once we have received our results we will use two helper methods to display the results in Web Browser control.</p>
+
+<div style="font-size: 10pt; background: white; color: black; font-family: courier new">
+  <pre style="margin: 0px"><span style="color: blue">private</span> <span style="color: blue">void</span> DisplayResults(<span style="color: #2b91af">WebResult</span>[] results)</pre>
+
+  <pre style="margin: 0px">{</pre>
+
+  <pre style="margin: 0px"><span style="color: #2b91af">  StringBuilder</span> sb = <span style="color: blue">new</span> <span style="color: #2b91af">StringBuilder</span>();</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px">  results.ToList().ForEach(x =&gt; sb.Append(GetFormattedResult(x)));</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px">  webResults.DocumentText = sb.ToString();</pre>
+
+  <pre style="margin: 0px">}</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px"><span style="color: blue">private</span> <span style="color: blue">string</span> GetFormattedResult(<span style="color: #2b91af">WebResult</span> result)</pre>
+
+  <pre style="margin: 0px">{</pre>
+
+  <pre style="margin: 0px"><span style="color: blue">  string</span> formattedResult = <span style="color: #a31515">&quot;&lt;a href=&quot;</span> + result.Url + <span style="color: #a31515">&quot;&gt;&quot;</span></pre>
+
+  <pre style="margin: 0px">    + result.Title + <span style="color: #a31515">&quot;&lt;/a&gt;&lt;br/&gt;&quot;</span></pre>
+
+  <pre style="margin: 0px">    + result.Description + <span style="color: #a31515">&quot;&lt;br/&gt;&lt;br/&gt;&quot;</span>;</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px"><span style="color: blue">  return</span> formattedResult;</pre>
+
+  <pre style="margin: 0px">}</pre>
+</div>
+
+<p></p>
+
+<p>&#160;</p>
+
+<p>Running the application and doing some <a href="http://www.debugrelease.com/">ego-surfing</a> we see our search results displayed in our application.</p>
+
+<p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="535" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/02/image5.png" width="450" border="0" /> </p>
+
+<p>&#160;</p>
+
+<h4>Is this all Live Search Offers?</h4>
+
+<p>The answer is no. Live Search API exposes much more functionality that what we saw here. Other than web searches we can also search for images, news etc. individually or by combining them in one search request. If you application needs to search the web then Live Search can be used very easily. </p>
+
+<p>&#160;</p>
+
+<h4>Conclusion</h4>
+
+<p>In this article we saw how easy it is to programmatically access Microsoft Live Search. You are not limited to just Windows Forms applications. Live Search can be used in any type of application such as Silverlight, ASP.NET, WPF or Class Library. This article gave you a brief introduction to Live Search API using Windows Forms Client as an example. I hope you enjoyed reading it.</p>
+<a href="http://www.dotnetkicks.com/kick/?url=http%3a%2f%2fwww.thereforesystems.com%2fwriting-windows-forms-client-for-live-search%2f"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fwww.thereforesystems.com%2fwriting-windows-forms-client-for-live-search%2f" border="0" alt="kick it on DotNetKicks.com" /></a>

@@ -1,0 +1,47 @@
+---
+layout: post
+title: Linux VirtualBox - Windows host share in Ubuntu guest
+categories:
+- Linux
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+  simplecatch-sidebarlayout: default
+---
+<p>In this post I will show you how to mount and access Windows host shares on your Ubuntu guest OS running within VirtualBox.</p> 
+
+<p>First thing you need to do is install VirtualBox Guest Additions.</p>
+
+<p>Attach VBoxGuestAdditions.iso in machine settings on VirtualBox. On a 64bit machine the iso file can be found at C:\Program Files\Oracle\VirtualBox.</p>
+
+<a href="http://www.debugrelease.com/wp-content/uploads/2013/07/vboxguestadditions.png"><img src="http://www.debugrelease.com/wp-content/uploads/2013/07/vboxguestadditions.png" alt="" width="628" height="442" class="alignleft size-full wp-image-2083" /></a>
+
+<p>Then mount the iso in Ubuntu guest.</p>
+
+<pre class="prettyprint" lang="bash">deepak@ubuntu:~$ sudo mount /dev/cdrom /media/cdrom</pre>
+
+<p>You can now access the iso within Ubuntu. Run the following command to install Guest Additions.</p>
+
+<pre class="prettyprint" lang="bash">deepak@ubuntu:~$ sudo ./VBoxLinuxAdditions.run</pre>
+
+<p>This will install Guest Additions. A new group called vboxsf will also be created. Verify that the group exists by running this command.</p>
+
+<pre class="prettyprint" lang="bash">deepak@ubuntu:~$ cat /etc/group | grep vboxsf
+
+vboxsf:x:1005:</pre>
+
+<p>Next go to machine settings and click on Shared Folders. Add a host folder you'd like to share. In the screenshot below I have shared temp folder on my D drive.</p>
+
+<a href="http://www.debugrelease.com/wp-content/uploads/2013/07/vboxsharefolder.png"><img src="http://www.debugrelease.com/wp-content/uploads/2013/07/vboxsharefolder.png" alt="" width="626" height="440" class="alignleft size-full wp-image-2084" /></a>
+
+<p>The shared folder is now accessible within Ubuntu. Just mount it to a directory.</p>
+
+<pre class="prettyprint" lang="bash">deepak@ubuntu:~$ makedir /media/host-share
+deepak@ubuntu:~$ sudo mount -t vboxsf temp /media/host-share</pre>
+
+<p>The <code>-t</code> option is used to specify a file system which in this case is <strong>vboxsf</strong>.</p>
+
+<p>You can now access host temp folder within Ubuntu which has been mounted at /media/host-share.</p>

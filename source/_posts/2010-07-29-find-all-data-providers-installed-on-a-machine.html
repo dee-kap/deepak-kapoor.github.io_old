@@ -1,0 +1,41 @@
+---
+layout: post
+title: Find All Data Providers Installed On A Machine
+categories:
+- .NET
+- Microsoft
+- Windows
+tags:
+- .Net
+- Code Snippets
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '6170'
+  _syntaxhighlighter_encoded: '1'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image43-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image43.png
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+<p>This post shows you how to find Data Providers installed on a machine. Data providers in .NET Framework provide the plumbing necessary to connect to databases. There are different data providers available which can connect to SQL Server, Oracle or other databases through OleDb. You can find the data providers installed on your machine by looking at Machine.config file. In particular you will be looking for DbProviderFactories element under System.Data. In the screenshot below you can see data providers installed on my machine.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2010/07/image.png" width="539" height="141" /> </p>  <p>A list of data providers can also be retrieved by code. This sample shows you how to retrieve a list of data providers in code.</p>  
+
+ 
+<pre class="lang:c# decode:true " >DataTable dataProviders = DbProviderFactories.GetFactoryClasses();
+            
+foreach (DataRow provider in dataProviders.Rows)
+{
+  Console.WriteLine(provider[0].ToString());
+}</pre> 
+
+
+<p>In the code above I am displaying the name of provider. Here is my output.</p>
+
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2010/07/image1.png" width="387" height="84" /></p>

@@ -1,0 +1,116 @@
+---
+layout: post
+title: Different Ways Of Retrieving Data From Collections
+categories:
+- .NET
+- Microsoft
+tags:
+- C#
+- LINQ
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '7835'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: ''
+  _wp_rp_extracted_image_url_full: ''
+  simplecatch-sidebarlayout: ''
+---
+C# as a language has matured over years. We have come a long way from the first version of C# to the current which incorporates LINQ. Here is an example I recently used in a training session. My objective was to show students how we can retrieve items from a collection based on a certain criteria in different ways. The collection in question here is a collection of cities. City class looks like this:
+<div class="csharpcode">
+<pre class="alt"><span class="kwrd">public</span> <span class="kwrd">class</span> City</pre>
+<pre>    {</pre>
+<pre class="alt">        <span class="kwrd">public</span> <span class="kwrd">string</span> Name { get; set; }</pre>
+<pre>        <span class="kwrd">public</span> <span class="kwrd">string</span> Country { get; set; }</pre>
+<pre class="alt">    }</pre>
+</div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+
+Cities collection is initialised using this code:
+<div class="csharpcode">
+<pre class="alt">List&lt;City&gt; cities =</pre>
+<pre>                <span class="kwrd">new</span> List&lt;City&gt;</pre>
+<pre class="alt">                {</pre>
+<pre>                    <span class="kwrd">new</span> City{ Name = <span class="str">"Sydney"</span>, Country = <span class="str">"Australia"</span> },</pre>
+<pre class="alt">                    <span class="kwrd">new</span> City{ Name = <span class="str">"New York"</span>, Country = <span class="str">"USA"</span> },</pre>
+<pre>                    <span class="kwrd">new</span> City{ Name = <span class="str">"Paris"</span>, Country = <span class="str">"France"</span> },</pre>
+<pre class="alt">                    <span class="kwrd">new</span> City{ Name = <span class="str">"Milan"</span>, Country = <span class="str">"Spain"</span> },</pre>
+<pre>                    <span class="kwrd">new</span> City{ Name = <span class="str">"Melbourne"</span>, Country = <span class="str">"Australia"</span> },</pre>
+<pre class="alt">                    <span class="kwrd">new</span> City{ Name = <span class="str">"Auckland"</span>, Country = <span class="str">"New Zealand"</span> },</pre>
+<pre>                    <span class="kwrd">new</span> City{ Name = <span class="str">"Tokyo"</span>, Country = <span class="str">"Japan"</span> },</pre>
+<pre class="alt">                    <span class="kwrd">new</span> City{ Name = <span class="str">"New Delhi"</span>, Country = <span class="str">"India"</span> },</pre>
+<pre>                    <span class="kwrd">new</span> City{ Name = <span class="str">"Hobart"</span>, Country = <span class="str">"Australia"</span> }</pre>
+<pre class="alt">                };</pre>
+</div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+
+The objective is to find all cities in Australia and write their name to console. Here are the different ways it can be done.
+
+Old Fashioned
+<div class="csharpcode">
+<pre class="alt"><span class="kwrd">foreach</span> (City item <span class="kwrd">in</span> cities)</pre>
+<pre>{</pre>
+<pre class="alt">  <span class="kwrd">if</span> (item.Country == <span class="str">"Australia"</span>)</pre>
+<pre>    Console.WriteLine(item.Name);</pre>
+<pre class="alt">}</pre>
+</div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+
+Using FindAll extension method
+<div class="csharpcode">
+<pre class="alt"><span class="kwrd">foreach</span> (City item <span class="kwrd">in</span> cities.FindAll(IsAustralianCity))</pre>
+<pre>{</pre>
+<pre class="alt">  Console.WriteLine(item.Name);</pre>
+<pre>}</pre>
+<pre class="alt"></pre>
+<pre><span class="kwrd">private</span> <span class="kwrd">static</span> <span class="kwrd">bool</span> IsAustralianCity(City c)</pre>
+<pre class="alt">{</pre>
+<pre>  <span class="kwrd">if</span> (c.Country == <span class="str">"Australia"</span>)</pre>
+<pre class="alt">    <span class="kwrd">return</span> <span class="kwrd">true</span>;</pre>
+<pre>  <span class="kwrd">else</span></pre>
+<pre class="alt">    <span class="kwrd">return</span> <span class="kwrd">false</span>;</pre>
+<pre>}</pre>
+</div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+
+using FindAll with anonymous method
+<div class="csharpcode">
+<pre class="alt"><span class="kwrd">foreach</span> (City item <span class="kwrd">in</span> cities.FindAll(</pre>
+<pre>  <span class="kwrd">delegate</span>(City c)</pre>
+<pre class="alt">  {</pre>
+<pre>    <span class="kwrd">return</span> c.Country == <span class="str">"Australia"</span>;</pre>
+<pre class="alt">  }))</pre>
+<pre>{</pre>
+<pre class="alt">Console.WriteLine(item.Name);</pre>
+<pre>}</pre>
+</div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+
+Using a LINQ query
+<div class="csharpcode">
+<pre class="alt">var collection =</pre>
+<pre>  from c <span class="kwrd">in</span> cities</pre>
+<pre class="alt">  <span class="kwrd">where</span> c.Country == <span class="str">"Australia"</span></pre>
+<pre>  select c;</pre>
+<pre class="alt"></pre>
+<pre><span class="kwrd">foreach</span> (City item <span class="kwrd">in</span> collection)</pre>
+<pre class="alt">{</pre>
+<pre>  Console.WriteLine(item.Name);</pre>
+<pre class="alt">}</pre>
+</div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+
+One liner using Lambda. My absolute favourite.
+<div class="csharpcode">
+<pre class="alt">cities.FindAll(c =&gt; c.Country == <span class="str">"Australia"</span>)</pre>
+<pre>  .ForEach(c =&gt; Console.WriteLine(c.Name));</pre>
+</div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+
+Quite interesting to see how the language has evolved over time. I guess this is the kind of stuff which keeps us developers going. Good on you Microsoft! Keep it coming.
+
+<a href="http://www.dotnetkicks.com/kick/?url=http%3a%2f%2fwww.thereforesystems.com%2fdifferent-ways-of-retrieving-data-from-collections%2f"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fwww.thereforesystems.com%2fdifferent-ways-of-retrieving-data-from-collections%2f" border="0" alt="kick it on DotNetKicks.com" /></a>
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:702526be-e7a7-48ad-afd0-1604d867aa9b" class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/C#">C#</a>,<a rel="tag" href="http://technorati.com/tags/LINQ">LINQ</a></div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->

@@ -1,0 +1,30 @@
+---
+layout: post
+title: Get Free Disk Space Using T-SQL
+categories:
+- SQL Server
+tags:
+- Code Snippets
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_all: '1'
+  views: '6469'
+  _edit_last: '1'
+  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image401-150x150.jpg
+  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image401.png
+  wpzoom_is_featured: ''
+  wpzoom_is_carousel: ''
+  wpzoom_show_media: ''
+  wpzoom_post_template: ''
+  wpzoom_post_embed_code: ''
+  simplecatch-sidebarlayout: ''
+---
+<p>To get free disk space for all physical drives on a machine we can use xp_fixeddrives extended stored procedure. An interesting this about this procedure is that it is not documented in books online.</p>  
+
+<pre class="lang:tsql decode:true " >EXEC xp_fixeddrives</pre>
+
+<p>Here is output on my machine.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="xp_fixeddrives" border="0" alt="xp_fixeddrives" src="http://www.debugrelease.com/wp-content/uploads/2009/03/image40.png" width="161" height="46" /></p>
