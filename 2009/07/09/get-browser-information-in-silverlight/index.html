@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Get Browser Information In Silverlight - Debug > Release ></title>
+  <meta name="author" content="Deepak Kapoor">
+
+  
+  <meta name="description" content="While writing Silverlight you may come across a need to get information about host browsers within your application. In Silverlight this information &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://deepak-kapoor.github.io/2009/07/09/get-browser-information-in-silverlight">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Debug > Release >" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<link href="/stylesheets/debrel.css" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Debug > Release ></a></h1>
+  
+    <h2>Programming notes of Deepak Kapoor</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:deepak-kapoor.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Get Browser Information in Silverlight</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-09T00:00:00+10:00" pubdate data-updated="true">Jul 9<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>While writing Silverlight you may come across a need to get information about host browsers within your application. In Silverlight this information is exposed by BrowserInformation class within System.Windows.Browser namespace. BrowserInformation can be accessed through HtmlPage class which also lives in System.Windows.Browser namespace. Here is an example where I am retrieving information about the browser.</p>  <pre class="code"><span style="color: blue">&lt;</span><span style="color: #a31515">StackPanel </span><span style="color: red">x</span><span style="color: blue">:</span><span style="color: red">Name</span><span style="color: blue">=&quot;LayoutRoot&quot; 
+            </span><span style="color: red">Margin</span><span style="color: blue">=&quot;10&quot; 
+            </span><span style="color: red">Background</span><span style="color: blue">=&quot;PaleGoldenrod&quot;&gt;
+        
+  &lt;</span><span style="color: #a31515">StackPanel.Resources</span><span style="color: blue">&gt;
+    &lt;</span><span style="color: #a31515">Style </span><span style="color: red">x</span><span style="color: blue">:</span><span style="color: red">Key</span><span style="color: blue">=&quot;TextBlockStyle&quot; 
+           </span><span style="color: red">TargetType</span><span style="color: blue">=&quot;TextBlock&quot;&gt;
+             &lt;</span><span style="color: #a31515">Setter 
+               </span><span style="color: red">Property</span><span style="color: blue">=&quot;FontSize&quot; 
+               </span><span style="color: red">Value</span><span style="color: blue">=&quot;14&quot; /&gt;
+             &lt;/</span><span style="color: #a31515">Style</span><span style="color: blue">&gt;
+  &lt;/</span><span style="color: #a31515">StackPanel.Resources</span><span style="color: blue">&gt;
+        
+  &lt;</span><span style="color: #a31515">TextBlock 
+    </span><span style="color: red">Text</span><span style="color: blue">=&quot;Information about your browser&quot; 
+    </span><span style="color: red">HorizontalAlignment</span><span style="color: blue">=&quot;Center&quot; 
+    </span><span style="color: red">Style</span><span style="color: blue">=&quot;{</span><span style="color: #a31515">StaticResource </span><span style="color: red">TextBlockStyle</span><span style="color: blue">}&quot; /&gt;
+  &lt;</span><span style="color: #a31515">controls</span><span style="color: blue">:</span><span style="color: #a31515">WrapPanel</span><span style="color: blue">&gt;
+    &lt;</span><span style="color: #a31515">TextBlock 
+      </span><span style="color: red">Text</span><span style="color: blue">=&quot;You are using &quot; 
+      </span><span style="color: red">Style</span><span style="color: blue">=&quot;{</span><span style="color: #a31515">StaticResource </span><span style="color: red">TextBlockStyle</span><span style="color: blue">}&quot;/&gt;
+    &lt;</span><span style="color: #a31515">TextBlock 
+      </span><span style="color: red">Text</span><span style="color: blue">=&quot;{</span><span style="color: #a31515">Binding </span><span style="color: red">Name</span><span style="color: blue">}&quot; 
+      </span><span style="color: red">Style</span><span style="color: blue">=&quot;{</span><span style="color: #a31515">StaticResource </span><span style="color: red">TextBlockStyle</span><span style="color: blue">}&quot; /&gt;
+    &lt;</span><span style="color: #a31515">TextBlock 
+      </span><span style="color: red">Text</span><span style="color: blue">=&quot;. Version &quot; 
+      </span><span style="color: red">Style</span><span style="color: blue">=&quot;{</span><span style="color: #a31515">StaticResource </span><span style="color: red">TextBlockStyle</span><span style="color: blue">}&quot; /&gt;
+    &lt;</span><span style="color: #a31515">TextBlock 
+      </span><span style="color: red">Text</span><span style="color: blue">=&quot;{</span><span style="color: #a31515">Binding </span><span style="color: red">BrowserVersion</span><span style="color: blue">}&quot; 
+      </span><span style="color: red">Style</span><span style="color: blue">=&quot;{</span><span style="color: #a31515">StaticResource </span><span style="color: red">TextBlockStyle</span><span style="color: blue">}&quot; /&gt;
+    &lt;</span><span style="color: #a31515">TextBlock 
+      </span><span style="color: red">Text</span><span style="color: blue">=&quot;Your platform is &quot; 
+      </span><span style="color: red">Style</span><span style="color: blue">=&quot;{</span><span style="color: #a31515">StaticResource </span><span style="color: red">TextBlockStyle</span><span style="color: blue">}&quot;/&gt;
+    &lt;</span><span style="color: #a31515">TextBlock 
+      </span><span style="color: red">Text</span><span style="color: blue">=&quot;{</span><span style="color: #a31515">Binding </span><span style="color: red">Platform</span><span style="color: blue">}&quot; 
+      </span><span style="color: red">Style</span><span style="color: blue">=&quot;{</span><span style="color: #a31515">StaticResource </span><span style="color: red">TextBlockStyle</span><span style="color: blue">}&quot;/&gt;
+  &lt;/</span><span style="color: #a31515">controls</span><span style="color: blue">:</span><span style="color: #a31515">WrapPanel</span><span style="color: blue">&gt;
+&lt;/</span><span style="color: #a31515">StackPanel</span><span style="color: blue">&gt;</span></pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+<p>&#160;</p>
+
+<p>We also need to assign a DataContext for our StackPanel to BrowserInformation object.</p>
+
+<pre class="code">LayoutRoot.DataContext = 
+  System.Windows.Browser.<span style="color: #2b91af">HtmlPage</span>.BrowserInformation;</pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+<p>&#160;</p>
+
+<p>And the output on my machine is.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image15.png" width="384" height="285" /></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Deepak Kapoor</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-09T00:00:00+10:00" pubdate data-updated="true">Jul 9<span>th</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/dot-net/'>.NET</a>, <a class='category' href='/blog/categories/microsoft/'>Microsoft</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://deepak-kapoor.github.io/2009/07/09/get-browser-information-in-silverlight/" data-via="" data-counturl="http://deepak-kapoor.github.io/2009/07/09/get-browser-information-in-silverlight/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2009/07/08/insert-master-detail-data-with-linq-to-sql/" title="Previous Post: Insert Master Detail Data With LINQ To SQL">&laquo; Insert Master Detail Data With LINQ To SQL</a>
+      
+      
+        <a class="basic-alignment right" href="/2009/07/10/silverlight-3-released/" title="Next Post: Silverlight 3 Released">Silverlight 3 Released &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/31/android-expandablelistview-tutorial/">Android - ExpandableListView Tutorial</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/28/linux-install-handbrake-on-linux-mint-15/">Linux - Install Handbrake on Linux Mint 15</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/">Linux VirtualBox - Windows Host Share in Ubuntu Guest</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Deepak Kapoor -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

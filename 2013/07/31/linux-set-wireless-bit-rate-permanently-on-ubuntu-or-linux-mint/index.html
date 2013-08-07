@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Linux - Set wireless bit rate permanently on Ubuntu or Linux Mint - Debug > Release ></title>
+  <meta name="author" content="Deepak Kapoor">
+
+  
+  <meta name="description" content="Recently I moved my desktop from the home office to another room. Due to this move I lost access to wired LAN and had to install a wireless adapter &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://deepak-kapoor.github.io/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Debug > Release >" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<link href="/stylesheets/debrel.css" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Debug > Release ></a></h1>
+  
+    <h2>Programming notes of Deepak Kapoor</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:deepak-kapoor.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-31T00:00:00+10:00" pubdate data-updated="true">Jul 31<span>st</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content">    <p>Recently I moved my desktop from the home office to another room. Due to this move I lost access to wired LAN and had to install a wireless adapter in my desktop. The adapter I am using is <a href="http://www.tp-link.com/en/products/details/?model=TL-WN781ND">TP-Link 150Mbps Wireless N PCI Express Adapter</a>. I noticed slow network speed ever since I connected to wireless on my desktop. I understand that there is a difference between wired and wireless connection, but I didn&#8217;t expect the wireless to be so slow. After some investigation, I found that the real culprit was the bit rate for my wireless adapter. I resolved the speed issue by setting the bit rate to 54Mbps. In this post I will show you how to do that.</p>
+    <p>
+        Check the current bit rate
+    </p>
+    
+<pre class="prettyprint" lang="bash">
+$ iwconfig
+
+eth0      no wireless extensions.
+
+lo        no wireless extensions.
+
+wlan0     IEEE 802.11bgn  ESSID:"Gibberish"  
+          Mode:Managed  Frequency:2.452 GHz  Access Point: 00:00:00:00:EE:EE   
+          Bit Rate=11 Mb/s   Tx-Power=20 dBm   
+          Retry  long limit:7   RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=37/70  Signal level=-73 dBm  
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:2  Invalid misc:73   Missed beacon:0</pre>
+
+    <p>
+        The output above shows that the bit rate is set to 11Mb/s. To change it, execute this command.
+    </p>
+
+    <pre class="prettyprint" lang="bash">$ sudo iwconfig wlan0 rate 54M</pre>
+
+    <p>
+        The command will set the bit rate to be 54Mbps. This can be verified by executing <code>iwconfig</code> again
+    </p>
+<pre class="prettyprint" lang="bash">
+$ iwconfig
+
+eth0      no wireless extensions.
+
+lo        no wireless extensions.
+
+wlan0     IEEE 802.11bgn  ESSID:"Gibberish"  
+          Mode:Managed  Frequency:2.452 GHz  Access Point: 00:00:00:00:EE:EE   
+          Bit Rate=54 Mb/s   Tx-Power=20 dBm   
+          Retry  long limit:7   RTS thr:off   Fragment thr:off
+          Power Management:off
+          Link Quality=45/70  Signal level=-65 dBm  
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:9  Invalid misc:120   Missed beacon:0</pre>
+
+<p>Now the bit rate is 54Mbps.<p>
+
+    <p>
+        To make this change permanent, we have to create a script in <strong>/etc/network/if-up.d</strong> directory. All the scripts in this directory are executed when network interfaces are coming up. The script can be called anything. I decided to call it <i>speedup</i> but you can name it anything you like. Below is the script which changes bit rate for wireless adapter wlan0 to 54Mbps.
+    </p>
+
+<pre class="prettyprint" lang="bash">
+#!/bin/bash -e
+
+if [ "$IFACE" = "wlan0" ] 
+then
+  iwconfig wlan0 rate 54M
+fi
+</pre>
+  <p>
+        The -e option in the script instructs an exit if there is an error.
+    </p>
+
+    <p>
+        Also make the script executable with this command
+    </p>
+
+<pre class="prettyprint" lang="bash">
+$ sudo chmod 755 /etc/network/if-up.d/speedup</pre>
+<p>
+And that&#8217;s it. The bit rate from now will always be 54Mbps.
+</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Deepak Kapoor</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-31T00:00:00+10:00" pubdate data-updated="true">Jul 31<span>st</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/linux/'>Linux</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://deepak-kapoor.github.io/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/" data-via="" data-counturl="http://deepak-kapoor.github.io/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2013/07/31/android-expandablelistview-tutorial/" title="Previous Post: Android - ExpandableListView Tutorial">&laquo; Android - ExpandableListView Tutorial</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/31/android-expandablelistview-tutorial/">Android - ExpandableListView Tutorial</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/28/linux-install-handbrake-on-linux-mint-15/">Linux - Install Handbrake on Linux Mint 15</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/">Linux VirtualBox - Windows Host Share in Ubuntu Guest</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Deepak Kapoor -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

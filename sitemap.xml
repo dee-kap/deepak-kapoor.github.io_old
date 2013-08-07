@@ -1,1374 +1,1290 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/07/31/linq-to-sql-tutorial/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/07/31/linq-to-sql-tutorial/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/07/31/starting-one-net-way/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/07/31/starting-one-net-way/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/01/different-ways-of-retrieving-data-from-collections/
+            http://deepak-kapoor.github.io/2008/08/01/different-ways-of-retrieving-data-from-collections/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/01/more-details-emerge-on-microsoft-master-certification/
+            http://deepak-kapoor.github.io/2008/08/01/more-details-emerge-on-microsoft-master-certification/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/01/why-microsoft-is-not-leading-in-web/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2008/08/01/why-microsoft-is-not-leading-in-web/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/02/participate-in-microsoft-beta-exams/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2008/08/02/participate-in-microsoft-beta-exams/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/08/04/dynamic-sort-with-linq/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/08/04/dynamic-sort-with-linq/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/04/togaf-training-in-sydney-and-melbourne/
+            http://deepak-kapoor.github.io/2008/08/04/togaf-training-in-sydney-and-melbourne/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/08/05/visual-studio-extensions/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/08/05/visual-studio-extensions/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/06/free-icons-and-images-with-visual-studio-2008/
+            http://deepak-kapoor.github.io/2008/08/06/free-icons-and-images-with-visual-studio-2008/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/08/06/sql-server-2008-released/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/08/06/sql-server-2008-released/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/08/07/link-post-for-august-7-2008/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/08/07/link-post-for-august-7-2008/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/07/microsoft-sync-framework-released/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2008/08/07/microsoft-sync-framework-released/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/08/07/stylecop-tutorial/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/08/07/stylecop-tutorial/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/07/write-to-vista-event-log-using-c/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2008/08/07/write-to-vista-event-log-using-c/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/08/08/link-post-for-august-8-2008/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/08/08/link-post-for-august-8-2008/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/09/refactoring-in-visual-studio-2008/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2008/08/09/refactoring-in-visual-studio-2008/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/09/tip-1-how-do-i-display-line-numbers-in-visual-studio/
+            http://deepak-kapoor.github.io/2008/08/09/tip-1-how-do-i-display-line-numbers-in-visual-studio/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/11/exam-70-502-microsoft-net-framework-35-windows-presentation-foundation-study-links-part-2/
+            http://deepak-kapoor.github.io/2008/08/11/exam-70-502-microsoft-net-framework-35-windows-presentation-foundation-study-links-part-2/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/12/net-framework-35-service-pack-1-and-visual-studio-2008-service-pack1-released/
+            http://deepak-kapoor.github.io/2008/08/12/net-framework-35-service-pack-1-and-visual-studio-2008-service-pack1-released/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/13/creative-commons-add-in-for-microsoft-office-2007/
+            http://deepak-kapoor.github.io/2008/08/13/creative-commons-add-in-for-microsoft-office-2007/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/13/msdn-library-for-visual-studio-and-net-35-sp1/
+            http://deepak-kapoor.github.io/2008/08/13/msdn-library-for-visual-studio-and-net-35-sp1/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/13/tutorial-reading-a-text-file-using-linq/
+            http://deepak-kapoor.github.io/2008/08/13/tutorial-reading-a-text-file-using-linq/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/08/14/different-flavors-of-linq/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/08/14/different-flavors-of-linq/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/14/windows-7-privacy-statement-is-coming-soon/
+            http://deepak-kapoor.github.io/2008/08/14/windows-7-privacy-statement-is-coming-soon/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/16/bulk-copy-data-using-sqlbulkcopy-class/
+            http://deepak-kapoor.github.io/2008/08/16/bulk-copy-data-using-sqlbulkcopy-class/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/08/16/find-duplicates-using-linq/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/08/16/find-duplicates-using-linq/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/08/16/windows-7-conversation-begins/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/08/16/windows-7-conversation-begins/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/17/visual-studio-book-i-am-so-looking-forward-to/
+            http://deepak-kapoor.github.io/2008/08/17/visual-studio-book-i-am-so-looking-forward-to/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/18/msdn-forums-client-july-ctp-now-available/
+            http://deepak-kapoor.github.io/2008/08/18/msdn-forums-client-july-ctp-now-available/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/08/25/linq-equivalent-of-where-in/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/08/25/linq-equivalent-of-where-in/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/25/use-screen-space-efficiently-on-windows-vista-with-virtual-desktop-manager/
+            http://deepak-kapoor.github.io/2008/08/25/use-screen-space-efficiently-on-windows-vista-with-virtual-desktop-manager/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/28/download-internet-explorer-8-beta-2/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2008/08/28/download-internet-explorer-8-beta-2/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/08/28/new-mac-vs-pc-ads/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/08/28/new-mac-vs-pc-ads/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/28/windows-live-video-messages-coming-soon/
+            http://deepak-kapoor.github.io/2008/08/28/windows-live-video-messages-coming-soon/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/29/get-a-list-of-installed-applications-using-linq-and-c/
+            http://deepak-kapoor.github.io/2008/08/29/get-a-list-of-installed-applications-using-linq-and-c/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/08/29/programmatically-retrieve-information-about-windows-services-using-servicecontroller/
+            http://deepak-kapoor.github.io/2008/08/29/programmatically-retrieve-information-about-windows-services-using-servicecontroller/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/09/01/download-f-september-ctp/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/09/01/download-f-september-ctp/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/09/01/fundamentals-deep-cloning-in-c/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/09/01/fundamentals-deep-cloning-in-c/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/09/01/use-edmgen-to-generate-entity-framework-model/
+            http://deepak-kapoor.github.io/2008/09/01/use-edmgen-to-generate-entity-framework-model/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/09/04/tech-ed-nz-2008-content-available-online/
+            http://deepak-kapoor.github.io/2008/09/04/tech-ed-nz-2008-content-available-online/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/09/09/channel-9-visits-one-net-way/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/09/09/channel-9-visits-one-net-way/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2008/09/09/presenting-entity-framework-at-wdnug/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2008/09/09/presenting-entity-framework-at-wdnug/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/09/10/geek-rap-at-cern/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/09/10/geek-rap-at-cern/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/09/16/linq-to-sql-join-on-multiple-conditions/
+            http://deepak-kapoor.github.io/2008/09/16/linq-to-sql-join-on-multiple-conditions/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2008/09/16/use-sqlconnection-with-linq-to-sql/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2008/09/16/use-sqlconnection-with-linq-to-sql/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/09/17/code-sample-find-difference-between-two-datetime-values/
+            http://deepak-kapoor.github.io/2008/09/17/code-sample-find-difference-between-two-datetime-values/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/09/17/code-sample-programmatically-download-file-using-c/
+            http://deepak-kapoor.github.io/2008/09/17/code-sample-programmatically-download-file-using-c/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/09/17/microsoft-virtual-techdays/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/09/17/microsoft-virtual-techdays/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/09/19/sql-server-2008-beta-exam-now-available/
+            http://deepak-kapoor.github.io/2008/09/19/sql-server-2008-beta-exam-now-available/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2008/09/22/view-query-generate-by-linq-to-sql/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2008/09/22/view-query-generate-by-linq-to-sql/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/09/23/view-t-sql-query-generated-by-linq-to-sql-using-linqpad/
+            http://deepak-kapoor.github.io/2008/09/23/view-t-sql-query-generated-by-linq-to-sql-using-linqpad/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/09/24/i-saw-future-at-sbtug/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/09/24/i-saw-future-at-sbtug/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/09/25/windows-7-on-horizon/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/09/25/windows-7-on-horizon/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2008/09/25/windows-web-site-gets-a-new-look/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2008/09/25/windows-web-site-gets-a-new-look/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/09/28/how-i-fixed-error-0x80070052-on-sd-card/
+            http://deepak-kapoor.github.io/2008/09/28/how-i-fixed-error-0x80070052-on-sd-card/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/10/07/visual-studio-2010-and-net-framework-40-videos/
+            http://deepak-kapoor.github.io/2008/10/07/visual-studio-2010-and-net-framework-40-videos/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/10/15/live-services-jumpstart-2009-in-sydney/
+            http://deepak-kapoor.github.io/2008/10/15/live-services-jumpstart-2009-in-sydney/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2008/10/16/microsoft-launches-microsoft-web/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2008/10/16/microsoft-launches-microsoft-web/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/10/17/mainstream-support-for-net-framework-11-ends/
+            http://deepak-kapoor.github.io/2008/10/17/mainstream-support-for-net-framework-11-ends/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/10/29/download-visual-studio-2010-and-net-framework-40-ctp/
+            http://deepak-kapoor.github.io/2008/10/29/download-visual-studio-2010-and-net-framework-40-ctp/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2008/10/29/free-linq-to-sql-training-in-sydney/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2008/10/29/free-linq-to-sql-training-in-sydney/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2008/10/30/word-2007-cannot-click-on-document/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2008/10/30/word-2007-cannot-click-on-document/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/10/31/oslo-developer-center-is-live-on-msdn/
+            http://deepak-kapoor.github.io/2008/10/31/oslo-developer-center-is-live-on-msdn/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2008/11/04/free-download-coderush-xpress-for-c/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2008/11/04/free-download-coderush-xpress-for-c/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/11/05/wi-fi-not-working-with-vodafone-software/
+            http://deepak-kapoor.github.io/2008/11/05/wi-fi-not-working-with-vodafone-software/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/11/05/writing-visual-studio-2010-shell-in-wpf-reflects-confidence/
+            http://deepak-kapoor.github.io/2008/11/05/writing-visual-studio-2010-shell-in-wpf-reflects-confidence/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2008/11/06/free-microsoft-software-for-startups/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2008/11/06/free-microsoft-software-for-startups/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/11/18/enum-support-with-linq-to-sql-and-sqlmetal/
+            http://deepak-kapoor.github.io/2008/11/18/enum-support-with-linq-to-sql-and-sqlmetal/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2008/11/18/microsoft-online-services-goes-live/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2008/11/18/microsoft-online-services-goes-live/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/11/19/a-look-at-microsoft-net-35-certification-exams/
+            http://deepak-kapoor.github.io/2008/11/19/a-look-at-microsoft-net-35-certification-exams/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/11/19/dynamic-sort-with-linq-to-sql/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/11/19/dynamic-sort-with-linq-to-sql/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/11/20/amazon-launches-microsoft-branded-store/
+            http://deepak-kapoor.github.io/2008/11/20/amazon-launches-microsoft-branded-store/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2008/12/03/google-chrome-gains-market-share/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2008/12/03/google-chrome-gains-market-share/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/12/04/the-era-of-cloud-computing-consultant/
+            http://deepak-kapoor.github.io/2008/12/04/the-era-of-cloud-computing-consultant/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2008/12/12/remove-duplicate-lines-from-a-text-file-using-linq/
+            http://deepak-kapoor.github.io/2008/12/12/remove-duplicate-lines-from-a-text-file-using-linq/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2008/12/23/linqpad-with-intellisense/</loc>
+        <loc>http://deepak-kapoor.github.io/2008/12/23/linqpad-with-intellisense/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/01/02/happy-new-year/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/01/02/happy-new-year/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2009/01/05/linq-equivalent-of-where-in-with-int/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2009/01/05/linq-equivalent-of-where-in-with-int/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/01/06/application-architecture-guide-read-it-even-if-you-know-it-all/
+            http://deepak-kapoor.github.io/2009/01/06/application-architecture-guide-read-it-even-if-you-know-it-all/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/01/06/var-keyword-in-c/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/01/06/var-keyword-in-c/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/01/27/get-a-list-of-running-processes-using-c-code-snippet/
+            http://deepak-kapoor.github.io/2009/01/27/get-a-list-of-running-processes-using-c-code-snippet/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/01/27/microsoft-is-number-38-in-top-100-companies-to-work-for/
+            http://deepak-kapoor.github.io/2009/01/27/microsoft-is-number-38-in-top-100-companies-to-work-for/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2009/02/03/download-oslo-tools-and-sdk-update/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2009/02/03/download-oslo-tools-and-sdk-update/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/02/03/important-dates-for-windows-7-beta-download/
+            http://deepak-kapoor.github.io/2009/02/03/important-dates-for-windows-7-beta-download/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/02/04/writing-windows-forms-client-for-live-search/
+            http://deepak-kapoor.github.io/2009/02/04/writing-windows-forms-client-for-live-search/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/02/11/get-a-free-website-including-your-own-domain-with-office-live/
+            http://deepak-kapoor.github.io/2009/02/11/get-a-free-website-including-your-own-domain-with-office-live/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/02/11/get-a-list-of-all-oledb-providers-in-sql-server/
+            http://deepak-kapoor.github.io/2009/02/11/get-a-list-of-all-oledb-providers-in-sql-server/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/02/11/t-sql-return-empty-string-instead-of-null/
+            http://deepak-kapoor.github.io/2009/02/11/t-sql-return-empty-string-instead-of-null/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2009/02/17/create-silverlight-game-and-win-5000/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2009/02/17/create-silverlight-game-and-win-5000/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/02/17/microsoft-museum-windows-2000-windows-nt-4-source-code-leaks/
+            http://deepak-kapoor.github.io/2009/02/17/microsoft-museum-windows-2000-windows-nt-4-source-code-leaks/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/02/18/microsoft-museum-microsoft-1978-picture-at-museum-of-hoaxes/
+            http://deepak-kapoor.github.io/2009/02/18/microsoft-museum-microsoft-1978-picture-at-museum-of-hoaxes/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/02/23/sql-server-2008-get-space-used-by-a-table/
+            http://deepak-kapoor.github.io/2009/02/23/sql-server-2008-get-space-used-by-a-table/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/02/23/sql-server-get-database-mail-configuration-settings/
+            http://deepak-kapoor.github.io/2009/02/23/sql-server-get-database-mail-configuration-settings/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2009/02/25/mystery-of-scott-and-tiger-in-oracle/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2009/02/25/mystery-of-scott-and-tiger-in-oracle/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/02/26/programmatically-take-screenshot-using-c/
+            http://deepak-kapoor.github.io/2009/02/26/programmatically-take-screenshot-using-c/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/02/bypass-windows-password-requirements-for-sql-login/
+            http://deepak-kapoor.github.io/2009/03/02/bypass-windows-password-requirements-for-sql-login/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/02/check-if-a-login-exists-in-sql-server-2008/
+            http://deepak-kapoor.github.io/2009/03/02/check-if-a-login-exists-in-sql-server-2008/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/03/sql-server-2008-find-if-a-database-is-offline-with-t-sql/
+            http://deepak-kapoor.github.io/2009/03/03/sql-server-2008-find-if-a-database-is-offline-with-t-sql/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/05/get-more-than-100-hours-of-sql-server-2008-training-for-free/
+            http://deepak-kapoor.github.io/2009/03/05/get-more-than-100-hours-of-sql-server-2008-training-for-free/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/05/sharepoint-installation-failed-to-create-sample-data/
+            http://deepak-kapoor.github.io/2009/03/05/sharepoint-installation-failed-to-create-sample-data/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/06/backup-utility-for-windows-live-writer/
+            http://deepak-kapoor.github.io/2009/03/06/backup-utility-for-windows-live-writer/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/08/microsoft-thrive-are-you-certifiable/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2009/03/08/microsoft-thrive-are-you-certifiable/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/09/get-cd-or-dvd-drive-information-using-wmi-and-c/
+            http://deepak-kapoor.github.io/2009/03/09/get-cd-or-dvd-drive-information-using-wmi-and-c/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/09/get-last-row-from-table-using-linq-to-sql/
+            http://deepak-kapoor.github.io/2009/03/09/get-last-row-from-table-using-linq-to-sql/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/09/get-processor-information-in-net-using-c/
+            http://deepak-kapoor.github.io/2009/03/09/get-processor-information-in-net-using-c/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/12/installing-oracle-soa-suite-on-windows-xp/
+            http://deepak-kapoor.github.io/2009/03/12/installing-oracle-soa-suite-on-windows-xp/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/12/sql-server-2008-find-default-constraints-on-a-table-using-t-sql/
+            http://deepak-kapoor.github.io/2009/03/12/sql-server-2008-find-default-constraints-on-a-table-using-t-sql/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/16/wpf-community-workshop-learn-wpf-and-raise-money/
+            http://deepak-kapoor.github.io/2009/03/16/wpf-community-workshop-learn-wpf-and-raise-money/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/18/sql-server-2008-2-ways-to-get-object-id-of-a-database-object/
+            http://deepak-kapoor.github.io/2009/03/18/sql-server-2008-2-ways-to-get-object-id-of-a-database-object/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/18/walkthrough-generate-test-data-with-red-gate-sql-data-generator/
+            http://deepak-kapoor.github.io/2009/03/18/walkthrough-generate-test-data-with-red-gate-sql-data-generator/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/19/download-entire-sharepoint-2007-technical-library-in-chm/
+            http://deepak-kapoor.github.io/2009/03/19/download-entire-sharepoint-2007-technical-library-in-chm/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/19/sql-server-sp_spaceused-use-the-right-way/
+            http://deepak-kapoor.github.io/2009/03/19/sql-server-sp_spaceused-use-the-right-way/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/20/internet-explorer-8-first-experience/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2009/03/20/internet-explorer-8-first-experience/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/23/get-name-of-current-executing-assembly-in-c/
+            http://deepak-kapoor.github.io/2009/03/23/get-name-of-current-executing-assembly-in-c/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/24/convert-hexadecimal-to-number-in-c/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2009/03/24/convert-hexadecimal-to-number-in-c/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/24/create-t-sql-case-statements-with-linq-to-sql/
+            http://deepak-kapoor.github.io/2009/03/24/create-t-sql-case-statements-with-linq-to-sql/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/03/24/get-free-disk-space-using-t-sql/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/03/24/get-free-disk-space-using-t-sql/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/24/sql-server-2008-get-all-indexes-in-a-database/
+            http://deepak-kapoor.github.io/2009/03/24/sql-server-2008-get-all-indexes-in-a-database/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/03/26/reverse-array-elements-using-c/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/03/26/reverse-array-elements-using-c/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/03/29/5-ways-to-remove-conficker-worm/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/03/29/5-ways-to-remove-conficker-worm/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/29/get-windows-registry-size-with-wmi-and-c/
+            http://deepak-kapoor.github.io/2009/03/29/get-windows-registry-size-with-wmi-and-c/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2009/03/31/get-width-and-height-of-image-in-c/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2009/03/31/get-width-and-height-of-image-in-c/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/04/01/capture-xml-in-wcf-service/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/04/01/capture-xml-in-wcf-service/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/04/27/outlook-2007-hotfix/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/04/27/outlook-2007-hotfix/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/04/27/ssms-tools-for-sql-server-2008/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/04/27/ssms-tools-for-sql-server-2008/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/04/29/announcing-vnext-user-group/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/04/29/announcing-vnext-user-group/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/05/02/windows-7-control-panel-in-classic-mode/
+            http://deepak-kapoor.github.io/2009/05/02/windows-7-control-panel-in-classic-mode/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2009/05/03/microsoft-office-2010-screenshots/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2009/05/03/microsoft-office-2010-screenshots/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/05/05/discover-if-your-site-is-accessible-from-different-cities/
+            http://deepak-kapoor.github.io/2009/05/05/discover-if-your-site-is-accessible-from-different-cities/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/05/12/get-current-windows-user-in-c/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/05/12/get-current-windows-user-in-c/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/05/12/microsoft-office-2010-technical-preview-registration/
+            http://deepak-kapoor.github.io/2009/05/12/microsoft-office-2010-technical-preview-registration/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/05/12/upcoming-speaking-engagements/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/05/12/upcoming-speaking-engagements/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/05/12/vnext-user-group-reflections-on-our-first-meeting/
+            http://deepak-kapoor.github.io/2009/05/12/vnext-user-group-reflections-on-our-first-meeting/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2009/05/19/visual-studio-2010-beta-1-first-look/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2009/05/19/visual-studio-2010-beta-1-first-look/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/05/20/enable-windows-search-service-on-windows-2008/
+            http://deepak-kapoor.github.io/2009/05/20/enable-windows-search-service-on-windows-2008/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/05/21/hide-twitter-status-updates-from-facebook-wall/
+            http://deepak-kapoor.github.io/2009/05/21/hide-twitter-status-updates-from-facebook-wall/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/05/23/download-sql-server-2008-training-kit/
+            http://deepak-kapoor.github.io/2009/05/23/download-sql-server-2008-training-kit/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/05/28/find-unused-css-on-a-website/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/05/28/find-unused-css-on-a-website/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/05/29/silverlight-ebay-sidebar-for-internet-explorer-8/
+            http://deepak-kapoor.github.io/2009/05/29/silverlight-ebay-sidebar-for-internet-explorer-8/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/06/16/request-error-in-adonet-data-services/
+            http://deepak-kapoor.github.io/2009/06/16/request-error-in-adonet-data-services/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/06/25/silverlight-canvas-panel/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/06/25/silverlight-canvas-panel/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/06/28/silverlight-wrap-panel/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/06/28/silverlight-wrap-panel/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/06/30/silverlight-predefined-colors-what-color-are-they/
+            http://deepak-kapoor.github.io/2009/06/30/silverlight-predefined-colors-what-color-are-they/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/07/01/what-is-microsoft-azure/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/07/01/what-is-microsoft-azure/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/07/07/scrolling-in-silverlight-panels/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/07/07/scrolling-in-silverlight-panels/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2009/07/07/select-max-value-with-linq-to-sql/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2009/07/07/select-max-value-with-linq-to-sql/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/07/07/style-silverlight-scrollviewer-with-a-new-controltemplate/
+            http://deepak-kapoor.github.io/2009/07/07/style-silverlight-scrollviewer-with-a-new-controltemplate/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/07/08/insert-master-detail-data-with-linq-to-sql/
+            http://deepak-kapoor.github.io/2009/07/08/insert-master-detail-data-with-linq-to-sql/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/07/09/get-browser-information-in-silverlight/
+            http://deepak-kapoor.github.io/2009/07/09/get-browser-information-in-silverlight/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/07/10/silverlight-3-released/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/07/10/silverlight-3-released/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/07/12/silverlight-3-element-to-element-binding/
+            http://deepak-kapoor.github.io/2009/07/12/silverlight-3-element-to-element-binding/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/07/13/get-uri-of-silverlight-plugin-host-page/
+            http://deepak-kapoor.github.io/2009/07/13/get-uri-of-silverlight-plugin-host-page/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/07/15/microsoft-office-2010-technical-preview-feedback-with-a-smile/
+            http://deepak-kapoor.github.io/2009/07/15/microsoft-office-2010-technical-preview-feedback-with-a-smile/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/07/15/office-2010-orb-has-a-new-look/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/07/15/office-2010-orb-has-a-new-look/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/07/15/office-2010-setup-screenshots/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/07/15/office-2010-setup-screenshots/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/07/21/download-windows-azure-tools-and-sdk-july-2009-ctp/
+            http://deepak-kapoor.github.io/2009/07/21/download-windows-azure-tools-and-sdk-july-2009-ctp/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/07/23/the-ultimate-list-of-jquery-plugins-and-examples/
+            http://deepak-kapoor.github.io/2009/07/23/the-ultimate-list-of-jquery-plugins-and-examples/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/07/23/windows-7-goes-rtm-release-to-manufacturing/
+            http://deepak-kapoor.github.io/2009/07/23/windows-7-goes-rtm-release-to-manufacturing/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/07/27/10-ways-to-bing-it/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/07/27/10-ways-to-bing-it/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/07/28/adonet-data-services-tutorial-with-aspnet/
+            http://deepak-kapoor.github.io/2009/07/28/adonet-data-services-tutorial-with-aspnet/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/08/05/pdc-2009-registration-is-open/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/08/05/pdc-2009-registration-is-open/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/08/14/windows-azure-sample-application-riviera/
+            http://deepak-kapoor.github.io/2009/08/14/windows-azure-sample-application-riviera/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/08/16/execute-stored-procedure-with-adonet-data-services/
+            http://deepak-kapoor.github.io/2009/08/16/execute-stored-procedure-with-adonet-data-services/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/08/26/adonet-data-services-logical-operators/
+            http://deepak-kapoor.github.io/2009/08/26/adonet-data-services-logical-operators/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/09/01/output-to-console-in-windows-forms-application/
+            http://deepak-kapoor.github.io/2009/09/01/output-to-console-in-windows-forms-application/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/09/08/teched-australia-day-1/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/09/08/teched-australia-day-1/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/09/09/teched-australia-day-2/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/09/09/teched-australia-day-2/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2009/09/16/output-doctype-in-xslt/</loc>
+        <loc>http://deepak-kapoor.github.io/2009/09/16/output-doctype-in-xslt/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/09/16/windows-7-commercial-more-happy-is-coming/
+            http://deepak-kapoor.github.io/2009/09/16/windows-7-commercial-more-happy-is-coming/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/10/02/create-breakpoints-with-hit-count-in-visual-studio-2008/
+            http://deepak-kapoor.github.io/2009/10/02/create-breakpoints-with-hit-count-in-visual-studio-2008/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2009/10/28/learn-net-4-0-and-visual-studio-2010-on-channel-9/
+            http://deepak-kapoor.github.io/2009/10/28/learn-net-4-0-and-visual-studio-2010-on-channel-9/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2009/10/30/working-with-client-id-in-asp-net-4/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2009/10/30/working-with-client-id-in-asp-net-4/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/05/03/my-new-favorite-text-editor-hippoedit/
+            http://deepak-kapoor.github.io/2010/05/03/my-new-favorite-text-editor-hippoedit/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/05/03/remove-hardware-virtualization-requirement-on-windows-7/
+            http://deepak-kapoor.github.io/2010/05/03/remove-hardware-virtualization-requirement-on-windows-7/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/05/10/mother-of-all-sharepoint-2010-virtual-machines/
+            http://deepak-kapoor.github.io/2010/05/10/mother-of-all-sharepoint-2010-virtual-machines/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2010/05/20/turn-on-msdtc-windows-7/</loc>
+        <loc>http://deepak-kapoor.github.io/2010/05/20/turn-on-msdtc-windows-7/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/05/27/visual-studio-2010-code-generation-with-intellisense/
+            http://deepak-kapoor.github.io/2010/05/27/visual-studio-2010-code-generation-with-intellisense/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/07/19/download-visual-studio-2010-productivity-power-tools/
+            http://deepak-kapoor.github.io/2010/07/19/download-visual-studio-2010-productivity-power-tools/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/07/29/find-all-data-providers-installed-on-a-machine/
+            http://deepak-kapoor.github.io/2010/07/29/find-all-data-providers-installed-on-a-machine/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/07/30/easiest-way-to-generate-connection-string-and-verify-database-connectivity/
+            http://deepak-kapoor.github.io/2010/07/30/easiest-way-to-generate-connection-string-and-verify-database-connectivity/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2010/08/05/intellisense-enhancements-i-want/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2010/08/05/intellisense-enhancements-i-want/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2010/08/06/five-reasons-why-google-wave-failed/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2010/08/06/five-reasons-why-google-wave-failed/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2010/08/19/add-hours-to-date-in-java/</loc>
+        <loc>http://deepak-kapoor.github.io/2010/08/19/add-hours-to-date-in-java/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/08/20/could-not-create-ssltsl-secure-channel-solution/
+            http://deepak-kapoor.github.io/2010/08/20/could-not-create-ssltsl-secure-channel-solution/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/08/20/generate-self-signed-certificates-on-windows-7/
+            http://deepak-kapoor.github.io/2010/08/20/generate-self-signed-certificates-on-windows-7/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/08/23/running-glassfish-in-verbose-mode-from-netbeans/
+            http://deepak-kapoor.github.io/2010/08/23/running-glassfish-in-verbose-mode-from-netbeans/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac/
+            http://deepak-kapoor.github.io/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2010/08/24/get-temporary-folder-in-java/</loc>
+        <loc>http://deepak-kapoor.github.io/2010/08/24/get-temporary-folder-in-java/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/11/03/a-little-milestone-in-thereforesystems-journey/
+            http://deepak-kapoor.github.io/2010/11/03/a-little-milestone-in-thereforesystems-journey/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/11/03/announcement-rocket-svn-from-axosoft-free-download/
+            http://deepak-kapoor.github.io/2010/11/03/announcement-rocket-svn-from-axosoft-free-download/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/11/10/creating-entity-data-model-without-a-database-with-entity-framework-4/
+            http://deepak-kapoor.github.io/2010/11/10/creating-entity-data-model-without-a-database-with-entity-framework-4/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/11/11/book-review-programming-entity-framework-second-edition/
+            http://deepak-kapoor.github.io/2010/11/11/book-review-programming-entity-framework-second-edition/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/11/12/generating-sql-server-database-from-entity-data-model/
+            http://deepak-kapoor.github.io/2010/11/12/generating-sql-server-database-from-entity-data-model/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/11/16/visual-studio-2010-feature-pack-2-available-for-download/
+            http://deepak-kapoor.github.io/2010/11/16/visual-studio-2010-feature-pack-2-available-for-download/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/11/17/use-linqpad-to-query-entity-framework/
+            http://deepak-kapoor.github.io/2010/11/17/use-linqpad-to-query-entity-framework/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/11/19/working-with-sql-server-hierarchyid-data-type-in-net-application/
+            http://deepak-kapoor.github.io/2010/11/19/working-with-sql-server-hierarchyid-data-type-in-net-application/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/11/22/search-within-sql-server-database-objects-with-red-gate-sql-search/
+            http://deepak-kapoor.github.io/2010/11/22/search-within-sql-server-database-objects-with-red-gate-sql-search/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2010/11/26/binary-attachments-in-wcf-with-mtom/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2010/11/26/binary-attachments-in-wcf-with-mtom/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/11/26/visual-studio-2005-2008-2010-put-curly-braces-on-same-line/
+            http://deepak-kapoor.github.io/2010/11/26/visual-studio-2005-2008-2010-put-curly-braces-on-same-line/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2010/11/27/failed-to-load-the-jni-shared-library-on-windows-7/
+            http://deepak-kapoor.github.io/2010/11/27/failed-to-load-the-jni-shared-library-on-windows-7/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2010/12/13/connecting-to-force-com-from-ide/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2010/12/13/connecting-to-force-com-from-ide/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2010/12/17/compress-file-with-gzip-in-java-2/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2010/12/17/compress-file-with-gzip-in-java-2/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2011/01/01/add-javadoc-to-netbeans/</loc>
+        <loc>http://deepak-kapoor.github.io/2011/01/01/add-javadoc-to-netbeans/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2011/01/01/blogilo-error-on-ubuntu-cannot-connect-to-database/
+            http://deepak-kapoor.github.io/2011/01/01/blogilo-error-on-ubuntu-cannot-connect-to-database/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2011/01/03/issue-starting-oracle-xe-on-ubuntu/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2011/01/03/issue-starting-oracle-xe-on-ubuntu/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2011/01/15/google-shortener-api-with-dotnet-written-in-c-sharp/
+            http://deepak-kapoor.github.io/2011/01/15/google-shortener-api-with-dotnet-written-in-c-sharp/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2012/01/07/i-see-a-new-computer-in-2012/</loc>
+        <loc>http://deepak-kapoor.github.io/2012/01/07/i-see-a-new-computer-in-2012/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2012/01/08/best-way-to-browse-ios-documentation/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2012/01/08/best-way-to-browse-ios-documentation/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2012/02/04/remove-langauge-resources-and-clean-up-disk-space-on-mac/
+            http://deepak-kapoor.github.io/2012/02/04/remove-langauge-resources-and-clean-up-disk-space-on-mac/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2012/02/07/wat080-failed-to-locate-the-windows-azure-sdk-please-make-sure-the-windows-azure-sdk-v1-5-is-installed/
+            http://deepak-kapoor.github.io/2012/02/07/wat080-failed-to-locate-the-windows-azure-sdk-please-make-sure-the-windows-azure-sdk-v1-5-is-installed/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2012/03/12/install-classic-gnome-desktop-in-ubuntu-11-10/
+            http://deepak-kapoor.github.io/2012/03/12/install-classic-gnome-desktop-in-ubuntu-11-10/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2012/03/20/the-zen-of-python/</loc>
+        <loc>http://deepak-kapoor.github.io/2012/03/20/the-zen-of-python/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2012/03/21/beautiful-python-working-with-english-alphabets/
+            http://deepak-kapoor.github.io/2012/03/21/beautiful-python-working-with-english-alphabets/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2012/03/26/customize-response-headers-in-django/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2012/03/26/customize-response-headers-in-django/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2012/03/26/enable-gzip-compression-in-django/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2012/03/26/enable-gzip-compression-in-django/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2012/04/12/meaningless-number-230000000/</loc>
+        <loc>http://deepak-kapoor.github.io/2012/04/12/meaningless-number-230000000/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2012/04/24/error-installing-asp-net-mvc-4-with-web-platform-installer/
+            http://deepak-kapoor.github.io/2012/04/24/error-installing-asp-net-mvc-4-with-web-platform-installer/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2012/05/16/cloudera-virtualbox-boot-error-net-registered-protocol-family-2/
+            http://deepak-kapoor.github.io/2012/05/16/cloudera-virtualbox-boot-error-net-registered-protocol-family-2/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2012/05/20/find-the-version-of-ubuntu-you-are-running/
+            http://deepak-kapoor.github.io/2012/05/20/find-the-version-of-ubuntu-you-are-running/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2012/05/25/axis2-plugin-for-netbeans-7-1-2/</loc>
+        <loc>http://deepak-kapoor.github.io/2012/05/25/axis2-plugin-for-netbeans-7-1-2/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2012/06/14/complex-event-processing-with-esper-tutorial-for-beginners/
+            http://deepak-kapoor.github.io/2012/06/14/complex-event-processing-with-esper-tutorial-for-beginners/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2012/06/30/ibm-biginsights-web-console-issue-with-bigdatauniversity-vm/
+            http://deepak-kapoor.github.io/2012/06/30/ibm-biginsights-web-console-issue-with-bigdatauniversity-vm/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2012/07/04/java-lang-noclassdeffounderror-orgapachehadoopthirdpartyguavacommonprimitivesunsignedbytes/
+            http://deepak-kapoor.github.io/2012/07/04/java-lang-noclassdeffounderror-orgapachehadoopthirdpartyguavacommonprimitivesunsignedbytes/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2012/07/10/yet-another-hadoop-word-count-tutorial/
+            http://deepak-kapoor.github.io/2012/07/10/yet-another-hadoop-word-count-tutorial/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2012/07/11/hadoop-word-count-revised/</loc>
+        <loc>http://deepak-kapoor.github.io/2012/07/11/hadoop-word-count-revised/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2013/03/14/run-visual-studio-2012-as-administrator-always/
+            http://deepak-kapoor.github.io/2013/03/14/run-visual-studio-2012-as-administrator-always/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2013/03/14/unable-to-access-iis-metabase-on-windows-8/
+            http://deepak-kapoor.github.io/2013/03/14/unable-to-access-iis-metabase-on-windows-8/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2013/03/25/free-python-books/</loc>
+        <loc>http://deepak-kapoor.github.io/2013/03/25/free-python-books/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2013/04/09/select-photos-on-windows-phone-with-photochoosertask/
+            http://deepak-kapoor.github.io/2013/04/09/select-photos-on-windows-phone-with-photochoosertask/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2013/04/11/nuget-packages-and-source-control/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2013/04/11/nuget-packages-and-source-control/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2013/05/03/disable-stylecop-settings-for-a-project/
+            http://deepak-kapoor.github.io/2013/05/03/disable-stylecop-settings-for-a-project/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2013/05/20/my-windows-phone-app-is-runner-up-in-lifehacker-and-microsofts-developer-challenge/
+            http://deepak-kapoor.github.io/2013/05/20/my-windows-phone-app-is-runner-up-in-lifehacker-and-microsofts-developer-challenge/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2013/05/24/net-framework-serialize-and-deserialize-c-sharp/
+            http://deepak-kapoor.github.io/2013/05/24/net-framework-serialize-and-deserialize-c-sharp/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2013/05/26/find-homepage-on-internet-explorer/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2013/05/26/find-homepage-on-internet-explorer/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2013/05/29/managing-startups-best-blog-posts-book-review/
+            http://deepak-kapoor.github.io/2013/05/29/managing-startups-best-blog-posts-book-review/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2013/05/30/windows-azure-create-linux-virtual-machine-through-management-portal/
+            http://deepak-kapoor.github.io/2013/05/30/windows-azure-create-linux-virtual-machine-through-management-portal/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2013/05/31/windows-azure-connect-to-linux-virtual-machine/
+            http://deepak-kapoor.github.io/2013/05/31/windows-azure-connect-to-linux-virtual-machine/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/
+            http://deepak-kapoor.github.io/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2013/06/11/android-linear-layout-example/</loc>
+        <loc>http://deepak-kapoor.github.io/2013/06/11/android-linear-layout-example/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>http://deepak-kapoor.github.io/blog/2013/06/19/android-listview-tutorial/</loc>
+        <loc>http://deepak-kapoor.github.io/2013/06/19/android-listview-tutorial/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2013/06/24/android-listview-tutorial-with-images-and-text/
+            http://deepak-kapoor.github.io/2013/06/24/android-listview-tutorial-with-images-and-text/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2013/07/03/linux-number-of-files-in-directory/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2013/07/03/linux-number-of-files-in-directory/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/
+            http://deepak-kapoor.github.io/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/
+            http://deepak-kapoor.github.io/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2013/07/28/linux-install-handbrake-on-linux-mint-15/
+            http://deepak-kapoor.github.io/2013/07/28/linux-install-handbrake-on-linux-mint-15/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://deepak-kapoor.github.io/blog/2013/07/31/android-expandablelistview-tutorial/
-        </loc>
+        <loc>http://deepak-kapoor.github.io/2013/07/31/android-expandablelistview-tutorial/</loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://deepak-kapoor.github.io/blog/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/
+            http://deepak-kapoor.github.io/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/
         </loc>
         <lastmod>2013-08-06T06:46:18+10:00</lastmod>
     </url>

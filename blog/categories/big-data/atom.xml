@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Big Data | My Octopress Blog]]></title>
+  <title><![CDATA[Category: Big Data | Debug > Release >]]></title>
   <link href="http://deepak-kapoor.github.io/blog/categories/big-data/atom.xml" rel="self"/>
   <link href="http://deepak-kapoor.github.io/"/>
-  <updated>2013-08-06T06:56:10+10:00</updated>
+  <updated>2013-08-07T18:39:58+10:00</updated>
   <id>http://deepak-kapoor.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Deepak Kapoor]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Hadoop Word Count Revised]]></title>
-    <link href="http://deepak-kapoor.github.io/blog/2012/07/11/hadoop-word-count-revised/"/>
+    <link href="http://deepak-kapoor.github.io/2012/07/11/hadoop-word-count-revised/"/>
     <updated>2012-07-11T00:00:00+10:00</updated>
-    <id>http://deepak-kapoor.github.io/blog/2012/07/11/hadoop-word-count-revised</id>
+    <id>http://deepak-kapoor.github.io/2012/07/11/hadoop-word-count-revised</id>
     <content type="html"><![CDATA[<p>This is a follow up to my <a href="http://www.debugrelease.com/yet-another-hadoop-word-count-tutorial/">last post</a> in which I showed you how to write a word count MapReduce job. Have a look at <a href="http://www.debugrelease.com/yet-another-hadoop-word-count-tutorial/">that earlier post</a> before reading on. It will put things into perspective. </p>
 
 

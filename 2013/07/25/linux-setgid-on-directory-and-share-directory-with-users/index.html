@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Linux - setgid on directory and share directory with users - Debug > Release ></title>
+  <meta name="author" content="Deepak Kapoor">
+
+  
+  <meta name="description" content="I came across a scenario which warranted using setgid. The requirement was to allow multiple users to create files and read files in a directory. I &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://deepak-kapoor.github.io/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Debug > Release >" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<link href="/stylesheets/debrel.css" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Debug > Release ></a></h1>
+  
+    <h2>Programming notes of Deepak Kapoor</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:deepak-kapoor.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Linux - Setgid on Directory and Share Directory With Users</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-25T00:00:00+10:00" pubdate data-updated="true">Jul 25<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I came across a scenario which warranted using <code>setgid</code>. The requirement was to allow multiple users to create files and read files in a directory. I also wanted to ensure that this requirement can be easily met for any future users. I will explain what I did with a simple example.</p>
+<p>To make it simple we will work with two users and one directory. The directory will be called <strong>shareddocs</strong>. As there are multiple users involved, it is not a good idea to create it in home but some place like <strong>/usr/share</strong>. Only a user with superuser privileges can create a directory in /usr/share, so we will need to use <code>sudo</code>. On my machine I am the master of unixverse and I have permissions to sudo.</p>
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ sudo mkdir /usr/share/shareddocs</pre>
+
+<p>Two users in this example are <strong>deepak</strong> and <strong>chewbacca</strong>. deepak already exists and we need to create chewbacca. If you are trying this at home then replace deepak with whatever your username is. Just remember that you will need to use sudo for some commands so make sure that the account you are using has appropriate permissions.</p>
+
+<p>Let&#8217;s create chewbacca and set chewbacca&#8217;s password.</p>
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ sudo useradd chewbacca
+deepak@ubuntu:~$ sudo passwd chewbacca</pre>
+
+<p>Let&#8217;s also create a group called warriors.</p>
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ sudo groupadd warriors</pre>
+
+<p>Next we need to make deepak and chewbacca members of warrirors group.</p>
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ sudo usermod -a -G warriors deepak
+deepak@ubuntu:~$ sudo usermod -a -G warriors chewbacca</pre>
+
+<p>To see groups a user belongs to, we can run this command.</p>
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ groups chewbacca</pre>
+
+<p>And now the fun starts. Logged in as deepak, let&#8217;s create a file in /usr/share/shareddocs</p>
+
+<pre class="prettyprint lang-bash">
+deepak@ubuntu:~$ sudo touch /usr/share/shareddocs/story1.txt</pre>
+
+<p>View permissions for /usr/share/shareddocs</p>
+
+<pre class="prettyprint lang-bash">
+deepak@ubuntu:~$ ls -ld /usr/share/shareddocs/
+
+drwxr-xr-x 2 root root 4096 Jul 24 22:43 /usr/share/shareddocs/</pre>
+
+<p>Notice how both owner and group are root for /usr/share/sharedocs directory. Now if we try to create a file as chewbacca we will get an error.</p>
+
+<pre class="prettyprint lang-bash">
+chewbacca@ubuntu:~$ touch /usr/share/shareddocs/story2.txt
+touch: cannot touch 'story2.txt': Permission denied</pre>
+
+<p>This is because only root has read and write permissions to the directory. We can fix the situation by first giving the group ownership to warriors group we created earlier.</p>
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ sudo chown :warriors /usr/share/shareddocs/</pre>
+
+<p>Now if we look at the permissions, we see that our directory is owned by warriors group.</p>
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ ls -ld /usr/share/shareddocs/
+
+drwxr-xr-x 2 root warriors 4096 Jul 24 22:43 /usr/share/shareddocs/</pre>
+
+<p>So can chewbacca create a file now? Well not yet. We still need to enable write permission for the group.</p>
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ sudo chmod 775 /usr/share/shareddocs/</pre>
+
+<p>By executing the above command we have given read, write and execute to owner and the group.</p>
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ ls -ld /usr/share/shareddocs/
+
+drwxrwxr-x 2 root warriors 4096 Jul 24 22:43 /usr/share/shareddocs/</pre>
+
+chewbacca can now create files in /usr/share/shareddocs/
+
+<pre class="prettyprint lang-bash">chewbacca@ubuntu:~$ touch story2.txt</pre>
+
+<p>One problem still remains. Files created by chewbacca are owned by group chewbacca. We want all files within the directory to be owned by <strong>warriors</strong> group. This is where <code>setgid</code> comes in. Finally! you say. Let&#8217;s run the following command.</p>
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ sudo chmod g+s /usr/share/shareddocs</pre>
+
+<p>From here on any files created by either deepak or chewbacca will be owned by warriors group. Now if deepak created story3.txt and chewbacca created story4.txt, they will both be owned by warriors group.</p>
+<pre class="prettyprint lang-bash">
+-rw-r--r-- 1 root root 16 Jul 25 15:26 story1.txt
+-rw-rw-r-- 1 chewbacca chewbacca 0 Jul 25 15:36 story2.txt
+-rw-rw-r-- 1 deepak warriors 0 Jul 25 15:42 story3.txt
+-rw-rw-r-- 1 chewbacca warriors 0 Jul 25 15:44 story4.txt</pre>
+
+<p>Note that two files we created earlier are still not owned by warriors. They cannot be shared and we should just delete them.</p>
+
+<p>Let&#8217;s talk a bit more about <code>setgid</code>. The command sets group id bits. This means that any new files or directories created within the directory will inherit the same group as containing directory.</p>
+
+<p>To remove the group id bit we can use <code>g-s</code>.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Deepak Kapoor</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-25T00:00:00+10:00" pubdate data-updated="true">Jul 25<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/linux/'>Linux</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://deepak-kapoor.github.io/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/" data-via="" data-counturl="http://deepak-kapoor.github.io/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2013/07/03/linux-number-of-files-in-directory/" title="Previous Post: Linux  - Number of files in directory">&laquo; Linux  - Number of files in directory</a>
+      
+      
+        <a class="basic-alignment right" href="/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/" title="Next Post: Linux VirtualBox - Windows host share in Ubuntu guest">Linux VirtualBox - Windows host share in Ubuntu guest &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/31/android-expandablelistview-tutorial/">Android - ExpandableListView Tutorial</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/28/linux-install-handbrake-on-linux-mint-15/">Linux - Install Handbrake on Linux Mint 15</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/">Linux VirtualBox - Windows Host Share in Ubuntu Guest</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Deepak Kapoor -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

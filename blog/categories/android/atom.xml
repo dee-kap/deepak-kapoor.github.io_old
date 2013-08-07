@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Android | My Octopress Blog]]></title>
+  <title><![CDATA[Category: Android | Debug > Release >]]></title>
   <link href="http://deepak-kapoor.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://deepak-kapoor.github.io/"/>
-  <updated>2013-08-06T06:56:10+10:00</updated>
+  <updated>2013-08-07T18:39:58+10:00</updated>
   <id>http://deepak-kapoor.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Deepak Kapoor]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Android - ExpandableListView Tutorial]]></title>
-    <link href="http://deepak-kapoor.github.io/blog/2013/07/31/android-expandablelistview-tutorial/"/>
+    <link href="http://deepak-kapoor.github.io/2013/07/31/android-expandablelistview-tutorial/"/>
     <updated>2013-07-31T00:00:00+10:00</updated>
-    <id>http://deepak-kapoor.github.io/blog/2013/07/31/android-expandablelistview-tutorial</id>
+    <id>http://deepak-kapoor.github.io/2013/07/31/android-expandablelistview-tutorial</id>
     <content type="html"><![CDATA[<h3>Introduction</h3>
 
 
@@ -356,9 +356,9 @@ public class MainActivity extends Activity {
   
   <entry>
     <title type="html"><![CDATA[Android   - ListView tutorial with images and text]]></title>
-    <link href="http://deepak-kapoor.github.io/blog/2013/06/24/android-listview-tutorial-with-images-and-text/"/>
+    <link href="http://deepak-kapoor.github.io/2013/06/24/android-listview-tutorial-with-images-and-text/"/>
     <updated>2013-06-24T00:00:00+10:00</updated>
-    <id>http://deepak-kapoor.github.io/blog/2013/06/24/android-listview-tutorial-with-images-and-text</id>
+    <id>http://deepak-kapoor.github.io/2013/06/24/android-listview-tutorial-with-images-and-text</id>
     <content type="html"><![CDATA[<h3>Introduction</h3>
 
 
@@ -663,9 +663,9 @@ public class MainActivity extends Activity {
   
   <entry>
     <title type="html"><![CDATA[Android - Linear Layout Example]]></title>
-    <link href="http://deepak-kapoor.github.io/blog/2013/06/11/android-linear-layout-example/"/>
+    <link href="http://deepak-kapoor.github.io/2013/06/11/android-linear-layout-example/"/>
     <updated>2013-06-11T00:00:00+10:00</updated>
-    <id>http://deepak-kapoor.github.io/blog/2013/06/11/android-linear-layout-example</id>
+    <id>http://deepak-kapoor.github.io/2013/06/11/android-linear-layout-example</id>
     <content type="html"><![CDATA[<p>In Android Layouts are containers in which you place your widgets like buttons, images, lists etc. Two of the most useful layouts are LinearLayout and RelativeLayout. In this post I will talk about LinearLayout.</p>
 
 

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Force.com | My Octopress Blog]]></title>
+  <title><![CDATA[Category: Force.com | Debug > Release >]]></title>
   <link href="http://deepak-kapoor.github.io/blog/categories/force-dot-com/atom.xml" rel="self"/>
   <link href="http://deepak-kapoor.github.io/"/>
-  <updated>2013-08-06T06:56:10+10:00</updated>
+  <updated>2013-08-07T18:39:58+10:00</updated>
   <id>http://deepak-kapoor.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Deepak Kapoor]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Connecting to Force.com from IDE]]></title>
-    <link href="http://deepak-kapoor.github.io/blog/2010/12/13/connecting-to-force-com-from-ide/"/>
+    <link href="http://deepak-kapoor.github.io/2010/12/13/connecting-to-force-com-from-ide/"/>
     <updated>2010-12-13T00:00:00+11:00</updated>
-    <id>http://deepak-kapoor.github.io/blog/2010/12/13/connecting-to-force-com-from-ide</id>
+    <id>http://deepak-kapoor.github.io/2010/12/13/connecting-to-force-com-from-ide</id>
     <content type="html"><![CDATA[<p>Working through Force.com tutorials I came to the point where I wrote some Apex code. Instead of doing this via Browser based interface, I decided to use Force.com IDE which as you know is an Eclipse plugin. This post documents the steps I went through to get connectivity to the warehouse application created as part of the tutorial.</p>
 
 <p>I created a new Force.com project in IDE and entered my username and password.</p>
@@ -46,9 +46,9 @@
   
   <entry>
     <title type="html"><![CDATA[The Era of Cloud Computing Consultant]]></title>
-    <link href="http://deepak-kapoor.github.io/blog/2008/12/04/the-era-of-cloud-computing-consultant/"/>
+    <link href="http://deepak-kapoor.github.io/2008/12/04/the-era-of-cloud-computing-consultant/"/>
     <updated>2008-12-04T00:00:00+11:00</updated>
-    <id>http://deepak-kapoor.github.io/blog/2008/12/04/the-era-of-cloud-computing-consultant</id>
+    <id>http://deepak-kapoor.github.io/2008/12/04/the-era-of-cloud-computing-consultant</id>
     <content type="html"><![CDATA[<p><img style="border-top-width: 0px; border-left-width: 0px; float: left; border-bottom-width: 0px; border-right-width: 0px" height="109" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2008/12/image1.png" width="150" border="0" /> <strong>CCC stands for Cloud Computing Consultant</strong>. There, I have said it. This is my contribution to acronyms-land. I have also cleverly designed it to minimize <a href="http://en.wikipedia.org/wiki/Repetitive_strain_injury">RSI</a> which I am sure will be appreciated. You only have to use one key to type the acronym. If you ever come across the term Cloud Computing Consultant then remember that you read about it on <a href="http://www.debugrelease.com/">One .Net Way</a>. Before you start googling this out let me make few things clear. IBM has a service called Cloud Computing Consulting which is more of a practice. <strong>Cloud Computing Consultant</strong> on the other hand is about an <strong>individual</strong>. </p>
 
 

@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Binary Attachments In WCF With MTOM - Debug > Release ></title>
+  <meta name="author" content="Deepak Kapoor">
+
+  
+  <meta name="description" content="MTOM which stands for Message Transmission Optimization Mechanism is a W3C Recommendation which is mostly about reducing the size of binary data when &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://deepak-kapoor.github.io/2010/11/26/binary-attachments-in-wcf-with-mtom">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Debug > Release >" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<link href="/stylesheets/debrel.css" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Debug > Release ></a></h1>
+  
+    <h2>Programming notes of Deepak Kapoor</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:deepak-kapoor.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Binary Attachments in WCF With MTOM</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-26T00:00:00+11:00" pubdate data-updated="true">Nov 26<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>MTOM which stands for Message Transmission Optimization Mechanism is a <a href="http://www.w3.org/TR/soap12-mtom/">W3C Recommendation</a> which is mostly about reducing the size of binary data when transferred through SOAP web services.</p> <p>Binary data can be sent through SOAP already. So what’s the need for MTOM? Well it turns out that binary data in SOAP messages is encoded as text by applying Base64 encoding. This increases the size of payload. MTOM recommends that binary data should be sent in its original form without applying any encoding. This is a good idea and can work well when transferring files via web services.</p> <h4>Service</h4> <p>I wanted to try it out in WCF which supports MTOM. So I built myself a service which gets a photo from local drive and provides an operation which can transfer the file to client. Below is the simple service contract I came up with.</p>
+
+<pre class="lang:c# decode:true " >
+[ServiceContract]
+public interface IPhotoService
+{ 
+  [OperationContract] 
+  PhotoServiceResponse GetPhoto();
+}
+</pre>
+
+<p><br>GetPhoto operation returns a PhotoServiceResponse which is defined below.<br></p>
+
+<pre class="lang:c# decode:true " >
+[MessageContract]
+public class PhotoServiceResponse
+{ 
+  [MessageBodyMember] 
+  public Byte[] Photo { get; set; }
+}
+</pre>
+
+<p>PhotoServiceResponse is a <strong>MessgeContract</strong> which has a member decorated as <strong>MessageBodyMember</strong>. This is absolutely required. Creating DataMembers as you would to describe the data to be included with a message will not work. So remember that for MTOM you must define a <strong>MessageContract</strong> which should have a <strong>MessageBodyMember</strong>.</p>
+<p>The implementation of this service is simple.</p>
+
+<pre class="lang:c# decode:true " >
+public class PhotoService : IPhotoService
+{ 
+  public PhotoServiceResponse GetPhoto() 
+  { 
+    PhotoServiceResponse response = new PhotoServiceResponse(); 
+    response.Photo = File.ReadAllBytes(@"c:tempqueenstown.jpg"); 
+    return response; 
+  }
+}
+</pre>
+
+<p><br>For the config file for service I added a <strong>wsHttpBinding</strong> and specified <strong>messgeEncoding</strong> to be <strong>Mtom</strong>.<br></p>
+
+ 
+<pre class="lang:xhtml decode:true " >&lt;wsHttpBinding&gt;
+  &lt;binding name="WsHttpMtomBinding" messageEncoding="Mtom" /&gt;
+&lt;/wsHttpBinding&gt;</pre> 
+
+
+<p><br>And the end point used the binding configuration.<br></p>
+
+ 
+<pre class="lang:xhtml decode:true " >&lt;service name="WcfMTOMSample.PhotoService"&gt;
+  &lt;endpoint binding="wsHttpBinding"
+   bindingConfiguration="WsHttpMtomBinding"
+    contract="WcfMTOMSample.IPhotoService" /&gt;
+&lt;/service&gt;</pre> 
+
+
+<h4>Client</h4>
+<p>I created a Windows Forms client to render out the photo I’d receive from my service. GetPhoto opreation is called like any other service operation. A byte array is passed to GetPhoto method as a out parameter.</p>
+
+<pre class="lang:c# decode:true " >
+PhotoServiceClient client = new PhotoServiceClient();
+byte[] photoBytes;client.GetPhoto(out photoBytes);
+</pre>
+
+<p><br>Within the client config I created a <strong>wsHttpBinding</strong> and specified <strong>messgeEncoding</strong> as <strong>Mtom</strong>. I also specified good enough size to accommodate approx 2.5 mb data by setting a large value for <strong>maxReceivedMessageSize</strong>. Within <strong>readerQuotas</strong> setting the <strong>maxArrayLength</strong> attribute takes care of large arrays.<br></p>
+ 
+<pre class="lang:xhtml decode:true " >&lt;wsHttpBinding&gt;
+  &lt;binding name="IPhotoServiceBinding"
+   maxReceivedMessageSize="2621440"
+    messageEncoding="Mtom"&gt;
+    &lt;readerQuotas maxArrayLength="2621440"/&gt;
+  &lt;/binding&gt;
+&lt;/wsHttpBinding&gt;</pre> 
+
+<p><br>The client then used the binding configuration.<br></p>
+ 
+<pre class="lang:xhtml decode:true " >&lt;client&gt;
+  &lt;endpoint address="http://localhost:1669/PhotoService.svc"
+   binding="wsHttpBinding"
+    bindingConfiguration="IPhotoServiceBinding"
+    contract="PhotoServiceReference.IPhotoService"&gt;
+  &lt;/endpoint&gt;
+&lt;/client&gt;</pre> 
+
+<p>And finally I had my service return me a photo as binary data which I displayed on a form.</p>
+<p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2010/11/image30.png" width="400" height="354"></p>
+<p>BTW: This photo is from my recent trip to Queenstown in New Zealand. A country I absolutely love and would visit again many times.</p>
+<p>I hope you enjoyed the post.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Deepak Kapoor</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-26T00:00:00+11:00" pubdate data-updated="true">Nov 26<span>th</span>, 2010</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/dot-net/'>.NET</a>, <a class='category' href='/blog/categories/microsoft/'>Microsoft</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://deepak-kapoor.github.io/2010/11/26/binary-attachments-in-wcf-with-mtom/" data-via="" data-counturl="http://deepak-kapoor.github.io/2010/11/26/binary-attachments-in-wcf-with-mtom/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2010/11/22/search-within-sql-server-database-objects-with-red-gate-sql-search/" title="Previous Post: Search Within SQL Server Database Objects with Red-Gate SQL Search">&laquo; Search Within SQL Server Database Objects with Red-Gate SQL Search</a>
+      
+      
+        <a class="basic-alignment right" href="/2010/11/26/visual-studio-2005-2008-2010-put-curly-braces-on-same-line/" title="Next Post: Visual Studio 2005 2008 2010 Put Curly Braces On Same Line">Visual Studio 2005 2008 2010 Put Curly Braces On Same Line &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/31/android-expandablelistview-tutorial/">Android - ExpandableListView Tutorial</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/28/linux-install-handbrake-on-linux-mint-15/">Linux - Install Handbrake on Linux Mint 15</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/">Linux VirtualBox - Windows Host Share in Ubuntu Guest</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Deepak Kapoor -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

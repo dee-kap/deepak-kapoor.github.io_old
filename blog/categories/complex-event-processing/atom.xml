@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Complex Event Processing | My Octopress Blog]]></title>
+  <title><![CDATA[Category: Complex Event Processing | Debug > Release >]]></title>
   <link href="http://deepak-kapoor.github.io/blog/categories/complex-event-processing/atom.xml" rel="self"/>
   <link href="http://deepak-kapoor.github.io/"/>
-  <updated>2013-08-06T06:56:10+10:00</updated>
+  <updated>2013-08-07T18:39:58+10:00</updated>
   <id>http://deepak-kapoor.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Deepak Kapoor]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Complex Event Processing with Esper–Tutorial For Beginners]]></title>
-    <link href="http://deepak-kapoor.github.io/blog/2012/06/14/complex-event-processing-with-esper-tutorial-for-beginners/"/>
+    <link href="http://deepak-kapoor.github.io/2012/06/14/complex-event-processing-with-esper-tutorial-for-beginners/"/>
     <updated>2012-06-14T00:00:00+10:00</updated>
-    <id>http://deepak-kapoor.github.io/blog/2012/06/14/complex-event-processing-with-esper-tutorial-for-beginners</id>
+    <id>http://deepak-kapoor.github.io/2012/06/14/complex-event-processing-with-esper-tutorial-for-beginners</id>
     <content type="html"><![CDATA[<h3>Introduction</h3>
 
 

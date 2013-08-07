@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Create Breakpoints With Hit Count In Visual Studio 2008 - Debug > Release ></title>
+  <meta name="author" content="Deepak Kapoor">
+
+  
+  <meta name="description" content="This post shows you how to use Breakpoints in Visual Studio with a hit count. Breakpoints can be described as bread and butter of debugging. They &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://deepak-kapoor.github.io/2009/10/02/create-breakpoints-with-hit-count-in-visual-studio-2008">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Debug > Release >" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<link href="/stylesheets/debrel.css" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Debug > Release ></a></h1>
+  
+    <h2>Programming notes of Deepak Kapoor</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:deepak-kapoor.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Create Breakpoints With Hit Count in Visual Studio 2008</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-10-02T00:00:00+10:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This post shows you how to use Breakpoints in Visual Studio with a hit count. Breakpoints can be described as bread and butter of debugging. They allow you to stop execution at any statement in your code. By doing this you can examine values in your variables, look at call stack, change values in variables and much more.&#160; </p>  <p>Let’s follow this post with an example of a simple program which uses a loop to add a number to a List&lt;int&gt;.</p>  
+
+ 
+<pre class="lang:c# decode:true " >static void Main(string[] args)
+{
+  List&lt;int&gt; numbers = new List&lt;int&gt;();
+  for (int i = 0; i &lt; 100; i++)
+  {
+    numbers.Add(i);
+  }
+}</pre> 
+
+
+<p>We will now add a breakpoint to numbers.Add(i) line. A breakpoint can be added by clicking on gray area on the left side of code editor or by pressing F9. </p>
+
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Visual Studio Breakpoint" border="0" alt="Visual Studio Breakpoint" src="http://www.debugrelease.com/wp-content/uploads/2009/10/image.png" width="403" height="146" /> </p>
+
+<p>Here we have added a simple breakpoint. Our program will break when we hit the breakpoint for the first time. Let’s say that we want our breakpoint to hit at 50 iteration of our loop. To do this we can right click on the breakpoint circle on left hand side and click Hit Count.</p>
+
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Visual Studio Breakpoint" border="0" alt="Visual Studio Breakpoint" src="http://www.debugrelease.com/wp-content/uploads/2009/10/image1.png" width="413" height="259" />&#160; </p>
+
+<p>When we click on Hit Count we get a dialog where we can set the conditions when our breakpoint should be hit.</p>
+
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Visual Studio Breakpoint" border="0" alt="Visual Studio Breakpoint" src="http://www.debugrelease.com/wp-content/uploads/2009/10/image2.png" width="516" height="253" /> </p>
+
+<p>In our case we will select “break when the hit count is equal to” and enter 50.</p>
+
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Visual Studio Breakpoint" border="0" alt="Visual Studio Breakpoint" src="http://www.debugrelease.com/wp-content/uploads/2009/10/image3.png" width="508" height="247" /> </p>
+
+<p>If we now run our program we will hit the breakpoint when value of i = 49. Remember that we started i at 0 so when i is equal to 49 we are on the 50th iteration.</p>
+
+<p>This comes in handy when debugging large loops and we are only interested in breaking when we have processed X number of iterations.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Deepak Kapoor</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-10-02T00:00:00+10:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/microsoft/'>Microsoft</a>, <a class='category' href='/blog/categories/visual-studio/'>Visual Studio</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://deepak-kapoor.github.io/2009/10/02/create-breakpoints-with-hit-count-in-visual-studio-2008/" data-via="" data-counturl="http://deepak-kapoor.github.io/2009/10/02/create-breakpoints-with-hit-count-in-visual-studio-2008/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2009/09/16/windows-7-commercial-more-happy-is-coming/" title="Previous Post: Windows 7 Commercial – More Happy Is Coming">&laquo; Windows 7 Commercial – More Happy Is Coming</a>
+      
+      
+        <a class="basic-alignment right" href="/2009/10/28/learn-net-4-0-and-visual-studio-2010-on-channel-9/" title="Next Post: Learn .NET 4.0 And Visual Studio 2010 On Channel 9">Learn .NET 4.0 And Visual Studio 2010 On Channel 9 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/31/android-expandablelistview-tutorial/">Android - ExpandableListView Tutorial</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/28/linux-install-handbrake-on-linux-mint-15/">Linux - Install Handbrake on Linux Mint 15</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/">Linux VirtualBox - Windows Host Share in Ubuntu Guest</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Deepak Kapoor -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
