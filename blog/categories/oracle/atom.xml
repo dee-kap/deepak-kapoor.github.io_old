@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Oracle | Debug > Release >]]></title>
+  <title><![CDATA[Category: Oracle | Debug Release]]></title>
   <link href="http://deepak-kapoor.github.io/blog/categories/oracle/atom.xml" rel="self"/>
   <link href="http://deepak-kapoor.github.io/"/>
-  <updated>2013-08-07T19:32:41+10:00</updated>
+  <updated>2013-08-07T21:12:18+10:00</updated>
   <id>http://deepak-kapoor.github.io/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
