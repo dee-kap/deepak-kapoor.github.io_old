@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Tools | Debug Release]]></title>
-  <link href="http://deepak-kapoor.github.io/blog/categories/tools/atom.xml" rel="self"/>
-  <link href="http://deepak-kapoor.github.io/"/>
-  <updated>2013-08-08T14:44:47+10:00</updated>
-  <id>http://deepak-kapoor.github.io/</id>
+  <link href="http://www.debugrelease.com/blog/categories/tools/atom.xml" rel="self"/>
+  <link href="http://www.debugrelease.com/"/>
+  <updated>2013-08-08T15:05:08+10:00</updated>
+  <id>http://www.debugrelease.com/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ubuntu Font and Zenburn - I like to make my code look good]]></title>
-    <link href="http://deepak-kapoor.github.io/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/"/>
+    <link href="http://www.debugrelease.com/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/"/>
     <updated>2013-06-02T00:00:00+10:00</updated>
-    <id>http://deepak-kapoor.github.io/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good</id>
+    <id>http://www.debugrelease.com/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good</id>
     <content type="html"><![CDATA[<p>I have been asked many times about the font I use in Visual Studio. Colleagues who visit my cubicle often admire how I have setup Visual Studio or my text editor. The code just looks better on my machine than it does on theirs :) The answer lies in the font and color scheme.</p>
 
 
@@ -47,9 +47,9 @@
   
   <entry>
     <title type="html"><![CDATA[java.lang.NoClassDefFoundError: …/guava/common/primitives/UnsignedBytes]]></title>
-    <link href="http://deepak-kapoor.github.io/2012/07/04/java-lang-noclassdeffounderror-orgapachehadoopthirdpartyguavacommonprimitivesunsignedbytes/"/>
+    <link href="http://www.debugrelease.com/2012/07/04/java-lang-noclassdeffounderror-orgapachehadoopthirdpartyguavacommonprimitivesunsignedbytes/"/>
     <updated>2012-07-04T00:00:00+10:00</updated>
-    <id>http://deepak-kapoor.github.io/2012/07/04/java-lang-noclassdeffounderror-orgapachehadoopthirdpartyguavacommonprimitivesunsignedbytes</id>
+    <id>http://www.debugrelease.com/2012/07/04/java-lang-noclassdeffounderror-orgapachehadoopthirdpartyguavacommonprimitivesunsignedbytes</id>
     <content type="html"><![CDATA[<p>No idea why this happened today on a Hadoop project which was running fine till now. </p>
 
 
@@ -59,9 +59,9 @@
   
   <entry>
     <title type="html"><![CDATA[Axis2 Plugin for Netbeans 7.1.2]]></title>
-    <link href="http://deepak-kapoor.github.io/2012/05/25/axis2-plugin-for-netbeans-7-1-2/"/>
+    <link href="http://www.debugrelease.com/2012/05/25/axis2-plugin-for-netbeans-7-1-2/"/>
     <updated>2012-05-25T00:00:00+10:00</updated>
-    <id>http://deepak-kapoor.github.io/2012/05/25/axis2-plugin-for-netbeans-7-1-2</id>
+    <id>http://www.debugrelease.com/2012/05/25/axis2-plugin-for-netbeans-7-1-2</id>
     <content type="html"><![CDATA[<p>I upgraded Netbeans today and found that there is no Axis2 plugin available via Tools –&gt; Plugins. Looks like Axis2 support plugin has been discontinued in Netbeans. However the link below works and I was able to install the plugin. This post hopefully will serve as a bookmark when I’m looking for Axis2 plugin in Netbeans next time.</p>
 
 
@@ -71,9 +71,9 @@
   
   <entry>
     <title type="html"><![CDATA[Add Javadoc to Netbeans]]></title>
-    <link href="http://deepak-kapoor.github.io/2011/01/01/add-javadoc-to-netbeans/"/>
+    <link href="http://www.debugrelease.com/2011/01/01/add-javadoc-to-netbeans/"/>
     <updated>2011-01-01T00:00:00+11:00</updated>
-    <id>http://deepak-kapoor.github.io/2011/01/01/add-javadoc-to-netbeans</id>
+    <id>http://www.debugrelease.com/2011/01/01/add-javadoc-to-netbeans</id>
     <content type="html"><![CDATA[<p>I installed Netbeans 6.9 on my machine and found that Javadoc is not installed. For example when invoking intellisense for a method in Calendar class I get the following message. </p>
 
 
@@ -102,9 +102,9 @@
   
   <entry>
     <title type="html"><![CDATA[Running Glassfish In Verbose Mode From NetBeans]]></title>
-    <link href="http://deepak-kapoor.github.io/2010/08/23/running-glassfish-in-verbose-mode-from-netbeans/"/>
+    <link href="http://www.debugrelease.com/2010/08/23/running-glassfish-in-verbose-mode-from-netbeans/"/>
     <updated>2010-08-23T00:00:00+10:00</updated>
-    <id>http://deepak-kapoor.github.io/2010/08/23/running-glassfish-in-verbose-mode-from-netbeans</id>
+    <id>http://www.debugrelease.com/2010/08/23/running-glassfish-in-verbose-mode-from-netbeans</id>
     <content type="html"><![CDATA[<p>The title of this post "Running Glassfish In Verbose Mode From NetBeans" is slightly misleading because what I am showing here is a way to view Glassfish logs within NetBeans IDE.</p>
 
 

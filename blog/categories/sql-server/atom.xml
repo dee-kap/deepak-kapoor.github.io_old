@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: SQL Server | Debug Release]]></title>
-  <link href="http://deepak-kapoor.github.io/blog/categories/sql-server/atom.xml" rel="self"/>
-  <link href="http://deepak-kapoor.github.io/"/>
-  <updated>2013-08-08T14:44:47+10:00</updated>
-  <id>http://deepak-kapoor.github.io/</id>
+  <link href="http://www.debugrelease.com/blog/categories/sql-server/atom.xml" rel="self"/>
+  <link href="http://www.debugrelease.com/"/>
+  <updated>2013-08-08T15:05:08+10:00</updated>
+  <id>http://www.debugrelease.com/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Search Within SQL Server Database Objects with Red-Gate SQL Search]]></title>
-    <link href="http://deepak-kapoor.github.io/2010/11/22/search-within-sql-server-database-objects-with-red-gate-sql-search/"/>
+    <link href="http://www.debugrelease.com/2010/11/22/search-within-sql-server-database-objects-with-red-gate-sql-search/"/>
     <updated>2010-11-22T00:00:00+11:00</updated>
-    <id>http://deepak-kapoor.github.io/2010/11/22/search-within-sql-server-database-objects-with-red-gate-sql-search</id>
+    <id>http://www.debugrelease.com/2010/11/22/search-within-sql-server-database-objects-with-red-gate-sql-search</id>
     <content type="html"><![CDATA[<p>SQL Search by Red-Gate is a great tool for searching within database objects. It is invaluable on brown field projects where you work with existing databases. My recent experience was working with a database which had hundreds of Stored procedures, Views, Triggers etc. I had to find out all objects which used a particular table. <a href="http://www.red-gate.com/products/SQL_Search/">SQL Search</a> made this job a breeze. SQL Search does a text search across all database objects so you can also look for things like column names.</p>
 
 
@@ -27,9 +27,9 @@
   
   <entry>
     <title type="html"><![CDATA[Working With SQL Server HierarchyId Data Type In .NET Application]]></title>
-    <link href="http://deepak-kapoor.github.io/2010/11/19/working-with-sql-server-hierarchyid-data-type-in-net-application/"/>
+    <link href="http://www.debugrelease.com/2010/11/19/working-with-sql-server-hierarchyid-data-type-in-net-application/"/>
     <updated>2010-11-19T00:00:00+11:00</updated>
-    <id>http://deepak-kapoor.github.io/2010/11/19/working-with-sql-server-hierarchyid-data-type-in-net-application</id>
+    <id>http://www.debugrelease.com/2010/11/19/working-with-sql-server-hierarchyid-data-type-in-net-application</id>
     <content type="html"><![CDATA[<p>Recently I was working with some hierarchical data stored in SQL Server. The data was related to products where each product is a package which includes other packages which in turn can include individual products. The data was stored in a table where a a product row had a parentId column which indicated the parent of that product. This is a how we have stored hiearchies in tables. The solution has worked for years but is it the most efficient way to store hiearchichal data? Perhaps not. That’s why SQL Server 2008 had a data type called hierarchyId. This post is about working with&#160; the data type. Rather than divulging details of the application I’m working on commercially, I will use Northwind database as an example to demonstrate concepts talked in here.</p>
 
 
@@ -242,9 +242,9 @@ static void GetEmployeeDetails(int employeeId)
   
   <entry>
     <title type="html"><![CDATA[Generate SQL Server Database From Entity Data Model]]></title>
-    <link href="http://deepak-kapoor.github.io/2010/11/12/generating-sql-server-database-from-entity-data-model/"/>
+    <link href="http://www.debugrelease.com/2010/11/12/generating-sql-server-database-from-entity-data-model/"/>
     <updated>2010-11-12T00:00:00+11:00</updated>
-    <id>http://deepak-kapoor.github.io/2010/11/12/generating-sql-server-database-from-entity-data-model</id>
+    <id>http://www.debugrelease.com/2010/11/12/generating-sql-server-database-from-entity-data-model</id>
     <content type="html"><![CDATA[<p>In an <a href="http://www.debugrelease.com/creating-entity-data-model-without-a-database-with-entity-framework-4/">earlier post</a> we looked at how to generate an Entity Data Model using Visual Studio 2010. The data model we created was not generated from a database. This is a follow up post in which we will generate a database using the model we have already created.</p>
 
 
@@ -254,9 +254,9 @@ static void GetEmployeeDetails(int employeeId)
   
   <entry>
     <title type="html"><![CDATA[Creating Entity Data Model Without A Database With Entity Framework 4]]></title>
-    <link href="http://deepak-kapoor.github.io/2010/11/10/creating-entity-data-model-without-a-database-with-entity-framework-4/"/>
+    <link href="http://www.debugrelease.com/2010/11/10/creating-entity-data-model-without-a-database-with-entity-framework-4/"/>
     <updated>2010-11-10T00:00:00+11:00</updated>
-    <id>http://deepak-kapoor.github.io/2010/11/10/creating-entity-data-model-without-a-database-with-entity-framework-4</id>
+    <id>http://www.debugrelease.com/2010/11/10/creating-entity-data-model-without-a-database-with-entity-framework-4</id>
     <content type="html"><![CDATA[<p>This article shows you how to generate an Entity Data Model for Entity Framework 4 using Visual Studio 2010. Entity Data Model is widely known by its acronym EDM. A common misconception among developers is that a EDM is always backed up by a database. This is not accurate as we will see in this article. A database is a storage medium to store the data processed via EDM. Database schemas could also be different from EDM and this difference is resolved by using mapping concepts when the need comes to persist or load data from a physical database.</p>
 
 <p>For this article we will create a model for a fictitious bank called MyBank. To get started we will create a project of type Class Library in Visual Studio 2010. Next we will add a new item of type <strong>ADO.NET Entity Data Model</strong></p>
@@ -324,9 +324,9 @@ static void GetEmployeeDetails(int employeeId)
   
   <entry>
     <title type="html"><![CDATA[Connect To SQL Server 2008 From NetBeans IDE On A Mac]]></title>
-    <link href="http://deepak-kapoor.github.io/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac/"/>
+    <link href="http://www.debugrelease.com/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac/"/>
     <updated>2010-08-24T00:00:00+10:00</updated>
-    <id>http://deepak-kapoor.github.io/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac</id>
+    <id>http://www.debugrelease.com/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac</id>
     <content type="html"><![CDATA[<p>In this post I will show you how to establish a connection to Microsoft SQL Server  from NetBeans IDE.</p>
 
 

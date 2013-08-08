@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Apple | Debug Release]]></title>
-  <link href="http://deepak-kapoor.github.io/blog/categories/apple/atom.xml" rel="self"/>
-  <link href="http://deepak-kapoor.github.io/"/>
-  <updated>2013-08-08T14:44:47+10:00</updated>
-  <id>http://deepak-kapoor.github.io/</id>
+  <link href="http://www.debugrelease.com/blog/categories/apple/atom.xml" rel="self"/>
+  <link href="http://www.debugrelease.com/"/>
+  <updated>2013-08-08T15:05:08+10:00</updated>
+  <id>http://www.debugrelease.com/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Best way to browse iOS documentation]]></title>
-    <link href="http://deepak-kapoor.github.io/2012/01/08/best-way-to-browse-ios-documentation/"/>
+    <link href="http://www.debugrelease.com/2012/01/08/best-way-to-browse-ios-documentation/"/>
     <updated>2012-01-08T00:00:00+11:00</updated>
-    <id>http://deepak-kapoor.github.io/2012/01/08/best-way-to-browse-ios-documentation</id>
+    <id>http://www.debugrelease.com/2012/01/08/best-way-to-browse-ios-documentation</id>
     <content type="html"><![CDATA[<p>While developing apps for iPhone or iPad I often have to look into documentation. IMO the experience of browsing through documentation within XCode is not the best. Today I found this great Mac application which so far is the best way to browse through iOS documentation. The application I am talking about is called Dash. It is also a code snippet manager where you can put frequently used code snippets. This is a must have for iOS or Mac developers.</p>
 
 
@@ -31,9 +31,9 @@
   
   <entry>
     <title type="html"><![CDATA[Connect To SQL Server 2008 From NetBeans IDE On A Mac]]></title>
-    <link href="http://deepak-kapoor.github.io/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac/"/>
+    <link href="http://www.debugrelease.com/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac/"/>
     <updated>2010-08-24T00:00:00+10:00</updated>
-    <id>http://deepak-kapoor.github.io/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac</id>
+    <id>http://www.debugrelease.com/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac</id>
     <content type="html"><![CDATA[<p>In this post I will show you how to establish a connection to Microsoft SQL Server  from NetBeans IDE.</p>
 
 

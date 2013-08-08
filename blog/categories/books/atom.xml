@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Books | Debug Release]]></title>
-  <link href="http://deepak-kapoor.github.io/blog/categories/books/atom.xml" rel="self"/>
-  <link href="http://deepak-kapoor.github.io/"/>
-  <updated>2013-08-08T14:44:47+10:00</updated>
-  <id>http://deepak-kapoor.github.io/</id>
+  <link href="http://www.debugrelease.com/blog/categories/books/atom.xml" rel="self"/>
+  <link href="http://www.debugrelease.com/"/>
+  <updated>2013-08-08T15:05:08+10:00</updated>
+  <id>http://www.debugrelease.com/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Managing Startups Best Blog Posts - Book Review]]></title>
-    <link href="http://deepak-kapoor.github.io/2013/05/29/managing-startups-best-blog-posts-book-review/"/>
+    <link href="http://www.debugrelease.com/2013/05/29/managing-startups-best-blog-posts-book-review/"/>
     <updated>2013-05-29T00:00:00+10:00</updated>
-    <id>http://deepak-kapoor.github.io/2013/05/29/managing-startups-best-blog-posts-book-review</id>
+    <id>http://www.debugrelease.com/2013/05/29/managing-startups-best-blog-posts-book-review</id>
     <content type="html"><![CDATA[<p><a href="http://www.amazon.com/gp/product/1449367879/ref=as_li_tf_il?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1449367879&amp;linkCode=as2&amp;tag=blogs06-20"><img style="margin-left: 0px; display: inline; margin-right: 0px" border="0" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&amp;ASIN=1449367879&amp;Format=_SL160_&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=blogs06-20" /></a><img style="border-top-style: none !important; border-left-style: none !important; border-bottom-style: none !important; border-right-style: none !important; margin: 0px" border="0" alt="" src="http://www.assoc-amazon.com/e/ir?t=blogs06-20&amp;l=as2&amp;o=1&amp;a=1449367879" width="1" height="1" />   <p>Managing Startups: Best Blog Posts by Tom Eisenmann is is a collection of blog posts about management of technology startups. There are a total of 75 posts which provide with valuable guidance for existing entrepreneurs and those who are at initial stages of creating a startup. </p>  <p>When I started reading this book, in my mind I started pretending that I am about to launch a startup which builds an online product targeting a niche market. I am sure that one day such a thing will happen. Reading the book as a startup founder gave me appreciation towards the practical information captured in the collected posts. There are posts which I would like to read again and keep them in my knowledge base. </p>  <p>I suggest that you read it once and then re-read the posts you like most. </p></p>
 ]]></content>
   </entry>
