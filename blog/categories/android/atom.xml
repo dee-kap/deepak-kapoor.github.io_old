@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | Debug Release]]></title>
   <link href="http://deepak-kapoor.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://deepak-kapoor.github.io/"/>
-  <updated>2013-08-08T13:18:08+10:00</updated>
+  <updated>2013-08-08T14:07:33+10:00</updated>
   <id>http://deepak-kapoor.github.io/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
@@ -29,7 +29,7 @@
 <p>We will develop an app which displays a bunch of countries with some of their cities. When a user taps the name of a country, the widget expands to show cities. Below is a screenshot of the app.</p>
 
 
-<p><img style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/ExpandableList2.png" width="640" height="737" /></p>
+<p><img style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/07/ExpandableList2.png" width="640" height="737" /></p>
 
 <h3>Setup</h3>
 
@@ -371,7 +371,7 @@ public class MainActivity extends Activity {
 <p>Here is a screenshot of what we will build.</p>
 
 
-<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/06/image7.png" width="480" height="756" /></p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image7.png" width="480" height="756" /></p>
 
 <h3>Project structure</h3>
 
@@ -382,7 +382,7 @@ public class MainActivity extends Activity {
 <p>I will name the package com.debugrelease.android.listviewwithimagesandtext</p>
 
 
-<p><img title="SNAGHTML5aec1f5" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="SNAGHTML5aec1f5" src="http://www.debugrelease.com/wp-content/uploads/2013/06/SNAGHTML5aec1f5.png" width="635" height="204" /></p>
+<p><img title="SNAGHTML5aec1f5" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="SNAGHTML5aec1f5" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/SNAGHTML5aec1f5.png" width="635" height="204" /></p>
 
 
 <p>Other than the name of package and activity name I have not made any changes. </p>
@@ -397,7 +397,7 @@ public class MainActivity extends Activity {
 <p>We will copy these images into the assets folder. You can also find the images in the <a href="https://github.com/deepak-kapoor/debug-release-android-samples">Github repository</a>. The project is located in ListViewWithImagesAndText folder. </p>
 
 
-<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/06/image8.png" width="460" height="258" /></p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image8.png" width="460" height="258" /></p>
 
 
 <h3>Model</h3>
@@ -669,7 +669,7 @@ public class MainActivity extends Activity {
     <content type="html"><![CDATA[<p>In Android Layouts are containers in which you place your widgets like buttons, images, lists etc. Two of the most useful layouts are LinearLayout and RelativeLayout. In this post I will talk about LinearLayout.</p>
 
 
-<p>  <p>LinearLayout extends android.view.ViewGroup which extends android.view.View object. As the name suggests, LinearLayout is used to place widgets in a linear manner. By default widgets are stacked vertically as shown in the image below.</p>  <p><img title="verticalLayout" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="verticalLayout" src="http://www.debugrelease.com/wp-content/uploads/2013/06/verticalLayout.gif" width="245" height="435" /></p>  <p>Here is another example of an app running in the emulator.</p>  <p><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/06/image.png" width="479" height="215" /></p>  <p>To get this layout you can use the following xml</p>  <pre class="prettyprint">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+<p>  <p>LinearLayout extends android.view.ViewGroup which extends android.view.View object. As the name suggests, LinearLayout is used to place widgets in a linear manner. By default widgets are stacked vertically as shown in the image below.</p>  <p><img title="verticalLayout" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="verticalLayout" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/verticalLayout.gif" width="245" height="435" /></p>  <p>Here is another example of an app running in the emulator.</p>  <p><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image.png" width="479" height="215" /></p>  <p>To get this layout you can use the following xml</p>  <pre class="prettyprint">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;LinearLayout xmlns:android=&quot;<a href="http://schemas.android.com/apk/res/android&amp;quot;">http://schemas.android.com/apk/res/android&amp;quot;</a></p>
 
 <pre><code>          android:orientation=&amp;quot;vertical&amp;quot;
@@ -750,7 +750,7 @@ public class MainActivity extends Activity {
 
 
 
-<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/06/image1.png" width="240" height="320" /></p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image1.png" width="240" height="320" /></p>
 
 
 
@@ -760,7 +760,7 @@ public class MainActivity extends Activity {
 
 
 
-<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/06/image2.png" width="240" height="320" /></p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image2.png" width="240" height="320" /></p>
 
 
 
@@ -812,7 +812,7 @@ public class MainActivity extends Activity {
 
 
 
-<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/06/image3.png" width="240" height="320" /></p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image3.png" width="240" height="320" /></p>
 
 
 
@@ -833,7 +833,7 @@ public class MainActivity extends Activity {
 
 
 
-<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/06/image4.png" width="240" height="320" /></p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image4.png" width="240" height="320" /></p>
 
 
 
@@ -888,7 +888,7 @@ public class MainActivity extends Activity {
 
 
 
-<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/06/image5.png" width="240" height="320" /></p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image5.png" width="240" height="320" /></p>
 
 
 
@@ -934,7 +934,7 @@ public class MainActivity extends Activity {
 
 <p></p>
 
-<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/06/image6.png" width="240" height="320" /></p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image6.png" width="240" height="320" /></p>
 
 
 

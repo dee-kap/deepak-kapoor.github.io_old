@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Python | Debug Release]]></title>
   <link href="http://deepak-kapoor.github.io/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://deepak-kapoor.github.io/"/>
-  <updated>2013-08-08T13:18:08+10:00</updated>
+  <updated>2013-08-08T14:07:33+10:00</updated>
   <id>http://deepak-kapoor.github.io/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[<p>Found a great collection of Python books available for free. Sharing it with readers of Therefore Systems. Screenshot below is just a small sample. </p>
 
 
-<p> <p><a href="http://pythonbooks.revolunet.com/"><img title="Free Python Books" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="Free Python Books" src="http://www.debugrelease.com/wp-content/uploads/2013/03/image2.png" width="640" height="532"></a></p> <p><a href="http://pythonbooks.revolunet.com/">Link</a></p></p>
+<p> <p><a href="http://pythonbooks.revolunet.com/"><img title="Free Python Books" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="Free Python Books" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/03/image2.png" width="640" height="532"></a></p> <p><a href="http://pythonbooks.revolunet.com/">Link</a></p></p>
 ]]></content>
   </entry>
   
@@ -50,7 +50,7 @@ def current_datetime(request):
 <p>By default Django will send <strong>Content-Type</strong>, <strong>Date</strong> and <strong>Server</strong> response headers to the browser as seen in the screenshot below. </p>
 
 
-<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="Default Response Headers from Django" border="0" alt="Default Response Headers from Django" src="http://www.debugrelease.com/wp-content/uploads/2012/03/image1.png" width="644" height="370"></p>
+<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="Default Response Headers from Django" border="0" alt="Default Response Headers from Django" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/03/image1.png" width="644" height="370"></p>
 
 
 <p>Let’s say that we want to modify the value for Server header. You know, to feel the false satisfaction of making it hard for hackers to find out the technology stack used by our website. Besides the sarcasm, it can be done by modifying our view like this:</p>
@@ -73,7 +73,7 @@ def current_datetime(request):
 <p>Each view in Django returns a HttpResponse and we can work with it as we would work with a dictionary. We can see that the value for Server response header has been changed to ‘Served by 3cpo’.</p>
 
 
-<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Server Header Served by Django" border="0" alt="Server Header Served by Django" src="http://www.debugrelease.com/wp-content/uploads/2012/03/image2.png" width="638" height="362"></p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Server Header Served by Django" border="0" alt="Server Header Served by Django" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/03/image2.png" width="638" height="362"></p>
 
 
 <p>Adding a new header is also simple. It is done by adding a new element to HttpResponse we send back. As shown here.</p>
@@ -97,7 +97,7 @@ def current_datetime(request):
 <p>We have just included a new response header ‘x-powered-by’ which is set to ‘my Linux server’.</p>
 
 
-<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Adding new Response Header in Django" border="0" alt="Adding new Response Header in Django" src="http://www.debugrelease.com/wp-content/uploads/2012/03/image7.png" width="641" height="373"></p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Adding new Response Header in Django" border="0" alt="Adding new Response Header in Django" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/03/image7.png" width="641" height="373"></p>
 
 
 <p>Simple enough, right? Well, this is what I like about Django and its batteries included approach.</p>

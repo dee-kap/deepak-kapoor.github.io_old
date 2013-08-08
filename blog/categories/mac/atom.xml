@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Mac | Debug Release]]></title>
   <link href="http://deepak-kapoor.github.io/blog/categories/mac/atom.xml" rel="self"/>
   <link href="http://deepak-kapoor.github.io/"/>
-  <updated>2013-08-08T13:18:08+10:00</updated>
+  <updated>2013-08-08T14:07:33+10:00</updated>
   <id>http://deepak-kapoor.github.io/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
@@ -30,25 +30,25 @@
 <p>Now we will start the process to establish our connection to SQL Server from NetBeans. First thing click on Services tab and the Right Click on Databases and then click on New Connection.</p>
 
 
-<p><img title="SQLServerNetBeans.png" src="http://www.debugrelease.com/wp-content/uploads/2010/08/SQLServerNetBeans.png" border="0" alt="Screen shot 2010-08-23 at 6.20.33 PM.png" width="371" height="316" /></p>
+<p><img title="SQLServerNetBeans.png" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/SQLServerNetBeans.png" border="0" alt="Screen shot 2010-08-23 at 6.20.33 PM.png" width="371" height="316" /></p>
 
 
 <p>You will see this window. Next to Driver Name click on the drop-down and choose New Driver...</p>
 
 
-<p><img title="NewImage.jpg" src="http://www.debugrelease.com/wp-content/uploads/2010/08/NewImage.jpg" border="0" alt="NewImage.jpg" width="540" height="532" /></p>
+<p><img title="NewImage.jpg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/NewImage.jpg" border="0" alt="NewImage.jpg" width="540" height="532" /></p>
 
 
 <p>Here click on the Add button and browse to your jar file for SQL Server JDBC driver.</p>
 
 
-<p><img title="NewImage.jpg" src="http://www.debugrelease.com/wp-content/uploads/2010/08/NewImage1.jpg" border="0" alt="NewImage.jpg" width="482" height="379" /></p>
+<p><img title="NewImage.jpg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/NewImage1.jpg" border="0" alt="NewImage.jpg" width="482" height="379" /></p>
 
 
 <p>NetBeans is now aware of SQL Server JDBC driver.  You can now start creating the connection to SQL Server. Enter the details for SQL Server. You will need the IP address, port which by default is 1433 and username and password.</p>
 
 
-<p><img title="NewImage3.jpg" src="http://www.debugrelease.com/wp-content/uploads/2010/08/NewImage3.jpg" border="0" alt="NewImage3.jpg" width="540" height="554" /></p>
+<p><img title="NewImage3.jpg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/NewImage3.jpg" border="0" alt="NewImage3.jpg" width="540" height="554" /></p>
 
 
 <p>Click OK and you will be connected to SQL Server.</p>
@@ -57,13 +57,13 @@
 <p>On the Server tab in NetBeans under Database you'll see your SQL Server. You can browse server objects, view tables, stored procedures etc.</p>
 
 
-<p><img title="NewImage5.jpg" src="http://www.debugrelease.com/wp-content/uploads/2010/08/NewImage5.jpg" border="0" alt="NewImage5.jpg" width="356" height="433" /></p>
+<p><img title="NewImage5.jpg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/NewImage5.jpg" border="0" alt="NewImage5.jpg" width="356" height="433" /></p>
 
 
 <p>You can also run SQL queries on your SQL Server from NetBeans IDE.</p>
 
 
-<p><img title="NewImage6.jpg" src="http://www.debugrelease.com/wp-content/uploads/2010/08/NewImage6.jpg" border="0" alt="NewImage6.jpg" width="540" height="489" /></p>
+<p><img title="NewImage6.jpg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/NewImage6.jpg" border="0" alt="NewImage6.jpg" width="540" height="489" /></p>
 
 ]]></content>
   </entry>

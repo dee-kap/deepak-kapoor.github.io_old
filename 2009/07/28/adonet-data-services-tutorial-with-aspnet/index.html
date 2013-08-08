@@ -102,11 +102,11 @@ ADO.NET Data Services as the name says is a services layer between your applicat
 
 In this tutorial we will build an application for AdventureWorks Lite database. We will build a page which let’s a user browse through products. The reason for picking up AdventureWorks Lite as an example is so that we can work with a variety of data including images. If you do not have AdventureWorks Lite then you can download it <a href="http://www.codeplex.com/Wiki/View.aspx?ProjectName=SqlServerSamples">here</a>. For our application we will work with this data model
 
-<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image46.png" border="0" alt="image" width="540" height="406" />
+<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image46.png" border="0" alt="image" width="540" height="406" />
 <h3>Creating Service</h3>
 Creating a ADO.NET Data Service in Visual Studio is a no brainer. All we need to do is add a new item of type ADO.NET Data Service, give it an appropriate name and we are done.
 
-<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image47.png" border="0" alt="image" width="540" height="432" />
+<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image47.png" border="0" alt="image" width="540" height="432" />
 
 Our ADO.NET Service will interact with some kind of data source and Entity Framework perfectly fits that purpose. We now need to create a EDM (Entity Data Model) which includes tables we want to interact with via our services. If you never worked with Entity Framework then <a href="http://msdn.microsoft.com/en-us/library/bb399182.aspx">this quickstart</a> will get you going.
 
@@ -124,17 +124,17 @@ Here we have established integration between our service and our data source. Ne
 
 We are now ready to go and hit F5. If we set AdventureWorksService.svc as a start page and run our project we can see our service running. Now that we have our service running, we will start building our ASP.NET pages which will query our service, receive and display data.
 
-<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image48.png" border="0" alt="image" width="540" height="597" />
+<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image48.png" border="0" alt="image" width="540" height="597" />
 <h3>Creating Proxy Objects</h3>
 Our ASP.NET application will need to access the service through a proxy. Creating a proxy is very easy. After making sure that our service is running, we need to add a service reference to our serivce. This can be done this way.
 
-<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image49.png" border="0" alt="image" width="540" height="434" />
+<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image49.png" border="0" alt="image" width="540" height="434" />
 
 It is also a good idea to change the Namespace from ServiceReference1 to AdventureWorksService.
 <h3>Creating Web Page To Display Data</h3>
 We can now make calls to our service and retrieve data. First thing we need to do is load data from ProductCategory and bind it to a dropdown. But before that let’s have a look at what we will produce.
 
-<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/07/image50.png" border="0" alt="image" width="540" height="521" />
+<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image50.png" border="0" alt="image" width="540" height="521" />
 
 Getting back to binding our dropdown control. We should write a query which calls our service which in turns fetches data from database and delivers to us. One good thing about ADO.NET Data Services is that you can write LINQ queries with it. ADO.NET Data Services comes with a LINQ provider popularly known as LINQ To REST.  Without LINQ support ADO.NET Data Services will be just too complicated and IMO useless. However LINQ support is limited. Here are things you cannot do:
 <ol>

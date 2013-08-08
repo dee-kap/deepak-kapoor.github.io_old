@@ -117,29 +117,29 @@ END
 <h3>Creating Data Model</h3>
 ADO.NET Data Services sits between the client and a data source, so the first thing I’ll need is a data source. I will use Entity Framework to create my data source.
 
-<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/08/image13.png" border="0" alt="image" width="544" height="427" />
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image13.png" border="0" alt="image" width="544" height="427" />
 
 To make things simple I will select Employees table only for my Entity Data Model.
 
-<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/08/image14.png" border="0" alt="image" width="544" height="483" />
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image14.png" border="0" alt="image" width="544" height="483" />
 <h3>Mapping Stored Procedure in EDM</h3>
 My objective here is to retrieve data from a stored procedure. To this I need to expose the procedure through my data layer which I have created using Entity Framework. Mapping a stored procedure in Entity Framework can be done by following these steps.
 
 Open Model Browser (View –&gt; Other Windows –&gt; Model Browser). Right click on Stored Prodecures under NorthwindModel.Store and click Update Model from Database.
 
-<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/08/image6.png" border="0" alt="image" width="380" height="208" />
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image6.png" border="0" alt="image" width="380" height="208" />
 
 Select the stored procedure (GetEmployeesByCity in this case) and click Finish.
 
-<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/08/image7.png" border="0" alt="image" width="307" height="309" />
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image7.png" border="0" alt="image" width="307" height="309" />
 
 Go back to Model Browser and under stored procedure right click the stored procedure and click Create Function Import.
 
-<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/08/image8.png" border="0" alt="image" width="411" height="250" />
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image8.png" border="0" alt="image" width="411" height="250" />
 
 Select Employees entity as the return type and click OK.
 
-<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/08/image9.png" border="0" alt="image" width="399" height="291" />
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image9.png" border="0" alt="image" width="399" height="291" />
 
 Entity Model is now setup to execute the stored procedure and return results. It can be called like this.
  
@@ -150,7 +150,7 @@ My goal however is to retrieve data via ADO.NET Data Services so I’ll start cr
 <h3>And Now With a Service</h3>
 Because I’d like to access this data through my ADO.NET Data Service so the first thing I’ll do is create a service called NorthwindEmployeeService. I will add a new item to my project of type ADO.NET Data Service.
 
-<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/08/image10.png" border="0" alt="image" width="540" height="400" />
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image10.png" border="0" alt="image" width="540" height="400" />
 
 Visual Studio creates a blank service with some scaffolding for me to get started. First thing I need to do is let my service know about my data source class and then configure appropriate rights to my entities and operations. To be simple I will just allow everything. Below is the code for my service after making changes.
 
@@ -181,7 +181,7 @@ Method above tells the service to expose a GetEmployeesByCity method which can b
 <h3>Running Service and Calling Stored Procedure</h3>
 To see my service in action I can hit F5
 
-<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/08/image11.png" border="0" alt="image" width="540" height="500" />
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image11.png" border="0" alt="image" width="540" height="500" />
 
 To see the results from the stored procedure I can use the following URL.
 
@@ -189,7 +189,7 @@ To see the results from the stored procedure I can use the following URL.
 
 Here I am passing in the parameter as a query string which is accepted by my service and appropriate results are returned.
 
-<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/08/image12.png" border="0" alt="image" width="539" height="645" />
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image12.png" border="0" alt="image" width="539" height="645" />
 <h3>Conclusion</h3>
 In this article I used ADO.NET Data Services to execute a stored procedure and return results. I am not in favour of implementing a direct mapping between services and database and the design can be a little better whereby data layer can be sensibly abstracted away by service. However the idea was to demonstrate a concept. I hope you enjoyed reading this article.
 </div>

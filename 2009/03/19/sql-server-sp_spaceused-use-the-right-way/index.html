@@ -98,7 +98,7 @@
 <pre class="code"><span style="color: blue">EXEC </span><span style="color: maroon">sp_spaceused </span><span style="color: red">'Orders'</span></pre>
 which returns this result
 
-<img style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/03/image24.png" border="0" alt="image" width="431" height="47" />
+<img style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image24.png" border="0" alt="image" width="431" height="47" />
 
 But if I run sp_spaceused with true for its second parameter which is updateusage
 <pre class="code"><span style="color: blue">EXEC </span><span style="color: maroon">sp_spaceused </span><span style="color: red">'Orders'</span><span style="color: gray">, </span>TRUE</pre>
@@ -106,7 +106,7 @@ But if I run sp_spaceused with true for its second parameter which is updateusag
 
 I get the following result
 
-<img style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" title="image" src="http://www.debugrelease.com/wp-content/uploads/2009/03/image25.png" border="0" alt="image" width="430" height="48" />
+<img style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image25.png" border="0" alt="image" width="430" height="48" />
 
 Notice the difference in reserved space and index size. What has happened here is that by passing in true for updateusage SQL Server automatically runs DBCC UPDATEUSAGE which corrects any inaccuracies in catalog views. So it is a good idea to run sp_spaceused by supplying true for updateusage parameter if you absolutely must get accurate information. And especially after inserting large amounts of data.
 </div>

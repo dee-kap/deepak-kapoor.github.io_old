@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | Debug Release]]></title>
   <link href="http://deepak-kapoor.github.io/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://deepak-kapoor.github.io/"/>
-  <updated>2013-08-08T13:18:08+10:00</updated>
+  <updated>2013-08-08T14:07:33+10:00</updated>
   <id>http://deepak-kapoor.github.io/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
@@ -141,7 +141,7 @@ sudo apt-get install handbrake-gtk</pre>
 <p>Attach VBoxGuestAdditions.iso in machine settings on VirtualBox. On a 64bit machine the iso file can be found at C:\Program Files\Oracle\VirtualBox.</p>
 
 
-<p><a href="http://www.debugrelease.com/wp-content/uploads/2013/07/vboxguestadditions.png"><img src="http://www.debugrelease.com/wp-content/uploads/2013/07/vboxguestadditions.png" alt="" width="628" height="442" class="alignleft size-full wp-image-2083" /></a></p>
+<p><a href="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/07/vboxguestadditions.png"><img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/07/vboxguestadditions.png" alt="" width="628" height="442" class="alignleft size-full wp-image-2083" /></a></p>
 
 <p>Then mount the iso in Ubuntu guest.</p>
 
@@ -178,7 +178,7 @@ vboxsf:x:1005:</pre>
 <p>Next go to machine settings and click on Shared Folders. Add a host folder you'd like to share. In the screenshot below I have shared temp folder on my D drive.</p>
 
 
-<p><a href="http://www.debugrelease.com/wp-content/uploads/2013/07/vboxsharefolder.png"><img src="http://www.debugrelease.com/wp-content/uploads/2013/07/vboxsharefolder.png" alt="" width="626" height="440" class="alignleft size-full wp-image-2084" /></a></p>
+<p><a href="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/07/vboxsharefolder.png"><img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/07/vboxsharefolder.png" alt="" width="626" height="440" class="alignleft size-full wp-image-2084" /></a></p>
 
 <p>The shared folder is now accessible within Ubuntu. Just mount it to a directory.</p>
 
@@ -408,9 +408,9 @@ touch testdir/bye
 </pre></p>
 
 <p><p>Running a simple <code>ls -la</code> command gives us the list of all files and directories</p>
-<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/07/image.png" width="579" height="127" /></p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/07/image.png" width="579" height="127" /></p>
 <p>A helpful option if you want to see the files listed per line is <code>-1</code>. If we run <code>ls -1</code> we get the following output.</p>
-<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/07/image1.png" width="572" height="111" /></p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/07/image1.png" width="572" height="111" /></p>
 <p>With the output above we can simply count the number of lines and we have the count of files. Counting lines can be done by using <code>wc -l</code> command. The <code>-l</code> option prints the count of newlines. Let’s see what happens if we execute this command.</p>
 <pre class="prettyprint">ls –1 | wc –l</pre>
 <p>The result is <strong>5</strong>. </p>

@@ -94,7 +94,7 @@
   </header>
 
 
-<div class="entry-content"><p>While writing Silverlight applications, I find it challenging to pick colors from the list of predefined colors supported by Silverlight. Honestly I don’t know what those fancy colors look like. There! I said it!. Happy? To overcome this issue in true developer style, I wrote a small utility which shows all predefined colors on a page. This post is about how I wrote the utility. Here is a screenshot of what my little application looks like when it is running. </p>  <p>&#160;</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/06/image5.png" width="550" height="534" /> </p>  <br />  <p>In XAML we have more colors available to us as compared to when we are in code behind. When&#160; we write something like Fill=”DarkBlue”, XAML parser converts it into the proper dark blue color. Look at the choice of colors we get when writing XAML.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/06/image6.png" width="205" height="225" /> </p>  <p>And this is our limited choice in c#.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/06/image7.png" width="188" height="221" /> </p>  <p>But for my little utility I needed to know about all those pre-defined colors in c#. I found a <a href="http://silverlight.net/forums/p/13225/43867.aspx">post by Jabb</a> which came in handy for this. </p>  <p>Writing this application was very simple. In my XAML I defined a DataTemplate which is used by a ListBox to show all colors. </p>  
+<div class="entry-content"><p>While writing Silverlight applications, I find it challenging to pick colors from the list of predefined colors supported by Silverlight. Honestly I don’t know what those fancy colors look like. There! I said it!. Happy? To overcome this issue in true developer style, I wrote a small utility which shows all predefined colors on a page. This post is about how I wrote the utility. Here is a screenshot of what my little application looks like when it is running. </p>  <p>&#160;</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image5.png" width="550" height="534" /> </p>  <br />  <p>In XAML we have more colors available to us as compared to when we are in code behind. When&#160; we write something like Fill=”DarkBlue”, XAML parser converts it into the proper dark blue color. Look at the choice of colors we get when writing XAML.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image6.png" width="205" height="225" /> </p>  <p>And this is our limited choice in c#.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image7.png" width="188" height="221" /> </p>  <p>But for my little utility I needed to know about all those pre-defined colors in c#. I found a <a href="http://silverlight.net/forums/p/13225/43867.aspx">post by Jabb</a> which came in handy for this. </p>  <p>Writing this application was very simple. In my XAML I defined a DataTemplate which is used by a ListBox to show all colors. </p>  
 
  
 <pre class="lang:xhtml decode:true " >&lt;UserControl x:Class="AllColors.Page"
@@ -305,7 +305,7 @@ public class AllColorsHelper
 
 <p>This gave me a list of all predefined colors. Here is a partial screenshot.</p>
 
-<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/06/image8.png" width="550" height="468" /> </p>
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image8.png" width="550" height="468" /> </p>
 
 <p>&#160;</p>
 
@@ -363,7 +363,7 @@ private void DisplayColors(IEnumerable<Color> colorCollection)
 
 <p>I now had filtering available in my application</p>
 
-<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/06/image10.png" width="550" height="511" /> </p>
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image10.png" width="550" height="511" /> </p>
 
 <p>Thus the features set of my application was implemented. But there was something missing. It did not look very Silverlight / XAMAL-ish. And that ground was easily covered by applying styles. Here is my final XAML.</p>
 
@@ -446,7 +446,7 @@ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Loaded="UserControl_Loade
 
 <p>And once again a screenshot of the finished product.</p>
 
-<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2009/06/image5.png" width="550" height="534" /></p>
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image5.png" width="550" height="534" /></p>
 
 <p>So writing a Siverlight application which displays all predefined colors was not hard at all, and I used Silverlight features like Styles, DataTemplate, Resources and Data Binding. So now that I can quickly see what those colors look like, I’m off to learn how to match them properly. </p>
 </div>

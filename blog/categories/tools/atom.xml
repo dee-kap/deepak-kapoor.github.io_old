@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tools | Debug Release]]></title>
   <link href="http://deepak-kapoor.github.io/blog/categories/tools/atom.xml" rel="self"/>
   <link href="http://deepak-kapoor.github.io/"/>
-  <updated>2013-08-08T13:18:08+10:00</updated>
+  <updated>2013-08-08T14:07:33+10:00</updated>
   <id>http://deepak-kapoor.github.io/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
@@ -77,7 +77,7 @@
     <content type="html"><![CDATA[<p>I installed Netbeans 6.9 on my machine and found that Javadoc is not installed. For example when invoking intellisense for a method in Calendar class I get the following message. </p>
 
 
-<p><img src="http://www.debugrelease.com/wp-content/uploads/2011/01/snapshot3.png" title="Javadoc" alt="Javadoc not available" /></p>
+<p><img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2011/01/snapshot3.png" title="Javadoc" alt="Javadoc not available" /></p>
 
 
 <p>Javadoc is not installed with Netbeans by default but can easily be installed. This is how it's done.</p>
@@ -86,13 +86,13 @@
 <p>First download documentation from this <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" title="Javadoc download link" target="_blank">link</a>. Get the documentation zip file and copy it to a folder. Next go to Tools --&gt; Java Platforms in Netbeans. This brings up Java Platform Manager. On this screen select the environment e.g. JDk 1.6 and then click on Javadoc tab. Browse to the zip file and click close on Java Platform Manager.</p>
 
 
-<p><img src="http://www.debugrelease.com/wp-content/uploads/2011/01/snapshot5copy.png" title="Netbeans-Java Platforms Manager" alt="Netbeans-Java Platforms Manager" /></p>
+<p><img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2011/01/snapshot5copy.png" title="Netbeans-Java Platforms Manager" alt="Netbeans-Java Platforms Manager" /></p>
 
 
 <p>Javadoc will now be available.</p>
 
 
-<p><img src="http://www.debugrelease.com/wp-content/uploads/2011/01/snapshot4.png" /></p>
+<p><img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2011/01/snapshot4.png" /></p>
 
 
 <p></p>
@@ -120,13 +120,13 @@
 <p><strong></strong> From NetBeans all you need to do is start Glassfish as you normally would.</p>
 
 
-<p><img title="Screen shot 2010-08-23 at 5.09.05 PM.png" src="http://www.debugrelease.com/wp-content/uploads/2010/08/Screen-shot-2010-08-23-at-5.09.05-PM1.png" border="0" alt="Start Glassfish" width="375" height="397" /></p>
+<p><img title="Screen shot 2010-08-23 at 5.09.05 PM.png" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/Screen-shot-2010-08-23-at-5.09.05-PM1.png" border="0" alt="Start Glassfish" width="375" height="397" /></p>
 
 
 <p>Now click on View Server Log and you'll see a log of all Glassfish activity in NetBeans IDE.</p>
 
 
-<p><img style="float: left;" title="Glassfish2.png" src="http://www.debugrelease.com/wp-content/uploads/2010/08/Glassfish21.png" border="0" alt="Screen shot 2010-08-23 at 5.20.17 PM.png" width="372" height="417" /></p>
+<p><img style="float: left;" title="Glassfish2.png" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/Glassfish21.png" border="0" alt="Screen shot 2010-08-23 at 5.20.17 PM.png" width="372" height="417" /></p>
 
 ]]></content>
   </entry>
