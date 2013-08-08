@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Big Data | Debug Release]]></title>
-  <link href="http://deepak-kapoor.github.io/blog/categories/big-data/atom.xml" rel="self"/>
-  <link href="http://deepak-kapoor.github.io/"/>
-  <updated>2013-08-08T15:51:11+10:00</updated>
-  <id>http://deepak-kapoor.github.io/</id>
+  <link href="http://www.debugrelease.com/blog/categories/big-data/atom.xml" rel="self"/>
+  <link href="http://www.debugrelease.com/"/>
+  <updated>2013-08-09T09:04:06+10:00</updated>
+  <id>http://www.debugrelease.com/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Hadoop Word Count Revised]]></title>
-    <link href="http://deepak-kapoor.github.io/2012/07/11/hadoop-word-count-revised/"/>
+    <link href="http://www.debugrelease.com/2012/07/11/hadoop-word-count-revised/"/>
     <updated>2012-07-11T00:00:00+10:00</updated>
-    <id>http://deepak-kapoor.github.io/2012/07/11/hadoop-word-count-revised</id>
+    <id>http://www.debugrelease.com/2012/07/11/hadoop-word-count-revised</id>
     <content type="html"><![CDATA[<p>This is a follow up to my <a href="http://www.debugrelease.com/yet-another-hadoop-word-count-tutorial/">last post</a> in which I showed you how to write a word count MapReduce job. Have a look at <a href="http://www.debugrelease.com/yet-another-hadoop-word-count-tutorial/">that earlier post</a> before reading on. It will put things into perspective. </p>
 
 

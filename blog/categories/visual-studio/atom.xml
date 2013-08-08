@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Visual Studio | Debug Release]]></title>
-  <link href="http://deepak-kapoor.github.io/blog/categories/visual-studio/atom.xml" rel="self"/>
-  <link href="http://deepak-kapoor.github.io/"/>
-  <updated>2013-08-08T15:51:11+10:00</updated>
-  <id>http://deepak-kapoor.github.io/</id>
+  <link href="http://www.debugrelease.com/blog/categories/visual-studio/atom.xml" rel="self"/>
+  <link href="http://www.debugrelease.com/"/>
+  <updated>2013-08-09T09:04:06+10:00</updated>
+  <id>http://www.debugrelease.com/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Disable StyleCop settings for a project]]></title>
-    <link href="http://deepak-kapoor.github.io/2013/05/03/disable-stylecop-settings-for-a-project/"/>
+    <link href="http://www.debugrelease.com/2013/05/03/disable-stylecop-settings-for-a-project/"/>
     <updated>2013-05-03T00:00:00+10:00</updated>
-    <id>http://deepak-kapoor.github.io/2013/05/03/disable-stylecop-settings-for-a-project</id>
+    <id>http://www.debugrelease.com/2013/05/03/disable-stylecop-settings-for-a-project</id>
     <content type="html"><![CDATA[<p>Tools like <a href="http://www.debugrelease.com/stylecop-tutorial/">StyleCop</a> have their place in the world and I have nothing against using them to produce consistently formatted code. It kinda makes the person higher up in the food chain brag to those higher above him about the quality of code being produced. However when I write code to try out things , I want the bloody thing to just go away and stop irritating me with you are missing a file header, using statements must be within namespace declaration etc.</p>
 
 <p>It turns out that all the rules can be disabled easily by right clicking the project &mdash;&gt; StyleCop Settings. Then in the Rules tab by unchecking Enabled rules.</p>
@@ -28,9 +28,9 @@
   
   <entry>
     <title type="html"><![CDATA[Nuget packages and source control]]></title>
-    <link href="http://deepak-kapoor.github.io/2013/04/11/nuget-packages-and-source-control/"/>
+    <link href="http://www.debugrelease.com/2013/04/11/nuget-packages-and-source-control/"/>
     <updated>2013-04-11T00:00:00+10:00</updated>
-    <id>http://deepak-kapoor.github.io/2013/04/11/nuget-packages-and-source-control</id>
+    <id>http://www.debugrelease.com/2013/04/11/nuget-packages-and-source-control</id>
     <content type="html"><![CDATA[<p>I use NuGet packages all the time for most of my projects. I ran into an issue on a project I am working on with another developer. We are using Github for source control and we are using many NuGet packages in our solution. The issue was that after adding NuGet packages and making sure that the code compiles and pushing my changes, my developer friend pulled the solution and could not build it. The reason being missing references. </p>
 
 
@@ -40,9 +40,9 @@
   
   <entry>
     <title type="html"><![CDATA[Unable to access IIS Metabase on Windows 8]]></title>
-    <link href="http://deepak-kapoor.github.io/2013/03/14/unable-to-access-iis-metabase-on-windows-8/"/>
+    <link href="http://www.debugrelease.com/2013/03/14/unable-to-access-iis-metabase-on-windows-8/"/>
     <updated>2013-03-14T00:00:00+11:00</updated>
-    <id>http://deepak-kapoor.github.io/2013/03/14/unable-to-access-iis-metabase-on-windows-8</id>
+    <id>http://www.debugrelease.com/2013/03/14/unable-to-access-iis-metabase-on-windows-8</id>
     <content type="html"><![CDATA[<p>After installing Windows 8, I found that my ASP.NET MVC projects won’t open in Visual Studio. This is the error thrown by Visual Studio 2012.</p>
 
 
@@ -52,9 +52,9 @@
   
   <entry>
     <title type="html"><![CDATA[Run Visual Studio 2012 as administrator every time]]></title>
-    <link href="http://deepak-kapoor.github.io/2013/03/14/run-visual-studio-2012-as-administrator-always/"/>
+    <link href="http://www.debugrelease.com/2013/03/14/run-visual-studio-2012-as-administrator-always/"/>
     <updated>2013-03-14T00:00:00+11:00</updated>
-    <id>http://deepak-kapoor.github.io/2013/03/14/run-visual-studio-2012-as-administrator-always</id>
+    <id>http://www.debugrelease.com/2013/03/14/run-visual-studio-2012-as-administrator-always</id>
     <content type="html"><![CDATA[<p>As a developer I spend my life inside Visual Studio. Since I installed Windows 8, I was having trouble opening web projects. Turns out that I need to run Visual Studio as an administrator. </p>
 
 
@@ -64,9 +64,9 @@
   
   <entry>
     <title type="html"><![CDATA[WAT080: Failed to locate the Windows Azure SDK. Please make sure the Windows Azure SDK v1.5 is installed.]]></title>
-    <link href="http://deepak-kapoor.github.io/2012/02/07/wat080-failed-to-locate-the-windows-azure-sdk-please-make-sure-the-windows-azure-sdk-v1-5-is-installed/"/>
+    <link href="http://www.debugrelease.com/2012/02/07/wat080-failed-to-locate-the-windows-azure-sdk-please-make-sure-the-windows-azure-sdk-v1-5-is-installed/"/>
     <updated>2012-02-07T00:00:00+11:00</updated>
-    <id>http://deepak-kapoor.github.io/2012/02/07/wat080-failed-to-locate-the-windows-azure-sdk-please-make-sure-the-windows-azure-sdk-v1-5-is-installed</id>
+    <id>http://www.debugrelease.com/2012/02/07/wat080-failed-to-locate-the-windows-azure-sdk-please-make-sure-the-windows-azure-sdk-v1-5-is-installed</id>
     <content type="html"><![CDATA[<p>After installing Windows Azure SDK and Visual Studio tools November 2011, I got this error when compiling an existing Cloud project.</p>
 
 

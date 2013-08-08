@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Linux | Debug Release]]></title>
-  <link href="http://deepak-kapoor.github.io/blog/categories/linux/atom.xml" rel="self"/>
-  <link href="http://deepak-kapoor.github.io/"/>
-  <updated>2013-08-08T15:51:11+10:00</updated>
-  <id>http://deepak-kapoor.github.io/</id>
+  <link href="http://www.debugrelease.com/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://www.debugrelease.com/"/>
+  <updated>2013-08-09T09:04:06+10:00</updated>
+  <id>http://www.debugrelease.com/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Linux - Set wireless bit rate permanently on Ubuntu or Linux Mint]]></title>
-    <link href="http://deepak-kapoor.github.io/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/"/>
+    <link href="http://www.debugrelease.com/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/"/>
     <updated>2013-07-31T00:00:00+10:00</updated>
-    <id>http://deepak-kapoor.github.io/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint</id>
+    <id>http://www.debugrelease.com/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint</id>
     <content type="html"><![CDATA[<pre><code>&lt;p&gt;Recently I moved my desktop from the home office to another room. Due to this move I lost access to wired LAN and had to install a wireless adapter in my desktop. The adapter I am using is &lt;a href="http://www.tp-link.com/en/products/details/?model=TL-WN781ND"&gt;TP-Link 150Mbps Wireless N PCI Express Adapter&lt;/a&gt;. I noticed slow network speed ever since I connected to wireless on my desktop. I understand that there is a difference between wired and wireless connection, but I didn't expect the wireless to be so slow. After some investigation, I found that the real culprit was the bit rate for my wireless adapter. I resolved the speed issue by setting the bit rate to 54Mbps. In this post I will show you how to do that.&lt;/p&gt;
 &lt;p&gt;
     Check the current bit rate
@@ -107,9 +107,9 @@ And that&rsquo;s it. The bit rate from now will always be 54Mbps.
   
   <entry>
     <title type="html"><![CDATA[Linux - Install Handbrake on Linux Mint 15]]></title>
-    <link href="http://deepak-kapoor.github.io/2013/07/28/linux-install-handbrake-on-linux-mint-15/"/>
+    <link href="http://www.debugrelease.com/2013/07/28/linux-install-handbrake-on-linux-mint-15/"/>
     <updated>2013-07-28T00:00:00+10:00</updated>
-    <id>http://deepak-kapoor.github.io/2013/07/28/linux-install-handbrake-on-linux-mint-15</id>
+    <id>http://www.debugrelease.com/2013/07/28/linux-install-handbrake-on-linux-mint-15</id>
     <content type="html"><![CDATA[<p> <a href="http://handbrake.fr/">Handbrake</a>&nbsp;is a popular open source video transcoder software. It can be used to rip DVDs and does a lot more. Handbrake is packed with features which let you control many details of your operations. </p>
 
 
@@ -125,9 +125,9 @@ sudo apt-get install handbrake-gtk</pre>
   
   <entry>
     <title type="html"><![CDATA[Linux VirtualBox - Windows host share in Ubuntu guest]]></title>
-    <link href="http://deepak-kapoor.github.io/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/"/>
+    <link href="http://www.debugrelease.com/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/"/>
     <updated>2013-07-26T00:00:00+10:00</updated>
-    <id>http://deepak-kapoor.github.io/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest</id>
+    <id>http://www.debugrelease.com/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest</id>
     <content type="html"><![CDATA[<p>In this post I will show you how to mount and access Windows host shares on your Ubuntu guest OS running within VirtualBox.</p>
 
 
@@ -203,9 +203,9 @@ deepak@ubuntu:~$ sudo mount -t vboxsf temp /media/host-share</pre>
   
   <entry>
     <title type="html"><![CDATA[Linux - setgid on directory and share directory with users]]></title>
-    <link href="http://deepak-kapoor.github.io/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/"/>
+    <link href="http://www.debugrelease.com/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/"/>
     <updated>2013-07-25T00:00:00+10:00</updated>
-    <id>http://deepak-kapoor.github.io/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users</id>
+    <id>http://www.debugrelease.com/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users</id>
     <content type="html"><![CDATA[<p>I came across a scenario which warranted using <code>setgid</code>. The requirement was to allow multiple users to create files and read files in a directory. I also wanted to ensure that this requirement can be easily met for any future users. I will explain what I did with a simple example.</p>
 
 
@@ -390,9 +390,9 @@ drwxrwxr-x 2 root warriors 4096 Jul 24 22:43 /usr/share/shareddocs/</pre>
   
   <entry>
     <title type="html"><![CDATA[Linux  - Number of files in directory]]></title>
-    <link href="http://deepak-kapoor.github.io/2013/07/03/linux-number-of-files-in-directory/"/>
+    <link href="http://www.debugrelease.com/2013/07/03/linux-number-of-files-in-directory/"/>
     <updated>2013-07-03T00:00:00+10:00</updated>
-    <id>http://deepak-kapoor.github.io/2013/07/03/linux-number-of-files-in-directory</id>
+    <id>http://www.debugrelease.com/2013/07/03/linux-number-of-files-in-directory</id>
     <content type="html"><![CDATA[<p><p>The command to get the number of files in a directory is. <p>
 <pre class="prettyprint">ls –l | grep ^&ndash; | wc –l</pre>
 <p>If you are here just to get the command then no need to read further. However if you&rsquo;d like to understand a bit more then read on.</p>

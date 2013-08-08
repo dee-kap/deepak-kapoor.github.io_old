@@ -9,7 +9,8 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="As a web developer it is hard to ignore the popularity of JQuery. The issue however is that there are too many JQuery plugins available and at times &hellip;">
+  <meta name="description" content="This example show you how to apply gzip compression to a file in Java.
+Java supports both Zip and GZip compression out of the box. You do not need &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,10 +19,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://deepak-kapoor.github.io/blog/page/10">
+  <link rel="canonical" href="http://www.debugrelease.com/blog/page/10">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Debug Release" type="application/atom+xml">
+  <link href="http://feeds.feedburner.com/debug-release" rel="alternate" title="Debug Release" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
@@ -53,7 +54,7 @@
   
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:deepak-kapoor.github.io" />
+    <input type="hidden" name="q" value="site:www.debugrelease.com" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
@@ -74,7 +75,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/07/23/the-ultimate-list-of-jquery-plugins-and-examples/">The Ultimate List of JQuery Plugins and Examples</a></h1>
+      <h1 class="entry-title"><a href="/2010/12/17/compress-file-with-gzip-in-java-2/">Compress File With GZip in Java</a></h1>
     
     
       <p class="meta">
@@ -90,491 +91,317 @@
   
 
 
-<time datetime="2009-07-23T00:00:00+10:00" pubdate data-updated="true">Jul 23<span>rd</span>, 2009</time>
+<time datetime="2010-12-17T00:00:00+11:00" pubdate data-updated="true">Dec 17<span>th</span>, 2010</time>
+        
+         | <a href="/2010/12/17/compress-file-with-gzip-in-java-2/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image35.png" border="0" alt="image" width="540" height="290" />
+  <div class="entry-content"><p style="clear: both;">This example show you how to apply gzip compression to a file in Java.</p>
+<p style="clear: both;">Java supports both Zip and GZip compression out of the box. You do not need any third party components.</p>
 
-As a web developer it is hard to ignore the popularity of JQuery. The issue however is that there are too many JQuery plugins available and at times it is hard to decide which one to chose. <a href="http://jquerylist.com/">The Ultimate JQuery List</a> is a fantastic web site which lists hundreds of JQuery plugins with examples.
+<pre class="lang:java decode:true " >
+import java.io.*;
+import java.util.zip.*;
 
-This will serve as a great reference point if you are looking for JQuery examples.
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/07/21/download-windows-azure-tools-and-sdk-july-2009-ctp/">Download Windows Azure Tools and SDK July 2009 CTP</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-07-21T00:00:00+10:00" pubdate data-updated="true">Jul 21<span>st</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://blogs.msdn.com/jnak/default.aspx">Jim Nakashima</a> has announced the availability of Windows Azure Tools and SDK July 2009 CTP. Here are the download links:</p>  <ul>   <li><a href="http://go.microsoft.com/fwlink/?LinkId=128752">Windows Azure Tools For Visual Studio 2008 And Visual Studio 2010</a> (also includes the SDK).</li>    <li><a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=aa40f3e2-afc5-484d-b4e9-6a5227e73590&amp;displaylang=en">Windows Azure SDK only</a>.</li> </ul>  <p>&#160;</p>  <p>Here is a list of new goodies in July 2009 CTP re-posted from this <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=8d75d4f7-77a4-4adf-bce8-1b10608574bb&amp;displaylang=en">link</a>.&#160; </p>  <p>New for the July 2009 CTP: </p>  <ul>   <li>Support for developing and deploying services containing multiple web and worker roles. A service may contain zero or more web roles and zero or more worker roles with a minimum of one role of either type.</li>    <li>New project creation dialog that supports creating Cloud Services with multiple web and worker roles.</li>    <li>Ability to associate any ASP.NET Web Application project in a Cloud Service solution as a Web Role</li>    <li>Support for building Cloud Services from TFS Build</li>    <li>Enhanced robustness and stability</li> </ul>  <br />Windows Azure Tools for Microsoft Visual Studio includes:  <ul>   <li>C# and VB Project Templates for creating a Cloud Service solution</li>    <li>Tools to change the Service Role configuration</li>    <li>Integrated local development via the Development Fabric and Development Storage services</li>    <li>Debugging Cloud Service Roles running in the Development Fabric</li>    <li>Building and packaging of Cloud Service Packages</li>    <li>Browsing to the Azure Services Developer Portal</li>    <li>SSL Certificate selection</li> </ul>  <p>&#160;</p>  <p>On my machine I uninstalled the old CTP and installed July 2009 CTP. All is working well and no smoke came out of my laptop.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/07/15/office-2010-setup-screenshots/">Office 2010 Setup Screenshots</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-07-15T00:00:00+10:00" pubdate data-updated="true">Jul 15<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Because of my karma and auspicious planetary alignments I got an email yesterday notifying me that I can access Technical Preview of Office 2010. Needless to say that I downloaded a 32bit edition immediately. This is a teaser post with screenshots of Office 2010 setup on Windows XP. Enjoy.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image19.png" width="520" height="187" /> </p>  <p>Oops</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image20.png" width="540" height="117" /> </p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image21.png" width="540" height="439" /> </p>  <p>&#160;</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image22.png" width="540" height="439" /> </p>  <p>&#160;</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image23.png" width="540" height="439" /> </p>  <p>&#160;</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image24.png" width="540" height="439" /> </p>  <p>&#160;</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image25.png" width="540" height="439" /> </p>  <p>As you can see that not much has changed for Office setup and this is good. I have found Microsoft Office setup process to be the most stable. </p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/07/15/office-2010-orb-has-a-new-look/">Office 2010 Orb Has a New Look</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-07-15T00:00:00+10:00" pubdate data-updated="true">Jul 15<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>One of the things that you will notice when you open an Office 2010 application is that the orb has a new look. This is what the orb looks like in Word 2007</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image29.png" width="172" height="151" /> </p>  <p>This look has slightly changed now. Here is the orb in Word 2010</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image30.png" width="152" height="147" /> </p>  <p>The look has also changed when you click on the orb. Here is a comparison. This is what we see in Word 2007. You are also able to see&#160; your current document in background. </p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image31.png" width="511" height="572" /> </p>  <p>In Word 2010, current document is hidden. </p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image32.png" width="540" height="509" /></p>  <p>But that’s not all, there are more features available here. For example when you click on Print you immediately see a preview.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image33.png" width="540" height="389" /></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/07/15/microsoft-office-2010-technical-preview-feedback-with-a-smile/">Microsoft Office 2010 Technical Preview Feedback With a Smile</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-07-15T00:00:00+10:00" pubdate data-updated="true">Jul 15<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Microsoft is interested in feedback from those who have access to Office 2010 Technical Preview. And they are asking for it in a nice way. When you install the Technical Preview, you will notice two icons in your Icon Tray.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image26.png" width="146" height="30" /> </p>  <p>Don’t they look cute? As you can see that there is a smile icon and a frown icon. If you are happy about something then click on the smile icon which opens up a form where you can put in your comments and send them to Microsoft with a screenshot of the Office Application from your machine.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Office 2010" border="0" alt="Office 2010" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image27.png" width="469" height="699" /> </p>  <p>And similarly if you don’t like something then you can send them a frown. </p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Office 2010" border="0" alt="Office 2010" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image28.png" width="468" height="677" /> </p>  <p>I think this is nice and clever little way to get feedback. It sure does convey the “We care” message.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/07/13/get-uri-of-silverlight-plugin-host-page/">Get URI of Silverlight Plugin Host Page</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-07-13T00:00:00+10:00" pubdate data-updated="true">Jul 13<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Within our Silverlight application if we want to know the URI where our Silverlight content is running, we can tap into System.Windows.Browser namespace. This namespace contains object which are full of Browser related information. This is an example of retrieving the URI from within Silverlight application.</p>  
-
- 
-<pre class="lang:xhtml decode:true " >&lt;StackPanel x:Name="LayoutRoot" Margin="10"&gt;
-  &lt;TextBlock Text="Your URL is: " /&gt;
-  &lt;TextBlock Text="{Binding AbsoluteUri}" /&gt;
-&lt;/StackPanel&gt;</pre> 
-
-
-<p>In our C# code we can set the DataContext so that the second TextBlock above displays the information we desire.</p>
-
- 
-<pre class="lang:c# decode:true " >private void UserControl_Loaded(object sender, RoutedEventArgs e)
+public class GzipCompressor
 {
-  LayoutRoot.DataContext = 
-    System.Windows.Browser.HtmlPage.Document.DocumentUri;
-}</pre> 
 
-
-<p>Here is my output which displays the URL at which my Silverlight plugin is hosted. </p>
-
-<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image18.png" width="240" height="46" /></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/07/12/silverlight-3-element-to-element-binding/">Silverlight 3 Element to Element Binding</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-07-12T00:00:00+10:00" pubdate data-updated="true">Jul 12<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Silverlight 3 among its other features includes element to element binding. This was always available in WPF but somehow missing in Silverlight 1 and 2. And now Silverlight 3 has bridged that gap. Element to element binding can reduce code when used properly. In this post I will show you how to use this feature.</p> <h3>Example</h3> <p>In this very basic example I will use two controls, a TextBlock and a Slider. When the slider is moved, the value in TextBlock changes accordingly. </p>
-
- 
-<pre class="lang:xhtml decode:true " >&lt;StackPanel x:Name="LayoutRoot"&gt;
-  &lt;TextBlock 
-    Width="100" 
-    Foreground="Blue" 
-    HorizontalAlignment="Center" 
-    Text="{Binding Value, ElementName=slider1}" /&gt;
-  &lt;Slider 
-    x:Name="slider1" 
-    Minimum="0" 
-    Maximum="100" 
-    Width="200" /&gt;
-&lt;/StackPanel&gt;</pre> 
-
-
-<p>Here is a screenshot of the output produced by XAML above.</p>
-<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Element Binding" border="0" alt="Element Binding" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image17.png" width="207" height="39">&nbsp;</p>
-<p>Element binding can come in very handy in certain scenarios. An example can be making all fields read-only based on a status flag. Rather than writing C# code, this can be done easily and cleanly with element binding.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/07/10/silverlight-3-released/">Silverlight 3 Released</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-07-10T00:00:00+10:00" pubdate data-updated="true">Jul 10<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Microsoft has released Silverlight 3. Nuff said! Go and get it <a href="http://www.microsoft.com/silverlight/resources/install.aspx">here</a>. </p>  <p><a href="http://www.microsoft.com/silverlight/resources/install.aspx"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image16.png" width="529" height="448" /></a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/07/09/get-browser-information-in-silverlight/">Get Browser Information in Silverlight</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-07-09T00:00:00+10:00" pubdate data-updated="true">Jul 9<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>While writing Silverlight you may come across a need to get information about host browsers within your application. In Silverlight this information is exposed by BrowserInformation class within System.Windows.Browser namespace. BrowserInformation can be accessed through HtmlPage class which also lives in System.Windows.Browser namespace. Here is an example where I am retrieving information about the browser.</p>  <pre class="code"><span style="color: blue">&lt;</span><span style="color: #a31515">StackPanel </span><span style="color: red">x</span><span style="color: blue">:</span><span style="color: red">Name</span><span style="color: blue">=&quot;LayoutRoot&quot; 
-            </span><span style="color: red">Margin</span><span style="color: blue">=&quot;10&quot; 
-            </span><span style="color: red">Background</span><span style="color: blue">=&quot;PaleGoldenrod&quot;&gt;
-        
-  &lt;</span><span style="color: #a31515">StackPanel.Resources</span><span style="color: blue">&gt;
-    &lt;</span><span style="color: #a31515">Style </span><span style="color: red">x</span><span style="color: blue">:</span><span style="color: red">Key</span><span style="color: blue">=&quot;TextBlockStyle&quot; 
-           </span><span style="color: red">TargetType</span><span style="color: blue">=&quot;TextBlock&quot;&gt;
-             &lt;</span><span style="color: #a31515">Setter 
-               </span><span style="color: red">Property</span><span style="color: blue">=&quot;FontSize&quot; 
-               </span><span style="color: red">Value</span><span style="color: blue">=&quot;14&quot; /&gt;
-             &lt;/</span><span style="color: #a31515">Style</span><span style="color: blue">&gt;
-  &lt;/</span><span style="color: #a31515">StackPanel.Resources</span><span style="color: blue">&gt;
-        
-  &lt;</span><span style="color: #a31515">TextBlock 
-    </span><span style="color: red">Text</span><span style="color: blue">=&quot;Information about your browser&quot; 
-    </span><span style="color: red">HorizontalAlignment</span><span style="color: blue">=&quot;Center&quot; 
-    </span><span style="color: red">Style</span><span style="color: blue">=&quot;{</span><span style="color: #a31515">StaticResource </span><span style="color: red">TextBlockStyle</span><span style="color: blue">}&quot; /&gt;
-  &lt;</span><span style="color: #a31515">controls</span><span style="color: blue">:</span><span style="color: #a31515">WrapPanel</span><span style="color: blue">&gt;
-    &lt;</span><span style="color: #a31515">TextBlock 
-      </span><span style="color: red">Text</span><span style="color: blue">=&quot;You are using &quot; 
-      </span><span style="color: red">Style</span><span style="color: blue">=&quot;{</span><span style="color: #a31515">StaticResource </span><span style="color: red">TextBlockStyle</span><span style="color: blue">}&quot;/&gt;
-    &lt;</span><span style="color: #a31515">TextBlock 
-      </span><span style="color: red">Text</span><span style="color: blue">=&quot;{</span><span style="color: #a31515">Binding </span><span style="color: red">Name</span><span style="color: blue">}&quot; 
-      </span><span style="color: red">Style</span><span style="color: blue">=&quot;{</span><span style="color: #a31515">StaticResource </span><span style="color: red">TextBlockStyle</span><span style="color: blue">}&quot; /&gt;
-    &lt;</span><span style="color: #a31515">TextBlock 
-      </span><span style="color: red">Text</span><span style="color: blue">=&quot;. Version &quot; 
-      </span><span style="color: red">Style</span><span style="color: blue">=&quot;{</span><span style="color: #a31515">StaticResource </span><span style="color: red">TextBlockStyle</span><span style="color: blue">}&quot; /&gt;
-    &lt;</span><span style="color: #a31515">TextBlock 
-      </span><span style="color: red">Text</span><span style="color: blue">=&quot;{</span><span style="color: #a31515">Binding </span><span style="color: red">BrowserVersion</span><span style="color: blue">}&quot; 
-      </span><span style="color: red">Style</span><span style="color: blue">=&quot;{</span><span style="color: #a31515">StaticResource </span><span style="color: red">TextBlockStyle</span><span style="color: blue">}&quot; /&gt;
-    &lt;</span><span style="color: #a31515">TextBlock 
-      </span><span style="color: red">Text</span><span style="color: blue">=&quot;Your platform is &quot; 
-      </span><span style="color: red">Style</span><span style="color: blue">=&quot;{</span><span style="color: #a31515">StaticResource </span><span style="color: red">TextBlockStyle</span><span style="color: blue">}&quot;/&gt;
-    &lt;</span><span style="color: #a31515">TextBlock 
-      </span><span style="color: red">Text</span><span style="color: blue">=&quot;{</span><span style="color: #a31515">Binding </span><span style="color: red">Platform</span><span style="color: blue">}&quot; 
-      </span><span style="color: red">Style</span><span style="color: blue">=&quot;{</span><span style="color: #a31515">StaticResource </span><span style="color: red">TextBlockStyle</span><span style="color: blue">}&quot;/&gt;
-  &lt;/</span><span style="color: #a31515">controls</span><span style="color: blue">:</span><span style="color: #a31515">WrapPanel</span><span style="color: blue">&gt;
-&lt;/</span><span style="color: #a31515">StackPanel</span><span style="color: blue">&gt;</span></pre>
-<a href="http://11011.net/software/vspaste"></a>
-
-<p>&#160;</p>
-
-<p>We also need to assign a DataContext for our StackPanel to BrowserInformation object.</p>
-
-<pre class="code">LayoutRoot.DataContext = 
-  System.Windows.Browser.<span style="color: #2b91af">HtmlPage</span>.BrowserInformation;</pre>
-<a href="http://11011.net/software/vspaste"></a>
-
-<p>&#160;</p>
-
-<p>And the output on my machine is.</p>
-
-<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image15.png" width="384" height="285" /></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/07/08/insert-master-detail-data-with-linq-to-sql/">Insert Master Detail Data With LINQ to SQL</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-07-08T00:00:00+10:00" pubdate data-updated="true">Jul 8<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Best thing about running One .Net Way is interaction with members of developer community. I thoroughly enjoy answering questions which come my way through this site. Early in the morning today I saw a question by <a href="http://www.joeyesq.com/">Joey</a>. To avoid loosing details in paraphrasing, here is the exact question asked by Joey.</p>  <blockquote>   <p>I’m new to LINQ. If I had two tables “Customer” and “CustomerDetails”, how (using LINQ) can I insert to both of these tables? Do I need to create a “Customer” object as well as a “CustomerDetails” object?</p> </blockquote>  <p>In short the answer is yes. LINQ can insert to both tables, you will need to populate both Customer and CustomerDetails objects with data. I will now present an example to support my answer. </p>  <p>What we have here is a one to many scenario which involves two tables linked through a Foreign Key. To serve as an example, I have modelled the tables like this.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image12.png" width="359" height="379" /> </p>  <p>Each customer can have many nick names which are stored in CustomerDetails table. Let’s go ahead and generate LINQ To SQL entities. Please refer to <a href="http://www.debugrelease.com/linq-to-sql-tutorial/">LINQ To SQL tutorial</a> if you want a refresher on how to generate LINQ To SQL entities. After dragging our tables to designer we can see that designer has recognised relationship we have between our tables.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image13.png" width="497" height="168" /> </p>  <p>A quick glance over generated code confirms that we have a property of Type EntitySet&lt;CustomerDetails&gt; in our Customer class.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image14.png" width="394" height="216" /> </p>  <p>Now let’s insert some data. The following code will insert one Customer record and two CustomerDetails records.</p>  
-
- 
-<pre class="lang:c# decode:true " >private void InsertData()
-{
-  string firstName = "LINQ";
-  string lastName = "Dude";
-  string nickName1 = "Cool";
-  string nickName2 = "DataBuster";
-
-  using (CustomerDatabaseDataContext context = new CustomerDatabaseDataContext())
+  public void Compress(String inputFile, String outputFile)
   {
-    // Create a Customer object
-    Customer customer = new Customer
+    try
+    {
+      BufferedReader reader =
+        new BufferedReader(new FileReader(inputFile));
+
+      BufferedOutputStream output =
+        new BufferedOutputStream(new GZIPOutputStream(new FileOutputStream(outputFile)));
+
+      int b;
+      while((b =reader.read()) != -1)
       {
-        FirstName = firstName,
-        LastName = lastName,
-        // Create two CustomerDetails objects
-        CustomerDetails = new System.Data.Linq.EntitySet&lt;CustomerDetail&gt;() 
-          {
-            new CustomerDetail{NickName = nickName1},
-            new CustomerDetail{NickName = nickName2}
-          }
+        output.write(b);
+      }
 
-        };
-
-    // We'd like to Insert our changes as new 
-    context.Customers.InsertOnSubmit(customer);
-    // Submit changes to database
-    context.SubmitChanges();
+      reader.close();
+      output.close();
+    }
+    catch(IOException e)
+    {
+      System.out.println(e.getMessage());
+    }
   }
-}</pre> 
+}
+</pre>
+</div>
+  
+  
 
 
-<p>Code above produces following T-SQL</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/12/13/connecting-to-force-com-from-ide/">Connecting to Force.com From IDE</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-13T00:00:00+11:00" pubdate data-updated="true">Dec 13<span>th</span>, 2010</time>
+        
+         | <a href="/2010/12/13/connecting-to-force-com-from-ide/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">Working through Force.com tutorials I came to the point where I wrote some Apex code. Instead of doing this via Browser based interface, I decided to use Force.com IDE which as you know is an Eclipse plugin. This post documents the steps I went through to get connectivity to the warehouse application created as part of the tutorial.
+
+I created a new Force.com project in IDE and entered my username and password.
+
+<img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/12/201012101021.jpg" alt="201012101021.jpg" width="480" height="472" />
+
+Things did not go well and I got the following message.
+
+<img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/12/201012101025.jpg" alt="201012101025.jpg" width="480" height="225" />
+
+But I thought that I already have a security token. I&#8217;ve been logging into developer.force.com from this computer. However I decided to follow the suggestion in the message and logged into developer.force.com and went through the Reset Security Token process.
+
+<img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/12/201012131251.jpg" alt="201012131251.jpg" width="480" height="200" />
+
+I got the token emailed to me and used is as per the instructions on Reset Security Token page. The instruction is to append the token to the password.
+
+And finally I was connected.
+
+<img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/12/201012131248.jpg" alt="201012131248.jpg" width="480" height="472" />
+
+I could now see my project in the project explorer.
+
+<img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/12/201012101037.jpg" alt="201012101037.jpg" width="323" height="265" />
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/11/27/failed-to-load-the-jni-shared-library-on-windows-7/">Failed to Load the JNI Shared Library on Windows 7</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-27T00:00:00+11:00" pubdate data-updated="true">Nov 27<span>th</span>, 2010</time>
+        
+         | <a href="/2010/11/27/failed-to-load-the-jni-shared-library-on-windows-7/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">When starting Eclipse on Windows 7 I came across this error “Failed to load the JNI shared library”. After many trials and errors the solution revealed itself. The problem was that I did not have 64 bit JVM on my machine. I had been running 32 bit JVM and that was the culprit. <strong>If you get this error then Install 64 bit JVM</strong>. <a href="http://www.java.com/en/download/manual.jsp">Here is a link</a> where you can find 64 bit JVM.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/11/26/visual-studio-2005-2008-2010-put-curly-braces-on-same-line/">Visual Studio 2005 2008 2010 Put Curly Braces on Same Line</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-26T00:00:00+11:00" pubdate data-updated="true">Nov 26<span>th</span>, 2010</time>
+        
+         | <a href="/2010/11/26/visual-studio-2005-2008-2010-put-curly-braces-on-same-line/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">I have been looking at some code from Microsoft and I found that in C# they keep curly braces on the same line. This is also the preferred style in Java. Since I also write Java code these days I decided to keep the same style for curly braces.
+
+So how do you configure Visual Studio to place curly braces on the same line? It turns out that there are options which allow you to do this. In Visual Studio go to Tools –&gt; Options –&gt; Text Editor –&gt; C# –&gt; Formatting and toggle check boxes under New line options for braces.
+
+<img style="margin: 0px 10px 10px; display: inline;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image31.png" alt="image" width="538" height="440" />
+
+This will not affect  existing code but any new code you write will honour these new settings.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/11/26/binary-attachments-in-wcf-with-mtom/">Binary Attachments in WCF With MTOM</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-26T00:00:00+11:00" pubdate data-updated="true">Nov 26<span>th</span>, 2010</time>
+        
+         | <a href="/2010/11/26/binary-attachments-in-wcf-with-mtom/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>MTOM which stands for Message Transmission Optimization Mechanism is a <a href="http://www.w3.org/TR/soap12-mtom/">W3C Recommendation</a> which is mostly about reducing the size of binary data when transferred through SOAP web services.</p> <p>Binary data can be sent through SOAP already. So what’s the need for MTOM? Well it turns out that binary data in SOAP messages is encoded as text by applying Base64 encoding. This increases the size of payload. MTOM recommends that binary data should be sent in its original form without applying any encoding. This is a good idea and can work well when transferring files via web services.</p> <h4>Service</h4> <p>I wanted to try it out in WCF which supports MTOM. So I built myself a service which gets a photo from local drive and provides an operation which can transfer the file to client. Below is the simple service contract I came up with.</p>
+
+<pre class="lang:c# decode:true " >
+[ServiceContract]
+public interface IPhotoService
+{ 
+  [OperationContract] 
+  PhotoServiceResponse GetPhoto();
+}
+</pre>
+
+<p><br>GetPhoto operation returns a PhotoServiceResponse which is defined below.<br></p>
+
+<pre class="lang:c# decode:true " >
+[MessageContract]
+public class PhotoServiceResponse
+{ 
+  [MessageBodyMember] 
+  public Byte[] Photo { get; set; }
+}
+</pre>
+
+<p>PhotoServiceResponse is a <strong>MessgeContract</strong> which has a member decorated as <strong>MessageBodyMember</strong>. This is absolutely required. Creating DataMembers as you would to describe the data to be included with a message will not work. So remember that for MTOM you must define a <strong>MessageContract</strong> which should have a <strong>MessageBodyMember</strong>.</p>
+<p>The implementation of this service is simple.</p>
+
+<pre class="lang:c# decode:true " >
+public class PhotoService : IPhotoService
+{ 
+  public PhotoServiceResponse GetPhoto() 
+  { 
+    PhotoServiceResponse response = new PhotoServiceResponse(); 
+    response.Photo = File.ReadAllBytes(@"c:tempqueenstown.jpg"); 
+    return response; 
+  }
+}
+</pre>
+
+<p><br>For the config file for service I added a <strong>wsHttpBinding</strong> and specified <strong>messgeEncoding</strong> to be <strong>Mtom</strong>.<br></p>
 
  
-<pre class="lang:tsql decode:true " >exec sp_executesql N'INSERT INTO [dbo].[Customer]([FirstName], [LastName])
-VALUES (@p0, @p1)
-
-SELECT CONVERT(Int,SCOPE_IDENTITY()) AS [value]',N'@p0 varchar(4),@p1 varchar(4)',
-@p0='LINQ',@p1='Dude'
-go
-exec sp_executesql N'INSERT INTO [dbo].[CustomerDetails]([CustomerId], [NickName])
-VALUES (@p0, @p1)
-
-SELECT CONVERT(Int,SCOPE_IDENTITY()) AS [value]',N'@p0 int,@p1 varchar(4)',
-@p0=2,@p1='Cool'
-go
-exec sp_executesql N'INSERT INTO [dbo].[CustomerDetails]([CustomerId], [NickName])
-VALUES (@p0, @p1)
-
-SELECT CONVERT(Int,SCOPE_IDENTITY()) AS [value]',N'@p0 int,@p1 varchar(10)',
-@p0=2,@p1='DataBuster'
-go</pre> 
+<pre class="lang:xhtml decode:true " >&lt;wsHttpBinding&gt;
+  &lt;binding name="WsHttpMtomBinding" messageEncoding="Mtom" /&gt;
+&lt;/wsHttpBinding&gt;</pre> 
 
 
-<p>In T-SQL above you can see that we are inserting one row for Customer and two rows for CustomerDetails. However in our C# we only called SubmitChanges once. </p>
+<p><br>And the end point used the binding configuration.<br></p>
+
+ 
+<pre class="lang:xhtml decode:true " >&lt;service name="WcfMTOMSample.PhotoService"&gt;
+  &lt;endpoint binding="wsHttpBinding"
+   bindingConfiguration="WsHttpMtomBinding"
+    contract="WcfMTOMSample.IPhotoService" /&gt;
+&lt;/service&gt;</pre> 
+
+
+<h4>Client</h4>
+<p>I created a Windows Forms client to render out the photo I’d receive from my service. GetPhoto opreation is called like any other service operation. A byte array is passed to GetPhoto method as a out parameter.</p>
+
+<pre class="lang:c# decode:true " >
+PhotoServiceClient client = new PhotoServiceClient();
+byte[] photoBytes;client.GetPhoto(out photoBytes);
+</pre>
+
+<p><br>Within the client config I created a <strong>wsHttpBinding</strong> and specified <strong>messgeEncoding</strong> as <strong>Mtom</strong>. I also specified good enough size to accommodate approx 2.5 mb data by setting a large value for <strong>maxReceivedMessageSize</strong>. Within <strong>readerQuotas</strong> setting the <strong>maxArrayLength</strong> attribute takes care of large arrays.<br></p>
+ 
+<pre class="lang:xhtml decode:true " >&lt;wsHttpBinding&gt;
+  &lt;binding name="IPhotoServiceBinding"
+   maxReceivedMessageSize="2621440"
+    messageEncoding="Mtom"&gt;
+    &lt;readerQuotas maxArrayLength="2621440"/&gt;
+  &lt;/binding&gt;
+&lt;/wsHttpBinding&gt;</pre> 
+
+<p><br>The client then used the binding configuration.<br></p>
+ 
+<pre class="lang:xhtml decode:true " >&lt;client&gt;
+  &lt;endpoint address="http://localhost:1669/PhotoService.svc"
+   binding="wsHttpBinding"
+    bindingConfiguration="IPhotoServiceBinding"
+    contract="PhotoServiceReference.IPhotoService"&gt;
+  &lt;/endpoint&gt;
+&lt;/client&gt;</pre> 
+
+<p>And finally I had my service return me a photo as binary data which I displayed on a form.</p>
+<p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image30.png" width="400" height="354"></p>
+<p>BTW: This photo is from my recent trip to Queenstown in New Zealand. A country I absolutely love and would visit again many times.</p>
+<p>I hope you enjoyed the post.</p>
 </div>
   
   
@@ -616,6 +443,26 @@ go</pre>
     
       <li class="post">
         <a href="/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/03/linux-number-of-files-in-directory/">Linux - Number of Files in Directory</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/24/android-listview-tutorial-with-images-and-text/">Android - ListView Tutorial With Images and Text</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/19/android-listview-tutorial/">Android - ListView Tutorial</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>
@@ -662,20 +509,32 @@ src="http://c.statcounter.com/8878331/0/f0e88835/0/"
 alt="free hit counters"></a></div></noscript>
 <!-- End of StatCounter Code for Default Guide -->
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="http://plus.google.com/105555323627924521684?rel=author">Google Profile</a>
-<script type='text/javascript'>
-    function _dmBootstrap(file) { 
-        var _dma = document.createElement('script');  
-        _dma.type = 'text/javascript'; 
-        _dma.async = true;  
-        _dma.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + file; 
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(_dma);
-    }
-    function _dmFollowup(file) { if (typeof DMAds === 'undefined')  _dmBootstrap('cdn2.DeveloperMedia.com/a.min.js');}
-    (function () { _dmBootstrap('cdn1.DeveloperMedia.com/a.min.js'); setTimeout(_dmFollowup, 2000);})();
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-41110156-1', 'debugrelease.com');
+  ga('send', 'pageview');
+
 </script>
 
 </footer>
   
+
+<script type="text/javascript">
+      var disqus_shortname = 'debugrelease';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 

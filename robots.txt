@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://deepak-kapoor.github.io/sitemap.xml 
+Sitemap: http://www.debugrelease.com/sitemap.xml 
