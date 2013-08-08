@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Windows Phone | Debug Release]]></title>
-  <link href="http://www.debugrelease.com/blog/categories/windows-phone/atom.xml" rel="self"/>
-  <link href="http://www.debugrelease.com/"/>
-  <updated>2013-08-08T15:46:50+10:00</updated>
-  <id>http://www.debugrelease.com/</id>
+  <link href="http://deepak-kapoor.github.io/blog/categories/windows-phone/atom.xml" rel="self"/>
+  <link href="http://deepak-kapoor.github.io/"/>
+  <updated>2013-08-08T15:51:11+10:00</updated>
+  <id>http://deepak-kapoor.github.io/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[My Windows Phone app is runner-up in Lifehacker and Microsoft’s developer challenge]]></title>
-    <link href="http://www.debugrelease.com/2013/05/20/my-windows-phone-app-is-runner-up-in-lifehacker-and-microsofts-developer-challenge/"/>
+    <link href="http://deepak-kapoor.github.io/2013/05/20/my-windows-phone-app-is-runner-up-in-lifehacker-and-microsofts-developer-challenge/"/>
     <updated>2013-05-20T00:00:00+10:00</updated>
-    <id>http://www.debugrelease.com/2013/05/20/my-windows-phone-app-is-runner-up-in-lifehacker-and-microsofts-developer-challenge</id>
+    <id>http://deepak-kapoor.github.io/2013/05/20/my-windows-phone-app-is-runner-up-in-lifehacker-and-microsofts-developer-challenge</id>
     <content type="html"><![CDATA[<p>Found an uplifting email today in my mailbox which informed me that my app for Windows Phone has been a runner-up in <a href="http://www.lifehacker.com.au/2013/05/round-5-winners-lifehacker-and-microsofts-developer-challenge/">round 5 of Lifehacker and Microsoft’s developer challenge</a>. I am very happy about this and I'd like to thank those who judged my app to be worthy of recognition.&nbsp; I would also like to congratulate <a href="http://apps.microsoft.com/windows/en-ph/app/fair-football-coach/13eaa6b2-f12d-433a-8d50-5f5385c5ea99">Jared Homes</a> who won round 5 and <a href="https://twitter.com/almichener">Alistair Michener</a> who is also a runner-up for his awesome app <a href="http://apps.microsoft.com/windows/en-US/app/drawboard-pdf/6d65bcd8-8390-4533-af58-307d2e1ec1dd">Drawboard PDF</a>.</p>
 
 
@@ -31,9 +31,9 @@
   
   <entry>
     <title type="html"><![CDATA[Select photos on Windows Phone with PhotoChooserTask]]></title>
-    <link href="http://www.debugrelease.com/2013/04/09/select-photos-on-windows-phone-with-photochoosertask/"/>
+    <link href="http://deepak-kapoor.github.io/2013/04/09/select-photos-on-windows-phone-with-photochoosertask/"/>
     <updated>2013-04-09T00:00:00+10:00</updated>
-    <id>http://www.debugrelease.com/2013/04/09/select-photos-on-windows-phone-with-photochoosertask</id>
+    <id>http://deepak-kapoor.github.io/2013/04/09/select-photos-on-windows-phone-with-photochoosertask</id>
     <content type="html"><![CDATA[<p>It is a common feature of many apps to select photos stored on the device. The feature can be implemented by using PhotoChooserTask class. In this post I will show you how to use PhotoChooserTask to select existing photos and also take photos using the camera.</p>
 
 <p>Code for this post is available on <a href="https://github.com/deepak-kapoor/photochooser">Github</a>.</p>

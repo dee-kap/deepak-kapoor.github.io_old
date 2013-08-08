@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="BigInsights web console error in IBM Infosphere BigInsights VM usually occurs because web console is not running. It can be started by executing &hellip;">
+  <meta name="description" content="SQL Search by Red-Gate is a great tool for searching within database objects. It is invaluable on brown field projects where you work with existing &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,10 +18,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.debugrelease.com/blog/page/6">
+  <link rel="canonical" href="http://deepak-kapoor.github.io/blog/page/6">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="http://feeds.feedburner.com/debug-release" rel="alternate" title="Debug Release" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="Debug Release" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
@@ -53,7 +53,7 @@
   
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:www.debugrelease.com" />
+    <input type="hidden" name="q" value="site:deepak-kapoor.github.io" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
@@ -74,7 +74,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2012/06/30/ibm-biginsights-web-console-issue-with-bigdatauniversity-vm/">IBM BigInsights Web Console Issue With BigDataUniversity VM</a></h1>
+      <h1 class="entry-title"><a href="/2010/11/22/search-within-sql-server-database-objects-with-red-gate-sql-search/">Search Within SQL Server Database Objects With Red-Gate SQL Search</a></h1>
     
     
       <p class="meta">
@@ -90,16 +90,14 @@
   
 
 
-<time datetime="2012-06-30T00:00:00+10:00" pubdate data-updated="true">Jun 30<span>th</span>, 2012</time>
-        
-         | <a href="/2012/06/30/ibm-biginsights-web-console-issue-with-bigdatauniversity-vm/#disqus_thread">Comments</a>
+<time datetime="2010-11-22T00:00:00+11:00" pubdate data-updated="true">Nov 22<span>nd</span>, 2010</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>BigInsights web console error in IBM Infosphere BigInsights VM usually occurs because web console is not running. It can be started by executing start.sh which can be found in /opt/ibm/biginsights/bin. I discovered this issue while working through lab 3 of Hadoop Fundamentals 1 course from <a href="http://bigdatauniversity.com/">BigDataUniversity</a>. </p> <p>Steps to resolve the issue:</p> <p>Assuming that you are logged in as root. Execute these commands on terminal.</p> <p><font color="#0000ff">cd /opt/ibm/biginsights/bin</font></p> <p><font color="#0000ff">./start.sh console</font></p>
+  <div class="entry-content"><p>SQL Search by Red-Gate is a great tool for searching within database objects. It is invaluable on brown field projects where you work with existing databases. My recent experience was working with a database which had hundreds of Stored procedures, Views, Triggers etc. I had to find out all objects which used a particular table. <a href="http://www.red-gate.com/products/SQL_Search/">SQL Search</a> made this job a breeze. SQL Search does a text search across all database objects so you can also look for things like column names.</p>  <p>Taking an example of Northwind database. You could to search for all database objects which have the word “customer” in their text. Below is a screenshot showing the search results.</p>  <p>&#160;<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image29.png" width="539" height="561" /> </p>  <p>The best thing is that <a href="http://www.red-gate.com/products/SQL_Search/">SQL Search</a> is free. </p>
 </div>
   
   
@@ -112,7 +110,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2012/06/14/complex-event-processing-with-esper-tutorial-for-beginners/">Complex Event Processing With Esper–Tutorial for Beginners</a></h1>
+      <h1 class="entry-title"><a href="/2010/11/19/working-with-sql-server-hierarchyid-data-type-in-net-application/">Working With SQL Server HierarchyId Data Type in .NET Application</a></h1>
     
     
       <p class="meta">
@@ -128,335 +126,156 @@
   
 
 
-<time datetime="2012-06-14T00:00:00+10:00" pubdate data-updated="true">Jun 14<span>th</span>, 2012</time>
-        
-         | <a href="/2012/06/14/complex-event-processing-with-esper-tutorial-for-beginners/#disqus_thread">Comments</a>
+<time datetime="2010-11-19T00:00:00+11:00" pubdate data-updated="true">Nov 19<span>th</span>, 2010</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h3>Introduction</h3> <p>This is a tutorial for beginners who are interested in CEP (Complex Event Processing) using Esper. We will build a fictional real-time surveillance system which alerts on conditions we will define. You will learn how to use Esper to process real-time events and you may also learn a thing or two about sockets in Java. </p> <p>&nbsp;</p> <h3>The Story</h3> <p>Boys at the station have been tipped off regarding some illegal activities at The Genco Pura Olive Oil Company. They suspect that some illegal cargo is about to move through the company. In order to bust the gig they have come out with a plan to monitor phone calls to and from certain phone numbers. They have identified phone numbers used by Vito and Tom and they’d like to know when they make a call or they receive a call. The scenario can be expanded to record their conversations but that would require a court’s approval and it’s just too much work for a Esper tutorial.</p> <p>&nbsp;</p> <h3>Tools of Trade</h3> <p>This tutorial is about Esper which should be downloaded and extracted to an accessible location.</p> <p>Language of choice is Java so it’s <a href="http://esper.codehaus.org/">Esper</a> for Java we are after.</p> <p>Phone numbers are fictitious and taken from this site. <a title="http://www.acma.gov.au/WEB/STANDARD..PC/pc=PC_2330" href="http://www.acma.gov.au/WEB/STANDARD..PC/pc=PC_2330">http://www.acma.gov.au/WEB/STANDARD..PC/pc=PC_2330</a></p> <p>Vito’s number is: 1800 160 401. Yes he has a 1800 number. He does not mind paying when other people call him.</p> <p>Tom’s number is: 0491 570 110</p> <p>IDE: I use Netbeans but it doesn’t really matter. Any IDE or text editor of choice will do.</p> <p>&nbsp;</p> <h3>Design</h3> <p>Our bust the bad guys solution relies on a server component which sends messages about calls being made. These messages are received by a client application which feeds them into Esper engine. Esper then looks at these messages and based on instructions given to it, alerts the user. Alert mechanism is simply displaying attention grabbing text on console. This is a CEP and Esper tutorial remember? Do not get carried away. </p> <p>Below is a pictorial representation of the design.</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/06/image.png" width="488" height="786"></p> <p>&nbsp;</p> <h3>The Message</h3> <p>The server sends a message to the client whenever a call is made. This message is then received by client. We can express our message as a POJO which are supported by Esper. The message object maintains information about from and to phone numbers, time of call and duration of call. For this tutorial we are only interested in the phone numbers. </p>
+  <div class="entry-content"><p>Recently I was working with some hierarchical data stored in SQL Server. The data was related to products where each product is a package which includes other packages which in turn can include individual products. The data was stored in a table where a a product row had a parentId column which indicated the parent of that product. This is a how we have stored hiearchies in tables. The solution has worked for years but is it the most efficient way to store hiearchichal data? Perhaps not. That’s why SQL Server 2008 had a data type called hierarchyId. This post is about working with&#160; the data type. Rather than divulging details of the application I’m working on commercially, I will use Northwind database as an example to demonstrate concepts talked in here.</p>  <p>&#160;</p>  <h4>Basic Setup</h4>  <p>Northwind database has a table called Employees. This table stores information about an Employee and it also stores information about who an employee reports to. This structure is maintained by using a ReportsTo column in Employees table which links to EmployeeId within the same table.</p>  <p>&#160;</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image25.png" width="237" height="464" /> </p>  <p>As the objective here is to store this information using hierarchyId type, I created a new table called Employees2. To make things simple I only included EmployeeId, LastName and FirstName columns other than EmployeeNode which stores the hierarchical information and PlaceINHieararchy which indicates the place of a particular employee in organizational hierarchy. For example employee A can report to Employee B who reports to Employee C, so employee A’s place in hierarchy is 3. </p>  <p>This is the script I used to create Employees2 table.</p> 
+
+<pre class="lang:tsql decode:true " >
+CREATE TABLE Employees2
+(EmployeeNode hierarchyid NOT NULL PRIMARY KEY NONCLUSTERED, 
+EmployeeId INT NOT NULL, 
+LastName NVARCHAR(20) NOT NULL, 
+FirstName NVARCHAR(10) NOT NULL, 
+PlaceInHierarchy AS EmployeeNode.GetLevel())
+</pre>
+
+<h4>Populating Data </h4>
+
+<p>To have a meaningful example I decided to insert some data into Employees2 table from Employees table. This script inserts data into Employees2 table. It may not be the best way to insert this data especially me using a temp table. But this is a dirty script which means that I’ll only run it once so I am not too worried about its elegance.</p>
+
+<pre class="lang:tsql decode:true " >
+WITH Emp AS 
+	(SELECT 
+	'/'+CAST(EmployeeId AS VARCHAR(49)) AS PATH, 
+	EmployeeId FROM dbo.Employees b 
+	WHERE 
+	b.ReportsTo IS NULL 
+	UNION ALL 
+	SELECT 
+	CAST(Emp.path+'/'+CAST(b.EmployeeId AS VARCHAR(4)) AS VARCHAR(50)), 
+	b.EmployeeId 
+	FROM 
+	dbo.Employees b JOIN Emp ON b.ReportsTo = Emp.EmployeeId)
+SELECT * INTO #temp FROM Emp
+
+
+
+INSERT INTO 
+Employees2(EmployeeNode, 
+EmployeeId, 
+LastName, 
+FirstName)
+SELECT 
+CAST( t.PATH+'/' AS hierarchyId), 
+b.EmployeeID, 
+b.LastName, 
+b.FirstName
+FROM 
+#temp t JOIN dbo.Employees b ON t.EmployeeId = b.EmployeeId
+ORDER BY 1
+</pre>
+
+<p>A simple select from Employees2 table which shows data inserted into employees2 table.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image26.png" width="519" height="196" /> </p>
+
+<h4>Writing .NET Code</h4>
+
+<p>After creating a table and inserting data my first thought was how can I use Entity Framework or LINQ To SQL to do CRUD on Employees2 table. Unfortunately those are not valid options. Microsoft did not provide any support to work with hierarchyId data type in either Entity Framework or LINQ To SQL. A major draw back which I hope will be addressed in future versions of these ORMs.</p>
+
+<p>Lack of support for hierarcyId data type in Entity Framework and LINQ To SQL does not mean that you don’t have any options. Good old raw ADO.NET is still around and comes in handy when working with hierarchyId data type. Another good thing is that Sql Server data type hierarchyId is available as SqlHierarchyId struct in Microsoft.SqlServer.Types assembly. To use the struct I added a reference to the Microsoft.SqlServer.Types assembly. The location of this assembly on my machine is</p>
+
+<p><font color="#0000a0"><strong>C:Program Files (x86)Microsoft SQL Server100SDKAssemblies</strong></font></p>
+
+<p>Next I wanted to write some code which can retrieve data from employees2 table and display it on a console. This method fetches all rows form employees2 table and displays the EmployeeNode column. Note how I store the value of EmployeeNode column into a employeeNode SqlHierarchyId struct and then I call a ToString() method on the struct.</p>
 
 <pre class="lang:c# decode:true " >
-package com.thereforesystems.cdrlibrary;
+static void GetEmployeeNodes()
+{ 
+  using (SqlConnection cn = new SqlConnection(connectionString)) 
+  { 
+    string query = "SELECT * FROM employees2"; 
+    SqlCommand cmd = new SqlCommand(query, cn); 
+    cn.Open(); 
+    SqlDataReader reader = cmd.ExecuteReader(); 
 
-import java.io.Serializable;
-import java.util.Date;
-
-public class CallDataRecord implements Serializable{
-
-    String fromNumber;
-    String toNumber;
-    Date callDateTime;
-    int duration;
-
-    public Date getCallDateTime() {
-        return callDateTime;
-    }
-
-    public String getFromNumber() {
-        return fromNumber;
-    }
-
-    public String getToNumber() {
-        return toNumber;
-    }
-
-    public int getDuration() {
-        return duration;
-    }
-
-    public CallDataRecord(String from, String to, Date time, int dur) {
-
-        fromNumber = from;
-        toNumber = to;
-        callDateTime = time;
-        duration = dur;
-    }
-
-    @Override
-    public String toString() {
-        return "From : " + fromNumber + " To: " + toNumber;
-    }
+    while (reader.Read()) 
+    { 
+      SqlHierarchyId employeeNode = new SqlHierarchyId(); 
+      employeeNode = (SqlHierarchyId)reader["EmployeeNode"]; 
+      Console.WriteLine("Employee Node = " + employeeNode.ToString()); 
+    } 
+  }
 }
 </pre>
 
-<h3>Server</h3> <p>The server application accepts socket connections on a port and then starts sending messages to the connected client. It maintains a list of phone numbers and simulates call data records also known as CDR in telco lingo.&nbsp; This is a stock standard sockets server which has nothing to do with Esper.</p> 
+<p>Output of the method looked like this.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image27.png" width="451" height="114" /> </p>
+
+<p>I also wrote a method which displays ancestors for a particular employee. Getting an ancestor for a node is done by calling GetAncestor method on employeeNode which is of type SqlHierarchyId .</p>
 
 <pre class="lang:c# decode:true " >
-package com.thereforesystems.cdrserver;
-
-import com.thereforesystems.cdrlibrary.CallDataRecord;
-import java.io.*;
-import java.net.*;
-import java.util.Calendar;
-import java.util.Random;
-
-public class CDRServer {
-
-    String phoneNumbers[] = {"0491 570 156",
-        "0491 570 157",
-        "0491 570 158",
-        "0491 570 159",
-        "0491 570 110",
-        "1800 160 401",
-        "1800 975 707",
-        "1800 975 708",
-        "1800 975 709",
-        "1800 975 710",
-        "1800 975 711",
-        "1300 975 707",
-        "1300 975 708",
-        "1300 975 709",
-        "1300 975 710",
-        "1300 975 711"};
+static void GetEmployeeDetails(int employeeId)
+{ 
+  using (SqlConnection cn = new SqlConnection(connectionString)) 
+  { 
+    string query = 
+      "SELECT * FROM employees2 WHERE employeeId = " + employeeId.ToString(); 
+    SqlCommand cmd = new SqlCommand(query, cn); 
+    cn.Open(); 
+    SqlDataReader reader = cmd.ExecuteReader(); 
+		
+    string output = string.Empty; 
     
-    ServerSocket providerSocket;
-    Socket connection = null;
-    ObjectOutputStream out;
-    String message;
-    private static Random generator = new Random();
+    while (reader.Read()) 
+    { 
+      SqlHierarchyId employeeNode = new SqlHierarchyId(); 
+      employeeNode = (SqlHierarchyId)reader["EmployeeNode"]; 
+      Console.WriteLine("Employee Node = " + employeeNode.ToString()); 
+      output = string.Format("{0} {1}", reader["LastName"], reader["FirstName"]); 
+      var ancestorNode = employeeNode.GetAncestor(1); 
 
-    void run() {
-        try {
-            providerSocket = new ServerSocket(9999, 10);
-            System.out.println("Waiting for connection to CDR Server");
-            connection = providerSocket.accept();
-            System.out.println("Connection received from " + 
-                    connection.getInetAddress().getHostName());
-            out = new ObjectOutputStream(connection.getOutputStream());
-            out.flush();
-
-            String from;
-            String to;
-            int duration;
-            while (true) {
-
-                if (connection.isConnected()) {
-                    from = phoneNumbers[generator.nextInt(phoneNumbers.length - 1)];
-                    to = phoneNumbers[generator.nextInt(phoneNumbers.length - 1)];
-                    if (!from.equals(to)) { // no need to send when from and to are same numbers
-                        duration = generator.nextInt(10);
-                        Calendar calendar = Calendar.getInstance();
-                        CallDataRecord cdr = 
-                                new CallDataRecord(from, to, calendar.getTime(), duration);
-                        sendMessage(cdr);
-                    }
-                } else {
-                    break;
-                }
-
-            }
-
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
-        } finally {
-            try {
-                out.close();
-                connection.close();
-                providerSocket.close();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
-        }
-    }
-
-    void sendMessage(CallDataRecord cdr) {
-        try {
-            out.writeObject(cdr);
-            out.flush();
-            System.out.println("Sending CDR: " + cdr);
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
-        }
-    }
-
-    public static void main(String[] args) {
-        CDRServer server = new CDRServer();
-        while (true) {
-            server.run();
-        }
-    }
+      while (!ancestorNode.IsNull) 
+      { 
+        using (SqlConnection cn2 = new SqlConnection(connectionString)) 
+        { 
+          query = 
+            "Select * from employees2 where EmployeeNode=hierarchyid::Parse(@node)"; 
+          SqlCommand cmd2 = new SqlCommand(query, cn2); 
+          cmd2.Parameters.AddWithValue("@node", ancestorNode.ToString()); 
+          cn2.Open(); 
+          SqlDataReader reader2 = cmd2.ExecuteReader(); 
+					
+          while (reader2.Read()) 
+          { 
+            output += 
+              string.Format("/{0} {1}", reader2["LastName"], reader2["FirstName"]); 
+          } 
+					
+          ancestorNode = ancestorNode.GetAncestor(1); 
+        } 
+      } 
+    } 
+    Console.WriteLine(output); 
+  }
 }
 </pre>
 
+<p>The output I got.</p>
 
-<h3>Client</h3>
-<p>Client application is where interesting stuff happens. By establishing a socket connection it receives a message for each call from server. 
-</p>
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image28.png" width="450" height="50" /> </p>
 
-<pre class="lang:c# decode:true " >
-requestSocket = new Socket("localhost", 9999);
-System.out.println("Connected to localhost in port 9999");
-in = new ObjectInputStream(requestSocket.getInputStream());
+<h4>A bit about SqlHierarchyId struct</h4>
 
-while (true) {
-    try {
-        cdr = (CallDataRecord) in.readObject();
-        runtime.sendEvent(cdr);
-    } catch (ClassNotFoundException ex) {
-        Logger.getLogger(CallDetector.class.getName())
-            .log(Level.SEVERE, null, ex);
-    }
-}
-</pre>
+<p>SqlHierarchyId struct provides other methods like GetDescendant, GetLevel, GetRoot etc. to retrieve more information. In my personal opinion I think that Microsoft needs to do a little more work on this and make it more useful. Of course the best thing to do will be to provide support for hierarchyId data type in Entity Framework and LINQ To SQL (if it’s not already dead).</p>
 
-<p>You can see in the code above that an instance of CallDataRecord class is created from data in ObjectInputStream. A call is made to sendEvent method of EPRuntime object and retrieved CallDataRecord is sent as an argument. How is this data handled by Esper? We have two classes which are Esper listeners and they are ready to act when invoked. We have one listener for calls made “from” and another for calls made “to”. For a class to act as a listener in Esper it must implement UpdateListener interface.</p> 
-
-<pre class="lang:c# decode:true " >
-public static class FromListener implements UpdateListener {
-
-    @Override
-    public void update(EventBean[] newData, EventBean[] oldData) {
-        System.out.println("Bad guy made a call: " + newData[0].getUnderlying());
-    }
-}
-    
-public static class ToListener implements UpdateListener {
-
-    @Override
-    public void update(EventBean[] newData, EventBean[] oldData) {
-        System.out.println("Bad guy received a call: " + newData[0].getUnderlying());
-    }
-}
-</pre>
-
-<p>So what invokes a particular listener? This is handled by Esper when we register a listener to a particular EPL statement. An EPL statement is like a SQL query with the familiar Select * from syntax. This is our EPL statement for “from” calls. Note that after creating an instance of EPStatement class we register the appropriate listener.</p> 
-
-<pre class="lang:c# decode:true " >
-EPStatement eplFrom = 
-        admin.createEPL("select * from CDR(fromNumber='1800 160 401' "
-                + "or fromNumber='0491 570 110')");
-eplFrom.addListener(new FromListener());
-        
-EPStatement eplTo = 
-        admin.createEPL("select * from CDR(toNumber='1800 160 401' "
-                + "or toNumber='0491 570 110')");
-eplTo.addListener(new ToListener());
-</pre>
-
-<p>For it to all work there is a little more setup required. Let’s go through it. First of all we need a Configuration object to which we will add an event type. Note that in our EPL statements we are querying from CDR. This CDR is defined as a Event Type in the configuration object.</p> 
-
-<pre class="lang:c# decode:true " >
-Configuration config = new Configuration();
-config.addEventType("CDR", CallDataRecord.class.getName());
-</pre>
-
-<p>Next thing we need is a EPRuntime which is the Esper runtime object.</p> 
-
-<pre class="lang:c# decode:true " >
-EPServiceProvider provider = 
-        EPServiceProviderManager.getProvider("CDREngine", config);
-EPRuntime runtime = provider.getEPRuntime();
-</pre>
-
-<p>Finally we run our client and pass it an instance of EPRuntime so that our client can send events to Esper engine.</p> 
-
-<pre class="lang:c# decode:true " >
-CallDetector client = new CallDetector();
-client.run(runtime);
-</pre>
-
-<p>Here is the full code for Client application. </p> 
-
-<pre class="lang:c# decode:true " >
-package com.thereforesystems.calldetector;
-
-import com.espertech.esper.client.*;
-import com.thereforesystems.cdrlibrary.CallDataRecord;
-import java.io.*;
-import java.net.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-public class CallDetector {
-
-    Socket requestSocket;
-    ObjectInputStream in;
-    CallDataRecord cdr;
-
-    void run(EPRuntime runtime) {
-        try {
-            requestSocket = new Socket("localhost", 9999);
-            System.out.println("Connected to localhost in port 9999");
-            in = new ObjectInputStream(requestSocket.getInputStream());
-
-            while (true) {
-                try {
-                    cdr = (CallDataRecord) in.readObject();
-                    runtime.sendEvent(cdr);
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(CallDetector.class.getName())
-                            .log(Level.SEVERE, null, ex);
-                }
-            }
-
-        } catch (UnknownHostException unknownHost) {
-            System.err.println("You are trying to connect to an unknown host!");
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
-        } finally {
-            try {
-                in.close();
-                requestSocket.close();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
-        }
-    }
-
-    public static class FromListener implements UpdateListener {
-
-        @Override
-        public void update(EventBean[] newData, EventBean[] oldData) {
-            System.out.println("Bad guy made a call: " 
-                    + newData[0].getUnderlying());
-        }
-    }
-
-    public static class ToListener implements UpdateListener {
-
-        @Override
-        public void update(EventBean[] newData, EventBean[] oldData) {
-            System.out.println("Bad guy received a call: " 
-                    + newData[0].getUnderlying());
-        }
-    }
-
-    public static void main(String[] args) {
-
-        Configuration config = new Configuration();
-        config.addEventType("CDR", CallDataRecord.class.getName());
-
-        EPServiceProvider provider =
-                EPServiceProviderManager.getProvider("CDREngine", config);
-        EPRuntime runtime = provider.getEPRuntime();
-
-        EPAdministrator admin = provider.getEPAdministrator();
-
-        EPStatement eplFrom =
-                admin.createEPL("select * from CDR(fromNumber='1800 160 401' "
-                + "or fromNumber='0491 570 110')");
-        eplFrom.addListener(new FromListener());
-
-        EPStatement eplTo =
-                admin.createEPL("select * from CDR(toNumber='1800 160 401' "
-                + "or toNumber='0491 570 110')");
-        eplTo.addListener(new ToListener());
-
-        CallDetector client = new CallDetector();
-        client.run(runtime);
-    }
-}
-</pre>
-
-<p>For the client to build we need to reference following libraries.</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Esper Libraries " border="0" alt="Esper Libraries " src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/06/image1.png" width="249" height="143"></p> <p>These jars can be found in the root esper folder and root esper/esper/lib folders. </p> 
-<p>&nbsp;</p>
-<h3>Output</h3> <p>After running Server and Client for few seconds we can see that Esper is notifying us of calls made to or from Vito or Tom’s mobile. Watch out guys. </p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Esper Output" border="0" alt="Esper Output" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/06/image2.png" width="512" height="215"></p> 
-<p>&nbsp;</p>
-<h3>Conclusion</h3> <p>In this tutorial we saw how simple it is to create an application which can process events in real-time. Real power of Esper is the raw speed by which it can do complex real-time processing. Esper is also simple to understand and work with. There is a lot more to Esper than this simple tutorial. Maybe I will write a bit more in future posts. </p>
+<p>I hope you enjoyed reading the post as much as I enjoyed writing it and learning something I didn’t know.</p>
 </div>
   
   
@@ -469,7 +288,7 @@ public class CallDetector {
       
   <header>
     
-      <h1 class="entry-title"><a href="/2012/05/25/axis2-plugin-for-netbeans-7-1-2/">Axis2 Plugin for Netbeans 7.1.2</a></h1>
+      <h1 class="entry-title"><a href="/2010/11/17/use-linqpad-to-query-entity-framework/">Use LINQPad to Query Entity Framework</a></h1>
     
     
       <p class="meta">
@@ -485,16 +304,14 @@ public class CallDetector {
   
 
 
-<time datetime="2012-05-25T00:00:00+10:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
-        
-         | <a href="/2012/05/25/axis2-plugin-for-netbeans-7-1-2/#disqus_thread">Comments</a>
+<time datetime="2010-11-17T00:00:00+11:00" pubdate data-updated="true">Nov 17<span>th</span>, 2010</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I upgraded Netbeans today and found that there is no Axis2 plugin available via Tools –&gt; Plugins. Looks like Axis2 support plugin has been discontinued in Netbeans. However the link below works and I was able to install the plugin. This post hopefully will serve as a bookmark when I’m looking for Axis2 plugin in Netbeans next time.</p> <p><a title="http://deadlock.netbeans.org/hudson/job/nbms-and-javadoc/lastStableBuild/artifact/nbbuild/nbms/updates.xml.gz" href="http://deadlock.netbeans.org/hudson/job/nbms-and-javadoc/lastStableBuild/artifact/nbbuild/nbms/updates.xml.gz">http://deadlock.netbeans.org/hudson/job/nbms-and-javadoc/lastStableBuild/artifact/nbbuild/nbms/updates.xml.gz</a></p>
+  <div class="entry-content"><p>LINQPad is a must have tool for all .NET developers who write LINQ queries. It allows you to write and execute LINQ queries without compiling your code. In this post I will show you how to setup LINQPad to work along with Entity Framework. </p>  <p>The way LINQPad works with Entity Framework is that it consumes the EDM you would have generated by using Visual Studio. Your model could be in a class library and LINQPad can use that. For this example I have already created a class library project which contains my model. The model is generated over Northwind database.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image20.png" width="234" height="107" /> </p>  <p>After successfully compiling my project I launched LINQPad and clicked on Add connection. A dialog box appears which allows you to choose a data context. You can either build a context by connecting to a data source or you can build one from an assembly. In this case I selected the second radio button and clicked on Entity Framework.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image21.png" width="540" height="397" /></p>  <p>Click Next and LINQPad then gives you an option to browse for the assembly. Click on browse next to “Path to custom assembly” and browse to the assembly which contains the model.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image22.png" width="439" height="537" /> </p>  <p>Once an assembly which contains a Entity Framework model is selected, LINQPad shows the models within that assembly.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image23.png" width="540" height="290" /> </p>  <p>Click OK and OK again on the LINQPad Connection dialog. LINQPad is now connected to the model and you can run queries against it.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image24.png" width="539" height="433" /> </p>  <p><a href="http://www.linqpad.net">Download link for LINQPad</a>.</p>
 </div>
   
   
@@ -507,7 +324,7 @@ public class CallDetector {
       
   <header>
     
-      <h1 class="entry-title"><a href="/2012/05/20/find-the-version-of-ubuntu-you-are-running/">Find the Version of Ubuntu You Are Running</a></h1>
+      <h1 class="entry-title"><a href="/2010/11/16/visual-studio-2010-feature-pack-2-available-for-download/">Visual Studio 2010 Feature Pack 2 Available for Download</a></h1>
     
     
       <p class="meta">
@@ -523,16 +340,14 @@ public class CallDetector {
   
 
 
-<time datetime="2012-05-20T00:00:00+10:00" pubdate data-updated="true">May 20<span>th</span>, 2012</time>
-        
-         | <a href="/2012/05/20/find-the-version-of-ubuntu-you-are-running/#disqus_thread">Comments</a>
+<time datetime="2010-11-16T00:00:00+11:00" pubdate data-updated="true">Nov 16<span>th</span>, 2010</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>How do you find the version of Ubuntu you are running? </p> <p>There are two ways to do this. One is by GUI and the other by terminal. </p> <h4>This is the GUI way</h4> <p>&nbsp;</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Ubuntu System Tools" border="0" alt="Ubuntu System Tools" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/05/image3.png" width="495" height="550"></p> <p>&nbsp;</p> <p>&nbsp;</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Ubuntu System Settings" border="0" alt="Ubuntu System Settings" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/05/image4.png" width="608" height="657"></p> <p>&nbsp;</p> <p>&nbsp;</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Ubuntu System Details" border="0" alt="Ubuntu System Details" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/05/image5.png" width="640" height="404"></p> <p>&nbsp;</p> <h4>Terminal way</h4> <p>&nbsp;</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/05/image6.png" width="381" height="50"></p> <p>&nbsp;</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/05/image7.png" width="354" height="109"></p>
+  <div class="entry-content"><p>Visual Studio 2010 Feature pack is now available for <a href="http://msdn.microsoft.com/en-au/vstudio/ff655021.aspx">download</a>. You must have access to MSDN subscribers download to get the Feature pack. Here is a list of what’s included straight from the download page.</p>  <p>Testing features:</p>  <ul>   <li>Use Microsoft Test Manager to capture and playback action recordings for Silverlight 4 applications. </li>    <li>Create coded UI tests for Silverlight 4 applications with Visual Studio 2010 Premium or Visual Studio 2010 Ultimate. </li>    <li>Edit coded UI tests using a graphical editor with Visual Studio 2010 Premium or Visual Studio 2010 Ultimate. </li>    <li>Use action recordings to fast forward through manual tests that need to support Mozilla Firefox 3.5 and 3.6. </li>    <li>Run coded UI tests for web applications using Mozilla Firefox 3.5 and 3.6 with Microsoft Visual Studio 2010 Premium or Visual Studio 2010 Ultimate.</li> </ul>  <p>Code visualization and modeling features (requires Visual Studio 2010 Ultimate):</p>  <ul>   <li>Use the Generate Code command to generate skeleton code from elements on UML class diagrams. You can use the default transformations, or you can write custom transformations to translate UML types into code. </li>    <li>Create UML class diagrams from existing code. </li>    <li>Explore the organization and relationships in C, C++, and ASP.NET projects by generating dependency graphs. </li>    <li>Import elements from UML sequence diagrams, class diagrams, and use case diagrams as XMI 2.1 files that are exported from other modeling tools. </li>    <li>Create links and view links from work items to model elements. </li>    <li>Create layer diagrams from C or C++ code and validate dependencies. </li>    <li>Write code to modify layer diagrams and to validate code against layer diagrams.</li> </ul>
 </div>
   
   
@@ -545,7 +360,7 @@ public class CallDetector {
       
   <header>
     
-      <h1 class="entry-title"><a href="/2012/05/16/cloudera-virtualbox-boot-error-net-registered-protocol-family-2/">Cloudera VirtualBox Boot Error NET: Registered Protocol Family 2</a></h1>
+      <h1 class="entry-title"><a href="/2010/11/12/generating-sql-server-database-from-entity-data-model/">Generate SQL Server Database From Entity Data Model</a></h1>
     
     
       <p class="meta">
@@ -561,16 +376,276 @@ public class CallDetector {
   
 
 
-<time datetime="2012-05-16T00:00:00+10:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
-        
-         | <a href="/2012/05/16/cloudera-virtualbox-boot-error-net-registered-protocol-family-2/#disqus_thread">Comments</a>
+<time datetime="2010-11-12T00:00:00+11:00" pubdate data-updated="true">Nov 12<span>th</span>, 2010</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I downloaded Cloudera <a href="https://ccp.cloudera.com/display/SUPPORT/Downloads">CDH3 Virtual Machine for VirtualBox</a> to have a readymade Hadoop environment to experiment with. While booting the VM I got an error and the boot sequence stalled. </p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Cloudera CDH boot error" border="0" alt="Cloudera CDH boot error" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/05/image.png" width="612" height="339"></p> <p>&nbsp;</p> <p>The issue here is that IOAPIC is disabled for this VM. You can find out more about IOAPIC <a href="http://www.intel.com/design/chipsets/datashts/290566.htm">here</a>.</p> <p>To enable IOAPIC, power off your virtual machine. Go to settings –&gt; System. Click on Motherboard tab and check Enable IO APIC.</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Cloudera VirtualBox image settings" border="0" alt="Cloudera VirtualBox image settings" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/05/image1.png" width="565" height="421"></p> <p>After this Cloudera image boots fine.</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Cloudera CDH3" border="0" alt="Cloudera CDH3" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/05/image2.png" width="645" height="536"></p>
+  <div class="entry-content"><p>In an <a href="http://www.debugrelease.com/creating-entity-data-model-without-a-database-with-entity-framework-4/">earlier post</a> we looked at how to generate an Entity Data Model using Visual Studio 2010. The data model we created was not generated from a database. This is a follow up post in which we will generate a database using the model we have already created.</p>  <p>First thing we will do is open the project which contains our EDM. Next we will open Model Browser in Visual Studio.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image13.png" width="272" height="260" /> </p>  <p>To generate a database we need to right click on the root node within Model Browser and click on Generate Database from Model… </p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image19.png" width="540" height="202" /> </p>  <p>Generate Database Wizard is started and the first step is to specify a valid connection to a database. We can create a New Connection which connects to a blank database called MyBank. We can also instruct the wizard to save the connection string in App.config file. </p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image15.png" width="536" height="523" /> </p>  <p>Second step in the wizard generates and displays the SQL script which will create database objects as per our EDM.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image16.png" width="536" height="523" /> </p>  <p>After clicking Finish on the wizard a new file of type .sql is added to the project. The script which was generated by the wizard is saved in this file.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image17.png" width="301" height="140" /></p>  <p>Upon executing the generated script our database objects are created.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image18.png" width="551" height="178" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/11/11/book-review-programming-entity-framework-second-edition/">Book Review Programming Entity Framework Second Edition</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-11T00:00:00+11:00" pubdate data-updated="true">Nov 11<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div style="padding-bottom: 10px; padding-left: 10px; padding-right: 10px; float: right; padding-top: 10px"><iframe style="width: 120px; height: 240px" marginheight="0" src="http://rcm.amazon.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=000000&amp;t=blogs06-20&amp;o=1&amp;p=8&amp;l=as1&amp;m=amazon&amp;f=ifr&amp;asins=0596807260" frameborder="0" marginwidth="0" scrolling="no"></iframe></div>  <p>Few days ago I finished reading Programming Entity Framework Second Edition by Julia Lerman. This is a review of the book.</p>  <p>Julia has written a book which targets a broad spectrum of EF expertise. If you are a beginner then this book is for you to learn Entity Framework. If you are an expert then this book is for you to learn advance Entity Framework concepts. Her writing style is seldom found in technical books these days. The ability to write chapters that just flow one after another is not something many technical authors these days can accomplish. The book was very easy to read with sensible examples and well balanced code to content ratio.</p>  <p>I am a LINQ To SQL kinda guy and I’ve always had something against Entity Framework. I guess a part of it was my first benchmark which I did with Entity Framework version 1.0 and I was shocked to see abysmal performance. My second reason for staying away from EF was the fear of learning LINQ To Entities. This book took that fear away after one reading of the chapter on LINQ To Entities. BTW: Entity Framework 4 is a much better ORM than its predecessor and it is my preferred choice now.&#160; Microsoft has addressed most of the issues with performance.</p>  <p>Back to the book review. One thing which underwhelms me about programming books is either they have too much code or they don’t have much code at all. Julia maintained a perfect balance between code examples and explanatory text. </p>  <p>Chapters on Customizing Entities, POCOs and performance optimization are by themselves worth the money and time you’ll spend reading this book. </p>  <p>Overall a well written, highly enjoyable and substantially informative book. </p>  <p>Julia also maintains a site for this book <a href="http://learnentityframework.com/">LearningEntityFramework</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/11/10/creating-entity-data-model-without-a-database-with-entity-framework-4/">Creating Entity Data Model Without a Database With Entity Framework 4</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-10T00:00:00+11:00" pubdate data-updated="true">Nov 10<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">This article shows you how to generate an Entity Data Model for Entity Framework 4 using Visual Studio 2010. Entity Data Model is widely known by its acronym EDM. A common misconception among developers is that a EDM is always backed up by a database. This is not accurate as we will see in this article. A database is a storage medium to store the data processed via EDM. Database schemas could also be different from EDM and this difference is resolved by using mapping concepts when the need comes to persist or load data from a physical database.
+
+For this article we will create a model for a fictitious bank called MyBank. To get started we will create a project of type Class Library in Visual Studio 2010. Next we will add a new item of type <strong>ADO.NET Entity Data Model</strong>
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image2.png" border="0" alt="image" width="547" height="451" />
+
+<strong>Entity Data Model wizard</strong> then starts and on the first window of the wizard we are given a choice of either generating our model from an existing database or creating a blank model. For this article we will go with the later. Once we click Finish, our blank model is generated for us. As our model is blank, we will need to create some entities within our model for our Bank. Let’s start by creating a customer entity. By this time our project also contains a MyBank.edmx file and if it is not open then we can open it by double clicking on the file. This opens up the <strong>Entity Model Designer</strong> where we will create our entities. So the customer entity first.
+
+To create our customer entity we right-click on and empty area in the designer and select Entity…
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image3.png" border="0" alt="image" width="493" height="292" />
+
+This brings up the <strong>Add Entity dialog box</strong> where we will enter basic details such as Entity Name, Base type which will be none in this case and Entity set. We will also check the Create key property. It indicates that our customer entity will have a property which will be its unique identifier. We can go with the name “Id” or supply our own name. We will stick with “Id”.
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image4.png" border="0" alt="image" width="364" height="445" />
+
+After clicking OK we see our newly created entity in the designer.
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image5.png" border="0" alt="image" width="154" height="119" />
+
+At this point customer entity can only store Id for  customer. Storing just an Id for a customer is a bit useless regardless of the bank being fictional or not. We will add some more fields to store other information such as name, date of birth etc. To do this we can right-click on customer entity and then click Add –&gt; Scalar Property. Scalar properties in EDM are used to store what I call base-level information which in this case will be first name, last name and date of birth. Navigation Properties are used to store relationships with other entities for example a customer could have accounts in which case we could put a Accounts navigation property on customer entity. For now we will go with scalar property.
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image6.png" border="0" alt="image" width="539" height="395" />
+
+We will add three properties here FirstName, LastName and DateOfBirth.
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image7.png" border="0" alt="image" width="154" height="166" />
+
+By default all our newly added properties store data of type <strong>string</strong>. This is okay for FirstName and LastName but won’t work well for DateOfBirth. We will now change the data type for DateOfBirth. Best way to do this is by opening Model Browser window and then selecting a property and modifying its properties. Sounds a bit confusing? Don’t worry it’s very simple. To make our life easy we can pin Model Browser and Properties window so that they are both viewable at the same time.
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image8.png" border="0" alt="image" width="273" height="532" />
+
+Here by selecting DateOfBirth property in Model Browser we can change its data type in properties window.
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image9.png" border="0" alt="image" width="272" height="533" />
+
+We will now create another entity called Account. We will follow similar steps as we did while creating Customer entity. In Account entity we will create x fields
+<ol>
+	<li>Id: Primary identifier of Account</li>
+	<li>AccountNumber: Used to store the actual account number.</li>
+	<li>BranchNumber: Stores a code which indicates the branch where this account was opened.</li>
+	<li>CurrentBalance: Obvious enough.</li>
+	<li>CreatedDate: Obvious enough.</li>
+</ol>
+Now we should have two entities in our EDM, a Customer entity and an Account entity. Let’s say that a customer can have more than one account. To reflect this properly in our EDM we will create an <strong>Association</strong>. To create an Association we right-click on the designer then click Add –&gt; Association…
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image10.png" border="0" alt="image" width="493" height="311" />
+
+We are now presented with a dialog where we can supply information for this association.
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image11.png" border="0" alt="image" width="411" height="464" />
+
+Because we only have two entities within our designer, Visual Studio has acted clever and read our mind. It has already filled in all the information we need to create this association. We will quickly go through some of what’s already in the dialog box. First thing we have is the name for Association, second and more important is the two end-points it has created (note: this has nothing to do with WCF endpoints). First end point describes the relationship from Customer’s side and the second end point describes the relationship from Account’s side. In Multiplicity drop-down we can see that there are many accounts for a customer. We will now click OK.
+
+Our entities now indicate visually that a one to many relationship exists between customer and account. We can also see that Navigation properties have also been added to both Account and Customer entities.
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image12.png" border="0" alt="image" width="358" height="213" />
+
+We have successfully created an Entity Data Model for a fictitious bank which stores information about customers and their accounts. This EDM does not store information in a database. However it is fully functional EDM and we can use it within an application of course the data we create will not be persisted anywhere. In a future article we will see how to generate a physical database form this Entity Data Model.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/11/03/announcement-rocket-svn-from-axosoft-free-download/">Announcement: Rocket SVN From Axosoft Free Download</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-03T00:00:00+11:00" pubdate data-updated="true">Nov 3<span>rd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">Once in a while I have to step out of the known environment of TFS and VSS and find myself in SVN land. Honestly I don’t mind SVN at all. In fact I think that certain features in SVN are much more intuitive and overall it’s a good source control system. If you work with Visual Studio and use SVN for source control then you need a SVN client which integrates well with Visual Studio. Till now there has been Visual SVN, but recently Axosoft announced their own product called Rocket SVN. I downloaded and installed Rocket SVN and I am using it with an online SVN repository. I have to say that I am impressed. Other than few icons which can be tidied up, the tool works without any issues.
+
+Rocket SVN which is integrated with Visual Studio provides easily access information on pending changes.
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image.png" border="0" alt="image" width="450" height="450" />
+
+You also get a repository explorer and a working copy explorer.
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image1.png" border="0" alt="image" width="450" height="450" />
+
+Also within the Solution Explorer, Rocket SVN indicates with little icons the files that have changed and the files which have not.
+
+I’ve been running Rocket SVN for last 3 days and I’m very happy with the tool.
+
+Rocket SVN is <a href="http://axosoft.com/rocketsvn">available for free download</a>. Axosoft has indicated that sometime in future they will start charging for the product.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/11/03/a-little-milestone-in-thereforesystems-journey/">A Little Milestone in ThereforeSystems Journey</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-03T00:00:00+11:00" pubdate data-updated="true">Nov 3<span>rd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post is to mark a little milestone for ThereforeSystems. My second post on this site was a <a href="http://www.debugrelease.com/linq-to-sql-tutorial/">LINQ To SQL Tutorial</a> which was a basic tutorial to get the reader started with LINQ To SQL. This post has also been one of the most popular I have ever written. I don’t check the site too often due to a busy schedule with work and family. However yesterday when I looked at the site I found that LINQ To SQL crossed 100,000 views. Even though this is miniscule compared to traffic that some other more established sites receive, I nevertheless thought this was a mini milestone which should be marked and celebrated. </p>  <p>As always, I thank the visitors and hope that content on ThereforeSystems has been helpful.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/08/24/get-temporary-folder-in-java/">Get Temporary Folder in Java</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-08-24T00:00:00+10:00" pubdate data-updated="true">Aug 24<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This example shows you how to retrieve the name of temporary folder for your operating system using Java code.</p>
+<p>All it takes is one line of code to get this information.</p>
+
+<pre class="lang:java decode:true " >
+public static void main(String[] args) {
+
+  String property = System.getProperty(&quot;java.io.tmpdir&quot;);
+  System.out.println(property);
+
+}
+</pre>
 </div>
   
   
@@ -612,26 +687,6 @@ public class CallDetector {
     
       <li class="post">
         <a href="/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/07/03/linux-number-of-files-in-directory/">Linux - Number of Files in Directory</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/24/android-listview-tutorial-with-images-and-text/">Android - ListView Tutorial With Images and Text</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/19/android-listview-tutorial/">Android - ListView Tutorial</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>
@@ -692,19 +747,6 @@ alt="free hit counters"></a></div></noscript>
 
 </footer>
   
-
-<script type="text/javascript">
-      var disqus_shortname = 'debugrelease';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
 
 
 

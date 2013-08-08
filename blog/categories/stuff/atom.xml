@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Stuff | Debug Release]]></title>
-  <link href="http://www.debugrelease.com/blog/categories/stuff/atom.xml" rel="self"/>
-  <link href="http://www.debugrelease.com/"/>
-  <updated>2013-08-08T15:46:50+10:00</updated>
-  <id>http://www.debugrelease.com/</id>
+  <link href="http://deepak-kapoor.github.io/blog/categories/stuff/atom.xml" rel="self"/>
+  <link href="http://deepak-kapoor.github.io/"/>
+  <updated>2013-08-08T15:51:11+10:00</updated>
+  <id>http://deepak-kapoor.github.io/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Meaningless number: 230,000,000]]></title>
-    <link href="http://www.debugrelease.com/2012/04/12/meaningless-number-230000000/"/>
+    <link href="http://deepak-kapoor.github.io/2012/04/12/meaningless-number-230000000/"/>
     <updated>2012-04-12T00:00:00+10:00</updated>
-    <id>http://www.debugrelease.com/2012/04/12/meaningless-number-230000000</id>
+    <id>http://deepak-kapoor.github.io/2012/04/12/meaningless-number-230000000</id>
     <content type="html"><![CDATA[<p>Search for Sydney weather and Google says that it has found 230,000,000 results. It also takes pride in telling us that it took 0.16 seconds to complete the task. Am I impressed? Totally.</p>
 
 

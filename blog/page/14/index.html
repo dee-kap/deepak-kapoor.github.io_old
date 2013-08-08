@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="Hopefully most planet earth inhabitants know that Google pulled the plug on Wave or maybe most inhabitants who care about it. Together with my friend &hellip;">
+  <meta name="description" content="To get free disk space for all physical drives on a machine we can use xp_fixeddrives extended stored procedure. An interesting this about this &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,10 +18,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.debugrelease.com/blog/page/14">
+  <link rel="canonical" href="http://deepak-kapoor.github.io/blog/page/14">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="http://feeds.feedburner.com/debug-release" rel="alternate" title="Debug Release" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="Debug Release" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
@@ -53,7 +53,7 @@
   
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:www.debugrelease.com" />
+    <input type="hidden" name="q" value="site:deepak-kapoor.github.io" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
@@ -74,7 +74,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/08/06/five-reasons-why-google-wave-failed/">Five Reasons Why Google Wave Failed</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/24/get-free-disk-space-using-t-sql/">Get Free Disk Space Using T-SQL</a></h1>
     
     
       <p class="meta">
@@ -90,16 +90,20 @@
   
 
 
-<time datetime="2010-08-06T00:00:00+10:00" pubdate data-updated="true">Aug 6<span>th</span>, 2010</time>
-        
-         | <a href="/2010/08/06/five-reasons-why-google-wave-failed/#disqus_thread">Comments</a>
+<time datetime="2009-03-24T00:00:00+11:00" pubdate data-updated="true">Mar 24<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Hopefully most planet earth inhabitants know that Google pulled the plug on Wave or maybe most inhabitants who care about it. Together with my friend Graham we came up with these reasons for failure over a Japanese lunch today. Here’s the list.</p>  <ol>   <li>It did not ripple through masses.</li>    <li>The tide was not on it’s side.</li>    <li>It did not create waves in hearts or minds of people.</li>    <li>The sail was in opposite direction.</li>    <li>The product itself was shallow.</li> </ol>  <p>&#160;</p>  <p>So it is finally time to wave it goodbye.</p> For the record this was getting way out of hand for our geeky minds and we were attracting unwanted attention at the restaurant. We decided to abandon the idea of coming out with more reasons. 
+  <div class="entry-content"><p>To get free disk space for all physical drives on a machine we can use xp_fixeddrives extended stored procedure. An interesting this about this procedure is that it is not documented in books online.</p>  
+
+<pre class="lang:tsql decode:true " >EXEC xp_fixeddrives</pre>
+
+<p>Here is output on my machine.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="xp_fixeddrives" border="0" alt="xp_fixeddrives" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image40.png" width="161" height="46" /></p>
 </div>
   
   
@@ -112,7 +116,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/08/05/intellisense-enhancements-i-want/">Intellisense Enhancements I Want</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/24/create-t-sql-case-statements-with-linq-to-sql/">Create T-SQL CASE Statements With LINQ to SQL</a></h1>
     
     
       <p class="meta">
@@ -128,16 +132,80 @@
   
 
 
-<time datetime="2010-08-05T00:00:00+10:00" pubdate data-updated="true">Aug 5<span>th</span>, 2010</time>
-        
-         | <a href="/2010/08/05/intellisense-enhancements-i-want/#disqus_thread">Comments</a>
+<time datetime="2009-03-24T00:00:00+11:00" pubdate data-updated="true">Mar 24<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Back in 2008 I posted a suggestion on Microsoft’s Connect website. To be precise the date was 15th May 2008. To my surprise I received an email today (5th August 2010) informing me that there is a comment on my suggestion. It only took a little more than 2 years. Wow! talk about a speedy response. “What’s wrong with Microsoft” will be a topic for another post. Today I want to revisit my suggestion. It’s about Intellisense. Here it is exactly how I posted it on Connect site.</p>  <p><strong>Problem Statement</strong></p>  <p>At present we have Ctrl + . which opens intellisense and lists all methods, properties events available for the corresponding object. There are times when I and I assume other users are only interested in looking at either events, methods or properties. </p>  <p><strong>Proposed Solution</strong></p>  <p>I suggest the following shortcuts which will filter the list:    <br />Ctrl + . + p - Display only properties     <br />Ctrl + . + e - Display only events     <br />Ctrl + . + m - Display only methods </p>  <p>And the response from Microsoft today is:</p>  <blockquote>   <p>Thanks for taking the time to submit this suggestion! I sincerely apologize for the amount of time that has taken to get back to you.      <br />When we locked down on our final feature set for the next version of Visual Studio, IntelliSense completion set filtering for member types didn&#8217;t make the cut&#8211;though it was considered. However, his is a commonly requested feature, and we&#8217;ll consider it for a future release of Visual Studio. Please feel free to contact me directly at … if you have any further thoughts.</p> </blockquote>  <p>I am glad to know that this will at-least be considered for a future release. I’ll be happy if it ever gets implemented. </p>
+  <div class="entry-content"><p>I was recently helping <a href="http://twitter.com/nosherwan">Nosh</a> with a LINQ To SQL query where he wanted the resulting T-SQL query to have CASE statements. Having CASE statements in T-SQL queries is a common scenario but how do we it in LINQ To SQL .After some investigation I found the solution which I am presenting here using an example.</p>  <p>I have created a table called CityWeather. This table has&#160; two fields: Name and Temperature. Here is the script if you wish to create the table on your machine.</p>  
+
+<pre class="lang:tsql decode:true " >
+CREATE TABLE [dbo].[CityWeather](
+    [Name] [nvarchar](100) NOT NULL,
+    [Temperature] [decimal](18, 0) NOT NULL
+) ON [PRIMARY]
+</pre>
+
+<p>My objective is to get LINQ To SQL to produce a T-SQL statement similar to this.</p>
+
+<pre class="lang:tsql decode:true " >
+SELECT 
+    Name, 
+    Temperature, 
+    CASE Temperature
+        WHEN 30 THEN 'Toasted'
+        WHEN 25 THEN 'I like it'
+        WHEN 10 THEN 'Just perfect'
+        WHEN -15 THEN 'Gonna freeze my'
+    END AS 'Message'
+FROM CityWeather
+</pre>
+
+<p>Using my trusted LINQPad here is how I wrote my LINQ To SQL query.</p>
+
+<pre class="lang:c# decode:true " >
+from c in CityWeathers
+select new
+        {
+          c.Name,
+          c.Temperature,
+          Messaage = c.Temperature == 30 ? "Toasted" : 
+          c.Temperature == 25 ? "I like it" :
+          c.Temperature == 10 ? "Just perfect" :
+          c.Temperature == -15 ? "Gonna freeze my" : ""
+        }
+</pre>
+
+
+<p>My LINQ To SQL query produced the following T-SQL Query</p>
+
+<pre class="lang:tsql decode:true " >
+SELECT [t0].[Name], [t0].[Temperature], 
+    (CASE 
+        WHEN [t0].[Temperature] = @p0 THEN CONVERT(NVarChar(15),@p1)
+        WHEN [t0].[Temperature] = @p2 THEN CONVERT(NVarChar(15),@p3)
+        WHEN [t0].[Temperature] = @p4 THEN CONVERT(NVarChar(15),@p5)
+        WHEN [t0].[Temperature] = @p6 THEN @p7
+        ELSE CONVERT(NVarChar(15),@p8)
+     END) AS [Messaage]
+FROM [CityWeather] AS [t0]
+-- @p0: Input Decimal (Size = 0; Prec = 33; Scale = 4) [30]
+-- @p1: Input NVarChar (Size = 7; Prec = 0; Scale = 0) [Toasted]
+-- @p2: Input Decimal (Size = 0; Prec = 33; Scale = 4) [25]
+-- @p3: Input NVarChar (Size = 9; Prec = 0; Scale = 0) [I like it]
+-- @p4: Input Decimal (Size = 0; Prec = 33; Scale = 4) [10]
+-- @p5: Input NVarChar (Size = 12; Prec = 0; Scale = 0) [Just perfect]
+-- @p6: Input Decimal (Size = 0; Prec = 33; Scale = 4) [-15]
+-- @p7: Input NVarChar (Size = 15; Prec = 0; Scale = 0) [Gonna freeze my]
+-- @p8: Input NVarChar (Size = 0; Prec = 0; Scale = 0) []
+-- Context: SqlProvider(Sql2008) Model: AttributedMetaModel Build: 3.5.30729.1
+</pre>
+
+<p>And here is the output.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="LINQ To SQL When Case" border="0" alt="LINQ To SQL When Case" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image38.png" width="329" height="147" /></p>
 </div>
   
   
@@ -150,7 +218,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/07/30/easiest-way-to-generate-connection-string-and-verify-database-connectivity/">Easiest Way to Generate Connection String and Verify Database Connectivity</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/24/convert-hexadecimal-to-number-in-c/">Convert Hexadecimal to Number in C#</a></h1>
     
     
       <p class="meta">
@@ -166,16 +234,20 @@
   
 
 
-<time datetime="2010-07-30T00:00:00+10:00" pubdate data-updated="true">Jul 30<span>th</span>, 2010</time>
-        
-         | <a href="/2010/07/30/easiest-way-to-generate-connection-string-and-verify-database-connectivity/#disqus_thread">Comments</a>
+<time datetime="2009-03-24T00:00:00+11:00" pubdate data-updated="true">Mar 24<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>There are two things which I as a consultant / developer come across many times. One is verifying connectivity to a database which is often a cause of production issues and second is creating valid connection string in the least amount of time. This is the way I do it. Hopefully it will be of help to you.</p>  <p>First of all forget that you have Visual Studio, SSMS or anything so big and fancy. You just want to get a connection string baked up pronto. I usually end up creating a .udl file. UDL which stands for Universal Data Link allows you to establish a connection and then stores the connection string in text format. Doing this is very simple. Create a file in any folder or desktop and call it <strong>test.udl</strong>. </p>  <p>Now double click the file and you’ll get a window where you can enter your connection properties.</p>  <p>&#160;<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image2.png" width="377" height="473" /> </p>  <p>You can also select different providers.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image3.png" width="377" height="473" /> </p>  <p>Once you have filled in the information about your server, security and database just click on Test Connection to verify connectivity. Click OK to close the window.</p>  <p>To get a connection string with information you just entered just open the test.udl file in a text editor and you’ll see the connection string. </p>  <p>&#160;<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image4.png" width="582" height="68" /> </p>  <p>That’s it. Simple and easy ninja style.</p>
+  <div class="entry-content"><p>To convert a Hexadecimal to a number we can use an overload of Convert.ToInt32 method.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Convert.ToInt32" border="0" alt="Convert.ToInt32" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image41.png" width="397" height="57" /> </p>  <p>Using the overload I can convert for example hex string “BB” to a number.</p>  
+
+<pre class="lang:c# decode:true " >
+int number = Convert.ToInt32("BB", 16);
+</pre>
+
+<p>And the number variable gets assigned value of 187.</p>
 </div>
   
   
@@ -188,7 +260,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/07/29/find-all-data-providers-installed-on-a-machine/">Find All Data Providers Installed on a Machine</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/23/get-name-of-current-executing-assembly-in-c/">Get Name of Current Executing Assembly in C#</a></h1>
     
     
       <p class="meta">
@@ -204,29 +276,36 @@
   
 
 
-<time datetime="2010-07-29T00:00:00+10:00" pubdate data-updated="true">Jul 29<span>th</span>, 2010</time>
-        
-         | <a href="/2010/07/29/find-all-data-providers-installed-on-a-machine/#disqus_thread">Comments</a>
+<time datetime="2009-03-23T00:00:00+11:00" pubdate data-updated="true">Mar 23<span>rd</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>This post shows you how to find Data Providers installed on a machine. Data providers in .NET Framework provide the plumbing necessary to connect to databases. There are different data providers available which can connect to SQL Server, Oracle or other databases through OleDb. You can find the data providers installed on your machine by looking at Machine.config file. In particular you will be looking for DbProviderFactories element under System.Data. In the screenshot below you can see data providers installed on my machine.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image.png" width="539" height="141" /> </p>  <p>A list of data providers can also be retrieved by code. This sample shows you how to retrieve a list of data providers in code.</p>  
+  <div class="entry-content"><p>This is where reflection comes in handy. The following code snippet shows you how to get the name of executing assembly.</p>  
 
- 
-<pre class="lang:c# decode:true " >DataTable dataProviders = DbProviderFactories.GetFactoryClasses();
-            
-foreach (DataRow provider in dataProviders.Rows)
-{
-  Console.WriteLine(provider[0].ToString());
-}</pre> 
+<pre class="lang:c# decode:true " >
+string assemblyName;
+assemblyName = System.Reflection.Assembly.GetExecutingAssembly().FullName;
+Console.WriteLine(assemblyName);
+</pre>
 
+<p>Output for the above code returns the fully qualified name as shown below</p>
 
-<p>In the code above I am displaying the name of provider. Here is my output.</p>
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image36.png" width="540" height="40" /> </p>
 
-<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image1.png" width="387" height="84" /></p>
+<p>To just get the Assembly name we can use this snippet.</p>
+
+<pre class="lang:c# decode:true " >
+string assemblyName;
+assemblyName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+Console.WriteLine(assemblyName);
+</pre>
+
+<p>Here is the output.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image37.png" width="245" height="48" /></p>
 </div>
   
   
@@ -239,7 +318,7 @@ foreach (DataRow provider in dataProviders.Rows)
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/07/19/download-visual-studio-2010-productivity-power-tools/">Download Visual Studio 2010 Productivity Power Tools</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/20/internet-explorer-8-first-experience/">Internet Explorer 8 – First Experience</a></h1>
     
     
       <p class="meta">
@@ -255,16 +334,236 @@ foreach (DataRow provider in dataProviders.Rows)
   
 
 
-<time datetime="2010-07-19T00:00:00+10:00" pubdate data-updated="true">Jul 19<span>th</span>, 2010</time>
-        
-         | <a href="/2010/07/19/download-visual-studio-2010-productivity-power-tools/#disqus_thread">Comments</a>
+<time datetime="2009-03-20T00:00:00+11:00" pubdate data-updated="true">Mar 20<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>A newer version of Visual Studio 2010 Productivity Power Tools has been released. If you use Visual Studio 2010 then do yourself a favor and download these power tools and use Visual Studio 2010 like a power user. Checkout all details at <a href="http://blogs.msdn.com/b/visualstudio/archive/2010/07/18/new-version-of-the-productivity-power-tools-is-available.aspx">Visual Studio blog</a>. </p>  <p><a href="http://visualstudiogallery.msdn.microsoft.com/en-us/d0d33361-18e2-46c0-8ff2-4adea1e34fef">Download link for Productivity Power Tools</a>.</p>
+  <div class="entry-content"><p>I’ll be honest that I was not much excited about Internet Explorer 8 until it went RTM. There is only so much beta software one can take. But today when IE8 went RTM I decided to install it on my main machine. This post talks about my first experience with the browser. </p>  <p>Installation of IE8 is one of the best I’ve ever seen.&#160; The thing installed itself in less than 2 minutes. Good on you Microsoft. It did ask me to restart my machine and I happily obliged. After the restart I fired up the browser and was presented with a Set Up Windows Internet Explorer 8 wizard. Here are the screenshots from that wizard. BTW: I run Windows 2008 Server on my main machine as my workstation.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Internet Explorer 8" border="0" alt="Internet Explorer 8" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image26.png" width="540" height="400" /> </p>  <p>Next screen asked me if I wanted IE to discover websites based on the sites I visit. Sure! Why not. The way this works is that Microsoft gathers data about the sites you browse and makes recommendations about similar sites. I usually turn such features off but just to see how it works I left it on. If it does a good job then I will leave it on forever. You can read the Internet Explorer Privacy Statement if you are concerned about what data will be collected. The Privacy Statement can be found <a href="http://www.microsoft.com/windows/internet-explorer/privacy.aspx">here</a>.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Internet Explorer 8" border="0" alt="Internet Explorer 8" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image35.png" width="540" height="400" /> </p>  <p>Next screen asked me if I’d like to use express settings or custom settings. I always choose custom settings so that I know what is being installed. After choosing custom settings and clicking on the Next button, the first screen allowed me to configure my search provider. I opted to keep my search provider.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Internet Explorer 8" border="0" alt="Internet Explorer 8" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image28.png" width="540" height="400" /></p>  <p> After this I was asked if I wanted to download updates for search provider. What is this? I don’t understand so it’s a no.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Internet Explorer 8" border="0" alt="Internet Explorer 8" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image29.png" width="540" height="400" /> </p>  <p>Next screen is for accelerators. Accelerators are a new addition to Internet Explorer. Here is what help has to say about accelerators.</p>  <blockquote>   <p>You can use Accelerators with text that you select on a webpage to perform such tasks as opening a street address in a mapping website or looking up the dictionary definition for a word. You can also choose the web services or websites that Accelerators use to handle different types of tasks. Internet Explorer 8 comes with a selection of Accelerators included by default, but you can add or remove them as you like.</p> </blockquote>  <p>I decided to keep my current accelerators. </p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Internet Explorer 8" border="0" alt="Internet Explorer 8" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image30.png" width="540" height="400" /> </p>  <p>Then I was asked about SmartScreen Filters. Turning this on means that some websites addresses will be sent to Microsoft where they can be checked for being malicious, fraudulent types. Because I do not go to any such sites, I decided to turn this off. </p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Internet Explorer 8" border="0" alt="Internet Explorer 8" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image31.png" width="540" height="400" /> </p>  <p>Next screen was about Compatibility Settings. Turning this on will make sites designed for older browsers look better (whatever that means) in IE8. Because I want to see how old sites look in IE8 in their raw form, I decided to turn this off. Of course this can be turned on at anytime.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Internet Explorer 8" border="0" alt="Internet Explorer 8" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image32.png" width="540" height="400" /> </p>  <p>And that’s about it. I clicked on the Finish button and I was all ready to browse the World Wide Web. The first site I opened in IE8 is <a href="http://www.debugrelease.com/">One .Net Way</a>. Just typing one in the address bar presented me with a history of sites I have visited with the word “one” in them.</p>  <p>&#160;<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Internet Explorer 8" border="0" alt="Internet Explorer 8" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image33.png" width="530" height="219" /> </p>  <p>Right away I was impressed by the performance. Drop down on address bar with my history items was very fast. </p>  <p>Overall experience of upgrading to Internet Explorer 8 has been good. I can’t say that I am disappointed with anything so far. I am sure that Microsoft has put in tremendous effort to get it right and more so because of the competition in the browser market. My overall gut feel about IE 8 is good. I’ll be using it a bit more and I will post anything I find interesting. </p>  <p>Finally here is a screenshot of One .Net Way in Internet Explorer 8.</p>  <p>&#160;<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Internet Explorer 8" border="0" alt="Internet Explorer 8" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image34.png" width="540" height="450" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/03/19/sql-server-sp_spaceused-use-the-right-way/">SQL Server – Sp_spaceused Use the Right Way</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-19T00:00:00+11:00" pubdate data-updated="true">Mar 19<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">To find out the space used by a table we can use sp_spaceused procedure. Most of the times sp_spaceused will give correct information. Why do I say most of the time? Well consider this example. I just inserted a large amount of data in Orders table in Northwind database and ran sp_spaceused.
+<pre class="code"><span style="color: blue">EXEC </span><span style="color: maroon">sp_spaceused </span><span style="color: red">'Orders'</span></pre>
+which returns this result
+
+<img style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image24.png" border="0" alt="image" width="431" height="47" />
+
+But if I run sp_spaceused with true for its second parameter which is updateusage
+<pre class="code"><span style="color: blue">EXEC </span><span style="color: maroon">sp_spaceused </span><span style="color: red">'Orders'</span><span style="color: gray">, </span>TRUE</pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+I get the following result
+
+<img style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image25.png" border="0" alt="image" width="430" height="48" />
+
+Notice the difference in reserved space and index size. What has happened here is that by passing in true for updateusage SQL Server automatically runs DBCC UPDATEUSAGE which corrects any inaccuracies in catalog views. So it is a good idea to run sp_spaceused by supplying true for updateusage parameter if you absolutely must get accurate information. And especially after inserting large amounts of data.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/03/19/download-entire-sharepoint-2007-technical-library-in-chm/">Download Entire SharePoint 2007 Technical Library in CHM</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-19T00:00:00+11:00" pubdate data-updated="true">Mar 19<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The title says it all.</p>  <p>Here is the <a href="http://www.microsoft.com/downloads/details.aspx?familyid=ba006584-711d-4ce7-9e1f-181aedf6434a&amp;displaylang=en">Link</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/03/18/walkthrough-generate-test-data-with-red-gate-sql-data-generator/">Walkthrough – Generate Test Data With Red Gate SQL Data Generator</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-18T00:00:00+11:00" pubdate data-updated="true">Mar 18<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In this walkthrough I will show you how to use Red Gate SQL Data Generator to generate test data for a database. While writing software which interacts with a database developers often write scripts to insert some data. Usually this data is not big enough to find performance bottlenecks and/or issues with presenting data on UI. An application may work well under the load of dev data and possibly test data but becomes a different beast when run against proper production data. So the question is how do you get some real looking data. There are two options; one you can ask your friendly DBA to give it to you, second you can generate your own data which mimics production data at-least in size. In this post I will deal with the second. I will show you how easy it is to generate good quality test data.</p>  <p>As a disclaimer I’d like to say that Red Gate did not pay for this post in any form. I installed a 14 day trial of Red Gate SQL Data Generator and I liked the tool. </p>  <p>&#160;</p>  <h4>Creating SQL Data Generator Project</h4>  <p>SQL Data Generator works with projects which are .sqlgen files. The project file stores settings such as database you are generating data for and few other settings such as should Insert Triggers be fired. A project can be created by clicking on the New Project&#160; button on the toolbar which brings this dialog</p>  <p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="540" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image16.png" width="540" border="0" /> </p>  <p>You can specify the database server and the database name&#160; here. For this walkthrough I will generate data for Northwind database. After supplying database values click OK and it will import schema information from database.</p>  <p>The main windows displays the tables for which data will be generated. You can exclude tables by clicking on the checkbox. </p>  <p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="417" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image17.png" width="292" border="0" /> </p>  <p>On the right side of the window you can set the number of rows to be generated, what should be done when data is invalid and you can choose if existing data should be deleted.</p>  <p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="162" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image18.png" width="540" border="0" /> </p>  <p>For this example let’s set number of rows to be 100,000 for customer table and do the same for few other tables. I think that is a good number to do some testing. </p>  <p>Clicking Generate Data button on the toolbar presents this dialog which presents a summary of actions which will be taken.</p>  <p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="396" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image19.png" width="540" border="0" /> </p>  <p>Once the data is generated successfully a report is presented which shows the number of rows inserted for tables.</p>  <p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="414" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image20.png" width="540" border="0" /> </p>  <p>A quick query on Northwind database in SSMS shows a sample of newly inserted data.</p>  <p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="545" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image21.png" width="540" border="0" /> </p>  <p>And that’s how easy it is to generate data which can be used for load testing, and finding performance bottlenecks while developing an application.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/03/18/sql-server-2008-2-ways-to-get-object-id-of-a-database-object/">SQL Server 2008 – 2 Ways to Get Object Id of a Database Object</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-18T00:00:00+11:00" pubdate data-updated="true">Mar 18<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Every object in SQL Server database has an Object Id which is used extensively by SQL Server for most operations. There are times when we would like to know what the object ID is for a particular object. In this example I will show you two ways to retrieve Object Id. My examples will retrieve Object Id for HumanResources.Employee table in AdventureWorks database.</p>  <p>&#160;</p>  <h5>Method 1</h5>  <p>First method is to query sys.objects system view and pass in the name of object and also the name of schema.</p>  <pre class="code"><span style="color: blue">SELECT </span><span style="color: magenta">OBJECT_ID </span><span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">objects
+</span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'Employee'
+</span><span style="color: gray">AND </span><span style="color: magenta">SCHEMA_ID </span><span style="color: gray">= 
+    (</span><span style="color: blue">SELECT </span><span style="color: magenta">SCHEMA_ID 
+    </span><span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">schemas
+    </span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'HumanResources'</span><span style="color: gray">)
+
+</span></pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+<p>This query returns the Object Id shown below.</p>
+
+<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="46" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image22.png" width="141" border="0" /> </p>
+
+<p>&#160;</p>
+
+<h5>Method 2</h5>
+
+<p>While the first approach works, there is a better way to get the Object ID and that is to use the OBJECT_ID function. Here is another query which fetches the Object ID for HumanResources.Employee table in AdventureWorkds database.</p>
+
+<pre class="code"><span style="color: blue">SELECT </span><span style="color: magenta">OBJECT_ID</span><span style="color: gray">(</span><span style="color: red">N'HumanResources.Employee'</span><span style="color: gray">)</span></pre>
+
+<p><a href="http://11011.net/software/vspaste"></a></p>
+
+<p>And as expected I get my result.</p>
+
+<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="46" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image23.png" width="176" border="0" /> </p>
+
+<p>Both approaches are valid. However there are subtle differences. For example method 1 returns the result set in which the column is called ‘OBJECT_ID’, method 2 does not name the column. Another difference is that if you mistype the object name them method 1 will return zero rows while method 2 will simply return a NULL value.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/03/16/wpf-community-workshop-learn-wpf-and-raise-money/">WPF Community Workshop – Learn WPF and Raise Money</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-16T00:00:00+11:00" pubdate data-updated="true">Mar 16<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Ok, so you’ve seen Windows Presentation Foundation (WPF) and you thought the technology looked interesting. You know your applications are starting to look dated, you understand WPF has matured, now in its 3rd release; but life gets in the way and you haven’t had the chance to get down and dirty with it yet. So here’s your opportunity to skill up, and raise money for the Red Cross Bushfire Appeal, in this One-Day Workshop!!</p>  <p>To help you get to grips with this great technology quickly, Microsoft has created a series of Hands on Labs and Presentations. These will grow your skill set, putting you on the path to building the rich user interfaces your customers are demanding.</p>  <p>This training event comes to you courtesy of the .NET User Groups across Australia, and <a href="http://www.cliftons.com.au/">Cliftons</a>, who are generously providing their training facilities at minimal cost. This is your chance to learn new skills, network with other professionals, and have a bit of fun along the way.</p>  <p>&#160;</p>  <h4>Registration and Payment</h4>  <p>There is a nominal charge of $100. With the help of <a href="http://www.cliftons.com.au/">Cliftons</a> we are keeping costs minimal and if we fill all workshops across the country then this event will raise close to $23,000 for the Red Cross “<a href="http://www.redcross.org.au/vic/services_emergencyservices_victorian-bushfires-appeal-2009.htm">Victorian Bushfire Appeal 2009</a>”.</p>  <p>Places are limited and to register interest follow this <a href="http://www.acs.org.au/index.cfm?action=event&amp;area=9005&amp;temID=eventdetails&amp;eveID=10133342390563">link</a>.</p>  <p>&#160;</p>  <h4>Workshop Format</h4>  <p>To make it easy for you to attend we are running the workshops on a Saturday in all major cities. The sessions will commence at 8.30am with registration. Check the schedule below for the date and location in Sydney.</p>  <p>Following a 10 to 15 minute introduction to each topic, you will kick start Visual Studio 2008 and Expression Blend and work on the relevant lab!! Regardless of your current level of experience, you can work at your own pace; a facilitator will be on hand to guide your learning; and you’ll be able to take the lab content home for further learning.</p>  <p>&#160;</p>  <h4>Content</h4>  <p>The WPF Skills day will cover</p>  <ol>   <ol>     <ol>       <li>Creating layouts, compositions and templates </li>        <li>Building custom controls </li>        <li>Working with Styles and control templates (includes using Expression Blend to restyle) </li>        <li>Using the Ribbon control to effortlessly create applications that are as familiar to your customers as Office 2007 (not to mention the Windows 7 Core Applications) </li>        <li>Working with the new DataGrid control to display tabular and editable data </li>        <li>Binding data with ease to your user interface </li>        <li>And more… </li>     </ol>   </ol> </ol>  <h4>&#160;</h4>  <h4>Event Dates</h4>  <p>The Windows Presentation Foundation Community workshop in Sydney is to be held on Saturday, April 4th, 2009 at <a href="http://www.cliftons.com.au/page/sydney.html">Cliftons on George Street</a>.</p>  <p>&#160;</p>  <h4>Be in to Win</h4>  <p>The workshop will also feature a prize draw to win a copy of Visual Studio 2008. Nice!!</p>  <p>To register for the even please follow this <a href="http://www.acs.org.au/index.cfm?action=event&amp;area=9005&amp;temID=eventdetails&amp;eveID=10133342390563">link</a>.</p>
 </div>
   
   
@@ -306,26 +605,6 @@ foreach (DataRow provider in dataProviders.Rows)
     
       <li class="post">
         <a href="/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/07/03/linux-number-of-files-in-directory/">Linux - Number of Files in Directory</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/24/android-listview-tutorial-with-images-and-text/">Android - ListView Tutorial With Images and Text</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/19/android-listview-tutorial/">Android - ListView Tutorial</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>
@@ -386,19 +665,6 @@ alt="free hit counters"></a></div></noscript>
 
 </footer>
   
-
-<script type="text/javascript">
-      var disqus_shortname = 'debugrelease';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
 
 
 

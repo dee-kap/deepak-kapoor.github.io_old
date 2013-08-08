@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Hadoop | Debug Release]]></title>
-  <link href="http://www.debugrelease.com/blog/categories/hadoop/atom.xml" rel="self"/>
-  <link href="http://www.debugrelease.com/"/>
-  <updated>2013-08-08T15:46:50+10:00</updated>
-  <id>http://www.debugrelease.com/</id>
+  <link href="http://deepak-kapoor.github.io/blog/categories/hadoop/atom.xml" rel="self"/>
+  <link href="http://deepak-kapoor.github.io/"/>
+  <updated>2013-08-08T15:51:11+10:00</updated>
+  <id>http://deepak-kapoor.github.io/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Hadoop Word Count Revised]]></title>
-    <link href="http://www.debugrelease.com/2012/07/11/hadoop-word-count-revised/"/>
+    <link href="http://deepak-kapoor.github.io/2012/07/11/hadoop-word-count-revised/"/>
     <updated>2012-07-11T00:00:00+10:00</updated>
-    <id>http://www.debugrelease.com/2012/07/11/hadoop-word-count-revised</id>
+    <id>http://deepak-kapoor.github.io/2012/07/11/hadoop-word-count-revised</id>
     <content type="html"><![CDATA[<p>This is a follow up to my <a href="http://www.debugrelease.com/yet-another-hadoop-word-count-tutorial/">last post</a> in which I showed you how to write a word count MapReduce job. Have a look at <a href="http://www.debugrelease.com/yet-another-hadoop-word-count-tutorial/">that earlier post</a> before reading on. It will put things into perspective. </p>
 
 
@@ -66,9 +66,9 @@ public class HadoopWordCountRevised {
   
   <entry>
     <title type="html"><![CDATA[Yet Another Hadoop Word Count Tutorial]]></title>
-    <link href="http://www.debugrelease.com/2012/07/10/yet-another-hadoop-word-count-tutorial/"/>
+    <link href="http://deepak-kapoor.github.io/2012/07/10/yet-another-hadoop-word-count-tutorial/"/>
     <updated>2012-07-10T00:00:00+10:00</updated>
-    <id>http://www.debugrelease.com/2012/07/10/yet-another-hadoop-word-count-tutorial</id>
+    <id>http://deepak-kapoor.github.io/2012/07/10/yet-another-hadoop-word-count-tutorial</id>
     <content type="html"><![CDATA[<p>Here is another Word Count count Hadoop tutorial. Why? You ask. It is a learning exercise for me. I am writing it out so that I can refer to it in future. Also, rather than just copying the example already available with Hadoop installation, I will try to fix some shortcomings of the word count program. Before I do that, let’s just write a stock-standard one. </p>
 
 
@@ -203,9 +203,9 @@ word.set(tokenizer.nextToken().toLowerCase());
   
   <entry>
     <title type="html"><![CDATA[java.lang.NoClassDefFoundError: …/guava/common/primitives/UnsignedBytes]]></title>
-    <link href="http://www.debugrelease.com/2012/07/04/java-lang-noclassdeffounderror-orgapachehadoopthirdpartyguavacommonprimitivesunsignedbytes/"/>
+    <link href="http://deepak-kapoor.github.io/2012/07/04/java-lang-noclassdeffounderror-orgapachehadoopthirdpartyguavacommonprimitivesunsignedbytes/"/>
     <updated>2012-07-04T00:00:00+10:00</updated>
-    <id>http://www.debugrelease.com/2012/07/04/java-lang-noclassdeffounderror-orgapachehadoopthirdpartyguavacommonprimitivesunsignedbytes</id>
+    <id>http://deepak-kapoor.github.io/2012/07/04/java-lang-noclassdeffounderror-orgapachehadoopthirdpartyguavacommonprimitivesunsignedbytes</id>
     <content type="html"><![CDATA[<p>No idea why this happened today on a Hadoop project which was running fine till now. </p>
 
 
@@ -215,9 +215,9 @@ word.set(tokenizer.nextToken().toLowerCase());
   
   <entry>
     <title type="html"><![CDATA[IBM BigInsights Web Console Issue With BigDataUniversity VM]]></title>
-    <link href="http://www.debugrelease.com/2012/06/30/ibm-biginsights-web-console-issue-with-bigdatauniversity-vm/"/>
+    <link href="http://deepak-kapoor.github.io/2012/06/30/ibm-biginsights-web-console-issue-with-bigdatauniversity-vm/"/>
     <updated>2012-06-30T00:00:00+10:00</updated>
-    <id>http://www.debugrelease.com/2012/06/30/ibm-biginsights-web-console-issue-with-bigdatauniversity-vm</id>
+    <id>http://deepak-kapoor.github.io/2012/06/30/ibm-biginsights-web-console-issue-with-bigdatauniversity-vm</id>
     <content type="html"><![CDATA[<p>BigInsights web console error in IBM Infosphere BigInsights VM usually occurs because web console is not running. It can be started by executing start.sh which can be found in /opt/ibm/biginsights/bin. I discovered this issue while working through lab 3 of Hadoop Fundamentals 1 course from <a href="http://bigdatauniversity.com/">BigDataUniversity</a>. </p>
 
 

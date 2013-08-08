@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Django | Debug Release]]></title>
-  <link href="http://www.debugrelease.com/blog/categories/django/atom.xml" rel="self"/>
-  <link href="http://www.debugrelease.com/"/>
-  <updated>2013-08-08T15:46:50+10:00</updated>
-  <id>http://www.debugrelease.com/</id>
+  <link href="http://deepak-kapoor.github.io/blog/categories/django/atom.xml" rel="self"/>
+  <link href="http://deepak-kapoor.github.io/"/>
+  <updated>2013-08-08T15:51:11+10:00</updated>
+  <id>http://deepak-kapoor.github.io/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Enable GZip Compression in Django]]></title>
-    <link href="http://www.debugrelease.com/2012/03/26/enable-gzip-compression-in-django/"/>
+    <link href="http://deepak-kapoor.github.io/2012/03/26/enable-gzip-compression-in-django/"/>
     <updated>2012-03-26T00:00:00+11:00</updated>
-    <id>http://www.debugrelease.com/2012/03/26/enable-gzip-compression-in-django</id>
+    <id>http://deepak-kapoor.github.io/2012/03/26/enable-gzip-compression-in-django</id>
     <content type="html"><![CDATA[<p>GZip compression reduces size of payload sent to browser which in turn increases performance for your site. If you are not doing this then stop everything and <a title="Benefits of GZip compression." href="http://developer.yahoo.com/performance/rules.html#gzip">read this</a>. Hopefully you will be convinced. I for one use it all the time. </p>
 
 
@@ -60,9 +60,9 @@
   
   <entry>
     <title type="html"><![CDATA[Customize Response Headers in Django]]></title>
-    <link href="http://www.debugrelease.com/2012/03/26/customize-response-headers-in-django/"/>
+    <link href="http://deepak-kapoor.github.io/2012/03/26/customize-response-headers-in-django/"/>
     <updated>2012-03-26T00:00:00+11:00</updated>
-    <id>http://www.debugrelease.com/2012/03/26/customize-response-headers-in-django</id>
+    <id>http://deepak-kapoor.github.io/2012/03/26/customize-response-headers-in-django</id>
     <content type="html"><![CDATA[<p>Django makes it as easy as it can be to work with Response Headers. These headers in case you did not know are sent to the browser along with the response to a request. You can customize values for existing headers and also add new headers. In this example we will look at how easily it is done in Django. </p>
 
 

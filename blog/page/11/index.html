@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="SQL Search by Red-Gate is a great tool for searching within database objects. It is invaluable on brown field projects where you work with existing &hellip;">
+  <meta name="description" content="In an earlier post I showed you how to add ScrollViewer to Panels. In this post I will show you how to change the look of&#160; the ScrollViewer &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,10 +18,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.debugrelease.com/blog/page/11">
+  <link rel="canonical" href="http://deepak-kapoor.github.io/blog/page/11">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="http://feeds.feedburner.com/debug-release" rel="alternate" title="Debug Release" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="Debug Release" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
@@ -53,7 +53,7 @@
   
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:www.debugrelease.com" />
+    <input type="hidden" name="q" value="site:deepak-kapoor.github.io" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
@@ -74,7 +74,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/11/22/search-within-sql-server-database-objects-with-red-gate-sql-search/">Search Within SQL Server Database Objects With Red-Gate SQL Search</a></h1>
+      <h1 class="entry-title"><a href="/2009/07/07/style-silverlight-scrollviewer-with-a-new-controltemplate/">Style Silverlight ScrollViewer With a New ControlTemplate</a></h1>
     
     
       <p class="meta">
@@ -90,16 +90,61 @@
   
 
 
-<time datetime="2010-11-22T00:00:00+11:00" pubdate data-updated="true">Nov 22<span>nd</span>, 2010</time>
-        
-         | <a href="/2010/11/22/search-within-sql-server-database-objects-with-red-gate-sql-search/#disqus_thread">Comments</a>
+<time datetime="2009-07-07T00:00:00+10:00" pubdate data-updated="true">Jul 7<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>SQL Search by Red-Gate is a great tool for searching within database objects. It is invaluable on brown field projects where you work with existing databases. My recent experience was working with a database which had hundreds of Stored procedures, Views, Triggers etc. I had to find out all objects which used a particular table. <a href="http://www.red-gate.com/products/SQL_Search/">SQL Search</a> made this job a breeze. SQL Search does a text search across all database objects so you can also look for things like column names.</p>  <p>Taking an example of Northwind database. You could to search for all database objects which have the word “customer” in their text. Below is a screenshot showing the search results.</p>  <p>&#160;<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image29.png" width="539" height="561" /> </p>  <p>The best thing is that <a href="http://www.red-gate.com/products/SQL_Search/">SQL Search</a> is free. </p>
+  <div class="entry-content"><p>In an earlier post I showed you <a href="http://www.debugrelease.com/scrolling-in-silverlight-panels/">how to add ScrollViewer to Panels</a>. In this post I will show you how to change the look of&#160; the ScrollViewer using Expression Blend. I will work with the same example where I placed&#160; ScrollViewer for a StackPanel. Here is the XAML I will use with a screenshot of its output.</p>  <pre class="code"><span style="color: blue">&lt;</span><span style="color: #a31515">ScrollViewer</span><span style="color: blue">&gt;
+  &lt;</span><span style="color: #a31515">StackPanel </span><span style="color: red">x</span><span style="color: blue">:</span><span style="color: red">Name</span><span style="color: blue">=&quot;LayoutRoot&quot; 
+</span><span style="color: red">              Background</span><span style="color: blue">=&quot;Honeydew&quot;&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkBlue&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkRed&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkGoldenrod&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkSeaGreen&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DodgerBlue&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkGreen&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkMagenta&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkOrchid&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkTurquoise&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkViolet&quot; /&gt;
+  &lt;/</span><span style="color: #a31515">StackPanel</span><span style="color: blue">&gt;
+&lt;/</span><span style="color: #a31515">ScrollViewer</span><span style="color: blue">&gt;</span></pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+<p>&#160;</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="StackPanel With ScrollViewer" border="0" alt="StackPanel With ScrollViewer" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image5.png" width="350" height="321" /> </p>
+
+<p>I will now show you how to modify the standard look of the ScrollViewer. Rather than killing myself by typing all the XAML required to achieve the goal, I will use Blend which makes doing this a breeze. In the Objects and Timeline I can see the hierarchy of Controls in my Page.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image6.png" width="257" height="222" />&#160;</p>
+
+<p>What I need to do now is change the default Control Template for ScrollViewer. This can be done by right clicking ScrollViewer in Objects and Timeline –&gt; Edit Control Parts (Template) –&gt; Edit a Copy.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image7.png" width="471" height="368" /> </p>
+
+<p>My Objects and Timeline shows me the hierarchy of controls involved in a ScrollViewer. I now need to modify the template for VerticalScrollBar. This can be done by right clicking VierticalScrollBar –&gt; Edit Control parts (Template) –&gt; Edit a Copy.</p>
+
+<p>In Objects and Timeline I now see this hierarchy.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image8.png" width="258" height="347" /> </p>
+
+<p>To keep things simple, I will just change the background of my ScrollViewer. This can be done by applying a Radial gradient to the first Rectangle (highlighted above). </p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image9.png" width="269" height="284" /> </p>
+
+<p>Screenshot below shows the changed background for ScrollViewer in Expression Blend. </p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image10.png" width="369" height="349" /> </p>
+
+<p>Now when I run my application I can see that the background of my ScrollViewer has a Radial gradient applied to it.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image11.png" width="351" height="322" /> </p>
+
+<p>Similarly we can changes other parts of the ScrollViewer such as top and bottom buttons and the thumb. Silverlight allows us to change look of controls significantly by editing Control Templates. You saw an example of this awesomeness in this article.</p>
 </div>
   
   
@@ -112,7 +157,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/11/19/working-with-sql-server-hierarchyid-data-type-in-net-application/">Working With SQL Server HierarchyId Data Type in .NET Application</a></h1>
+      <h1 class="entry-title"><a href="/2009/07/07/select-max-value-with-linq-to-sql/">Select Max Value With LINQ to SQL</a></h1>
     
     
       <p class="meta">
@@ -128,158 +173,543 @@
   
 
 
-<time datetime="2010-11-19T00:00:00+11:00" pubdate data-updated="true">Nov 19<span>th</span>, 2010</time>
-        
-         | <a href="/2010/11/19/working-with-sql-server-hierarchyid-data-type-in-net-application/#disqus_thread">Comments</a>
+<time datetime="2009-07-07T00:00:00+10:00" pubdate data-updated="true">Jul 7<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Recently I was working with some hierarchical data stored in SQL Server. The data was related to products where each product is a package which includes other packages which in turn can include individual products. The data was stored in a table where a a product row had a parentId column which indicated the parent of that product. This is a how we have stored hiearchies in tables. The solution has worked for years but is it the most efficient way to store hiearchichal data? Perhaps not. That’s why SQL Server 2008 had a data type called hierarchyId. This post is about working with&#160; the data type. Rather than divulging details of the application I’m working on commercially, I will use Northwind database as an example to demonstrate concepts talked in here.</p>  <p>&#160;</p>  <h4>Basic Setup</h4>  <p>Northwind database has a table called Employees. This table stores information about an Employee and it also stores information about who an employee reports to. This structure is maintained by using a ReportsTo column in Employees table which links to EmployeeId within the same table.</p>  <p>&#160;</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image25.png" width="237" height="464" /> </p>  <p>As the objective here is to store this information using hierarchyId type, I created a new table called Employees2. To make things simple I only included EmployeeId, LastName and FirstName columns other than EmployeeNode which stores the hierarchical information and PlaceINHieararchy which indicates the place of a particular employee in organizational hierarchy. For example employee A can report to Employee B who reports to Employee C, so employee A’s place in hierarchy is 3. </p>  <p>This is the script I used to create Employees2 table.</p> 
+  <div class="entry-content">Today I was asked a question by a developer on my team. The question is “How do you select MAX value for a column in a table with LINQ To SQL?”. I will try to answer the question in this post with an example. Let’s say that we want to retrieve maximum unit price from Products table in Northwind database. In T-SQL such a query can be written like this.
 
-<pre class="lang:tsql decode:true " >
-CREATE TABLE Employees2
-(EmployeeNode hierarchyid NOT NULL PRIMARY KEY NONCLUSTERED, 
-EmployeeId INT NOT NULL, 
-LastName NVARCHAR(20) NOT NULL, 
-FirstName NVARCHAR(10) NOT NULL, 
-PlaceInHierarchy AS EmployeeNode.GetLevel())
-</pre>
-
-<h4>Populating Data </h4>
-
-<p>To have a meaningful example I decided to insert some data into Employees2 table from Employees table. This script inserts data into Employees2 table. It may not be the best way to insert this data especially me using a temp table. But this is a dirty script which means that I’ll only run it once so I am not too worried about its elegance.</p>
-
-<pre class="lang:tsql decode:true " >
-WITH Emp AS 
-	(SELECT 
-	'/'+CAST(EmployeeId AS VARCHAR(49)) AS PATH, 
-	EmployeeId FROM dbo.Employees b 
-	WHERE 
-	b.ReportsTo IS NULL 
-	UNION ALL 
-	SELECT 
-	CAST(Emp.path+'/'+CAST(b.EmployeeId AS VARCHAR(4)) AS VARCHAR(50)), 
-	b.EmployeeId 
-	FROM 
-	dbo.Employees b JOIN Emp ON b.ReportsTo = Emp.EmployeeId)
-SELECT * INTO #temp FROM Emp
+ 
+<pre class="lang:tsql decode:true " >SELECT MAX(UnitPrice)
+FROM products</pre> 
 
 
+Query above produces the correct result.
 
-INSERT INTO 
-Employees2(EmployeeNode, 
-EmployeeId, 
-LastName, 
-FirstName)
-SELECT 
-CAST( t.PATH+'/' AS hierarchyId), 
-b.EmployeeID, 
-b.LastName, 
-b.FirstName
-FROM 
-#temp t JOIN dbo.Employees b ON t.EmployeeId = b.EmployeeId
-ORDER BY 1
-</pre>
+<img style="display: inline; border-width: 0px;" title="image" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image.png" width="178" height="46" border="0" />
 
-<p>A simple select from Employees2 table which shows data inserted into employees2 table.</p>
+In LINQ To SQL we can write the following query
 
-<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image26.png" width="519" height="196" /> </p>
+ 
+<pre class="lang:c# decode:true " >(from p in Products select (p.UnitPrice)).Max()  </pre> 
 
-<h4>Writing .NET Code</h4>
 
-<p>After creating a table and inserting data my first thought was how can I use Entity Framework or LINQ To SQL to do CRUD on Employees2 table. Unfortunately those are not valid options. Microsoft did not provide any support to work with hierarchyId data type in either Entity Framework or LINQ To SQL. A major draw back which I hope will be addressed in future versions of these ORMs.</p>
+which will get translated into this T-SQL.
 
-<p>Lack of support for hierarcyId data type in Entity Framework and LINQ To SQL does not mean that you don’t have any options. Good old raw ADO.NET is still around and comes in handy when working with hierarchyId data type. Another good thing is that Sql Server data type hierarchyId is available as SqlHierarchyId struct in Microsoft.SqlServer.Types assembly. To use the struct I added a reference to the Microsoft.SqlServer.Types assembly. The location of this assembly on my machine is</p>
+<img style="display: inline; border-width: 0px;" title="image" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image1.png" width="294" height="36" border="0" />
 
-<p><font color="#0000a0"><strong>C:Program Files (x86)Microsoft SQL Server100SDKAssemblies</strong></font></p>
+Other than MAX we can also use other aggregates such as MIN, SUM etc..
+</div>
+  
+  
 
-<p>Next I wanted to write some code which can retrieve data from employees2 table and display it on a console. This method fetches all rows form employees2 table and displays the EmployeeNode column. Note how I store the value of EmployeeNode column into a employeeNode SqlHierarchyId struct and then I call a ToString() method on the struct.</p>
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/07/07/scrolling-in-silverlight-panels/">Scrolling in Silverlight Panels</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-07T00:00:00+10:00" pubdate data-updated="true">Jul 7<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Scrolling is a very basic User Interface feature which allows you to navigate vertically or horizontally the content which may take up more than available area. In Silverlight scrolling is not available by default for any of the panels. But it can easily be made available with just a little bit of XAML. In this post I will show you how to enable scrolling for a StackPanel which contains more items than it can fit within its size.</p>  <p>To begin with I will create a StackPanel with about 10 rectangles. </p>  <pre class="code"><span style="color: blue">&lt;</span><span style="color: #a31515">StackPanel </span><span style="color: red">x</span><span style="color: blue">:</span><span style="color: red">Name</span><span style="color: blue">=&quot;LayoutRoot&quot; 
+            </span><span style="color: red">Background</span><span style="color: blue">=&quot;Honeydew&quot;&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkBlue&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkRed&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkGoldenrod&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkSeaGreen&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DodgerBlue&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkGreen&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkMagenta&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkOrchid&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkTurquoise&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkViolet&quot; /&gt;
+&lt;/</span><span style="color: #a31515">StackPanel</span><span style="color: blue">&gt;</span></pre>
+
+<pre class="code"><span style="color: blue"></span></pre>
+
+<p><a href="http://11011.net/software/vspaste"></a></p>
+
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Panel without ScrollViewer" border="0" alt="Panel without ScrollViewer" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image2.png" width="539" height="320" /></p>
+
+<p>To get a ScrollViewer all I need to do is Wrap my StackPanel inside a ScrollViewer.</p>
+
+<pre class="code"><span style="color: blue">&lt;</span><span style="color: #a31515">ScrollViewer</span><span style="color: blue">&gt;
+  &lt;</span><span style="color: #a31515">StackPanel </span><span style="color: red">x</span><span style="color: blue">:</span><span style="color: red">Name</span><span style="color: blue">=&quot;LayoutRoot&quot; 
+              </span><span style="color: red">Background</span><span style="color: blue">=&quot;Honeydew&quot;&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkBlue&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkRed&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkGoldenrod&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkSeaGreen&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DodgerBlue&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkGreen&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkMagenta&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkOrchid&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkTurquoise&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkViolet&quot; /&gt;
+  &lt;/</span><span style="color: #a31515">StackPanel</span><span style="color: blue">&gt;
+&lt;/</span><span style="color: #a31515">ScrollViewer</span><span style="color: blue">&gt;</span></pre>
+
+<p><a href="http://11011.net/software/vspaste"></a></p>
+
+<p>&#160;</p>
+
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="ScrollViewer" border="0" alt="ScrollViewer" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image3.png" width="539" height="321" /></p>
+
+<p>ScrollViewer can also be used with other panels such as Grid, Canvas etc. Other than scrolling vertically ScrollViewer can also be uses to scroll horizontally. This can be done by setting HorizontalScrollBarVisibility property as shown below.</p>
+
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="HorizontalScrollBarVisibility" border="0" alt="HorizontalScrollBarVisibility" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image4.png" width="406" height="115" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/07/01/what-is-microsoft-azure/">What Is Microsoft Windows Azure?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-01T00:00:00+10:00" pubdate data-updated="true">Jul 1<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This video is by far the best explanation I have seen. It cannot get any simpler and smarter. Original source of the video is <a href="http://channel9.msdn.com/posts/smarx/What-is-Windows-Azure-a-hand-drawn-video/">Channel 9</a>.</p> <object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="320" height="240"> <param name="source" value="http://channel9.msdn.com/App_Themes/default/vp09_06_22.xap" /> <param name="initParams" value="m=http://video.msn.com/StreamingUrl.aspx?vid=feec9c5d-c6c9-451c-aa9a-b7f4524a6322,autostart=false,autohide=true,showembed=true, thumbnail=http://channel9.msdn.com/Link/df4516a3-9aa9-4f01-a225-d8d22aab624d/, postid=474686" /> <param name="background" value="#00FFFFFF" /> <a href="http://go.microsoft.com/fwlink/?LinkID=124807" style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none" /> </a> </object>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/06/30/silverlight-predefined-colors-what-color-are-they/">Silverlight Predefined Colors – What Color Are They?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-30T00:00:00+10:00" pubdate data-updated="true">Jun 30<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>While writing Silverlight applications, I find it challenging to pick colors from the list of predefined colors supported by Silverlight. Honestly I don’t know what those fancy colors look like. There! I said it!. Happy? To overcome this issue in true developer style, I wrote a small utility which shows all predefined colors on a page. This post is about how I wrote the utility. Here is a screenshot of what my little application looks like when it is running. </p>  <p>&#160;</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image5.png" width="550" height="534" /> </p>  <br />  <p>In XAML we have more colors available to us as compared to when we are in code behind. When&#160; we write something like Fill=”DarkBlue”, XAML parser converts it into the proper dark blue color. Look at the choice of colors we get when writing XAML.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image6.png" width="205" height="225" /> </p>  <p>And this is our limited choice in c#.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image7.png" width="188" height="221" /> </p>  <p>But for my little utility I needed to know about all those pre-defined colors in c#. I found a <a href="http://silverlight.net/forums/p/13225/43867.aspx">post by Jabb</a> which came in handy for this. </p>  <p>Writing this application was very simple. In my XAML I defined a DataTemplate which is used by a ListBox to show all colors. </p>  
+
+ 
+<pre class="lang:xhtml decode:true " >&lt;UserControl x:Class="AllColors.Page"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Loaded="UserControl_Loaded"&gt;
+  &lt;StackPanel x:Name="LayoutRoot" Background="White"&gt;
+    &lt;StackPanel.Resources&gt;
+      &lt;DataTemplate x:Key="ColorsTemplate"&gt;
+        &lt;StackPanel Margin="10" Orientation="Horizontal"&gt;
+          &lt;TextBlock 
+            Margin="20" 
+            Width="200" 
+            VerticalAlignment="Center" 
+            Text="{Binding Path=ColorName}" 
+            FontFamily="Verdana" 
+            FontSize="20"  /&gt;
+          &lt;Rectangle 
+            Margin="20" 
+            Width="300" 
+            VerticalAlignment="Center" 
+            HorizontalAlignment="Center" 
+            Height="100" 
+            Fill="{Binding Path=ColorName}" /&gt;
+        &lt;/StackPanel&gt;
+      &lt;/DataTemplate&gt;
+    &lt;/StackPanel.Resources&gt;
+
+    &lt;ListBox x:Name="lstColors" 
+      Margin="50" 
+      Height="800" 
+      ItemTemplate="{StaticResource ColorsTemplate}" 
+      ScrollViewer.VerticalScrollBarVisibility="Visible" /&gt;
+    &lt;/StackPanel&gt;
+&lt;/UserControl&gt;</pre> 
+
+
+<p>In C# code for my UserControl, I assigned ItemSource property to a list of pre-defined colors. </p>
 
 <pre class="lang:c# decode:true " >
-static void GetEmployeeNodes()
-{ 
-  using (SqlConnection cn = new SqlConnection(connectionString)) 
-  { 
-    string query = "SELECT * FROM employees2"; 
-    SqlCommand cmd = new SqlCommand(query, cn); 
-    cn.Open(); 
-    SqlDataReader reader = cmd.ExecuteReader(); 
-
-    while (reader.Read()) 
-    { 
-      SqlHierarchyId employeeNode = new SqlHierarchyId(); 
-      employeeNode = (SqlHierarchyId)reader["EmployeeNode"]; 
-      Console.WriteLine("Employee Node = " + employeeNode.ToString()); 
-    } 
-  }
+private void UserControl_Loaded(object sender, RoutedEventArgs e)
+{
+  AllColorsHelper helper = new AllColorsHelper();
+  lstColors.ItemsSource = helper.PredefinedColors;
 }
 </pre>
 
-<p>Output of the method looked like this.</p>
-
-<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image27.png" width="451" height="114" /> </p>
-
-<p>I also wrote a method which displays ancestors for a particular employee. Getting an ancestor for a node is done by calling GetAncestor method on employeeNode which is of type SqlHierarchyId .</p>
+<p>A collection of pre-defined colors came from a helper class. This collection is loaded in the constructor of AllColorsHelper class.</p>
 
 <pre class="lang:c# decode:true " >
-static void GetEmployeeDetails(int employeeId)
-{ 
-  using (SqlConnection cn = new SqlConnection(connectionString)) 
-  { 
-    string query = 
-      "SELECT * FROM employees2 WHERE employeeId = " + employeeId.ToString(); 
-    SqlCommand cmd = new SqlCommand(query, cn); 
-    cn.Open(); 
-    SqlDataReader reader = cmd.ExecuteReader(); 
-		
-    string output = string.Empty; 
-    
-    while (reader.Read()) 
-    { 
-      SqlHierarchyId employeeNode = new SqlHierarchyId(); 
-      employeeNode = (SqlHierarchyId)reader["EmployeeNode"]; 
-      Console.WriteLine("Employee Node = " + employeeNode.ToString()); 
-      output = string.Format("{0} {1}", reader["LastName"], reader["FirstName"]); 
-      var ancestorNode = employeeNode.GetAncestor(1); 
+public class Color
+{
+  public string ColorName { get; set; }
+  public uint ColorCode { get; set; }
+}
 
-      while (!ancestorNode.IsNull) 
-      { 
-        using (SqlConnection cn2 = new SqlConnection(connectionString)) 
-        { 
-          query = 
-            "Select * from employees2 where EmployeeNode=hierarchyid::Parse(@node)"; 
-          SqlCommand cmd2 = new SqlCommand(query, cn2); 
-          cmd2.Parameters.AddWithValue("@node", ancestorNode.ToString()); 
-          cn2.Open(); 
-          SqlDataReader reader2 = cmd2.ExecuteReader(); 
-					
-          while (reader2.Read()) 
-          { 
-            output += 
-              string.Format("/{0} {1}", reader2["LastName"], reader2["FirstName"]); 
-          } 
-					
-          ancestorNode = ancestorNode.GetAncestor(1); 
-        } 
-      } 
-    } 
-    Console.WriteLine(output); 
-  }
+public class AllColorsHelper
+{
+  public AllColorsHelper()
+  {
+    PredefinedColors = new List<Color> 
+      {
+         new Color{ColorName = "Aliceblue", ColorCode = 0xFFF0F8FF},
+         new Color{ColorName = "AntiqueWhite", ColorCode = 0xFFFAEBD7},
+         new Color{ColorName = "Aqua", ColorCode = 0xFF00FFFF},
+         new Color{ColorName = "Aquamarine", ColorCode = 0xFF7FFFD4},
+         new Color{ColorName = "Azure", ColorCode = 0xFFF0FFFF},
+         new Color{ColorName = "Beige", ColorCode = 0xFFF5F5DC},
+         new Color{ColorName = "Bisque", ColorCode = 0xFFFFE4C4},
+         new Color{ColorName = "Black", ColorCode = 0xFF000000},
+         new Color{ColorName = "BlanchedAlmond", ColorCode = 0xFFFFEBCD},
+         new Color{ColorName = "Blue", ColorCode = 0xFF0000FF},
+         new Color{ColorName = "BlueViolet", ColorCode = 0xFF8A2BE2},
+         new Color{ColorName = "Brown", ColorCode = 0xFFA52A2A},
+         new Color{ColorName = "BurlyWood", ColorCode = 0xFFDEB887},
+         new Color{ColorName = "CadetBlue", ColorCode = 0xFF5F9EA0},
+         new Color{ColorName = "Chartreuse", ColorCode = 0xFF7FFF00},
+         new Color{ColorName = "Chocolate", ColorCode = 0xFFD2691E},
+         new Color{ColorName = "Coral", ColorCode = 0xFFFF7F50},
+         new Color{ColorName = "CornflowerBlue", ColorCode = 0xFF6495ED},
+         new Color{ColorName = "Cornsilk", ColorCode = 0xFFFFF8DC},
+         new Color{ColorName = "Crimson", ColorCode = 0xFFDC143C},
+         new Color{ColorName = "Cyan", ColorCode = 0xFF00FFFF},
+         new Color{ColorName = "DarkBlue", ColorCode = 0xFF00008B},
+         new Color{ColorName = "DarkCyan", ColorCode = 0xFF008B8B},
+         new Color{ColorName = "DarkGoldenrod", ColorCode = 0xFFB8860B},
+         new Color{ColorName = "DarkGray", ColorCode = 0xFFA9A9A9},
+         new Color{ColorName = "DarkGreen", ColorCode = 0xFF006400},
+         new Color{ColorName = "DarkKhaki", ColorCode = 0xFFBDB76B},
+         new Color{ColorName = "DarkMagenta", ColorCode = 0xFF8B008B},
+         new Color{ColorName = "DarkOliveGreen", ColorCode = 0xFF556B2F},
+         new Color{ColorName = "DarkOrange", ColorCode = 0xFFFF8C00},
+         new Color{ColorName = "DarkOrchid", ColorCode = 0xFF9932CC},
+         new Color{ColorName = "DarkRed", ColorCode = 0xFF8B0000},
+         new Color{ColorName = "DarkSalmon", ColorCode = 0xFFE9967A},
+         new Color{ColorName = "DarkSeaGreen", ColorCode = 0xFF8FBC8F},
+         new Color{ColorName = "DarkSlateBlue", ColorCode = 0xFF483D8B},
+         new Color{ColorName = "DarkSlateGray", ColorCode = 0xFF2F4F4F},
+         new Color{ColorName = "DarkTurquoise", ColorCode = 0xFF00CED1},
+         new Color{ColorName = "DarkViolet", ColorCode = 0xFF9400D3},
+         new Color{ColorName = "DeepPink", ColorCode = 0xFFFF1493},
+         new Color{ColorName = "DeepSkyBlue", ColorCode = 0xFF00BFFF},
+         new Color{ColorName = "DimGray", ColorCode = 0xFF696969},
+         new Color{ColorName = "DodgerBlue", ColorCode = 0xFF1E90FF},
+         new Color{ColorName = "Firebrick", ColorCode = 0xFFB22222},
+         new Color{ColorName = "FloralWhite", ColorCode = 0xFFFFFAF0},
+         new Color{ColorName = "ForestGreen", ColorCode = 0xFF228B22},
+         new Color{ColorName = "Fuchsia", ColorCode = 0xFFFF00FF},
+         new Color{ColorName = "Gainsboro", ColorCode = 0xFFDCDCDC},
+         new Color{ColorName = "GhostWhite", ColorCode = 0xFFF8F8FF},
+         new Color{ColorName = "Gold", ColorCode = 0xFFFFD700},
+         new Color{ColorName = "Goldenrod", ColorCode = 0xFFDAA520},
+         new Color{ColorName = "Gray", ColorCode = 0xFF808080},
+         new Color{ColorName = "Green", ColorCode = 0xFF008000},
+         new Color{ColorName = "GreenYellow", ColorCode = 0xFFADFF2F},
+         new Color{ColorName = "Honeydew", ColorCode = 0xFFF0FFF0},
+         new Color{ColorName = "HotPink", ColorCode = 0xFFFF69B4},
+         new Color{ColorName = "IndianRed", ColorCode = 0xFFCD5C5C},
+         new Color{ColorName = "Indigo", ColorCode = 0xFF4B0082},
+         new Color{ColorName = "Ivory", ColorCode = 0xFFFFFFF0},
+         new Color{ColorName = "Khaki", ColorCode = 0xFFF0E68C},
+         new Color{ColorName = "Lavender", ColorCode = 0xFFE6E6FA},
+         new Color{ColorName = "LavenderBlush", ColorCode = 0xFFFFF0F5},
+         new Color{ColorName = "LawnGreen", ColorCode = 0xFF7CFC00},
+         new Color{ColorName = "LemonChiffon", ColorCode = 0xFFFFFACD},
+         new Color{ColorName = "LightBlue", ColorCode = 0xFFADD8E6},
+         new Color{ColorName = "LightCoral", ColorCode = 0xFFF08080},
+         new Color{ColorName = "LightCyan", ColorCode = 0xFFE0FFFF},
+         new Color{ColorName = "LightGoldenrodYellow", ColorCode = 0xFFFAFAD2},
+         new Color{ColorName = "LightGray", ColorCode = 0xFFD3D3D3},
+         new Color{ColorName = "LightGreen", ColorCode = 0xFF90EE90},
+         new Color{ColorName = "LightPink", ColorCode = 0xFFFFB6C1},
+         new Color{ColorName = "LightSalmon", ColorCode = 0xFFFFA07A},
+         new Color{ColorName = "LightSeaGreen", ColorCode = 0xFF20B2AA},
+         new Color{ColorName = "LightSkyBlue", ColorCode = 0xFF87CEFA},
+         new Color{ColorName = "LightSlateGray", ColorCode = 0xFF778899},
+         new Color{ColorName = "LightSteelBlue", ColorCode = 0xFFB0C4DE},
+         new Color{ColorName = "LightYellow", ColorCode = 0xFFFFFFE0},
+         new Color{ColorName = "Lime", ColorCode = 0xFF00FF00},
+         new Color{ColorName = "LimeGreen", ColorCode = 0xFF32CD32},
+         new Color{ColorName = "Linen", ColorCode = 0xFFFAF0E6},
+         new Color{ColorName = "Magenta", ColorCode = 0xFFFF00FF},
+         new Color{ColorName = "Maroon", ColorCode = 0xFF800000},
+         new Color{ColorName = "MediumAquamarine", ColorCode = 0xFF66CDAA},
+         new Color{ColorName = "MediumBlue", ColorCode = 0xFF0000CD},
+         new Color{ColorName = "MediumOrchid", ColorCode = 0xFFBA55D3},
+         new Color{ColorName = "MediumPurple", ColorCode = 0xFF9370DB},
+         new Color{ColorName = "MediumSeaGreen", ColorCode = 0xFF3CB371},
+         new Color{ColorName = "MediumSlateBlue", ColorCode = 0xFF7B68EE},
+         new Color{ColorName = "MediumSpringGreen", ColorCode = 0xFF00FA9A},
+         new Color{ColorName = "MediumTurquoise", ColorCode = 0xFF48D1CC},
+         new Color{ColorName = "MediumVioletRed", ColorCode = 0xFFC71585},
+         new Color{ColorName = "MidnightBlue", ColorCode = 0xFF191970},
+         new Color{ColorName = "MintCream", ColorCode = 0xFFF5FFFA},
+         new Color{ColorName = "MistyRose", ColorCode = 0xFFFFE4E1},
+         new Color{ColorName = "Moccasin", ColorCode = 0xFFFFE4B5},
+         new Color{ColorName = "NavajoWhite", ColorCode = 0xFFFFDEAD},
+         new Color{ColorName = "Navy", ColorCode = 0xFF000080},
+         new Color{ColorName = "OldLace", ColorCode = 0xFFFDF5E6},
+         new Color{ColorName = "Olive", ColorCode = 0xFF808000},
+         new Color{ColorName = "OliveDrab", ColorCode = 0xFF6B8E23},
+         new Color{ColorName = "Orange", ColorCode = 0xFFFFA500},
+         new Color{ColorName = "OrangeRed", ColorCode = 0xFFFF4500},
+         new Color{ColorName = "Orchid", ColorCode = 0xFFDA70D6},
+         new Color{ColorName = "PaleGoldenrod", ColorCode = 0xFFEEE8AA},
+         new Color{ColorName = "PaleGreen", ColorCode = 0xFF98FB98},
+         new Color{ColorName = "PaleTurquoise", ColorCode = 0xFFAFEEEE},
+         new Color{ColorName = "PaleVioletRed", ColorCode = 0xFFDB7093},
+         new Color{ColorName = "PapayaWhip", ColorCode = 0xFFFFEFD5},
+         new Color{ColorName = "PeachPuff", ColorCode = 0xFFFFDAB9},
+         new Color{ColorName = "Peru", ColorCode = 0xFFCD853F},
+         new Color{ColorName = "Pink", ColorCode = 0xFFFFC0CB},
+         new Color{ColorName = "Plum", ColorCode = 0xFFDDA0DD},
+         new Color{ColorName = "PowderBlue", ColorCode = 0xFFB0E0E6},
+         new Color{ColorName = "Purple", ColorCode = 0xFF800080},
+         new Color{ColorName = "Red", ColorCode = 0xFFFF0000},
+         new Color{ColorName = "RosyBrown", ColorCode = 0xFFBC8F8F},
+         new Color{ColorName = "RoyalBlue", ColorCode = 0xFF4169E1},
+         new Color{ColorName = "SaddleBrown", ColorCode = 0xFF8B4513},
+         new Color{ColorName = "Salmon", ColorCode = 0xFFFA8072},
+         new Color{ColorName = "SandyBrown", ColorCode = 0xFFF4A460},
+         new Color{ColorName = "SeaGreen", ColorCode = 0xFF2E8B57},
+         new Color{ColorName = "SeaShell", ColorCode = 0xFFFFF5EE},
+         new Color{ColorName = "Sienna", ColorCode = 0xFFA0522D},
+         new Color{ColorName = "Silver", ColorCode = 0xFFC0C0C0},
+         new Color{ColorName = "SkyBlue", ColorCode = 0xFF87CEEB},
+         new Color{ColorName = "SlateBlue", ColorCode = 0xFF6A5ACD},
+         new Color{ColorName = "SlateGray", ColorCode = 0xFF708090},
+         new Color{ColorName = "Snow", ColorCode = 0xFFFFFAFA},
+         new Color{ColorName = "SpringGreen", ColorCode = 0xFF00FF7F},
+         new Color{ColorName = "SteelBlue", ColorCode = 0xFF4682B4},
+         new Color{ColorName = "Tan", ColorCode = 0xFFD2B48C},
+         new Color{ColorName = "Teal", ColorCode = 0xFF008080},
+         new Color{ColorName = "Thistle", ColorCode = 0xFFD8BFD8},
+         new Color{ColorName = "Tomato", ColorCode = 0xFFFF6347},
+         new Color{ColorName = "Transparent", ColorCode = 0x00FFFFFF},
+         new Color{ColorName = "Turquoise", ColorCode = 0xFF40E0D0},
+         new Color{ColorName = "Violet", ColorCode = 0xFFEE82EE},
+         new Color{ColorName = "Wheat", ColorCode = 0xFFF5DEB3},
+         new Color{ColorName = "White", ColorCode = 0xFFFFFFFF},
+         new Color{ColorName = "WhiteSmoke", ColorCode = 0xFFF5F5F5},
+         new Color{ColorName = "Yellow", ColorCode = 0xFFFFFF00},
+         new Color{ColorName = "YellowGreen", ColorCode = 0xFF9ACD32}
+       };
+ }
+  public List<Color> PredefinedColors { get; set; }
 }
 </pre>
 
-<p>The output I got.</p>
+<p>This gave me a list of all predefined colors. Here is a partial screenshot.</p>
 
-<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image28.png" width="450" height="50" /> </p>
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image8.png" width="550" height="468" /> </p>
 
-<h4>A bit about SqlHierarchyId struct</h4>
+<p>&#160;</p>
 
-<p>SqlHierarchyId struct provides other methods like GetDescendant, GetLevel, GetRoot etc. to retrieve more information. In my personal opinion I think that Microsoft needs to do a little more work on this and make it more useful. Of course the best thing to do will be to provide support for hierarchyId data type in Entity Framework and LINQ To SQL (if it’s not already dead).</p>
+<p>I thought it would be nice if I could filter colors by name. Surely this will make my life easy. So I added few controls for filtering and refactored my C# code. </p>
 
-<p>I hope you enjoyed reading the post as much as I enjoyed writing it and learning something I didn’t know.</p>
+ 
+<pre class="lang:xhtml decode:true " >&lt;StackPanel Orientation="Horizontal" Margin="7"&gt;
+  &lt;TextBlock 
+    Margin="7" 
+    VerticalAlignment="Center" 
+    Text="Color Name" /&gt;
+  &lt;TextBox x:Name="txtColorName" 
+    Margin="7" 
+    Width="200" 
+    TextChanged="txtColorName_TextChanged" /&gt;
+&lt;/StackPanel&gt;
+        
+&lt;TextBlock x:Name="txtCount" 
+    Margin="7" /&gt;</pre> 
+
+
+<p>And here is my refactored C# code.</p>
+
+<pre class="lang:c# decode:true " >
+private AllColorsHelper helper = new AllColorsHelper();
+
+private void UserControl_Loaded(object sender, RoutedEventArgs e)
+{
+  DisplayColors(helper.PredefinedColors);
+}
+
+private void txtColorName_TextChanged(object sender, TextChangedEventArgs e)
+{
+  string filterCriteria = txtColorName.Text.Trim().ToLower();
+
+  if (!string.IsNullOrEmpty(filterCriteria))
+  {
+    var query = from c in helper.PredefinedColors
+       where c.ColorName.ToLower().StartsWith(filterCriteria)
+       select c;
+    DisplayColors(query);
+  }
+  else
+    DisplayColors(helper.PredefinedColors);
+}
+
+private void DisplayColors(IEnumerable<Color> colorCollection)
+{
+  lstColors.ItemsSource = colorCollection;
+
+  txtCount.Text = 
+    string.Format("Now displaying {0} colors", colorCollection.Count());
+}
+</pre>
+
+<p>I now had filtering available in my application</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image10.png" width="550" height="511" /> </p>
+
+<p>Thus the features set of my application was implemented. But there was something missing. It did not look very Silverlight / XAMAL-ish. And that ground was easily covered by applying styles. Here is my final XAML.</p>
+
+ 
+<pre class="lang:xhtml decode:true " >&lt;UserControl x:Class="AllColors.Page"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Loaded="UserControl_Loaded"&gt;
+  &lt;!--Start Main Container--&gt;
+  &lt;StackPanel x:Name="LayoutRoot" Background="White"&gt;
+    &lt;!--Start Resources--&gt;
+    &lt;StackPanel.Resources&gt;
+      &lt;Style x:Key="TextBlockStyle" TargetType="TextBlock"&gt;
+        &lt;Setter Property="FontFamily" Value="Verdana" /&gt;
+        &lt;Setter Property="FontSize" Value="18" /&gt;
+      &lt;/Style&gt;
+
+      &lt;DataTemplate x:Key="ColorsTemplate"&gt;
+        &lt;StackPanel Margin="10" Orientation="Horizontal"&gt;
+          &lt;TextBlock 
+            Style="{StaticResource TextBlockStyle}"
+            Margin="5" 
+            Width="200" 
+            VerticalAlignment="Center" 
+            Text="{Binding Path=ColorName}" /&gt;
+            &lt;Rectangle 
+              Margin="5" 
+              Width="300" 
+              VerticalAlignment="Center" 
+              HorizontalAlignment="Center" 
+              Height="50" 
+              Fill="{Binding Path=ColorName}" /&gt;
+        &lt;/StackPanel&gt;
+      &lt;/DataTemplate&gt;
+    &lt;/StackPanel.Resources&gt;
+    &lt;!--End Resources--&gt;
+        
+    &lt;!--Start Filter Area--&gt;
+    &lt;StackPanel Orientation="Horizontal" Margin="7"&gt;
+      &lt;StackPanel.Background&gt;
+        &lt;LinearGradientBrush&gt;
+          &lt;GradientStop Color="LightSkyBlue" Offset="0.1" /&gt;
+          &lt;GradientStop Color="LightBlue" Offset="0.5" /&gt;
+        &lt;/LinearGradientBrush&gt;
+      &lt;/StackPanel.Background&gt;
+      &lt;TextBlock 
+        Style="{StaticResource TextBlockStyle}"
+        Margin="7" 
+        VerticalAlignment="Center" 
+        Text="Color Name" /&gt;
+      &lt;TextBox x:Name="txtColorName" 
+        Margin="7" 
+        Width="200" 
+        TextChanged="txtColorName_TextChanged" /&gt;
+    &lt;/StackPanel&gt;
+    &lt;!--End Filter Area--&gt;
+
+    &lt;!--Start Results Area--&gt;
+    &lt;Border
+      Margin="5"
+      CornerRadius="20"
+      Background="LightGray"
+      BorderThickness="2" &gt;
+      &lt;StackPanel&gt;
+        &lt;TextBlock x:Name="txtCount" 
+          Style="{StaticResource TextBlockStyle}"
+          Margin="20,10,0,0" /&gt;
+        &lt;ListBox x:Name="lstColors" 
+          Margin="20" 
+          Height="400" 
+          ItemTemplate="{StaticResource ColorsTemplate}" 
+          ScrollViewer.VerticalScrollBarVisibility="Visible" /&gt;
+      &lt;/StackPanel&gt;
+    &lt;/Border&gt;
+    &lt;!--End Results Area--&gt;
+
+  &lt;/StackPanel&gt;
+  &lt;!--End Main Container--&gt;
+&lt;/UserControl&gt;</pre> 
+
+
+<p>And once again a screenshot of the finished product.</p>
+
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image5.png" width="550" height="534" /></p>
+
+<p>So writing a Siverlight application which displays all predefined colors was not hard at all, and I used Silverlight features like Styles, DataTemplate, Resources and Data Binding. So now that I can quickly see what those colors look like, I’m off to learn how to match them properly. </p>
 </div>
   
   
@@ -292,7 +722,7 @@ static void GetEmployeeDetails(int employeeId)
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/11/17/use-linqpad-to-query-entity-framework/">Use LINQPad to Query Entity Framework</a></h1>
+      <h1 class="entry-title"><a href="/2009/06/28/silverlight-wrap-panel/">Silverlight Wrap Panel</a></h1>
     
     
       <p class="meta">
@@ -308,16 +738,74 @@ static void GetEmployeeDetails(int employeeId)
   
 
 
-<time datetime="2010-11-17T00:00:00+11:00" pubdate data-updated="true">Nov 17<span>th</span>, 2010</time>
-        
-         | <a href="/2010/11/17/use-linqpad-to-query-entity-framework/#disqus_thread">Comments</a>
+<time datetime="2009-06-28T00:00:00+10:00" pubdate data-updated="true">Jun 28<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>LINQPad is a must have tool for all .NET developers who write LINQ queries. It allows you to write and execute LINQ queries without compiling your code. In this post I will show you how to setup LINQPad to work along with Entity Framework. </p>  <p>The way LINQPad works with Entity Framework is that it consumes the EDM you would have generated by using Visual Studio. Your model could be in a class library and LINQPad can use that. For this example I have already created a class library project which contains my model. The model is generated over Northwind database.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image20.png" width="234" height="107" /> </p>  <p>After successfully compiling my project I launched LINQPad and clicked on Add connection. A dialog box appears which allows you to choose a data context. You can either build a context by connecting to a data source or you can build one from an assembly. In this case I selected the second radio button and clicked on Entity Framework.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image21.png" width="540" height="397" /></p>  <p>Click Next and LINQPad then gives you an option to browse for the assembly. Click on browse next to “Path to custom assembly” and browse to the assembly which contains the model.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image22.png" width="439" height="537" /> </p>  <p>Once an assembly which contains a Entity Framework model is selected, LINQPad shows the models within that assembly.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image23.png" width="540" height="290" /> </p>  <p>Click OK and OK again on the LINQPad Connection dialog. LINQPad is now connected to the model and you can run queries against it.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image24.png" width="539" height="433" /> </p>  <p><a href="http://www.linqpad.net">Download link for LINQPad</a>.</p>
+  <div class="entry-content"><p>Wrap panel in Silverlight is missing out of the box, but this need is fulfilled by Silverlight Toolkit which also includes many other controls. In this post we will look at WrapPanel. I will show you how to use it and what it is used for.</p>  <p>To use wrap panel you have to install <a href="http://www.codeplex.com/Silverlight">Silverlight Toolkit</a>. Once installed, you will need to add a reference to Silverlight.Windows.Controls.Toolkit</p>  <p>&#160;<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Silverlight.Windows.Controls.Toolkit" border="0" alt="Silverlight.Windows.Controls.Toolkit" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image2.png" width="482" height="406" /> </p>  <p>And you can now use the WrapPanel. In the XAML below you can see that the main container of my user control is a WrapPanel.</p>  
+
+ 
+<pre class="lang:xhtml decode:true " >&lt;UserControl 
+xmlns:controls=
+"clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"  
+  x:Class="SilverlightWrapPanelDemo.Page"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  Width="400" Height="300"&gt;
+  &lt;controls:WrapPanel x:Name="LayoutRoot" Background="White"&gt;
+
+  &lt;/controls:WrapPanel&gt;
+&lt;/UserControl&gt;</pre> 
+
+
+<p>WrapPanel as the name says will wrap controls. Any controls which cannot fit on the first line will be wrapped to next line and so forth. Here is a demo.</p>
+
+ 
+<pre class="lang:xhtml decode:true " >&lt;UserControl 
+xmlns:controls=
+"clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"  
+  x:Class="SilverlightWrapPanelDemo.Page"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  Width="400" Height="300" Background="CornflowerBlue"&gt;
+  &lt;controls:WrapPanel x:Name="LayoutRoot" Background="Honeydew"&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkBlue" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkRed" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkGoldenrod" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkSeaGreen" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DodgerBlue" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkOrchid" /&gt;
+  &lt;/controls:WrapPanel&gt;
+&lt;/UserControl&gt;</pre> 
+
+
+<p>&#160;<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="WrapPanel" border="0" alt="WrapPanel" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image3.png" width="399" height="300" /> </p>
+
+<p>If I reduce the width of UserControl you can see that WrapPanel automatically wraps controls placed inside the container.</p>
+
+ 
+<pre class="lang:xhtml decode:true " >&lt;UserControl 
+xmlns:controls=
+"clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"  
+  x:Class="SilverlightWrapPanelDemo.Page"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  Width="350" Height="300" Background="CornflowerBlue"&gt;
+  &lt;controls:WrapPanel x:Name="LayoutRoot" Background="Honeydew"&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkBlue" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkRed" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkGoldenrod" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkSeaGreen" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DodgerBlue" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkOrchid" /&gt;
+  &lt;/controls:WrapPanel&gt;
+&lt;/UserControl&gt;</pre> 
+
+
+<p>&#160;<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="WrapPanel" border="0" alt="WrapPanel" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image4.png" width="348" height="300" /></p>
 </div>
   
   
@@ -330,7 +818,7 @@ static void GetEmployeeDetails(int employeeId)
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/11/16/visual-studio-2010-feature-pack-2-available-for-download/">Visual Studio 2010 Feature Pack 2 Available for Download</a></h1>
+      <h1 class="entry-title"><a href="/2009/06/25/silverlight-canvas-panel/">Silverlight Canvas Panel</a></h1>
     
     
       <p class="meta">
@@ -346,16 +834,36 @@ static void GetEmployeeDetails(int employeeId)
   
 
 
-<time datetime="2010-11-16T00:00:00+11:00" pubdate data-updated="true">Nov 16<span>th</span>, 2010</time>
-        
-         | <a href="/2010/11/16/visual-studio-2010-feature-pack-2-available-for-download/#disqus_thread">Comments</a>
+<time datetime="2009-06-25T00:00:00+10:00" pubdate data-updated="true">Jun 25<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Visual Studio 2010 Feature pack is now available for <a href="http://msdn.microsoft.com/en-au/vstudio/ff655021.aspx">download</a>. You must have access to MSDN subscribers download to get the Feature pack. Here is a list of what’s included straight from the download page.</p>  <p>Testing features:</p>  <ul>   <li>Use Microsoft Test Manager to capture and playback action recordings for Silverlight 4 applications. </li>    <li>Create coded UI tests for Silverlight 4 applications with Visual Studio 2010 Premium or Visual Studio 2010 Ultimate. </li>    <li>Edit coded UI tests using a graphical editor with Visual Studio 2010 Premium or Visual Studio 2010 Ultimate. </li>    <li>Use action recordings to fast forward through manual tests that need to support Mozilla Firefox 3.5 and 3.6. </li>    <li>Run coded UI tests for web applications using Mozilla Firefox 3.5 and 3.6 with Microsoft Visual Studio 2010 Premium or Visual Studio 2010 Ultimate.</li> </ul>  <p>Code visualization and modeling features (requires Visual Studio 2010 Ultimate):</p>  <ul>   <li>Use the Generate Code command to generate skeleton code from elements on UML class diagrams. You can use the default transformations, or you can write custom transformations to translate UML types into code. </li>    <li>Create UML class diagrams from existing code. </li>    <li>Explore the organization and relationships in C, C++, and ASP.NET projects by generating dependency graphs. </li>    <li>Import elements from UML sequence diagrams, class diagrams, and use case diagrams as XMI 2.1 files that are exported from other modeling tools. </li>    <li>Create links and view links from work items to model elements. </li>    <li>Create layer diagrams from C or C++ code and validate dependencies. </li>    <li>Write code to modify layer diagrams and to validate code against layer diagrams.</li> </ul>
+  <div class="entry-content"><p>Panels are basic layout mechanism in both Silverlight and WPF. They act as containers for other controls and each panel provides a different way of laying out controls on the screen. In this post we will look at Canvas Panel in Silverlight. Canvas allows us to put controls based on x and y&#160; coordinates. This gives us precise control over where our UI elements e.g buttons, text boxes etc. are placed. </p>  <p>In this example we can see that different ellipses are placed on the canvas using x and y coordinates. </p>  
+
+ 
+<pre class="lang:xhtml decode:true " >&lt;Canvas x:Name="LayoutRoot" Background="LightGoldenrodYellow"&gt;
+  &lt;Ellipse Height="50" Width="50" Fill="Coral" 
+
+    Canvas.Left="20" Canvas.Top="20" /&gt;
+  &lt;Ellipse Height="50" Width="50" Fill="Red" 
+
+    Canvas.Left="70" Canvas.Top="70" /&gt;
+  &lt;Ellipse Height="50" Width="50" Fill="Pink" 
+
+    Canvas.Left="120" Canvas.Top="120" /&gt;
+  &lt;Ellipse Height="50" Width="50" Fill="Purple" 
+
+    Canvas.Left="170" Canvas.Top="170" /&gt;
+  &lt;Ellipse Height="50" Width="50" Fill="RoyalBlue" 
+
+    Canvas.Left="220" Canvas.Top="220" /&gt;
+&lt;/Canvas&gt;</pre> 
+
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Canvas Panel" border="0" alt="Canvas Panel" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image1.png" width="399" height="299" /></p>
 </div>
   
   
@@ -368,7 +876,7 @@ static void GetEmployeeDetails(int employeeId)
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/11/12/generating-sql-server-database-from-entity-data-model/">Generate SQL Server Database From Entity Data Model</a></h1>
+      <h1 class="entry-title"><a href="/2009/06/16/request-error-in-adonet-data-services/">Request Error in ADO.NET Data Services</a></h1>
     
     
       <p class="meta">
@@ -384,16 +892,86 @@ static void GetEmployeeDetails(int employeeId)
   
 
 
-<time datetime="2010-11-12T00:00:00+11:00" pubdate data-updated="true">Nov 12<span>th</span>, 2010</time>
-        
-         | <a href="/2010/11/12/generating-sql-server-database-from-entity-data-model/#disqus_thread">Comments</a>
+<time datetime="2009-06-16T00:00:00+10:00" pubdate data-updated="true">Jun 16<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>In an <a href="http://www.debugrelease.com/creating-entity-data-model-without-a-database-with-entity-framework-4/">earlier post</a> we looked at how to generate an Entity Data Model using Visual Studio 2010. The data model we created was not generated from a database. This is a follow up post in which we will generate a database using the model we have already created.</p>  <p>First thing we will do is open the project which contains our EDM. Next we will open Model Browser in Visual Studio.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image13.png" width="272" height="260" /> </p>  <p>To generate a database we need to right click on the root node within Model Browser and click on Generate Database from Model… </p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image19.png" width="540" height="202" /> </p>  <p>Generate Database Wizard is started and the first step is to specify a valid connection to a database. We can create a New Connection which connects to a blank database called MyBank. We can also instruct the wizard to save the connection string in App.config file. </p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image15.png" width="536" height="523" /> </p>  <p>Second step in the wizard generates and displays the SQL script which will create database objects as per our EDM.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image16.png" width="536" height="523" /> </p>  <p>After clicking Finish on the wizard a new file of type .sql is added to the project. The script which was generated by the wizard is saved in this file.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image17.png" width="301" height="140" /></p>  <p>Upon executing the generated script our database objects are created.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image18.png" width="551" height="178" /></p>
+  <div class="entry-content"><p>When creating a new ADO.NET Data Service you may find yourself with this error.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="ServiceErrorCapture" border="0" alt="ServiceErrorCapture" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/serviceerrorcapture.png" width="534" height="96" /> </p>  <p>Don’t call it quits on ADO.NET Data Services because of this error. It is very easy to fix. Have a close look at the code generated by Visual Studio for you.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image.png" width="550" height="205" /> </p>  <p>Here the code calls SetEntitySetAccessRule on “MyEntitySet” but most likely your entity set is not called “MyEntitySet”. Similarly the second line sets operation access rule again on “MyServiceOperation” and you may want to set access rules on your operations. If you want to include all operations and all entity sets in the two method calls you can simply specify “*” as the value for first parameter.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/05/29/silverlight-ebay-sidebar-for-internet-explorer-8/">Silverlight Ebay Sidebar for Internet Explorer 8</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-29T00:00:00+10:00" pubdate data-updated="true">May 29<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Today I visited ebay for I think the 5th time in my life and I found that they have a new sidebar for Internet Explorer 8. What’s cool about this side bar is that it uses Silverlight.. You can view your active auctions and get information on your bids. A cool addin for ebay users.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/05/image35.png" width="185" height="236" /> </p>  <p><a href="http://ie8.ebay.com/sidebar/">Link to download ebay Sidebar</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/05/28/find-unused-css-on-a-website/">Find Unused CSS on a Website</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-28T00:00:00+10:00" pubdate data-updated="true">May 28<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>During the course of a project we often end up adding elements to style sheets which do not get used. This causes css files to bloat which impacts performance. The best thing to do is to keep track of css elements which are not being used and remove them. This can become a strenuous task especially if you have a large website. But there is a tool which can be used to find unused css. The tool is called Dust-Me Selectors and it is an addon for Firefox.&#160;&#160; </p>  <p>Running the tool on <a href="http://www.debugrelease.com/">One .Net Way</a> gives me this result. There are 131 selectors which are not being used at present. This should however be taken as a starting point for clean up. You must always manually check if css is being used in client side scripts or server side code.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/05/image34.png" width="408" height="390" /> </p>  <p><a href="http://www.sitepoint.com/dustmeselectors/">Download link for Dust-Me Selectors</a>.</p>
 </div>
   
   
@@ -435,26 +1013,6 @@ static void GetEmployeeDetails(int employeeId)
     
       <li class="post">
         <a href="/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/07/03/linux-number-of-files-in-directory/">Linux - Number of Files in Directory</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/24/android-listview-tutorial-with-images-and-text/">Android - ListView Tutorial With Images and Text</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/19/android-listview-tutorial/">Android - ListView Tutorial</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>
@@ -515,19 +1073,6 @@ alt="free hit counters"></a></div></noscript>
 
 </footer>
   
-
-<script type="text/javascript">
-      var disqus_shortname = 'debugrelease';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
 
 
 

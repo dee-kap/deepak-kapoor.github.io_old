@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: .NET | Debug Release]]></title>
-  <link href="http://www.debugrelease.com/blog/categories/dot-net/atom.xml" rel="self"/>
-  <link href="http://www.debugrelease.com/"/>
-  <updated>2013-08-08T15:46:50+10:00</updated>
-  <id>http://www.debugrelease.com/</id>
+  <link href="http://deepak-kapoor.github.io/blog/categories/dot-net/atom.xml" rel="self"/>
+  <link href="http://deepak-kapoor.github.io/"/>
+  <updated>2013-08-08T15:51:11+10:00</updated>
+  <id>http://deepak-kapoor.github.io/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Error Installing ASP.NET MVC 4 with Web Platform Installer]]></title>
-    <link href="http://www.debugrelease.com/2012/04/24/error-installing-asp-net-mvc-4-with-web-platform-installer/"/>
+    <link href="http://deepak-kapoor.github.io/2012/04/24/error-installing-asp-net-mvc-4-with-web-platform-installer/"/>
     <updated>2012-04-24T00:00:00+10:00</updated>
-    <id>http://www.debugrelease.com/2012/04/24/error-installing-asp-net-mvc-4-with-web-platform-installer</id>
+    <id>http://deepak-kapoor.github.io/2012/04/24/error-installing-asp-net-mvc-4-with-web-platform-installer</id>
     <content type="html"><![CDATA[<p>I’m starting this post with a rant. Here it goes. Web Platform Installer has got to be the most pathetic piece of crap ever produced by Microsoft. It just does not work. I can’t understand how they are able to push out such a piece of garbage. I’m angry, and I have my reasons. So I want to play with ASP.NET MVC 4. I go to the website and I attempt an install. After about 5 minutes Web Platform Installer shows me this:</p>
 
 
@@ -27,9 +27,9 @@
   
   <entry>
     <title type="html"><![CDATA[WAT080: Failed to locate the Windows Azure SDK. Please make sure the Windows Azure SDK v1.5 is installed.]]></title>
-    <link href="http://www.debugrelease.com/2012/02/07/wat080-failed-to-locate-the-windows-azure-sdk-please-make-sure-the-windows-azure-sdk-v1-5-is-installed/"/>
+    <link href="http://deepak-kapoor.github.io/2012/02/07/wat080-failed-to-locate-the-windows-azure-sdk-please-make-sure-the-windows-azure-sdk-v1-5-is-installed/"/>
     <updated>2012-02-07T00:00:00+11:00</updated>
-    <id>http://www.debugrelease.com/2012/02/07/wat080-failed-to-locate-the-windows-azure-sdk-please-make-sure-the-windows-azure-sdk-v1-5-is-installed</id>
+    <id>http://deepak-kapoor.github.io/2012/02/07/wat080-failed-to-locate-the-windows-azure-sdk-please-make-sure-the-windows-azure-sdk-v1-5-is-installed</id>
     <content type="html"><![CDATA[<p>After installing Windows Azure SDK and Visual Studio tools November 2011, I got this error when compiling an existing Cloud project.</p>
 
 
@@ -39,9 +39,9 @@
   
   <entry>
     <title type="html"><![CDATA[Google Shortener API For .NET Written In C#]]></title>
-    <link href="http://www.debugrelease.com/2011/01/15/google-shortener-api-with-dotnet-written-in-c-sharp/"/>
+    <link href="http://deepak-kapoor.github.io/2011/01/15/google-shortener-api-with-dotnet-written-in-c-sharp/"/>
     <updated>2011-01-15T00:00:00+11:00</updated>
-    <id>http://www.debugrelease.com/2011/01/15/google-shortener-api-with-dotnet-written-in-c-sharp</id>
+    <id>http://deepak-kapoor.github.io/2011/01/15/google-shortener-api-with-dotnet-written-in-c-sharp</id>
     <content type="html"><![CDATA[<p><a href="https://code.google.com/p/n-gshortener/"><img style="background-image: none; border-right-width: 0px; margin: 0px 10px 10px; padding-left: 0px; padding-right: 0px; display: inline; float: left; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" align="left" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2011/01/image.png" width="56" height="59" /></a>Google Shortener is a service provided by Google to create short URLs. Google Shortener has been available for some time now but only recently Google released a public API to access this service programmatically. Today I decided to try it out and wrote some C# code to work with the API. I will describe what I did in this post.</p>
 
 
@@ -88,9 +88,9 @@ public class Reply
   
   <entry>
     <title type="html"><![CDATA[Binary Attachments In WCF With MTOM]]></title>
-    <link href="http://www.debugrelease.com/2010/11/26/binary-attachments-in-wcf-with-mtom/"/>
+    <link href="http://deepak-kapoor.github.io/2010/11/26/binary-attachments-in-wcf-with-mtom/"/>
     <updated>2010-11-26T00:00:00+11:00</updated>
-    <id>http://www.debugrelease.com/2010/11/26/binary-attachments-in-wcf-with-mtom</id>
+    <id>http://deepak-kapoor.github.io/2010/11/26/binary-attachments-in-wcf-with-mtom</id>
     <content type="html"><![CDATA[<p>MTOM which stands for Message Transmission Optimization Mechanism is a <a href="http://www.w3.org/TR/soap12-mtom/">W3C Recommendation</a> which is mostly about reducing the size of binary data when transferred through SOAP web services.</p>
 
 
@@ -238,9 +238,9 @@ byte[] photoBytes;client.GetPhoto(out photoBytes);
   
   <entry>
     <title type="html"><![CDATA[Working With SQL Server HierarchyId Data Type In .NET Application]]></title>
-    <link href="http://www.debugrelease.com/2010/11/19/working-with-sql-server-hierarchyid-data-type-in-net-application/"/>
+    <link href="http://deepak-kapoor.github.io/2010/11/19/working-with-sql-server-hierarchyid-data-type-in-net-application/"/>
     <updated>2010-11-19T00:00:00+11:00</updated>
-    <id>http://www.debugrelease.com/2010/11/19/working-with-sql-server-hierarchyid-data-type-in-net-application</id>
+    <id>http://deepak-kapoor.github.io/2010/11/19/working-with-sql-server-hierarchyid-data-type-in-net-application</id>
     <content type="html"><![CDATA[<p>Recently I was working with some hierarchical data stored in SQL Server. The data was related to products where each product is a package which includes other packages which in turn can include individual products. The data was stored in a table where a a product row had a parentId column which indicated the parent of that product. This is a how we have stored hiearchies in tables. The solution has worked for years but is it the most efficient way to store hiearchichal data? Perhaps not. That’s why SQL Server 2008 had a data type called hierarchyId. This post is about working with&#160; the data type. Rather than divulging details of the application I’m working on commercially, I will use Northwind database as an example to demonstrate concepts talked in here.</p>
 
 

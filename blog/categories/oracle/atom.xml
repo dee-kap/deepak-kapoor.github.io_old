@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Oracle | Debug Release]]></title>
-  <link href="http://www.debugrelease.com/blog/categories/oracle/atom.xml" rel="self"/>
-  <link href="http://www.debugrelease.com/"/>
-  <updated>2013-08-08T15:46:50+10:00</updated>
-  <id>http://www.debugrelease.com/</id>
+  <link href="http://deepak-kapoor.github.io/blog/categories/oracle/atom.xml" rel="self"/>
+  <link href="http://deepak-kapoor.github.io/"/>
+  <updated>2013-08-08T15:51:11+10:00</updated>
+  <id>http://deepak-kapoor.github.io/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Yet Another Hadoop Word Count Tutorial]]></title>
-    <link href="http://www.debugrelease.com/2012/07/10/yet-another-hadoop-word-count-tutorial/"/>
+    <link href="http://deepak-kapoor.github.io/2012/07/10/yet-another-hadoop-word-count-tutorial/"/>
     <updated>2012-07-10T00:00:00+10:00</updated>
-    <id>http://www.debugrelease.com/2012/07/10/yet-another-hadoop-word-count-tutorial</id>
+    <id>http://deepak-kapoor.github.io/2012/07/10/yet-another-hadoop-word-count-tutorial</id>
     <content type="html"><![CDATA[<p>Here is another Word Count count Hadoop tutorial. Why? You ask. It is a learning exercise for me. I am writing it out so that I can refer to it in future. Also, rather than just copying the example already available with Hadoop installation, I will try to fix some shortcomings of the word count program. Before I do that, let’s just write a stock-standard one. </p>
 
 
@@ -152,9 +152,9 @@ word.set(tokenizer.nextToken().toLowerCase());
   
   <entry>
     <title type="html"><![CDATA[Complex Event Processing with Esper–Tutorial For Beginners]]></title>
-    <link href="http://www.debugrelease.com/2012/06/14/complex-event-processing-with-esper-tutorial-for-beginners/"/>
+    <link href="http://deepak-kapoor.github.io/2012/06/14/complex-event-processing-with-esper-tutorial-for-beginners/"/>
     <updated>2012-06-14T00:00:00+10:00</updated>
-    <id>http://www.debugrelease.com/2012/06/14/complex-event-processing-with-esper-tutorial-for-beginners</id>
+    <id>http://deepak-kapoor.github.io/2012/06/14/complex-event-processing-with-esper-tutorial-for-beginners</id>
     <content type="html"><![CDATA[<h3>Introduction</h3>
 
 
@@ -550,9 +550,9 @@ public class CallDetector {
   
   <entry>
     <title type="html"><![CDATA[Axis2 Plugin for Netbeans 7.1.2]]></title>
-    <link href="http://www.debugrelease.com/2012/05/25/axis2-plugin-for-netbeans-7-1-2/"/>
+    <link href="http://deepak-kapoor.github.io/2012/05/25/axis2-plugin-for-netbeans-7-1-2/"/>
     <updated>2012-05-25T00:00:00+10:00</updated>
-    <id>http://www.debugrelease.com/2012/05/25/axis2-plugin-for-netbeans-7-1-2</id>
+    <id>http://deepak-kapoor.github.io/2012/05/25/axis2-plugin-for-netbeans-7-1-2</id>
     <content type="html"><![CDATA[<p>I upgraded Netbeans today and found that there is no Axis2 plugin available via Tools –&gt; Plugins. Looks like Axis2 support plugin has been discontinued in Netbeans. However the link below works and I was able to install the plugin. This post hopefully will serve as a bookmark when I’m looking for Axis2 plugin in Netbeans next time.</p>
 
 
@@ -562,9 +562,9 @@ public class CallDetector {
   
   <entry>
     <title type="html"><![CDATA[Issue Starting Oracle XE on Ubuntu]]></title>
-    <link href="http://www.debugrelease.com/2011/01/03/issue-starting-oracle-xe-on-ubuntu/"/>
+    <link href="http://deepak-kapoor.github.io/2011/01/03/issue-starting-oracle-xe-on-ubuntu/"/>
     <updated>2011-01-03T00:00:00+11:00</updated>
-    <id>http://www.debugrelease.com/2011/01/03/issue-starting-oracle-xe-on-ubuntu</id>
+    <id>http://deepak-kapoor.github.io/2011/01/03/issue-starting-oracle-xe-on-ubuntu</id>
     <content type="html"><![CDATA[<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px 10px 10px; padding-left: 0px; padding-right: 0px; display: inline; float: left; border-top: 0px; border-right: 0px; padding-top: 0px" title="ubuntu" border="0" alt="ubuntu" align="left" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2011/01/ubuntu.jpg" width="180" height="101" />Installing Oracle XE on Ubuntu was a breeze. I downloaded the package and executed it. Ubuntu Software Center kicked in and performed the installation. The issue I faced was when I started database. I got the following error:</p>
 
 
@@ -574,9 +574,9 @@ public class CallDetector {
   
   <entry>
     <title type="html"><![CDATA[Add Javadoc to Netbeans]]></title>
-    <link href="http://www.debugrelease.com/2011/01/01/add-javadoc-to-netbeans/"/>
+    <link href="http://deepak-kapoor.github.io/2011/01/01/add-javadoc-to-netbeans/"/>
     <updated>2011-01-01T00:00:00+11:00</updated>
-    <id>http://www.debugrelease.com/2011/01/01/add-javadoc-to-netbeans</id>
+    <id>http://deepak-kapoor.github.io/2011/01/01/add-javadoc-to-netbeans</id>
     <content type="html"><![CDATA[<p>I installed Netbeans 6.9 on my machine and found that Javadoc is not installed. For example when invoking intellisense for a method in Calendar class I get the following message. </p>
 
 

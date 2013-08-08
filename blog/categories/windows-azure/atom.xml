@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Windows Azure | Debug Release]]></title>
-  <link href="http://www.debugrelease.com/blog/categories/windows-azure/atom.xml" rel="self"/>
-  <link href="http://www.debugrelease.com/"/>
-  <updated>2013-08-08T15:46:50+10:00</updated>
-  <id>http://www.debugrelease.com/</id>
+  <link href="http://deepak-kapoor.github.io/blog/categories/windows-azure/atom.xml" rel="self"/>
+  <link href="http://deepak-kapoor.github.io/"/>
+  <updated>2013-08-08T15:51:11+10:00</updated>
+  <id>http://deepak-kapoor.github.io/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Windows Azure - Connect to Linux Virtual Machine]]></title>
-    <link href="http://www.debugrelease.com/2013/05/31/windows-azure-connect-to-linux-virtual-machine/"/>
+    <link href="http://deepak-kapoor.github.io/2013/05/31/windows-azure-connect-to-linux-virtual-machine/"/>
     <updated>2013-05-31T00:00:00+10:00</updated>
-    <id>http://www.debugrelease.com/2013/05/31/windows-azure-connect-to-linux-virtual-machine</id>
+    <id>http://deepak-kapoor.github.io/2013/05/31/windows-azure-connect-to-linux-virtual-machine</id>
     <content type="html"><![CDATA[<p>In an <a href="http://www.debugrelease.com/2013/05/30/windows-azure-create-linux-virtual-machine-through-management-portal/">earlier post</a> I created a Linux virtual machine on Windows Azure. In this post I will show you how to establish a SSH connection to the virtual machine.</p>
 
 <p>&nbsp;</p>
@@ -65,9 +65,9 @@
   
   <entry>
     <title type="html"><![CDATA[Windows Azure - Create Linux virtual machine through management portal]]></title>
-    <link href="http://www.debugrelease.com/2013/05/30/windows-azure-create-linux-virtual-machine-through-management-portal/"/>
+    <link href="http://deepak-kapoor.github.io/2013/05/30/windows-azure-create-linux-virtual-machine-through-management-portal/"/>
     <updated>2013-05-30T00:00:00+10:00</updated>
-    <id>http://www.debugrelease.com/2013/05/30/windows-azure-create-linux-virtual-machine-through-management-portal</id>
+    <id>http://deepak-kapoor.github.io/2013/05/30/windows-azure-create-linux-virtual-machine-through-management-portal</id>
     <content type="html"><![CDATA[<p>Windows Azure along with PaaS is also a full on IaaS cloud service. At the time of this writing you can create a variety of Windows VMs and Linux VMs. This post shows you how easy it is to create a Linux virtual machine on Windows Azure.</p>
 
 
