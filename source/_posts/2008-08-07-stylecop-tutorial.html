@@ -14,8 +14,8 @@ meta:
   _wpas_done_all: '1'
   views: '54492'
   _edit_last: '1'
-  _wp_rp_extracted_image_url: http://www.debugrelease.com/wp-content/uploads/2013/04/image55-150x150.jpg
-  _wp_rp_extracted_image_url_full: http://www.debugrelease.com/wp-content/uploads/2013/04/image55.png
+  _wp_rp_extracted_image_url: https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/04/image55-150x150.jpg
+  _wp_rp_extracted_image_url_full: https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/04/image55.png
   wpzoom_is_featured: ''
   wpzoom_is_carousel: ''
   wpzoom_show_media: ''
@@ -23,7 +23,7 @@ meta:
   wpzoom_post_embed_code: ''
   simplecatch-sidebarlayout: ''
 ---
-<a href="http://code.msdn.microsoft.com/sourceanalysis"><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="http://www.debugrelease.com/wp-content/uploads/2008/08/image5.png" border="0" alt="StyleCop" width="388" height="70" /></a>
+<a href="http://code.msdn.microsoft.com/sourceanalysis"><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image5.png" border="0" alt="StyleCop" width="388" height="70" /></a>
 
 <a href="http://code.msdn.microsoft.com/sourceanalysis">StyleCop</a> is a source analysis tool for C#. It can be used for analysing source code as opposed to compiled assemblies which is the area for FxCop. StyleCop is currently in version 4.2 and can be downloaded <a href="http://code.msdn.microsoft.com/sourceanalysis">here</a>. In this tutorial I will show you how to use StyleCop.
 
@@ -70,25 +70,25 @@ class Program
 
 I can run source code analysis on the entire project via Tools menu or an individual file by right clicking on the class file.
 
-<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="http://www.debugrelease.com/wp-content/uploads/2008/08/image6.png" border="0" alt="image" width="291" height="268" />
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image6.png" border="0" alt="image" width="291" height="268" />
 
 By running source analysis on Program.cs I get 34 violations.
 
-<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="http://www.debugrelease.com/wp-content/uploads/2008/08/image7.png" border="0" alt="image" width="491" height="361" />
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image7.png" border="0" alt="image" width="491" height="361" />
 
 Depending on your style or your coding standards, you will either agree or disagree with detected violations. For example in the result above I do not agree with rule SA1200 "All using directives must be placed inside of the namespace". I have never declared my using statements inside the namespace and I do not intend to do so in future. So what can I do? I can easily modify the rule set. Let's see how we can do this.
 
 By default StyleCop is installed at C:Program FilesMicrosoft Source Analysis Tool for C#. A quick glance over the contents of this folder look like this.
 
-<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="http://www.debugrelease.com/wp-content/uploads/2008/08/image8.png" border="0" alt="image" width="500" height="122" />
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image8.png" border="0" alt="image" width="500" height="122" />
 
 Notice the second last file which is Settings.SourceAnalysis. Double clicking it opens up the SourceAnalysisSettingsEditor where I can select/deselect the rules.
 
-<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="http://www.debugrelease.com/wp-content/uploads/2008/08/image9.png" border="0" alt="image" width="520" height="474" />
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image9.png" border="0" alt="image" width="520" height="474" />
 
 I can turn off rule SA1200 "All using directives must be placed inside of the namespace" and then if I run analysis again, my result set will not show it as a rule violation.
 
-<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="http://www.debugrelease.com/wp-content/uploads/2008/08/image10.png" border="0" alt="image" width="520" height="474" />
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image10.png" border="0" alt="image" width="520" height="474" />
 
 As you can see from screenshots above that rules are categorised into different categories such as Documentation Rules, Layout Rules, Naming Rules etc. This makes is easy work with rules in a logical way.
 <h4>Conclusion</h4>

@@ -15,7 +15,7 @@ meta:
   _aioseop_keywords: Android, LinearLayout, Weight, layout_height, layout_weight,
     java, google
 ---
-<p>In Android Layouts are containers in which you place your widgets like buttons, images, lists etc. Two of the most useful layouts are LinearLayout and RelativeLayout. In this post I will talk about LinearLayout.</p>  <p>LinearLayout extends android.view.ViewGroup which extends android.view.View object. As the name suggests, LinearLayout is used to place widgets in a linear manner. By default widgets are stacked vertically as shown in the image below.</p>  <p><img title="verticalLayout" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="verticalLayout" src="http://www.debugrelease.com/wp-content/uploads/2013/06/verticalLayout.gif" width="245" height="435" /></p>  <p>Here is another example of an app running in the emulator.</p>  <p><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/06/image.png" width="479" height="215" /></p>  <p>To get this layout you can use the following xml</p>  <pre class="prettyprint">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+<p>In Android Layouts are containers in which you place your widgets like buttons, images, lists etc. Two of the most useful layouts are LinearLayout and RelativeLayout. In this post I will talk about LinearLayout.</p>  <p>LinearLayout extends android.view.ViewGroup which extends android.view.View object. As the name suggests, LinearLayout is used to place widgets in a linear manner. By default widgets are stacked vertically as shown in the image below.</p>  <p><img title="verticalLayout" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="verticalLayout" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/verticalLayout.gif" width="245" height="435" /></p>  <p>Here is another example of an app running in the emulator.</p>  <p><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image.png" width="479" height="215" /></p>  <p>To get this layout you can use the following xml</p>  <pre class="prettyprint">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
               android:orientation=&quot;vertical&quot;
               android:layout_width=&quot;fill_parent&quot;
@@ -80,11 +80,11 @@ meta:
 
 <p>The view rendered by the code above will be</p>
 
-<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/06/image1.png" width="240" height="320" /></p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image1.png" width="240" height="320" /></p>
 
 <p>Let’s play a bit with the height property. I will set android:LayoutHeight of second TextView to be fill_parent. Doing so results in this</p>
 
-<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/06/image2.png" width="240" height="320" /></p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image2.png" width="240" height="320" /></p>
 
 <p>What happened to the third TextView? Where did it go? Technically it is still there but you cannot see it. The way this works is that the layout system places TextView 1, it then puts the second TextView if there is space available and then the third one if there is space available. Because the second TextView has taken up the remaing space, there is no space left for third TextView. </p>
 
@@ -123,7 +123,7 @@ meta:
 
 <p>This will give us</p>
 
-<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/06/image3.png" width="240" height="320" /></p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image3.png" width="240" height="320" /></p>
 
 <p>There is another important concept when it comes to placing widgets and that is “Weight”. Let’s look at the effect of weight on our TextViews. By default all widgets placed inside LinearLayout have the same weight i.e. zero. Let’s see what happens if we increase the weight of our first TextView to be 1.</p>
 
@@ -137,7 +137,7 @@ meta:
             android:layout_weight="1" /&gt;</pre> 
 
 
-<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/06/image4.png" width="240" height="320" /></p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image4.png" width="240" height="320" /></p>
 
 <p>See how first TextView has pushed the other two down. One way to look at this is that first TextView is heavier (we are talking about weight here) than the other two and so takes up more room.</p>
 
@@ -179,7 +179,7 @@ meta:
 
 <p>We get this</p>
 
-<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/06/image5.png" width="240" height="320" /></p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image5.png" width="240" height="320" /></p>
 
 <p>All three TextViews have the same height. Do you see the power of layout_weight here? One more example where we want the first and second TextView to take up half of the space combined and let the third one take the other half. This can be done by setting the layout_weight of our third TextView to be 2.</p>
 
@@ -218,6 +218,6 @@ meta:
 </pre> 
 
 
-<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://www.debugrelease.com/wp-content/uploads/2013/06/image6.png" width="240" height="320" /></p>
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image6.png" width="240" height="320" /></p>
 
 <p>Other than layout_width, layout_height and layout_weight, there are many other attributes available which have significant affect on widget’s placement within a layout container. I will leave them for another day. </p>
