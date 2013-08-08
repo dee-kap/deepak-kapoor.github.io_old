@@ -9,8 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="In this post I will show you how to establish a connection to Microsoft SQL Server  from NetBeans IDE.
-I use a Mac so the screenshots here are from &hellip;">
+  <meta name="description" content="I’m starting this post with a rant. Here it goes. Web Platform Installer has got to be the most pathetic piece of crap ever produced by Microsoft. It &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,7 +74,7 @@ I use a Mac so the screenshots here are from &hellip;">
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac/">Connect to SQL Server 2008 From NetBeans IDE on a Mac</a></h1>
+      <h1 class="entry-title"><a href="/2012/04/24/error-installing-asp-net-mvc-4-with-web-platform-installer/">Error Installing ASP.NET MVC 4 With Web Platform Installer</a></h1>
     
     
       <p class="meta">
@@ -91,31 +90,16 @@ I use a Mac so the screenshots here are from &hellip;">
   
 
 
-<time datetime="2010-08-24T00:00:00+10:00" pubdate data-updated="true">Aug 24<span>th</span>, 2010</time>
+<time datetime="2012-04-24T00:00:00+10:00" pubdate data-updated="true">Apr 24<span>th</span>, 2012</time>
         
-         | <a href="/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac/#disqus_thread">Comments</a>
+         | <a href="/2012/04/24/error-installing-asp-net-mvc-4-with-web-platform-installer/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>In this post I will show you how to establish a connection to Microsoft SQL Server  from NetBeans IDE.</p>
-<p>I use a Mac so the screenshots here are from Mac but NetBeans IDE is the same on all other platforms. There should not be any differences.</p>
-<p>First thing we need to do is download the JDBC driver for Microsoft SQL Server from Microsoft. Current version of driver is 3.0 and it can be downloaded <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=%20a737000d-68d0-4531-b65d-da0f2a735707&amp;displaylang=en">here</a>. Download the drivers for UNIX and extract the archive on your machine. Once you have extracted the archive you&#8217;ll get a folder sqljdbc_3.0 under which there is another folder enu. Within enu are the jar files which implement JDBC drivers.</p>
-<p>Now we will start the process to establish our connection to SQL Server from NetBeans. First thing click on Services tab and the Right Click on Databases and then click on New Connection.</p>
-<p><img title="SQLServerNetBeans.png" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/SQLServerNetBeans.png" border="0" alt="Screen shot 2010-08-23 at 6.20.33 PM.png" width="371" height="316" /></p>
-<p>You will see this window. Next to Driver Name click on the drop-down and choose New Driver&#8230;</p>
-<p><img title="NewImage.jpg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/NewImage.jpg" border="0" alt="NewImage.jpg" width="540" height="532" /></p>
-<p>Here click on the Add button and browse to your jar file for SQL Server JDBC driver.</p>
-<p><img title="NewImage.jpg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/NewImage1.jpg" border="0" alt="NewImage.jpg" width="482" height="379" /></p>
-<p>NetBeans is now aware of SQL Server JDBC driver.  You can now start creating the connection to SQL Server. Enter the details for SQL Server. You will need the IP address, port which by default is 1433 and username and password.</p>
-<p><img title="NewImage3.jpg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/NewImage3.jpg" border="0" alt="NewImage3.jpg" width="540" height="554" /></p>
-<p>Click OK and you will be connected to SQL Server.</p>
-<p>On the Server tab in NetBeans under Database you&#8217;ll see your SQL Server. You can browse server objects, view tables, stored procedures etc.</p>
-<p><img title="NewImage5.jpg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/NewImage5.jpg" border="0" alt="NewImage5.jpg" width="356" height="433" /></p>
-<p>You can also run SQL queries on your SQL Server from NetBeans IDE.</p>
-<p><img title="NewImage6.jpg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/NewImage6.jpg" border="0" alt="NewImage6.jpg" width="540" height="489" /></p>
+  <div class="entry-content"><p>I’m starting this post with a rant. Here it goes. Web Platform Installer has got to be the most pathetic piece of crap ever produced by Microsoft. It just does not work. I can’t understand how they are able to push out such a piece of garbage. I’m angry, and I have my reasons. So I want to play with ASP.NET MVC 4. I go to the website and I attempt an install. After about 5 minutes Web Platform Installer shows me this:</p> <p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="Web Platform Installer Error" border="0" alt="Web Platform Installer Error" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/04/SNAGHTML417603de.png" width="700" height="480"></p> <p>Failed to Install? Why? </p> <p>You are sorry? You’ve got to be kidding me. </p> <p>Now I’ve had my <a href="http://www.debugrelease.com/wat080-failed-to-locate-the-windows-azure-sdk-please-make-sure-the-windows-azure-sdk-v1-5-is-installed/">adventures with Web Platform Installer</a> in the past. I should not have bothered with it again. Next time I’m not touching this thing. Rant over.</p> <p>To install it without raising your blood pressure, follow this link:</p> <p><a title="http://download.microsoft.com/download/3/1/0/310C7C02-9E25-4A11-88E0-4CEC53556CC1/AspNetMVC4Setup.exe" href="http://download.microsoft.com/download/3/1/0/310C7C02-9E25-4A11-88E0-4CEC53556CC1/AspNetMVC4Setup.exe">http://download.microsoft.com/download/3/1/0/310C7C02-9E25-4A11-88E0-4CEC53556CC1/AspNetMVC4Setup.exe</a></p>
 </div>
   
   
@@ -128,7 +112,7 @@ I use a Mac so the screenshots here are from &hellip;">
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/08/23/running-glassfish-in-verbose-mode-from-netbeans/">Running Glassfish in Verbose Mode From NetBeans</a></h1>
+      <h1 class="entry-title"><a href="/2012/04/12/meaningless-number-230000000/">Meaningless Number: 230,000,000</a></h1>
     
     
       <p class="meta">
@@ -144,23 +128,16 @@ I use a Mac so the screenshots here are from &hellip;">
   
 
 
-<time datetime="2010-08-23T00:00:00+10:00" pubdate data-updated="true">Aug 23<span>rd</span>, 2010</time>
+<time datetime="2012-04-12T00:00:00+10:00" pubdate data-updated="true">Apr 12<span>th</span>, 2012</time>
         
-         | <a href="/2010/08/23/running-glassfish-in-verbose-mode-from-netbeans/#disqus_thread">Comments</a>
+         | <a href="/2012/04/12/meaningless-number-230000000/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>The title of this post &#8220;Running Glassfish In Verbose Mode From NetBeans&#8221; is slightly misleading because what I am showing here is a way to view Glassfish logs within NetBeans IDE.</p>
-<p>To start Glassfish in verbose mode on a command prompt or Terminal on a mac you&#8217;ll use this command.</p>
-<p><strong>asadmin start-domain &#8211;verbose</strong></p>
-<p>This will show you a nice verbose log of Glassfish activity on the Terminal.</p>
-<p><strong></strong> From NetBeans all you need to do is start Glassfish as you normally would.</p>
-<p><img title="Screen shot 2010-08-23 at 5.09.05 PM.png" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/Screen-shot-2010-08-23-at-5.09.05-PM1.png" border="0" alt="Start Glassfish" width="375" height="397" /></p>
-<p>Now click on View Server Log and you&#8217;ll see a log of all Glassfish activity in NetBeans IDE.</p>
-<p><img style="float: left;" title="Glassfish2.png" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/Glassfish21.png" border="0" alt="Screen shot 2010-08-23 at 5.20.17 PM.png" width="372" height="417" /></p>
+  <div class="entry-content"><p>Search for Sydney weather and Google says that it has found 230,000,000 results. It also takes pride in telling us that it took 0.16 seconds to complete the task. Am I impressed? Totally.</p> <p>&nbsp;</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Google search for Sydney weather. 230,000,000 results found." border="0" alt="Google search for Sydney weather. 230,000,000 results found." src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/04/image.png" width="714" height="130"></p> <p>&nbsp;</p> <p>So let’s just see what Google has to show me on page 230,000. </p> <p>&nbsp;</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Google search for Sydney weather. Cannot show more than 1000 results." border="0" alt="Google search for Sydney weather. Cannot show more than 1000 results." src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/04/image1.png" width="804" height="365"></p> <p>&nbsp;</p> <p>WTF? </p> <p>What is the point of bragging about those 230,000,000 results in 0.16 seconds when you will only show 1000 of those results? </p> <p>Bad Google, bad bad Google.</p>
 </div>
   
   
@@ -173,7 +150,7 @@ I use a Mac so the screenshots here are from &hellip;">
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/08/20/generate-self-signed-certificates-on-windows-7/">Generate Self Signed Certificates on Windows 7</a></h1>
+      <h1 class="entry-title"><a href="/2012/03/26/enable-gzip-compression-in-django/">Enable GZip Compression in Django</a></h1>
     
     
       <p class="meta">
@@ -189,271 +166,35 @@ I use a Mac so the screenshots here are from &hellip;">
   
 
 
-<time datetime="2010-08-20T00:00:00+10:00" pubdate data-updated="true">Aug 20<span>th</span>, 2010</time>
+<time datetime="2012-03-26T00:00:00+11:00" pubdate data-updated="true">Mar 26<span>th</span>, 2012</time>
         
-         | <a href="/2010/08/20/generate-self-signed-certificates-on-windows-7/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This post shows you how to generate self signed certificates on Windows 7. To generate self signed certificates you must have IIS 7.5 installed because you will generate your certificate from within IIS manager. </p>  <h4>Step 1</h4>  <p>Launch IIS manager and in Filter type “Certificates” to see the <strong>Server Certificates Feature</strong>.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/image.png" width="540" height="405" /> </p>  <h4>Step 2</h4>  <p>Double click on Server Certificates feature and click on Create <strong>Self-Signed Certificate… </strong>in <strong>Actions</strong> panel on the right.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/image1.png" width="540" height="405" /> </p>  <h4>Step 3</h4>  <p>Give your certificate a friendly name and click OK.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/image2.png" width="540" height="408" /> </p>  <p>Congratulations you have just generated your self signed certificate. You can right click on the certificate you generated and export it to a file.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/08/20/could-not-create-ssltsl-secure-channel-solution/">Could Not Create SSL/TSL Secure Channel Solution</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-08-20T00:00:00+10:00" pubdate data-updated="true">Aug 20<span>th</span>, 2010</time>
-        
-         | <a href="/2010/08/20/could-not-create-ssltsl-secure-channel-solution/#disqus_thread">Comments</a>
+         | <a href="/2012/03/26/enable-gzip-compression-in-django/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Could Not Create SSL/TLS Secure Channel is an error you my get when communicating with web services in a two way SSL scenario from ASP.NET application. Here is a guide which you can follow to resolve the issue. I spent fair bit of time on this and I am documenting my approach here for future reference.</p>  <p>Make sure that you have proper certificates installed in the Local Machine certificate store. Because communication is two way SSL you will also have your private key installed.</p>  <p>Because your communication occurs via ASP.NET application this is a permissions issue . Your ASP.NET applications runs under the identity configured in the App Pool. You must grant permissions to that account under which your application is running to access the private key. Here’s how to do it.</p>  <p>Download WinHttpCertCfg tool from this <a href="http://www.microsoft.com/downloads/details.aspx?familyid=c42e27ac-3409-40e9-8667-c748e422833f&amp;displaylang=en">link</a>. Don’t worry about the system requirement on the page. I was able to run the tool successfully on Windows 7. After installing the tool go to your command prompt and go to the directory where WinHttpCertCfg is installed. On my machine WinHttpCertCfg is installed at C:Program Files (x86)Windows Resource KitsTools. </p>  <p>Run WinHttpCertCfg using this command. Substitute “IssuedToName” with the appropriate name for your certificate and same for “AccountName”. If your App Pool runs under NetworkService then that’s the account you’ll put in.</p>  <p><b>WinHttpCertCfg.exe -g -c LOCAL_MACHINEMY -s &quot;<var>IssuedToName</var>&quot; -a &quot;<var>AccountName</var>&quot;</b></p>  <p>This should take care of the permission issue and hopefully things will run as expected. In case this doesn’t work then investigate that your certificates are installed in the right store. I know you would have already done this but it doesn’t hurt to have another look. If all else fails then leave a comment and maybe I’ll also learn something new. In any case leave a comment :)</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/08/19/add-hours-to-date-in-java/">Add Hours to Date in Java</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-08-19T00:00:00+10:00" pubdate data-updated="true">Aug 19<span>th</span>, 2010</time>
-        
-         | <a href="/2010/08/19/add-hours-to-date-in-java/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I’ll come out clean on this. Lately I’ve been doing some Java and I have to say that the other side is not all that bad as it’s projected to be. Most of my Java work is around integration with .NET&#160; and I’m lovin it.</p>  <p>My forays into Java and other non-Microsoft technologies is a post for another day. Today I just want to share some simple code which I wrote while I was struggling with a simple requirement. The requirement is to add x number of hours to current Date-Time.</p>  <p>I found that the best way to do this is by using <strong>Calendar</strong> class from <strong>java.utils</strong> package. Here is the code I wrote.</p>  <pre class="brush: java;">public static void main(String[] args) {
-
-        // Create a new calendar object
-        Calendar calendar = Calendar.getInstance();
-
-        System.out.println(calendar);
-
-        // Add 5 hours to current time
-        calendar.add(Calendar.HOUR, 5);
-
-        System.out.println(calendar);
-
-    }</pre>
-
-<p>Each day as I work with Java I find things that seem interesting especially for a .NET guy. I’ll keep posting them.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/08/06/five-reasons-why-google-wave-failed/">Five Reasons Why Google Wave Failed</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-08-06T00:00:00+10:00" pubdate data-updated="true">Aug 6<span>th</span>, 2010</time>
-        
-         | <a href="/2010/08/06/five-reasons-why-google-wave-failed/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Hopefully most planet earth inhabitants know that Google pulled the plug on Wave or maybe most inhabitants who care about it. Together with my friend Graham we came up with these reasons for failure over a Japanese lunch today. Here’s the list.</p>  <ol>   <li>It did not ripple through masses.</li>    <li>The tide was not on it’s side.</li>    <li>It did not create waves in hearts or minds of people.</li>    <li>The sail was in opposite direction.</li>    <li>The product itself was shallow.</li> </ol>  <p>&#160;</p>  <p>So it is finally time to wave it goodbye.</p> For the record this was getting way out of hand for our geeky minds and we were attracting unwanted attention at the restaurant. We decided to abandon the idea of coming out with more reasons. 
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/08/05/intellisense-enhancements-i-want/">Intellisense Enhancements I Want</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-08-05T00:00:00+10:00" pubdate data-updated="true">Aug 5<span>th</span>, 2010</time>
-        
-         | <a href="/2010/08/05/intellisense-enhancements-i-want/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Back in 2008 I posted a suggestion on Microsoft’s Connect website. To be precise the date was 15th May 2008. To my surprise I received an email today (5th August 2010) informing me that there is a comment on my suggestion. It only took a little more than 2 years. Wow! talk about a speedy response. “What’s wrong with Microsoft” will be a topic for another post. Today I want to revisit my suggestion. It’s about Intellisense. Here it is exactly how I posted it on Connect site.</p>  <p><strong>Problem Statement</strong></p>  <p>At present we have Ctrl + . which opens intellisense and lists all methods, properties events available for the corresponding object. There are times when I and I assume other users are only interested in looking at either events, methods or properties. </p>  <p><strong>Proposed Solution</strong></p>  <p>I suggest the following shortcuts which will filter the list:    <br />Ctrl + . + p - Display only properties     <br />Ctrl + . + e - Display only events     <br />Ctrl + . + m - Display only methods </p>  <p>And the response from Microsoft today is:</p>  <blockquote>   <p>Thanks for taking the time to submit this suggestion! I sincerely apologize for the amount of time that has taken to get back to you.      <br />When we locked down on our final feature set for the next version of Visual Studio, IntelliSense completion set filtering for member types didn&#8217;t make the cut&#8211;though it was considered. However, his is a commonly requested feature, and we&#8217;ll consider it for a future release of Visual Studio. Please feel free to contact me directly at … if you have any further thoughts.</p> </blockquote>  <p>I am glad to know that this will at-least be considered for a future release. I’ll be happy if it ever gets implemented. </p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/07/30/easiest-way-to-generate-connection-string-and-verify-database-connectivity/">Easiest Way to Generate Connection String and Verify Database Connectivity</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-07-30T00:00:00+10:00" pubdate data-updated="true">Jul 30<span>th</span>, 2010</time>
-        
-         | <a href="/2010/07/30/easiest-way-to-generate-connection-string-and-verify-database-connectivity/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>There are two things which I as a consultant / developer come across many times. One is verifying connectivity to a database which is often a cause of production issues and second is creating valid connection string in the least amount of time. This is the way I do it. Hopefully it will be of help to you.</p>  <p>First of all forget that you have Visual Studio, SSMS or anything so big and fancy. You just want to get a connection string baked up pronto. I usually end up creating a .udl file. UDL which stands for Universal Data Link allows you to establish a connection and then stores the connection string in text format. Doing this is very simple. Create a file in any folder or desktop and call it <strong>test.udl</strong>. </p>  <p>Now double click the file and you’ll get a window where you can enter your connection properties.</p>  <p>&#160;<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image2.png" width="377" height="473" /> </p>  <p>You can also select different providers.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image3.png" width="377" height="473" /> </p>  <p>Once you have filled in the information about your server, security and database just click on Test Connection to verify connectivity. Click OK to close the window.</p>  <p>To get a connection string with information you just entered just open the test.udl file in a text editor and you’ll see the connection string. </p>  <p>&#160;<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image4.png" width="582" height="68" /> </p>  <p>That’s it. Simple and easy ninja style.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/07/29/find-all-data-providers-installed-on-a-machine/">Find All Data Providers Installed on a Machine</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-07-29T00:00:00+10:00" pubdate data-updated="true">Jul 29<span>th</span>, 2010</time>
-        
-         | <a href="/2010/07/29/find-all-data-providers-installed-on-a-machine/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This post shows you how to find Data Providers installed on a machine. Data providers in .NET Framework provide the plumbing necessary to connect to databases. There are different data providers available which can connect to SQL Server, Oracle or other databases through OleDb. You can find the data providers installed on your machine by looking at Machine.config file. In particular you will be looking for DbProviderFactories element under System.Data. In the screenshot below you can see data providers installed on my machine.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image.png" width="539" height="141" /> </p>  <p>A list of data providers can also be retrieved by code. This sample shows you how to retrieve a list of data providers in code.</p>  
+  <div class="entry-content"><p>GZip compression reduces size of payload sent to browser which in turn increases performance for your site. If you are not doing this then stop everything and <a title="Benefits of GZip compression." href="http://developer.yahoo.com/performance/rules.html#gzip">read this</a>. Hopefully you will be convinced. I for one use it all the time. </p> <p>How do we do it in Django? Just include GZip Middleware. How? Easy. In your settings.py file look for MIDDLEWARE_CLASSES and add</p> <blockquote> <p>django.middleware.gzip.GZipMiddleware</p></blockquote> <p>Here it is in my settings.py along with other middleware classes I am using.</p> 
 
  
-<pre class="lang:c# decode:true " >DataTable dataProviders = DbProviderFactories.GetFactoryClasses();
-            
-foreach (DataRow provider in dataProviders.Rows)
-{
-  Console.WriteLine(provider[0].ToString());
-}</pre> 
+<pre class="lang:python decode:true " >MIDDLEWARE_CLASSES = (
+    'django.middleware.gzip.GZipMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+)</pre> 
 
 
-<p>In the code above I am displaying the name of provider. Here is my output.</p>
-
-<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image1.png" width="387" height="84" /></p>
+<p>I created a test page with lots of lorem ipsum and look at the difference in size of data transferred to the browser.</p>
+<p>Without GZip.</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Django GZip compression" border="0" alt="Django GZip compression" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/03/image3.png" width="599" height="41"></p>
+<p>With GZip.</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Django GZip compression" border="0" alt="Django GZip compression" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/03/image4.png" width="600" height="44"></p>
+<p>&nbsp;</p>
+<p>Of course there are many other steps you can and you must take to improve performance of your site. Here is the <a title="Rules to increase performance of a website." href="http://developer.yahoo.com/performance/rules.html">link</a> again to the site which you must read if you care about performance.</p>
 </div>
   
   
@@ -466,7 +207,7 @@ foreach (DataRow provider in dataProviders.Rows)
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/07/19/download-visual-studio-2010-productivity-power-tools/">Download Visual Studio 2010 Productivity Power Tools</a></h1>
+      <h1 class="entry-title"><a href="/2012/03/26/customize-response-headers-in-django/">Customize Response Headers in Django</a></h1>
     
     
       <p class="meta">
@@ -482,16 +223,125 @@ foreach (DataRow provider in dataProviders.Rows)
   
 
 
-<time datetime="2010-07-19T00:00:00+10:00" pubdate data-updated="true">Jul 19<span>th</span>, 2010</time>
+<time datetime="2012-03-26T00:00:00+11:00" pubdate data-updated="true">Mar 26<span>th</span>, 2012</time>
         
-         | <a href="/2010/07/19/download-visual-studio-2010-productivity-power-tools/#disqus_thread">Comments</a>
+         | <a href="/2012/03/26/customize-response-headers-in-django/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>A newer version of Visual Studio 2010 Productivity Power Tools has been released. If you use Visual Studio 2010 then do yourself a favor and download these power tools and use Visual Studio 2010 like a power user. Checkout all details at <a href="http://blogs.msdn.com/b/visualstudio/archive/2010/07/18/new-version-of-the-productivity-power-tools-is-available.aspx">Visual Studio blog</a>. </p>  <p><a href="http://visualstudiogallery.msdn.microsoft.com/en-us/d0d33361-18e2-46c0-8ff2-4adea1e34fef">Download link for Productivity Power Tools</a>.</p>
+  <div class="entry-content"><p>Django makes it as easy as it can be to work with Response Headers. These headers in case you did not know are sent to the browser along with the response to a request. You can customize values for existing headers and also add new headers. In this example we will look at how easily it is done in Django. </p> <p>We will use a simple example of a page which displays current server date and time. The output of the page does not matter for this example because we are focusing on Response Headers here. Our example page is served by this view:</p>
+ 
+<pre class="lang:python decode:true " >
+def current_datetime(request):
+    now = datetime.datetime.now()
+    t = get_template('current_datetime.html')
+    c = Context({'current_date': now})
+    r = HttpResponse(t.render(c))
+    return r
+</pre> 
+
+<p>By default Django will send <strong>Content-Type</strong>, <strong>Date</strong> and <strong>Server</strong> response headers to the browser as seen in the screenshot below. </p>
+<p><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="Default Response Headers from Django" border="0" alt="Default Response Headers from Django" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/03/image1.png" width="644" height="370"></p>
+<p>Let’s say that we want to modify the value for Server header. You know, to feel the false satisfaction of making it hard for hackers to find out the technology stack used by our website. Besides the sarcasm, it can be done by modifying our view like this:</p>
+
+<pre class="lang:python decode:true " >def current_datetime(request):
+    now = datetime.datetime.now()
+    t = get_template('current_datetime.html')
+    c = Context({'current_date': now})
+    r = HttpResponse(t.render(c))
+    r['Server'] = 'Served by 3cpo'
+    return r
+</pre>
+
+<p>Each view in Django returns a HttpResponse and we can work with it as we would work with a dictionary. We can see that the value for Server response header has been changed to ‘Served by 3cpo’.</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Server Header Served by Django" border="0" alt="Server Header Served by Django" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/03/image2.png" width="638" height="362"></p>
+<p>Adding a new header is also simple. It is done by adding a new element to HttpResponse we send back. As shown here.</p>
+
+<pre class="lang:python decode:true " >def current_datetime(request):
+    now = datetime.datetime.now()
+    t = get_template('current_datetime.html')
+    c = Context({'current_date': now})
+    r = HttpResponse(t.render(c))
+    r['Server'] = 'Served by 3cpo'
+    r['x-powered-by'] = 'my Linux server'
+    return r
+</pre>
+
+<p>We have just included a new response header ‘x-powered-by’ which is set to ‘my Linux server’.</p>
+<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Adding new Response Header in Django" border="0" alt="Adding new Response Header in Django" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/03/image7.png" width="641" height="373"></p>
+<p>Simple enough, right? Well, this is what I like about Django and its batteries included approach.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/03/21/beautiful-python-working-with-english-alphabets/">Beautiful Python: Working With English Alphabets</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-21T00:00:00+11:00" pubdate data-updated="true">Mar 21<span>st</span>, 2012</time>
+        
+         | <a href="/2012/03/21/beautiful-python-working-with-english-alphabets/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Yesterday while working on my website I came across a need to display links which start with alphabets from A – Z. Now there are many ways to skin a cat and one of them is to create an array and fill it with 26 elements, each representing an alphabet. Something like a[0] = ‘A’, a[1] = ‘B’ and so on. But that is not Pythonic. This is:</p>
+<p>First step is to get all alphabets in English language</p>
+<pre class="prettyprint lang-python">
+>>> import string
+>>> alphas = string.ascii_lowercase
+>>> alphas
+‘abcdefghijklmnopqrstuvwxyz’
+>>>
+</pre>
+<p>Great! But I’d like to have them as a list so that I produce links for each element or do something else with them.</p>
+<pre class="prettyprint lang-python">
+>>> import string
+>>> alphas = string.ascii_lowercase
+>>> alphas
+‘abcdefghijklmnopqrstuvwxyz’
+>>> list_of_alphas = list(alphas)
+>>> list_of_alphas
+['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+>>>
+</pre>
+<p>This looks good. How about making them all upper case? Easy enough.</p>
+<pre class="prettyprint lang-python">
+>>> import string
+>>> alphas = string.swapcase(string.ascii_lowercase)
+>>> list_of_alphas = list(alphas)
+>>> list_of_alphas
+['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+>>>
+</pre>
+<p>I think this is pretty cool. </p>
 </div>
   
   
@@ -533,6 +383,26 @@ foreach (DataRow provider in dataProviders.Rows)
     
       <li class="post">
         <a href="/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/03/linux-number-of-files-in-directory/">Linux - Number of Files in Directory</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/24/android-listview-tutorial-with-images-and-text/">Android - ListView Tutorial With Images and Text</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/19/android-listview-tutorial/">Android - ListView Tutorial</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

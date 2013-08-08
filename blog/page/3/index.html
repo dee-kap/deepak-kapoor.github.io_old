@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="After installing Windows 8, I found that my ASP.NET MVC projects won’t open in Visual Studio. This is the error thrown by Visual Studio 2012. My &hellip;">
+  <meta name="description" content="In an earlier post I created a Linux virtual machine on Windows Azure. In this post I will show you how to establish a SSH connection to the virtual &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -74,7 +74,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2013/03/14/unable-to-access-iis-metabase-on-windows-8/">Unable to Access IIS Metabase on Windows 8</a></h1>
+      <h1 class="entry-title"><a href="/2013/05/31/windows-azure-connect-to-linux-virtual-machine/">Windows Azure - Connect to Linux Virtual Machine</a></h1>
     
     
       <p class="meta">
@@ -90,16 +90,48 @@
   
 
 
-<time datetime="2013-03-14T00:00:00+11:00" pubdate data-updated="true">Mar 14<span>th</span>, 2013</time>
+<time datetime="2013-05-31T00:00:00+10:00" pubdate data-updated="true">May 31<span>st</span>, 2013</time>
         
-         | <a href="/2013/03/14/unable-to-access-iis-metabase-on-windows-8/#disqus_thread">Comments</a>
+         | <a href="/2013/05/31/windows-azure-connect-to-linux-virtual-machine/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>After installing Windows 8, I found that my ASP.NET MVC projects won’t open in Visual Studio. This is the error thrown by Visual Studio 2012.</p> <p><img title="SNAGHTML3d25f90" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="SNAGHTML3d25f90" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/03/SNAGHTML3d25f90.png" width="492" height="185"></p> <p>My first reaction was to execute aspnet_regiis –i command. That did not work.</p> <p><img title="SNAGHTML3d4c20a" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="SNAGHTML3d4c20a" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/03/SNAGHTML3d4c20a.png" width="677" height="343"></p> <p>This was a WTF moment. It turns out that I should be running Visual Studio 2012 as an administrator. After running Visual Studio 2012 as admin, the error went away and life once again seemed a bit normal.</p>
+  <div class="entry-content">In an <a href="http://www.debugrelease.com/2013/05/30/windows-azure-create-linux-virtual-machine-through-management-portal/">earlier post</a> I created a Linux virtual machine on Windows Azure. In this post I will show you how to establish a SSH connection to the virtual machine.
+
+&nbsp;
+<h4>Windows</h4>
+Windows does not come with a SSH client but we can use <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY</a> to make SSH connections from a Windows machine.
+
+Open putty.exe and enter host information as it is on the management portal.
+
+&nbsp;
+
+<a href="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/05/SNAGHTML3b92ce5e.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="SNAGHTML3b92ce5e" alt="SNAGHTML3b92ce5e" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/05/SNAGHTML3b92ce5e_thumb.png" width="470" height="453" border="0" /></a>
+
+&nbsp;
+
+Click Open and you are asked to login. Enter username and password and you are logged into the Linux virtual machine.
+
+&nbsp;
+
+<a href="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/05/SNAGHTML3b9558d2.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="SNAGHTML3b9558d2" alt="SNAGHTML3b9558d2" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/05/SNAGHTML3b9558d2_thumb.png" width="644" height="406" border="0" /></a>
+
+&nbsp;
+<h4>Linux Terminal</h4>
+Logging into Linux virtual machine on Windows Azure from a Linux terminal is dead simple. Linux already comes with a OpenSSH client so there is nothing to be installed.
+
+Just run the ssh command with correct port number and host. In my case the command is
+<p class="text-info"><span>ssh –p 58473 azureuser@debrelubuntu.cloudapp.net</span></p>
+&nbsp;
+
+Enter the correct password when prompted and <a href="http://en.wikipedia.org/wiki/Bob%27s_your_uncle">Bob’s your uncle</a>.
+
+&nbsp;
+
+<a href="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/05/image10.png"><img style="background-image: none; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-width: 0px;" title="image" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/05/image_thumb6.png" width="644" height="402" border="0" /></a>
 </div>
   
   
@@ -112,7 +144,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2013/03/14/run-visual-studio-2012-as-administrator-always/">Run Visual Studio 2012 as Administrator Every Time</a></h1>
+      <h1 class="entry-title"><a href="/2013/05/30/windows-azure-create-linux-virtual-machine-through-management-portal/">Windows Azure - Create Linux Virtual Machine Through Management Portal</a></h1>
     
     
       <p class="meta">
@@ -128,16 +160,16 @@
   
 
 
-<time datetime="2013-03-14T00:00:00+11:00" pubdate data-updated="true">Mar 14<span>th</span>, 2013</time>
+<time datetime="2013-05-30T00:00:00+10:00" pubdate data-updated="true">May 30<span>th</span>, 2013</time>
         
-         | <a href="/2013/03/14/run-visual-studio-2012-as-administrator-always/#disqus_thread">Comments</a>
+         | <a href="/2013/05/30/windows-azure-create-linux-virtual-machine-through-management-portal/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>As a developer I spend my life inside Visual Studio. Since I installed Windows 8, I was having trouble opening web projects. Turns out that I need to run Visual Studio as an administrator. </p> <p>Rather than right clicking the shortcut every time and another click to run as administrator, I found a permanent solution. For the lazy me, it saves two extra clicks. </p> <p>Open properties of the shortcut to Visual Studio 2012, go to Shortcut tab. </p> <p><img title="SNAGHTML3dd4943" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="SNAGHTML3dd4943" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/03/SNAGHTML3dd4943.png" width="377" height="516"></p> <p>Click on Advanced and then check Run as administrator checkbox. </p> <p><img title="SNAGHTML3ddcf34" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="SNAGHTML3ddcf34" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/03/SNAGHTML3ddcf34.png" width="394" height="301"></p>
+  <div class="entry-content"><p>Windows Azure along with PaaS is also a full on IaaS cloud service. At the time of this writing you can create a variety of Windows VMs and Linux VMs. This post shows you how easy it is to create a Linux virtual machine on Windows Azure.</p>  <p>Step 1</p>  <p>Login to the <a href="https://manage.windowsazure.com/">management portal</a></p>  <p>&#160;</p>  <p><a href="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/05/image4.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/05/image_thumb.png" width="644" height="348" /></a></p>  <p>&#160;</p>  <p>Step 2</p>  <p>Go to Virtual Machines</p>  <p><a href="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/05/image5.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/05/image_thumb1.png" width="644" height="346" /></a></p>  <p>&#160;</p>  <p>Step&#160; 3</p>  <p>Click on CREATE A VIRTUAL MACHINE</p>  <p>You are presented with a form where you can fill in the details. For IMAGE select Ubuntu Server 13.04 or any other version if you like. </p>  <p>&#160;</p>  <p><a href="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/05/image6.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/05/image_thumb2.png" width="644" height="326" /></a></p>  <p>&#160;</p>  <p>After clicking on CREATE A VIRTUAL MACHINE below the form, you will see your machine being provisioned.</p>  <p>&#160;</p>  <p><a href="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/05/image7.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/05/image_thumb3.png" width="938" height="509" /></a></p>  <p>&#160;</p>  <p>In about 2-3 minutes the machine will be provisioned and the status will change to starting.</p>  <p>&#160;</p>  <p><a href="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/05/image8.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/05/image_thumb4.png" width="643" height="192" /></a></p>  <p>&#160;</p>  <p>Once you see the status to say Running, you can click on the name of your virtual machine which will bring you to this page.</p>  <p>&#160;</p>  <p><a href="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/05/image9.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/05/image_thumb5.png" width="644" height="452" /></a></p>  <p>&#160;</p>  <p>Congratulations. You now have a Linux virtual machine running on Windows Azure.</p>
 </div>
   
   
@@ -150,7 +182,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2012/07/11/hadoop-word-count-revised/">Hadoop Word Count Revised</a></h1>
+      <h1 class="entry-title"><a href="/2013/05/29/managing-startups-best-blog-posts-book-review/">Managing Startups Best Blog Posts - Book Review</a></h1>
     
     
       <p class="meta">
@@ -166,54 +198,16 @@
   
 
 
-<time datetime="2012-07-11T00:00:00+10:00" pubdate data-updated="true">Jul 11<span>th</span>, 2012</time>
+<time datetime="2013-05-29T00:00:00+10:00" pubdate data-updated="true">May 29<span>th</span>, 2013</time>
         
-         | <a href="/2012/07/11/hadoop-word-count-revised/#disqus_thread">Comments</a>
+         | <a href="/2013/05/29/managing-startups-best-blog-posts-book-review/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>This is a follow up to my <a href="http://www.debugrelease.com/yet-another-hadoop-word-count-tutorial/">last post</a> in which I showed you how to write a word count MapReduce job. Have a look at <a href="http://www.debugrelease.com/yet-another-hadoop-word-count-tutorial/">that earlier post</a> before reading on. It will put things into perspective. </p> <p>As you saw we implemented our map and reduce methods in their own classes by extending Mapper and Reducer class from Hadoop framework. It turns out that there is a way to implement a word count example without doing that. Hadoop framework already ships with two classes which can be used as our mapper and reducer. They are TokenCounterMapper from org.apache.hadoop.mapreduce.lib.map package and IntSumReducer from org.apache.hadoop.mapreduce.lib.reduce package. </p> <p>Here is a revised word count which uses built-in TokenCounterMapper and IntSumReducer classes.</p>
-
-<pre class="lang:java decode:true " >
-package com.thereforesystems.hadoop;
-
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapreduce.Job;
-import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-import org.apache.hadoop.mapreduce.lib.map.TokenCounterMapper;
-import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.apache.hadoop.mapreduce.lib.reduce.IntSumReducer;
-import org.apache.hadoop.util.GenericOptionsParser;
-
-public class HadoopWordCountRevised {
-
-    public static void main(String[] args) throws Exception {
-        
-        Configuration config = new Configuration();
-        String[] otherArgs = 
-            new GenericOptionsParser(config, args).getRemainingArgs();
-        
-        Job job = new Job(config, "Word Count Tutorial");
-        job.setJarByClass(HadoopWordCountRevised.class);
-        job.setMapperClass(TokenCounterMapper.class);
-        job.setReducerClass(IntSumReducer.class);
-        
-        job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(IntWritable.class);
-        
-        FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
-        FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
-        
-        System.exit(job.waitForCompletion(true) ? 0 : 1);
-    }
-}
-</pre>
+  <div class="entry-content"><a href="http://www.amazon.com/gp/product/1449367879/ref=as_li_tf_il?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1449367879&amp;linkCode=as2&amp;tag=blogs06-20"><img style="margin-left: 0px; display: inline; margin-right: 0px" border="0" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&amp;ASIN=1449367879&amp;Format=_SL160_&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=blogs06-20" /></a><img style="border-top-style: none !important; border-left-style: none !important; border-bottom-style: none !important; border-right-style: none !important; margin: 0px" border="0" alt="" src="http://www.assoc-amazon.com/e/ir?t=blogs06-20&amp;l=as2&amp;o=1&amp;a=1449367879" width="1" height="1" />   <p>Managing Startups: Best Blog Posts by Tom Eisenmann is is a collection of blog posts about management of technology startups. There are a total of 75 posts which provide with valuable guidance for existing entrepreneurs and those who are at initial stages of creating a startup. </p>  <p>When I started reading this book, in my mind I started pretending that I am about to launch a startup which builds an online product targeting a niche market. I am sure that one day such a thing will happen. Reading the book as a startup founder gave me appreciation towards the practical information captured in the collected posts. There are posts which I would like to read again and keep them in my knowledge base. </p>  <p>I suggest that you read it once and then re-read the posts you like most. </p>
 </div>
   
   
@@ -226,7 +220,7 @@ public class HadoopWordCountRevised {
       
   <header>
     
-      <h1 class="entry-title"><a href="/2012/07/10/yet-another-hadoop-word-count-tutorial/">Yet Another Hadoop Word Count Tutorial</a></h1>
+      <h1 class="entry-title"><a href="/2013/05/26/find-homepage-on-internet-explorer/">Find Homepage on Internet Explorer</a></h1>
     
     
       <p class="meta">
@@ -242,103 +236,16 @@ public class HadoopWordCountRevised {
   
 
 
-<time datetime="2012-07-10T00:00:00+10:00" pubdate data-updated="true">Jul 10<span>th</span>, 2012</time>
+<time datetime="2013-05-26T00:00:00+10:00" pubdate data-updated="true">May 26<span>th</span>, 2013</time>
         
-         | <a href="/2012/07/10/yet-another-hadoop-word-count-tutorial/#disqus_thread">Comments</a>
+         | <a href="/2013/05/26/find-homepage-on-internet-explorer/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Here is another Word Count count Hadoop tutorial. Why? You ask. It is a learning exercise for me. I am writing it out so that I can refer to it in future. Also, rather than just copying the example already available with Hadoop installation, I will try to fix some shortcomings of the word count program. Before I do that, let’s just write a stock-standard one. </p> <p>For this walkthrough if you want to call it that, I have Hadoop running on a single node setup on Ubuntu 11.10. My preferred IDE is Netbeans.</p> <p>Here it goes.</p> <h3>Create a project</h3> <p>First of all create a Java project in Netbeans. Call it HadoopWordCountTutorial. I also like to use proper package names so my class HadoopWordCountTutorial is in package com.thereforesystems.hadoop.</p> <p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/07/image.png" width="640" height="398"></p> <p>&nbsp;</p> <h3>Add Libraries</h3> <p>Next thing we need to do is add some libraries. Here is a list of libraries required to compile our Hadoop project.</p> <p><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/07/image1.png" width="459" height="261"></p> <p>These jars can be found in your Hadoop folders. An easy way to find where things are is by using locate command. For example to locate hadoop-core-0.20.2-cdh3u4.jar execute the command in terminal.</p> <p><font color="#0000ff">locate hadoop-core-0.20.2-cdh3u4.jar</font></p> <p>On my machine the file is located in </p> <p>/usr/lib/hadoop-0.20/</p> <p>Once we have added required libraries, we are all set to write some code. </p> <h3>Writing code</h3> <p>Hadoop is a framework which provides us plumbing to write MapReduce operations (This is such an understatement). Here is a <a href="http://code.google.com/edu/parallel/mapreduce-tutorial.html">good tutorial on MapReduce</a>. If you are not familiar with MapReduce then I suggest that you read it before continuing with this tutorial. </p> <p>There are two operations we will write. One is the mapper and the other is reducer. Our objective is to count words in a file or many files and write the results to an output location. We will start with our mapper.</p> <h3>Mapper</h3> <p>Mapper in Hadoop is implemented by extending Mapper class found in org.apache.hadoop.mapreduce. This class implements a map method in which we will write our logic. Here is the code for our class.</p> 
-
-<pre class="lang:java decode:true " >
-public static class WordCountMapper extends Mapper<Object /* KEYIN */, 
-            Text /* VALUEIN */, 
-            Text /* KEYOUT */, 
-            IntWritable /* VALUEOUT */> {
-
-    private Text word = new Text();
-    private final static IntWritable numberOne = new IntWritable(1);
-
-    public void map(Object key, Text value, Context context) 
-        throws IOException, InterruptedException {
-
-        StringTokenizer tokenizer = new StringTokenizer(value.toString());
-        while (tokenizer.hasMoreTokens()) {
-            word.set(tokenizer.nextToken());
-            context.write(word, numberOne);
-             
-        }
-    }
-}
-</pre>
-
-<p>Let’s look at the map method. The map method tokenizes the text passed in. What gets passed in is handled by Hadoop. Keep in mind that text for the entire file may not be passed in to the mapper. And this is a good thing. Imagine if the file was many gigabytes in size, Hadoop will take care of splitting the file into blocks and will spin off <em>n</em> number of mappers to handle the chunked file.</p> <h3>Reducer</h3> <p>The reducer is implemented in a class which extends Reducer. Here is the code for Reducer.</p> 
-
-<pre class="lang:java decode:true " >
-public static class WordCountReducer extends Reducer<Text /* KEYIN */, 
-            IntWritable /* VALUEIN */, 
-            Text /* KEYOUT */, 
-            IntWritable /* VALUEOUT */> {
-        
-    public void reduce(Text key, Iterable<IntWritable> values, Context context) 
-        throws IOException, InterruptedException {
-        
-        int sum = 0;
-        for(IntWritable val : values){
-            sum += val.get();
-        }
-            
-        context.write(key, new IntWritable(sum));
-    }
-}
-</pre>
-
-<p>The method of interest here is reduce() which receives a list of IntWritable objects for a key. In our example a key will be a word. For example the word could be “Imagine” which occurs many times in our file. After Mapper is done, Reducer will be called for key “Imagine” and values [1, 2, 1, 1]. Within our reduce method we sum the values up for each key and write it out. Writing out part is handled by the Context for us.</p> <h3>Main method</h3> <p>Main method is where it all get’s tied up. Let’s look at the main method.</p> 
-
-<pre class="lang:java decode:true " >
-public static void main(String[] args) 
-    throws IOException, InterruptedException, ClassNotFoundException {
-        
-    Configuration config = new Configuration();
-    String[] otherArgs = new GenericOptionsParser(config, args).getRemainingArgs();
-        
-    Job job = new Job(config, "Word Count Tutorial");
-    job.setJarByClass(HadoopWordCountTutorial.class);
-    job.setMapperClass(WordCountMapper.class);
-    job.setReducerClass(WordCountReducer.class);
-        
-    job.setOutputKeyClass(Text.class);
-    job.setOutputValueClass(IntWritable.class);
-        
-    FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
-    FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
-        
-    System.exit(job.waitForCompletion(true) ? 0 : 1);
-}
-</pre>
-
-<p>The first thing we do is create an instance of Configuration object. This returns us the default configuration for our installation.&nbsp; Next we parse arguments passed in. These arguments for the purpose of this example are input-directory and output-directory. Note that Hadoop will create output directory for us and it should not already exist.</p> <p>We then create an instance of Job object by passing in the configuration instance and a name for our job. Next three lines tell Hadoop about our Jar file, the mapper it should use and the reducer it should use for the job.</p> <p>After this we call setOutputKeyClass and setOutputValueClass on the job instance. This tells Hadoop about data types we expect it to deal with.</p> <p>Finally we set the locations for input directory and output directory. </p> <h3>Running the job</h3><p>We are all set to run this job. I executed this job by pointing it to a directory which contains only one file. This file is lyrics for Imagine by John Lennon. </p>
-
-<p>On my machine I executed the job with this command.</p>
-<p><font color="#0000ff">java -jar /home/deepak/NetBeansProjects/HadoopWordCountTutorial/dist/HadoopWordCountTutorial.jar /home/deepak/temp/HadoopWordCountTutorial/input /home/deepak/temp/HadoopWordCountTutorial/output</font></p>
-
-<p>After the job is run, the output shows me how many times a particular word occured in the file. Here is partial output.</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/07/image2.png" width="134" height="460"></p> <p>What is wrong with this output? Take a look at the partial output above, you will notice that “A” has been counted as 1 and “a” is counted as 2. To resolve this issue we can tell our StringTokenizer to ignore certain characters.</p> 
-
-<pre class="lang:java decode:true " >
-StringTokenizer tokenizer = 
-    new StringTokenizer(value.toString(), " tnrf,.:;?[]'(),~!@#%^&*()_");
-</pre>
-
-<p>Also when we all word.set we can call toLowerCase method. This will make all our keys lowercase and provide expected ouput.</p> 
-
-<pre class="lang:java decode:true " >
-word.set(tokenizer.nextToken().toLowerCase());
-</pre>
-
-<p>Here is the output after making two minor changes. We now have the count for “a” as 3. This is what we expected.</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/07/image3.png" width="127" height="310"></p> <p>&nbsp;</p> <h3>Conclusion</h3> <p>This concludes the post. I hope you learned a thing or two here. These days I am spending more and more time with Hadoop and most importantly I am enjoying my time with it. Stay tuned for more ramblings as I make my way through this massive framework.</p>
+  <div class="entry-content"><p>When I visit google.com in Internet Explorer, Google is able to detect my homepage. I thought this was not possible but seems like it is as google is doing it. It turns out that there is a <strong>isHomePage</strong> method which only works on Internet Explorer and it can be used to find a user’s home page. </p>  <p><a href="http://samples.msdn.microsoft.com/workshop/samples/author/behaviors/homepage1.htm">This link</a> explains it all. </p>
 </div>
   
   
@@ -351,7 +258,7 @@ word.set(tokenizer.nextToken().toLowerCase());
       
   <header>
     
-      <h1 class="entry-title"><a href="/2012/07/04/java-lang-noclassdeffounderror-orgapachehadoopthirdpartyguavacommonprimitivesunsignedbytes/">java.lang.NoClassDefFoundError: …/guava/common/primitives/UnsignedBytes</a></h1>
+      <h1 class="entry-title"><a href="/2013/05/24/net-framework-serialize-and-deserialize-c-sharp/">.NET Framework - Serialize and Deserialize</a></h1>
     
     
       <p class="meta">
@@ -367,525 +274,94 @@ word.set(tokenizer.nextToken().toLowerCase());
   
 
 
-<time datetime="2012-07-04T00:00:00+10:00" pubdate data-updated="true">Jul 4<span>th</span>, 2012</time>
+<time datetime="2013-05-24T00:00:00+10:00" pubdate data-updated="true">May 24<span>th</span>, 2013</time>
         
-         | <a href="/2012/07/04/java-lang-noclassdeffounderror-orgapachehadoopthirdpartyguavacommonprimitivesunsignedbytes/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>No idea why this happened today on a Hadoop project which was running fine till now. </p> <p><font color="#c0504d">java.lang.NoClassDefFoundError: org/apache/hadoop/thirdparty/guava/common/primitives/UnsignedBytes<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.FastByteComparisons$LexicographicalComparerHolder</font></p> <p><font color="#c0504d">$UnsafeComparer.compareTo(FastByteComparisons.java:226)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.FastByteComparisons$LexicographicalComparerHolder</font></p> <p><font color="#c0504d">$UnsafeComparer.compareTo(FastByteComparisons.java:113)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.FastByteComparisons.compareTo(FastByteComparisons.java:42)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.WritableComparator.compareBytes(WritableComparator.java:150)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.Text$Comparator.compare(Text.java:306)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask$MapOutputBuffer.compare(MapTask.java:968)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.util.QuickSort.fix(QuickSort.java:30)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.util.QuickSort.sortInternal(QuickSort.java:83)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.util.QuickSort.sort(QuickSort.java:59)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask$MapOutputBuffer.sortAndSpill(MapTask.java:1254)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask$MapOutputBuffer.flush(MapTask.java:1155)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask$NewOutputCollector.close(MapTask.java:582)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:649)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask.run(MapTask.java:323)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:210)<br>Caused by: java.lang.ClassNotFoundException: org.apache.hadoop.thirdparty.guava.common.primitives.UnsignedBytes<br>&nbsp;&nbsp;&nbsp; at java.net.URLClassLoader$1.run(URLClassLoader.java:202)<br>&nbsp;&nbsp;&nbsp; at java.security.AccessController.doPrivileged(Native Method)<br>&nbsp;&nbsp;&nbsp; at java.net.URLClassLoader.findClass(URLClassLoader.java:190)<br>&nbsp;&nbsp;&nbsp; at java.lang.ClassLoader.loadClass(ClassLoader.java:306)<br>&nbsp;&nbsp;&nbsp; at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:301)<br>&nbsp;&nbsp;&nbsp; at java.lang.ClassLoader.loadClass(ClassLoader.java:247)<br>&nbsp;&nbsp;&nbsp; &#8230; 15 more</font></p> <p>Anyhow, the way to fix this issue is by adding guava-r09-jarjar.jar to build path. In Netbeans add the jar to Libraries for your project.</p> <p>guava-r09-jarjar.jar can be found in /usr/lib/hadoop-0.20/lib</p> <p>or use the locate command to find it on your system</p> <p><font color="#0000ff">locate guava-r09-jarjar.jar</font></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/06/30/ibm-biginsights-web-console-issue-with-bigdatauniversity-vm/">IBM BigInsights Web Console Issue With BigDataUniversity VM</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-06-30T00:00:00+10:00" pubdate data-updated="true">Jun 30<span>th</span>, 2012</time>
-        
-         | <a href="/2012/06/30/ibm-biginsights-web-console-issue-with-bigdatauniversity-vm/#disqus_thread">Comments</a>
+         | <a href="/2013/05/24/net-framework-serialize-and-deserialize-c-sharp/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>BigInsights web console error in IBM Infosphere BigInsights VM usually occurs because web console is not running. It can be started by executing start.sh which can be found in /opt/ibm/biginsights/bin. I discovered this issue while working through lab 3 of Hadoop Fundamentals 1 course from <a href="http://bigdatauniversity.com/">BigDataUniversity</a>. </p> <p>Steps to resolve the issue:</p> <p>Assuming that you are logged in as root. Execute these commands on terminal.</p> <p><font color="#0000ff">cd /opt/ibm/biginsights/bin</font></p> <p><font color="#0000ff">./start.sh console</font></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/06/14/complex-event-processing-with-esper-tutorial-for-beginners/">Complex Event Processing With Esper–Tutorial for Beginners</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-06-14T00:00:00+10:00" pubdate data-updated="true">Jun 14<span>th</span>, 2012</time>
-        
-         | <a href="/2012/06/14/complex-event-processing-with-esper-tutorial-for-beginners/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>Introduction</h3> <p>This is a tutorial for beginners who are interested in CEP (Complex Event Processing) using Esper. We will build a fictional real-time surveillance system which alerts on conditions we will define. You will learn how to use Esper to process real-time events and you may also learn a thing or two about sockets in Java. </p> <p>&nbsp;</p> <h3>The Story</h3> <p>Boys at the station have been tipped off regarding some illegal activities at The Genco Pura Olive Oil Company. They suspect that some illegal cargo is about to move through the company. In order to bust the gig they have come out with a plan to monitor phone calls to and from certain phone numbers. They have identified phone numbers used by Vito and Tom and they’d like to know when they make a call or they receive a call. The scenario can be expanded to record their conversations but that would require a court’s approval and it’s just too much work for a Esper tutorial.</p> <p>&nbsp;</p> <h3>Tools of Trade</h3> <p>This tutorial is about Esper which should be downloaded and extracted to an accessible location.</p> <p>Language of choice is Java so it’s <a href="http://esper.codehaus.org/">Esper</a> for Java we are after.</p> <p>Phone numbers are fictitious and taken from this site. <a title="http://www.acma.gov.au/WEB/STANDARD..PC/pc=PC_2330" href="http://www.acma.gov.au/WEB/STANDARD..PC/pc=PC_2330">http://www.acma.gov.au/WEB/STANDARD..PC/pc=PC_2330</a></p> <p>Vito’s number is: 1800 160 401. Yes he has a 1800 number. He does not mind paying when other people call him.</p> <p>Tom’s number is: 0491 570 110</p> <p>IDE: I use Netbeans but it doesn’t really matter. Any IDE or text editor of choice will do.</p> <p>&nbsp;</p> <h3>Design</h3> <p>Our bust the bad guys solution relies on a server component which sends messages about calls being made. These messages are received by a client application which feeds them into Esper engine. Esper then looks at these messages and based on instructions given to it, alerts the user. Alert mechanism is simply displaying attention grabbing text on console. This is a CEP and Esper tutorial remember? Do not get carried away. </p> <p>Below is a pictorial representation of the design.</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/06/image.png" width="488" height="786"></p> <p>&nbsp;</p> <h3>The Message</h3> <p>The server sends a message to the client whenever a call is made. This message is then received by client. We can express our message as a POJO which are supported by Esper. The message object maintains information about from and to phone numbers, time of call and duration of call. For this tutorial we are only interested in the phone numbers. </p>
-
-<pre class="lang:c# decode:true " >
-package com.thereforesystems.cdrlibrary;
-
-import java.io.Serializable;
-import java.util.Date;
-
-public class CallDataRecord implements Serializable{
-
-    String fromNumber;
-    String toNumber;
-    Date callDateTime;
-    int duration;
-
-    public Date getCallDateTime() {
-        return callDateTime;
-    }
-
-    public String getFromNumber() {
-        return fromNumber;
-    }
-
-    public String getToNumber() {
-        return toNumber;
-    }
-
-    public int getDuration() {
-        return duration;
-    }
-
-    public CallDataRecord(String from, String to, Date time, int dur) {
-
-        fromNumber = from;
-        toNumber = to;
-        callDateTime = time;
-        duration = dur;
-    }
-
-    @Override
-    public String toString() {
-        return "From : " + fromNumber + " To: " + toNumber;
-    }
-}
-</pre>
-
-<h3>Server</h3> <p>The server application accepts socket connections on a port and then starts sending messages to the connected client. It maintains a list of phone numbers and simulates call data records also known as CDR in telco lingo.&nbsp; This is a stock standard sockets server which has nothing to do with Esper.</p> 
-
-<pre class="lang:c# decode:true " >
-package com.thereforesystems.cdrserver;
-
-import com.thereforesystems.cdrlibrary.CallDataRecord;
-import java.io.*;
-import java.net.*;
-import java.util.Calendar;
-import java.util.Random;
-
-public class CDRServer {
-
-    String phoneNumbers[] = {"0491 570 156",
-        "0491 570 157",
-        "0491 570 158",
-        "0491 570 159",
-        "0491 570 110",
-        "1800 160 401",
-        "1800 975 707",
-        "1800 975 708",
-        "1800 975 709",
-        "1800 975 710",
-        "1800 975 711",
-        "1300 975 707",
-        "1300 975 708",
-        "1300 975 709",
-        "1300 975 710",
-        "1300 975 711"};
-    
-    ServerSocket providerSocket;
-    Socket connection = null;
-    ObjectOutputStream out;
-    String message;
-    private static Random generator = new Random();
-
-    void run() {
-        try {
-            providerSocket = new ServerSocket(9999, 10);
-            System.out.println("Waiting for connection to CDR Server");
-            connection = providerSocket.accept();
-            System.out.println("Connection received from " + 
-                    connection.getInetAddress().getHostName());
-            out = new ObjectOutputStream(connection.getOutputStream());
-            out.flush();
-
-            String from;
-            String to;
-            int duration;
-            while (true) {
-
-                if (connection.isConnected()) {
-                    from = phoneNumbers[generator.nextInt(phoneNumbers.length - 1)];
-                    to = phoneNumbers[generator.nextInt(phoneNumbers.length - 1)];
-                    if (!from.equals(to)) { // no need to send when from and to are same numbers
-                        duration = generator.nextInt(10);
-                        Calendar calendar = Calendar.getInstance();
-                        CallDataRecord cdr = 
-                                new CallDataRecord(from, to, calendar.getTime(), duration);
-                        sendMessage(cdr);
-                    }
-                } else {
-                    break;
-                }
-
-            }
-
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
-        } finally {
-            try {
-                out.close();
-                connection.close();
-                providerSocket.close();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
-        }
-    }
-
-    void sendMessage(CallDataRecord cdr) {
-        try {
-            out.writeObject(cdr);
-            out.flush();
-            System.out.println("Sending CDR: " + cdr);
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
-        }
-    }
-
-    public static void main(String[] args) {
-        CDRServer server = new CDRServer();
-        while (true) {
-            server.run();
-        }
-    }
-}
-</pre>
-
-
-<h3>Client</h3>
-<p>Client application is where interesting stuff happens. By establishing a socket connection it receives a message for each call from server. 
-</p>
-
-<pre class="lang:c# decode:true " >
-requestSocket = new Socket("localhost", 9999);
-System.out.println("Connected to localhost in port 9999");
-in = new ObjectInputStream(requestSocket.getInputStream());
-
-while (true) {
-    try {
-        cdr = (CallDataRecord) in.readObject();
-        runtime.sendEvent(cdr);
-    } catch (ClassNotFoundException ex) {
-        Logger.getLogger(CallDetector.class.getName())
-            .log(Level.SEVERE, null, ex);
-    }
-}
-</pre>
-
-<p>You can see in the code above that an instance of CallDataRecord class is created from data in ObjectInputStream. A call is made to sendEvent method of EPRuntime object and retrieved CallDataRecord is sent as an argument. How is this data handled by Esper? We have two classes which are Esper listeners and they are ready to act when invoked. We have one listener for calls made “from” and another for calls made “to”. For a class to act as a listener in Esper it must implement UpdateListener interface.</p> 
-
-<pre class="lang:c# decode:true " >
-public static class FromListener implements UpdateListener {
-
-    @Override
-    public void update(EventBean[] newData, EventBean[] oldData) {
-        System.out.println("Bad guy made a call: " + newData[0].getUnderlying());
-    }
-}
-    
-public static class ToListener implements UpdateListener {
-
-    @Override
-    public void update(EventBean[] newData, EventBean[] oldData) {
-        System.out.println("Bad guy received a call: " + newData[0].getUnderlying());
-    }
-}
-</pre>
-
-<p>So what invokes a particular listener? This is handled by Esper when we register a listener to a particular EPL statement. An EPL statement is like a SQL query with the familiar Select * from syntax. This is our EPL statement for “from” calls. Note that after creating an instance of EPStatement class we register the appropriate listener.</p> 
-
-<pre class="lang:c# decode:true " >
-EPStatement eplFrom = 
-        admin.createEPL("select * from CDR(fromNumber='1800 160 401' "
-                + "or fromNumber='0491 570 110')");
-eplFrom.addListener(new FromListener());
-        
-EPStatement eplTo = 
-        admin.createEPL("select * from CDR(toNumber='1800 160 401' "
-                + "or toNumber='0491 570 110')");
-eplTo.addListener(new ToListener());
-</pre>
-
-<p>For it to all work there is a little more setup required. Let’s go through it. First of all we need a Configuration object to which we will add an event type. Note that in our EPL statements we are querying from CDR. This CDR is defined as a Event Type in the configuration object.</p> 
-
-<pre class="lang:c# decode:true " >
-Configuration config = new Configuration();
-config.addEventType("CDR", CallDataRecord.class.getName());
-</pre>
-
-<p>Next thing we need is a EPRuntime which is the Esper runtime object.</p> 
-
-<pre class="lang:c# decode:true " >
-EPServiceProvider provider = 
-        EPServiceProviderManager.getProvider("CDREngine", config);
-EPRuntime runtime = provider.getEPRuntime();
-</pre>
-
-<p>Finally we run our client and pass it an instance of EPRuntime so that our client can send events to Esper engine.</p> 
-
-<pre class="lang:c# decode:true " >
-CallDetector client = new CallDetector();
-client.run(runtime);
-</pre>
-
-<p>Here is the full code for Client application. </p> 
-
-<pre class="lang:c# decode:true " >
-package com.thereforesystems.calldetector;
-
-import com.espertech.esper.client.*;
-import com.thereforesystems.cdrlibrary.CallDataRecord;
-import java.io.*;
-import java.net.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-public class CallDetector {
-
-    Socket requestSocket;
-    ObjectInputStream in;
-    CallDataRecord cdr;
-
-    void run(EPRuntime runtime) {
-        try {
-            requestSocket = new Socket("localhost", 9999);
-            System.out.println("Connected to localhost in port 9999");
-            in = new ObjectInputStream(requestSocket.getInputStream());
-
-            while (true) {
-                try {
-                    cdr = (CallDataRecord) in.readObject();
-                    runtime.sendEvent(cdr);
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(CallDetector.class.getName())
-                            .log(Level.SEVERE, null, ex);
-                }
-            }
-
-        } catch (UnknownHostException unknownHost) {
-            System.err.println("You are trying to connect to an unknown host!");
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
-        } finally {
-            try {
-                in.close();
-                requestSocket.close();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
-        }
-    }
-
-    public static class FromListener implements UpdateListener {
-
-        @Override
-        public void update(EventBean[] newData, EventBean[] oldData) {
-            System.out.println("Bad guy made a call: " 
-                    + newData[0].getUnderlying());
-        }
-    }
-
-    public static class ToListener implements UpdateListener {
-
-        @Override
-        public void update(EventBean[] newData, EventBean[] oldData) {
-            System.out.println("Bad guy received a call: " 
-                    + newData[0].getUnderlying());
-        }
-    }
-
-    public static void main(String[] args) {
-
-        Configuration config = new Configuration();
-        config.addEventType("CDR", CallDataRecord.class.getName());
-
-        EPServiceProvider provider =
-                EPServiceProviderManager.getProvider("CDREngine", config);
-        EPRuntime runtime = provider.getEPRuntime();
-
-        EPAdministrator admin = provider.getEPAdministrator();
-
-        EPStatement eplFrom =
-                admin.createEPL("select * from CDR(fromNumber='1800 160 401' "
-                + "or fromNumber='0491 570 110')");
-        eplFrom.addListener(new FromListener());
-
-        EPStatement eplTo =
-                admin.createEPL("select * from CDR(toNumber='1800 160 401' "
-                + "or toNumber='0491 570 110')");
-        eplTo.addListener(new ToListener());
-
-        CallDetector client = new CallDetector();
-        client.run(runtime);
-    }
-}
-</pre>
-
-<p>For the client to build we need to reference following libraries.</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Esper Libraries " border="0" alt="Esper Libraries " src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/06/image1.png" width="249" height="143"></p> <p>These jars can be found in the root esper folder and root esper/esper/lib folders. </p> 
-<p>&nbsp;</p>
-<h3>Output</h3> <p>After running Server and Client for few seconds we can see that Esper is notifying us of calls made to or from Vito or Tom’s mobile. Watch out guys. </p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Esper Output" border="0" alt="Esper Output" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/06/image2.png" width="512" height="215"></p> 
-<p>&nbsp;</p>
-<h3>Conclusion</h3> <p>In this tutorial we saw how simple it is to create an application which can process events in real-time. Real power of Esper is the raw speed by which it can do complex real-time processing. Esper is also simple to understand and work with. There is a lot more to Esper than this simple tutorial. Maybe I will write a bit more in future posts. </p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/05/25/axis2-plugin-for-netbeans-7-1-2/">Axis2 Plugin for Netbeans 7.1.2</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-25T00:00:00+10:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
-        
-         | <a href="/2012/05/25/axis2-plugin-for-netbeans-7-1-2/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I upgraded Netbeans today and found that there is no Axis2 plugin available via Tools –&gt; Plugins. Looks like Axis2 support plugin has been discontinued in Netbeans. However the link below works and I was able to install the plugin. This post hopefully will serve as a bookmark when I’m looking for Axis2 plugin in Netbeans next time.</p> <p><a title="http://deadlock.netbeans.org/hudson/job/nbms-and-javadoc/lastStableBuild/artifact/nbbuild/nbms/updates.xml.gz" href="http://deadlock.netbeans.org/hudson/job/nbms-and-javadoc/lastStableBuild/artifact/nbbuild/nbms/updates.xml.gz">http://deadlock.netbeans.org/hudson/job/nbms-and-javadoc/lastStableBuild/artifact/nbbuild/nbms/updates.xml.gz</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/05/20/find-the-version-of-ubuntu-you-are-running/">Find the Version of Ubuntu You Are Running</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-20T00:00:00+10:00" pubdate data-updated="true">May 20<span>th</span>, 2012</time>
-        
-         | <a href="/2012/05/20/find-the-version-of-ubuntu-you-are-running/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>How do you find the version of Ubuntu you are running? </p> <p>There are two ways to do this. One is by GUI and the other by terminal. </p> <h4>This is the GUI way</h4> <p>&nbsp;</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Ubuntu System Tools" border="0" alt="Ubuntu System Tools" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/05/image3.png" width="495" height="550"></p> <p>&nbsp;</p> <p>&nbsp;</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Ubuntu System Settings" border="0" alt="Ubuntu System Settings" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/05/image4.png" width="608" height="657"></p> <p>&nbsp;</p> <p>&nbsp;</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Ubuntu System Details" border="0" alt="Ubuntu System Details" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/05/image5.png" width="640" height="404"></p> <p>&nbsp;</p> <h4>Terminal way</h4> <p>&nbsp;</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/05/image6.png" width="381" height="50"></p> <p>&nbsp;</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/05/image7.png" width="354" height="109"></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/05/16/cloudera-virtualbox-boot-error-net-registered-protocol-family-2/">Cloudera VirtualBox Boot Error NET: Registered Protocol Family 2</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-16T00:00:00+10:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
-        
-         | <a href="/2012/05/16/cloudera-virtualbox-boot-error-net-registered-protocol-family-2/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I downloaded Cloudera <a href="https://ccp.cloudera.com/display/SUPPORT/Downloads">CDH3 Virtual Machine for VirtualBox</a> to have a readymade Hadoop environment to experiment with. While booting the VM I got an error and the boot sequence stalled. </p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Cloudera CDH boot error" border="0" alt="Cloudera CDH boot error" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/05/image.png" width="612" height="339"></p> <p>&nbsp;</p> <p>The issue here is that IOAPIC is disabled for this VM. You can find out more about IOAPIC <a href="http://www.intel.com/design/chipsets/datashts/290566.htm">here</a>.</p> <p>To enable IOAPIC, power off your virtual machine. Go to settings –&gt; System. Click on Motherboard tab and check Enable IO APIC.</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Cloudera VirtualBox image settings" border="0" alt="Cloudera VirtualBox image settings" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/05/image1.png" width="565" height="421"></p> <p>After this Cloudera image boots fine.</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Cloudera CDH3" border="0" alt="Cloudera CDH3" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/05/image2.png" width="645" height="536"></p>
+  <div class="entry-content"><p>This article is about serialization and deserialization in Microsoft .NET Framework. At the time of writing this article I am using .NET Framework 4.5. The concepts I talk about here also apply to all earlier versions.</p>
+
+<p>Motivation to write this article came from a colleague on one of the projects I am busy with these days. I am mentoring a couple of developers who have joined the project straight out of university. They are here to learn the ropes of Microsoft .NET centric software development. Yesterday during a design discussion we talked about serialization of objects in our system. They are well familiar with the concepts of serialization, I showed them how it is done in .NET world.</p>
+<p>Serialization is a technique we use to convert the state of an object to a format which can be persisted for later retrieval. Last sentence perhaps sounded very bookish. Let&#8217;s try some plain English and understand the concept using an example. We will use an example which involves pizza.</p>
+
+<p>We will write a class to represent a Pizza. The class has a property Slices to hold the number of slices. When pizza object is initialized, the number of slices are set to 8. Pizza class also has methods for eating a slice, saving the pizza for later consumption and a method to get leftover pizza. Here are the stubs for properties and methods.</p>
+<pre class="lang:c# decode:true " >public int Slices
+public bool IsThereAnyPizzaLeftForMe
+
+public void EatSlice()
+public void SaveForLater()
+public static Pizza GetLeftOverPizza()</pre> 
+<p>We will now fill in the stubs for SaveForLater() and GetLeftOverPizza(). This is where we will serialize and deserialize our pizza object.</p>
+ 
+<pre class="lang:c# decode:true " >public void SaveForLater()
+{
+	XmlSerializer serializer = new XmlSerializer(typeof(Pizza));
+
+	using (StreamWriter writer = new StreamWriter(@"c:\temp\pizza.xml"))
+	{
+		serializer.Serialize(writer,this);
+	}
+}</pre> 
+
+<p>In the code above we are saying that serialize the pizza object to XML file. XmlSerializer comes with .NET framework and can be found in System.Xml.Serialization namespace. Objects can also be serialized to binary format. We can look at that some other day. For now let&#8217;s go with XML.</p>
+
+<p>Here is the code from a console application which creates an instance of Pizza class, eats a slice and calls SaveForLater() to serialize the object state to XML.</p>
+ 
+<pre class="lang:c# decode:true " >static void Main(string[] args)
+{
+	Pizza pizza = new Pizza();
+	Console.WriteLine("{0} slices left in the pizza", pizza.Slices);
+	
+	pizza.EatSlice();
+	Console.WriteLine("{0} slices left in the pizza", pizza.Slices);
+
+	pizza.SaveForLater();
+}</pre> 
+
+<p>Let&#8217;s look at the XML to which our pizza object was serialized. </p>
+ 
+<pre class="lang:xhtml decode:true " >&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;Pizza xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;Slices&gt;7&lt;/Slices&gt;
+&lt;/Pizza&gt;</pre> 
+
+<p>Note that it only saves Slices property. There is no need to save/serialize the IsThereAnyPizzaLeftForMe property because it&#8217;s value can be determined by checking if Slices is equal to zero. XmlSerializer is smart enough to know which data is absolutely required to deserialize an object. Also methods are behaviors which act upon data so there is no need to retain them.</p>
+
+<p>GetLefOverPizza() method creates an instance of Pizza object from XML. To be technically correct, it deserializes a pizza object from XML.</p>
+ 
+<pre class="lang:c# decode:true " >public static Pizza GetLeftOverPizza()
+{
+	Pizza pizza = null;
+	XmlSerializer serializer = new XmlSerializer(typeof(Pizza));
+
+	using (FileStream fileStream = new FileStream(@"c:\temp\pizza.xml", FileMode.Open))
+	{
+	pizza = (Pizza)serializer.Deserialize(fileStream);
+	}
+
+	return pizza;
+}</pre> 
+
+<p>Another console application shows retrieving a left over pizza, eating a slice and then again saving it for later.</p>
+
+<pre class="lang:c# decode:true " >static void Main(string[] args)
+{
+	Pizza pizza = Pizza.GetLeftOverPizza();
+	Console.WriteLine("{0} slices left in the pizza", pizza.Slices);
+
+	pizza.EatSlice();
+	Console.WriteLine("{0} slices left in the pizza", pizza.Slices);
+
+	pizza.SaveForLater();
+	
+}</pre> 
+
+<p>So there you have it. A simple example which shows how to serialize and deserialize an object in .NET Framework.</p>
 </div>
   
   
@@ -927,6 +403,26 @@ public class CallDetector {
     
       <li class="post">
         <a href="/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/03/linux-number-of-files-in-directory/">Linux - Number of Files in Directory</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/24/android-listview-tutorial-with-images-and-text/">Android - ListView Tutorial With Images and Text</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/19/android-listview-tutorial/">Android - ListView Tutorial</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

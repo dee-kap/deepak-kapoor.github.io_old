@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="This script returns all default constraints on a table in a SQL Server 2008 database. It gives me the name and definition of the constraints on &hellip;">
+  <meta name="description" content="Visual Studio 2010 provides a nifty little feature which let’s you generate code from within the editor. In this post I will show you how to use this &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -74,7 +74,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/12/sql-server-2008-find-default-constraints-on-a-table-using-t-sql/">SQL Server 2008 – Find Default Constraints on a Table Using T-SQL</a></h1>
+      <h1 class="entry-title"><a href="/2010/05/27/visual-studio-2010-code-generation-with-intellisense/">Visual Studio 2010 Code Generation With Intellisense</a></h1>
     
     
       <p class="meta">
@@ -90,25 +90,16 @@
   
 
 
-<time datetime="2009-03-12T00:00:00+11:00" pubdate data-updated="true">Mar 12<span>th</span>, 2009</time>
+<time datetime="2010-05-27T00:00:00+10:00" pubdate data-updated="true">May 27<span>th</span>, 2010</time>
         
-         | <a href="/2009/03/12/sql-server-2008-find-default-constraints-on-a-table-using-t-sql/#disqus_thread">Comments</a>
+         | <a href="/2010/05/27/visual-studio-2010-code-generation-with-intellisense/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>This script returns all default constraints on a table in a SQL Server 2008 database. It gives me the name and definition of the constraints on Person.Address table in Adventure Works database. You can substitute the table name with any other table to get the constraints for that table.</p>  <pre class="code"><span style="color: blue">SELECT    </span>[name]<span style="color: gray">,
-        </span>[definition]
-<span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">default_constraints
-</span><span style="color: blue">WHERE </span>parent_object_id <span style="color: gray">= 
-    (</span><span style="color: blue">SELECT </span><span style="color: magenta">OBJECT_ID </span><span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">tables
-    </span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'Address'</span><span style="color: gray">)</span></pre>
-
-<p><a href="http://11011.net/software/vspaste"></a></p>
-
-<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="68" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image15.png" width="317" border="0" /></p>
+  <div class="entry-content"><p>Visual Studio 2010 provides a nifty little feature which let’s you generate code from within the editor. In this post I will show you how to use this feature. Imagine that you are having a fantastic coding day and you are coding at 100mph. You have just realised that you need a class called car and you want to do it ninja style. Just type in this.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/05/image3.png" width="172" height="28" /> </p>  <p>Visual studio displays Car in red because it cannot find a Type named Car. Put your cursor on Car and hit <strong><font color="#000080">Ctrl + . </font></strong></p>  <p><a href="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/05/image4.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/05/image5.png" width="354" height="128" /></a> </p>  <p>The smart tag gives you two options:</p>  <ol>   <li>Generate class for ‘Car’ </li>    <li>Generate new type… </li> </ol>  <p>If you select the first option, a new class is created for you in a new file and appropriately named Car. </p>  <p>The second option which is “Generate new type…” gives you more control over the code which will be generated.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/05/image6.png" width="374" height="403" /> </p>  <p>In the dialog box you can choose Access (public or private) and you can also select if you’d like to generate a class, struct, interface or an enum. An option also exists down below to either add the newly generated code to an existing file or create a new file.</p>  <p>Pretty neat I think. </p>
 </div>
   
   
@@ -121,7 +112,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/12/installing-oracle-soa-suite-on-windows-xp/">Installing Oracle SOA Suite on Windows XP</a></h1>
+      <h1 class="entry-title"><a href="/2010/05/20/turn-on-msdtc-windows-7/">Turn on MSDTC Windows 7</a></h1>
     
     
       <p class="meta">
@@ -137,16 +128,16 @@
   
 
 
-<time datetime="2009-03-12T00:00:00+11:00" pubdate data-updated="true">Mar 12<span>th</span>, 2009</time>
+<time datetime="2010-05-20T00:00:00+10:00" pubdate data-updated="true">May 20<span>th</span>, 2010</time>
         
-         | <a href="/2009/03/12/installing-oracle-soa-suite-on-windows-xp/#disqus_thread">Comments</a>
+         | <a href="/2010/05/20/turn-on-msdtc-windows-7/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>In this post I will document my experience of installing Oracle SOA Suite on Windows XP. No I am not switching and I’m still a Microsoft developer by heart. But I do feel that for me to improve my craft I must also understand how things are done in other camps such as Oracle, SUN, IBM etc. </p>  <p>The version I installed is Oracle Application Server SOA Suite 10.1.3.1.10 and I decided to do a basic installation which installs Oracle Lite database as opposed to a full blown Oracle database. You can think of Oracle Lite as similar to SQL Server Express. </p>  <p>Installation can be started by clicking setup.exe after extracting all files form the downloaded zip. Setup.exe will conduct a quick check to see that right amount of disk space is available. After this the installation wizard starts.</p>  <p>&#160;</p>  <h4>Screen 1</h4>  <p>&#160;</p>  <p>This screen allows me to make a choice between a Basic Install or Advance Install and supply a name for my Oracle Application Server and passwords for admin account. Note that you cannot change the admin user name and database type will be Oracle OLite. Next thing is to click on Install button.</p>  <p><img title="Oracle SOA Suite On Windows Screen" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="422" alt="Oracle SOA Suite On Windows Screen" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image9.png" width="540" border="0" /></p>  <p>&#160;</p>  <h4>Screen 2</h4>  <p>&#160;</p>  <p>The wizard at this stage will happily go and install the software. This screen shows that my installation is at 74%. </p>  <p><img title="Oracle SOA Suite On Windows Screen" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="428" alt="Oracle SOA Suite On Windows Screen" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image10.png" width="540" border="0" /> </p>  <p>&#160;</p>  <h4>Error Mesage</h4>  <p>&#160;</p>  <p>At almost 99% the installer may throw an error.</p>  <p><img title="Oracle SOA Suite On Windows Screen" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="112" alt="Oracle SOA Suite On Windows Screen" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image11.png" width="540" border="0" /> </p>  <p>I just clicked okay few times and the error went away. The installer continued fine after that.</p>  <p>&#160;</p>  <h4>Screen 3</h4>  <p>&#160;</p>  <p>This screen shows that the installer is configuring required components which are required for applications in the suite. </p>  <p><img title="Oracle SOA Suite On Windows Screen" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="428" alt="Oracle SOA Suite On Windows Screen" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image12.png" width="540" border="0" /> </p>  <p>&#160;</p>  <h4>Screen 4</h4>  <p>&#160;</p>  <p>This final screen tells me that the installation was successful. Hurray!</p>  <p><img title="Oracle SOA Suite On Windows Screen" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="428" alt="Oracle SOA Suite On Windows Screen" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image13.png" width="540" border="0" /> </p>  <p>&#160;</p>  <p>After clicking exit, the start page for Oracle Suite appears.</p>  <p><img title="Oracle SOA Suite On Windows Screen" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="374" alt="Oracle SOA Suite On Windows Screen" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image14.png" width="540" border="0" /> </p>  <h4>Conclusion</h4>  <p>&#160;</p>  <p>Overall experience of installing Oracle SOA Suite on WindowsXP is pleasant. The installer other than a minor hitch does a good job without nagging you with too many questions. </p>  <p>Now that I have the suite installed, I’ll play with it a bit more and post my learning experiences here. </p>  <p>You can download Oracle SOA Suite for Windows <a href="http://www.oracle.com/technology/software/tech/soa/index.html">here</a>.</p>
+  <div class="entry-content"><p>Here is a step by step guide to turn on MSDTC on Windows 7. MSDTC settings are somewhat hidden in Windows 7 and I could not get to them as I did on Windows XP or Server 2003. I found a way and I’m putting it out here. </p>  <h4>Step 1</h4>  <p>Run dcomcnfg. This will open MMC with Component Services snapin.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="dcomcnfg" border="0" alt="dcomcnfg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/05/image.png" width="427" height="235" /> </p>  <h4>Step 2</h4>  <p>Expand Distributed Transaction Coordinator folder</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/05/image1.png" width="540" height="418" /> </p>  <h4>Step 3</h4>  <p>Right click on Local DTC and click Properties. Click on Security tab. Here you can modify DTC settings.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/05/image2.png" width="462" height="505" /></p>
 </div>
   
   
@@ -159,7 +150,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/09/get-processor-information-in-net-using-c/">Get Processor Information in .NET Using C#</a></h1>
+      <h1 class="entry-title"><a href="/2010/05/10/mother-of-all-sharepoint-2010-virtual-machines/">Mother of All SharePoint 2010 Virtual Machines</a></h1>
     
     
       <p class="meta">
@@ -175,48 +166,33 @@
   
 
 
-<time datetime="2009-03-09T00:00:00+11:00" pubdate data-updated="true">Mar 9<span>th</span>, 2009</time>
+<time datetime="2010-05-10T00:00:00+10:00" pubdate data-updated="true">May 10<span>th</span>, 2010</time>
         
-         | <a href="/2009/03/09/get-processor-information-in-net-using-c/#disqus_thread">Comments</a>
+         | <a href="/2010/05/10/mother-of-all-sharepoint-2010-virtual-machines/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>.NET Framework provides classes which give information about the machine on which code is executed. One Such class is <strong>System.Environment</strong> which gives us things like Machine Name, OS Version and much more. I recently had a requirement to programmatically detect the number of Processors on a machine. I thought this was a simple enough task. <strong>System.Environment.ProcessorCount</strong> gives me that information. But I was in for a surprise. Let me walk you through my findings.</p>  <p>On my machine I have a dual core CPU which I can quickly see by opening Task Manager.</p>  <p><img title="Task Manager" style="border-top-width: 0px; display: inline; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="464" alt="Task Manager" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image8.png" width="412" border="0" /></p>  <p>What do you think is the output of this statement.</p>  <pre class="code"><span style="color: #2b91af">Console</span>.WriteLine(System.<span style="color: #2b91af">Environment</span>.ProcessorCount.ToString());</pre>
+  <div class="entry-content">This is one Machine to rule them all (I know Lord of Rings is so old school). In the Virtual Machine you will get the following.
+<ol>
+	<li>Windows Server 2008 R2 Standard Evaluation Edition x64, running as  an Active Directory Domain Controller for the “CONTOSO.COM” domain with  DNS and WINS</li>
+	<li>Microsoft SQL Server 2008 R2 Enterprise Edition with Analysis,  Notification, and Reporting Services</li>
+	<li>Microsoft Office Communication Server 2007 R2</li>
+	<li>Microsoft Visual Studio 2010</li>
+	<li>Microsoft SharePoint Server 2010 Enterprise Edition</li>
+	<li>Microsoft Office Web Applications</li>
+	<li>Microsoft FAST Search for SharePoint 2010</li>
+	<li>Microsoft Project Server 2010</li>
+	<li>Microsoft Office Professional Plus 2010</li>
+	<li>Microsoft Visio 2010</li>
+	<li>Microsoft Project 2010</li>
+	<li>Microsoft Office Communicator 2007 R2</li>
+</ol>
+So fireup your <a href="http://www.freedownloadmanager.org/">free download manager</a> and download this absolute SharePoint 2010 nirvana. If you are contrained on bandwidth then just to let you know that full download will set you back by approximately 18GB.
 
-<p><a href="http://11011.net/software/vspaste"></a></p>
-
-<p>The output is <strong>2</strong>. But I have one physical processor so I expected to see <strong>1</strong>. I could not find a way to get this information from the framework. So I went to good old WMI for this. Running this code gives me accurate information about my processor.</p>
-
-<pre class="code"><span style="color: #2b91af">ManagementObjectSearcher </span>mgmtObjects = </pre>
-
-<pre class="code">  <span style="color: blue">new </span><span style="color: #2b91af">ManagementObjectSearcher</span>(<span style="color: #a31515">&quot;Select * from Win32_ComputerSystem&quot;</span>);
-
-<span style="color: blue">foreach </span>(<span style="color: blue">var </span>item <span style="color: blue">in </span>mgmtObjects.Get())
-{
-<span style="color: #2b91af">  Console</span>.WriteLine(<span style="color: #a31515">&quot;Number Of Processors - &quot; </span>+ </pre>
-
-<pre class="code">                     item[<span style="color: #a31515">&quot;NumberOfProcessors&quot;</span>]);
-<span style="color: #2b91af">  Console</span>.WriteLine(<span style="color: #a31515">&quot;Number Of Logical Processors - &quot; </span>+ </pre>
-
-<pre class="code">                     item[<span style="color: #a31515">&quot;NumberOfLogicalProcessors&quot;</span>]);
-}</pre>
-<a href="http://11011.net/software/vspaste"></a>
-
-<p>&#160;</p>
-
-<p>And the output this time is</p>
-
-<p><strong>Number Of Processors – 1</strong></p>
-
-<p><strong>Number Of Logical Processors – 2 </strong></p>
-
-<p>This is exactly what I need.</p>
-
-<p>So here is my lesson learned. To get detailed and accurate information about number of processors on your machine, WMI is a better approach than <strong>System.Environment.ProcessorCount</strong>.</p>
-<a href="http://www.dotnetkicks.com/kick/?url=http%3a%2f%2fwww.thereforesystems.com%2fget-processor-information-in-net-using-c%2f"><img alt="kick it on DotNetKicks.com" src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fwww.thereforesystems.com%2fget-processor-information-in-net-using-c%2f" border="0" /></a>
+Here is the <a href="http://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=751fa0d1-356c-4002-9c60-d539896c66ce">download link</a>.
 </div>
   
   
@@ -229,7 +205,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/09/get-last-row-from-table-using-linq-to-sql/">Get Last Row From Table Using LINQ to SQL</a></h1>
+      <h1 class="entry-title"><a href="/2010/05/03/remove-hardware-virtualization-requirement-on-windows-7/">Remove Hardware Virtualization Requirement on Windows 7</a></h1>
     
     
       <p class="meta">
@@ -245,26 +221,22 @@
   
 
 
-<time datetime="2009-03-09T00:00:00+11:00" pubdate data-updated="true">Mar 9<span>th</span>, 2009</time>
+<time datetime="2010-05-03T00:00:00+10:00" pubdate data-updated="true">May 3<span>rd</span>, 2010</time>
         
-         | <a href="/2009/03/09/get-last-row-from-table-using-linq-to-sql/#disqus_thread">Comments</a>
+         | <a href="/2010/05/03/remove-hardware-virtualization-requirement-on-windows-7/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>This query returns the last row from Sales.Customer table in Adventure Works database. I am using LINQPad to write and execute my query. </p>  
+  <div class="entry-content">Running XP mode on Windows 7 requires Hardware Virtualization to be enabled. You set this through BIOS settings. But what if your machine does not support Hardware Virtualization. Yes such machines do exist and I have one. My SONY Vaio does not allow Hardware Virtualization. Why? Because it’s a SONY.
 
- 
-<pre class="lang:c# decode:true " >(from c in Customers
-select c)
-.OrderByDescending(x=&gt; x.CustomerID).First()</pre> 
+A good news for me and others who are in same boat is that Microsoft has released a patch which removes this requirement. Seriously, I cannot thank Microsoft enough for this. Good stuff guys, I owe you a beer.
 
+Download the patch <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=837f12aa-1d37-464e-ae59-20c9ecbebaf6&amp;displaylang=en">here</a>.
 
-<p>Here is the result as displayed in LINQPad</p>
-
-<p>&#160;<img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="177" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image6.png" width="425" border="0" /> </p>
+Download patch for 64bit <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=e70dd043-e262-43c0-a002-446567f1e2b4&amp;displaylang=en">here</a>.
 </div>
   
   
@@ -277,7 +249,7 @@ select c)
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/09/get-cd-or-dvd-drive-information-using-wmi-and-c/">Get CD or DVD Drive Information Using WMI and C#</a></h1>
+      <h1 class="entry-title"><a href="/2010/05/03/my-new-favorite-text-editor-hippoedit/">My New Favorite Text Editor HippoEDIT</a></h1>
     
     
       <p class="meta">
@@ -293,230 +265,16 @@ select c)
   
 
 
-<time datetime="2009-03-09T00:00:00+11:00" pubdate data-updated="true">Mar 9<span>th</span>, 2009</time>
+<time datetime="2010-05-03T00:00:00+10:00" pubdate data-updated="true">May 3<span>rd</span>, 2010</time>
         
-         | <a href="/2009/03/09/get-cd-or-dvd-drive-information-using-wmi-and-c/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This snippet shows you how to get information about all CD / DVD drives on your machine using WMI and C#. To run the code you need to add reference to System.Management.</p>  <pre class="code"><span style="color: #2b91af">ManagementObjectSearcher </span>mgmtObjects = </pre>
-
-<pre class="code">  <span style="color: blue">new </span><span style="color: #2b91af">ManagementObjectSearcher</span>(<span style="color: #a31515">&quot;Select * from Win32_CDROMDrive&quot;</span>);
-
-<span style="color: blue">foreach </span>(<span style="color: blue">var </span>item <span style="color: blue">in </span>mgmtObjects.Get())
-{
-<span style="color: #2b91af">  Console</span>.WriteLine(<span style="color: #a31515">&quot;Drive Letter - t&quot; </span>+ item[<span style="color: #a31515">&quot;Drive&quot;</span>]);
-<span style="color: #2b91af">  Console</span>.WriteLine(<span style="color: #a31515">&quot;Name - t&quot; </span>+ item[<span style="color: #a31515">&quot;Name&quot;</span>]);
-}</pre>
-<a href="http://11011.net/software/vspaste"></a>
-
-<p>&#160;</p>
-
-<p>This code snippet will print out the letter and the name of all CD or DVD drives on a machine. Here is the output on my PC.</p>
-
-<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="54" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image7.png" width="378" border="0" /></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/03/08/microsoft-thrive-are-you-certifiable/">Microsoft Thrive Are You Certifiable?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-03-08T00:00:00+11:00" pubdate data-updated="true">Mar 8<span>th</span>, 2009</time>
-        
-         | <a href="/2009/03/08/microsoft-thrive-are-you-certifiable/#disqus_thread">Comments</a>
+         | <a href="/2010/05/03/my-new-favorite-text-editor-hippoedit/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.microsoft.com/click/thrive/">Microsoft Thrive</a> is a clever demonstration of how Silverlight can be used for a public facing website. Other than being a showcase for Silverlight the site also has some valuable content for career development, desktop optimization, cost savings and compliance &amp; governance among others.</p>  <p>&#160;</p>  <p><img title="Microsof Thrive" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="190" alt="Microsof Thrive" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image2.png" width="525" border="0" />&#160;</p>  <p>The most fun is a game called Are You Certifiable. The game is a good distraction if you are In Pursuit of Certification. You have fun and still learn something. </p>  <p><img title="Are You Certifiable " style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="243" alt="Are You Certifiable " src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image3.png" width="123" border="0" /> </p>  <p>In the game you will spot some long-gone Microsoft celebrities who make their appearance as avatars. </p>  <p><img title="Are You Certifiable Game" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="365" alt="Are You Certifiable Game" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image4.png" width="525" border="0" /> </p>  <p>You can play Are You Certifiable <a href="http://www.microsoft.com/click/areyoucertifiable/">here</a>.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/03/06/backup-utility-for-windows-live-writer/">Backup Utility for Windows Live Writer</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-03-06T00:00:00+11:00" pubdate data-updated="true">Mar 6<span>th</span>, 2009</time>
-        
-         | <a href="/2009/03/06/backup-utility-for-windows-live-writer/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Windows Live Writer which IMO is the best software for blog posting has been missing a desirable feature. i.e. to backup posts, pages, settings etc. Today I found about Windows Live Writer Backup application on CodePlex. This little application will backup your posts and blog settings. The application is a RC at this stage.</p>  <p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="348" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image1.png" width="481" border="0" /> </p>  <p>Given the popularity of Windows Live Writer, I see a good uptake for this application. </p>  <p>You can download Windows Live Writer Backup <a href="http://www.codeplex.com/WLWBackup">here</a>.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/03/05/sharepoint-installation-failed-to-create-sample-data/">SharePoint Installation Failed to Create Sample Data</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-03-05T00:00:00+11:00" pubdate data-updated="true">Mar 5<span>th</span>, 2009</time>
-        
-         | <a href="/2009/03/05/sharepoint-installation-failed-to-create-sample-data/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This one always gets me off guard so I’m posting this here for more than anything else to remind me. The issue occurs when you configure your MOSS environment which is normally done after installing MOSS. The issue is that while inserting sample data the wizard throws an error which says “Failed to create sample data”. The reason this occurs is because you’ve not configured MSDTC properly. Here are the steps to resolve the problem picked up from this <a href="http://support.microsoft.com/kb/916894">link</a>. </p>  <p>To resolve this issue, configure the security settings for the Microsoft Distributed Transaction Coordinator (DTC) to use the <strong>Allow Remote Clients</strong> setting. To do this, follow these steps: </p>  <ol>   <li>Click <strong>Start</strong>, point to <strong>Administrative Tools</strong>, and then click <strong>Component Services</strong>. </li>    <li>In the left pane of the Component Services snap-in, expand <strong>Component Services</strong>, and then expand <strong>Computers</strong>. </li>    <li>Right-click <strong>My Computer</strong>, and then click <strong>Properties</strong>. </li>    <li>Click the <strong>MSDTC</strong> tab, and then click <strong>Security Configuration</strong> under <strong>Transaction Configuration</strong>. </li>    <li>Under <strong>Security Settings</strong>, click to select the <strong>Network DTC Access</strong> check box, if it is not already selected. Then, click to select the <strong>Allow Remote Clients</strong> check box </li>    <li>Click <strong>OK</strong>. </li>    <li>When you receive the message that states that the DTC service will be stopped and restarted, click <strong>Yes</strong> to confirm that you want to continue. </li>    <li>Click <strong>OK</strong> when you receive the message that the DTC service was restarted. </li>    <li>Click <strong>OK</strong>.</li> </ol>  <p>&#160;</p>  <p>Once the above steps have been executed, running the wizard inserts sample data without any problem.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/03/05/get-more-than-100-hours-of-sql-server-2008-training-for-free/">Get More Than 100 Hours of SQL Server 2008 Training for Free</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-03-05T00:00:00+11:00" pubdate data-updated="true">Mar 5<span>th</span>, 2009</time>
-        
-         | <a href="/2009/03/05/get-more-than-100-hours-of-sql-server-2008-training-for-free/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>It feels good when you find a hidden gem on www. Through a link trail which I cannot remember now I somehow landed up on <a href="http://sqlserver2008jumpstart.microsofttraining.com/">SQL Server 2008 Jumpstart site</a>. Here you can access training material which is categorised into four tracks.</p>  <ol>   <li>Database Infrastructure Track</li>    <li>Business Intelligence Track</li>    <li>Developer Track</li>    <li>Application Compatibility &amp; Upgrade Track,</li> </ol>  <p>&#160;</p>  <p>Each of the tracks have reading material, demos and Hands on Labs. I think this is great source to get skilled up on SQL Server 2008 from the comfort of your home / office.</p> Here is the link to <a href="http://sqlserver2008jumpstart.microsofttraining.com/">SQL Jumpstart site</a>.
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/03/03/sql-server-2008-find-if-a-database-is-offline-with-t-sql/">SQL Server 2008 – Find if a Database Is Offline With T-SQL</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-03-03T00:00:00+11:00" pubdate data-updated="true">Mar 3<span>rd</span>, 2009</time>
-        
-         | <a href="/2009/03/03/sql-server-2008-find-if-a-database-is-offline-with-t-sql/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In SQL Server 2008 you can find if a database is online of offline by querying databases system view. A simple query such as this one gives me a list of all databases on my server and the second column shows if the database is online or offline. </p>  
-
- 
-<pre class="lang:tsql decode:true " >SELECT Name, state_desc
-FROM sys.databases</pre> 
-
-
-<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="339" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image.png" width="311" border="0" /> </p>
-
-<p>On my server I have a database called LinqToSqlLab which is currently offline. </p>
+  <div class="entry-content"><p>After using notepad++ for many years, I recently switched over to HippoEDIT as my preferred text editor. I find HippoEdit to be snappier than other text editor and the UI also looks appealing. Just wanted to give them a plug here. </p>  <p><a href="http://www.hippoedit.com/download.php?lang=en">Download</a> HippoEDIT and see it for yourself. </p>  <p><img alt="HippoEDIT Overview" src="http://www.hippoedit.com/images/screenshot_small.gif" /></p>
 </div>
   
   
@@ -558,6 +316,26 @@ FROM sys.databases</pre>
     
       <li class="post">
         <a href="/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/03/linux-number-of-files-in-directory/">Linux - Number of Files in Directory</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/24/android-listview-tutorial-with-images-and-text/">Android - ListView Tutorial With Images and Text</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/19/android-listview-tutorial/">Android - ListView Tutorial</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>
