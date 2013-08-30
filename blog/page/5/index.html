@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="After installing Windows 8, I found that my ASP.NET MVC projects won’t open in Visual Studio. This is the error thrown by Visual Studio 2012. My &hellip;">
+  <meta name="description" content="Found a great collection of Python books available for free. Sharing it with readers of Therefore Systems. Screenshot below is just a small sample. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -39,6 +39,7 @@
 
 <body   >
   <header role="banner"><hgroup>
+
   <h1><a href="/">Debug Release</a></h1>
   
     <h2>Hacking notes of Deepak Kapoor</h2>
@@ -68,6 +69,44 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/03/25/free-python-books/">Free Python Books</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-25T00:00:00+11:00" pubdate data-updated="true">Mar 25<span>th</span>, 2013</time>
+        
+         | <a href="/2013/03/25/free-python-books/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Found a great collection of Python books available for free. Sharing it with readers of Therefore Systems. Screenshot below is just a small sample. </p> <p><a href="http://pythonbooks.revolunet.com/"><img title="Free Python Books" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="Free Python Books" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/03/image2.png" width="640" height="532"></a></p> <p><a href="http://pythonbooks.revolunet.com/">Link</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -346,44 +385,6 @@ word.set(tokenizer.nextToken().toLowerCase());
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/07/04/java-lang-noclassdeffounderror-orgapachehadoopthirdpartyguavacommonprimitivesunsignedbytes/">java.lang.NoClassDefFoundError: …/guava/common/primitives/UnsignedBytes</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-04T00:00:00+10:00" pubdate data-updated="true">Jul 4<span>th</span>, 2012</time>
-        
-         | <a href="/2012/07/04/java-lang-noclassdeffounderror-orgapachehadoopthirdpartyguavacommonprimitivesunsignedbytes/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>No idea why this happened today on a Hadoop project which was running fine till now. </p> <p><font color="#c0504d">java.lang.NoClassDefFoundError: org/apache/hadoop/thirdparty/guava/common/primitives/UnsignedBytes<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.FastByteComparisons$LexicographicalComparerHolder</font></p> <p><font color="#c0504d">$UnsafeComparer.compareTo(FastByteComparisons.java:226)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.FastByteComparisons$LexicographicalComparerHolder</font></p> <p><font color="#c0504d">$UnsafeComparer.compareTo(FastByteComparisons.java:113)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.FastByteComparisons.compareTo(FastByteComparisons.java:42)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.WritableComparator.compareBytes(WritableComparator.java:150)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.Text$Comparator.compare(Text.java:306)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask$MapOutputBuffer.compare(MapTask.java:968)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.util.QuickSort.fix(QuickSort.java:30)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.util.QuickSort.sortInternal(QuickSort.java:83)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.util.QuickSort.sort(QuickSort.java:59)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask$MapOutputBuffer.sortAndSpill(MapTask.java:1254)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask$MapOutputBuffer.flush(MapTask.java:1155)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask$NewOutputCollector.close(MapTask.java:582)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:649)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask.run(MapTask.java:323)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:210)<br>Caused by: java.lang.ClassNotFoundException: org.apache.hadoop.thirdparty.guava.common.primitives.UnsignedBytes<br>&nbsp;&nbsp;&nbsp; at java.net.URLClassLoader$1.run(URLClassLoader.java:202)<br>&nbsp;&nbsp;&nbsp; at java.security.AccessController.doPrivileged(Native Method)<br>&nbsp;&nbsp;&nbsp; at java.net.URLClassLoader.findClass(URLClassLoader.java:190)<br>&nbsp;&nbsp;&nbsp; at java.lang.ClassLoader.loadClass(ClassLoader.java:306)<br>&nbsp;&nbsp;&nbsp; at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:301)<br>&nbsp;&nbsp;&nbsp; at java.lang.ClassLoader.loadClass(ClassLoader.java:247)<br>&nbsp;&nbsp;&nbsp; &#8230; 15 more</font></p> <p>Anyhow, the way to fix this issue is by adding guava-r09-jarjar.jar to build path. In Netbeans add the jar to Libraries for your project.</p> <p>guava-r09-jarjar.jar can be found in /usr/lib/hadoop-0.20/lib</p> <p>or use the locate command to find it on your system</p> <p><font color="#0000ff">locate guava-r09-jarjar.jar</font></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/6/">&larr; Older</a>
@@ -399,6 +400,10 @@ word.set(tokenizer.nextToken().toLowerCase());
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/08/10/move-to-octopress/">Move to Octopress</a>
+      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -434,10 +439,6 @@ word.set(tokenizer.nextToken().toLowerCase());
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

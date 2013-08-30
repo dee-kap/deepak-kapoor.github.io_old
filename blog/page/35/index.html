@@ -9,8 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="I wish all readers of One .Net Way a very Happy New Year. Let 2009 be an year of learning. I know it will be for me.
-">
+  <meta name="description" content="Earlier I wrote a post showing how to write a LINQ query which gets transformed into a T-SQL query with a &quot;Where In&quot; clause. I had a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -40,6 +39,7 @@
 
 <body   >
   <header role="banner"><hgroup>
+
   <h1><a href="/">Debug Release</a></h1>
   
     <h2>Hacking notes of Deepak Kapoor</h2>
@@ -69,6 +69,73 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/01/05/linq-equivalent-of-where-in-with-int/">LINQ Equivalent of Where in With Int</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-05T00:00:00+11:00" pubdate data-updated="true">Jan 5<span>th</span>, 2009</time>
+        
+         | <a href="/2009/01/05/linq-equivalent-of-where-in-with-int/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Earlier I wrote a post showing how to write a <a href="http://www.debugrelease.com/linq-equivalent-of-where-in/">LINQ query which gets transformed into a T-SQL query with a &quot;Where In&quot; clause</a>. I had a comment on the post by Steve saying that the approach only works with strings. In this post I will show you a similar query which works with Integers.</p>  <p>Let&#8217;s say that we want to select rows from Products table in Northwind database where ProductId matches 3, 7, 8, 10. Our query should include the Where IN clause. Something like this:</p>  
+
+ 
+<pre class="lang:tsql decode:true " >SELECT * 
+FROM Products
+WHERE ProductID in (3, 7, 8, 10)</pre> 
+
+
+<p>Of course Select * is not a good way to write any Query but this is just to convey a point. LINQ query which will work with integers and give me a Where IN looks like this:</p>
+
+ 
+<pre class="lang:c# decode:true " >List&lt;int&gt; productIds = new List&lt;int&gt; { 3, 7, 8, 10 };
+
+using (NorthwindDataContext context = new NorthwindDataContext())
+{
+  var query = from p in context.Products
+    where productIds.Contains(p.ProductID)
+    select p;
+}</pre> 
+
+
+<p>This results in the following T-SQL query:</p>
+
+ 
+<pre class="lang:tsql decode:true " >exec sp_executesql N'SELECT [t0].[ProductID], [t0].[ProductName], [t0].[SupplierID], 
+[t0].[CategoryID], [t0].[QuantityPerUnit], [t0].[UnitPrice], [t0].[UnitsInStock], 
+[t0].[UnitsOnOrder], [t0].[ReorderLevel], [t0].[Discontinued]
+FROM [dbo].[Products] AS [t0]
+WHERE [t0].[ProductID] IN (@p0, @p1, @p2, @p3)',N'@p0 int,@p1 int,@p2 int,@p3 int',
+@p0=3,@p1=7,@p2=8,@p3=10</pre> 
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -338,44 +405,6 @@ public List<Error> ReadFileIntoCollection(string originalFile)
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/12/03/google-chrome-gains-market-share/">Google Chrome Gains Market Share</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-12-03T00:00:00+11:00" pubdate data-updated="true">Dec 3<span>rd</span>, 2008</time>
-        
-         | <a href="/2008/12/03/google-chrome-gains-market-share/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>According to <a href="http://marketshare.hitslink.com/browser-market-share.aspx?qprid=0">Market Share</a> Google Chrome has 1% of browser market share. I am sure I must be a part of that statistics because I have Chrome installed on one of machines, and I think of it as just another browser. Although integrating search into address bar is a clever feature but again it is just a browser for me. After reading browser statistics on Market Share I decided to have a look at analytics for this site to see the browser share. Here is a chart:</p>  <p>&#160;<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" height="290" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/12/image.png" width="498" border="0" /> </p>  <p>Yu can see that Chrome ranks third after IE and Firefox. Six percent readers of this site use Chrome. Now I assume that most of my readers are people who work with Microsoft technologies and most likely developers. Does this mean that developers are embracing Chrome. Of course I do not have any hard data to back up the assertion but it is still worth a thought.</p>  <p>Are you a developer? Do you use Google Chrome?</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/36/">&larr; Older</a>
@@ -391,6 +420,10 @@ public List<Error> ReadFileIntoCollection(string originalFile)
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/08/10/move-to-octopress/">Move to Octopress</a>
+      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -426,10 +459,6 @@ public List<Error> ReadFileIntoCollection(string originalFile)
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

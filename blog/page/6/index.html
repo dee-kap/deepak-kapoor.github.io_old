@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="BigInsights web console error in IBM Infosphere BigInsights VM usually occurs because web console is not running. It can be started by executing &hellip;">
+  <meta name="description" content="No idea why this happened today on a Hadoop project which was running fine till now. java.lang.NoClassDefFoundError: org/apache/hadoop/thirdparty/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -39,6 +39,7 @@
 
 <body   >
   <header role="banner"><hgroup>
+
   <h1><a href="/">Debug Release</a></h1>
   
     <h2>Hacking notes of Deepak Kapoor</h2>
@@ -68,6 +69,44 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/07/04/java-lang-noclassdeffounderror-orgapachehadoopthirdpartyguavacommonprimitivesunsignedbytes/">java.lang.NoClassDefFoundError: …/guava/common/primitives/UnsignedBytes</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-04T00:00:00+10:00" pubdate data-updated="true">Jul 4<span>th</span>, 2012</time>
+        
+         | <a href="/2012/07/04/java-lang-noclassdeffounderror-orgapachehadoopthirdpartyguavacommonprimitivesunsignedbytes/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>No idea why this happened today on a Hadoop project which was running fine till now. </p> <p><font color="#c0504d">java.lang.NoClassDefFoundError: org/apache/hadoop/thirdparty/guava/common/primitives/UnsignedBytes<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.FastByteComparisons$LexicographicalComparerHolder</font></p> <p><font color="#c0504d">$UnsafeComparer.compareTo(FastByteComparisons.java:226)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.FastByteComparisons$LexicographicalComparerHolder</font></p> <p><font color="#c0504d">$UnsafeComparer.compareTo(FastByteComparisons.java:113)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.FastByteComparisons.compareTo(FastByteComparisons.java:42)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.WritableComparator.compareBytes(WritableComparator.java:150)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.Text$Comparator.compare(Text.java:306)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask$MapOutputBuffer.compare(MapTask.java:968)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.util.QuickSort.fix(QuickSort.java:30)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.util.QuickSort.sortInternal(QuickSort.java:83)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.util.QuickSort.sort(QuickSort.java:59)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask$MapOutputBuffer.sortAndSpill(MapTask.java:1254)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask$MapOutputBuffer.flush(MapTask.java:1155)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask$NewOutputCollector.close(MapTask.java:582)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:649)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask.run(MapTask.java:323)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:210)<br>Caused by: java.lang.ClassNotFoundException: org.apache.hadoop.thirdparty.guava.common.primitives.UnsignedBytes<br>&nbsp;&nbsp;&nbsp; at java.net.URLClassLoader$1.run(URLClassLoader.java:202)<br>&nbsp;&nbsp;&nbsp; at java.security.AccessController.doPrivileged(Native Method)<br>&nbsp;&nbsp;&nbsp; at java.net.URLClassLoader.findClass(URLClassLoader.java:190)<br>&nbsp;&nbsp;&nbsp; at java.lang.ClassLoader.loadClass(ClassLoader.java:306)<br>&nbsp;&nbsp;&nbsp; at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:301)<br>&nbsp;&nbsp;&nbsp; at java.lang.ClassLoader.loadClass(ClassLoader.java:247)<br>&nbsp;&nbsp;&nbsp; &#8230; 15 more</font></p> <p>Anyhow, the way to fix this issue is by adding guava-r09-jarjar.jar to build path. In Netbeans add the jar to Libraries for your project.</p> <p>guava-r09-jarjar.jar can be found in /usr/lib/hadoop-0.20/lib</p> <p>or use the locate command to find it on your system</p> <p><font color="#0000ff">locate guava-r09-jarjar.jar</font></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -540,44 +579,6 @@ public class CallDetector {
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/05/16/cloudera-virtualbox-boot-error-net-registered-protocol-family-2/">Cloudera VirtualBox Boot Error NET: Registered Protocol Family 2</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-16T00:00:00+10:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
-        
-         | <a href="/2012/05/16/cloudera-virtualbox-boot-error-net-registered-protocol-family-2/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I downloaded Cloudera <a href="https://ccp.cloudera.com/display/SUPPORT/Downloads">CDH3 Virtual Machine for VirtualBox</a> to have a readymade Hadoop environment to experiment with. While booting the VM I got an error and the boot sequence stalled. </p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Cloudera CDH boot error" border="0" alt="Cloudera CDH boot error" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/05/image.png" width="612" height="339"></p> <p>&nbsp;</p> <p>The issue here is that IOAPIC is disabled for this VM. You can find out more about IOAPIC <a href="http://www.intel.com/design/chipsets/datashts/290566.htm">here</a>.</p> <p>To enable IOAPIC, power off your virtual machine. Go to settings –&gt; System. Click on Motherboard tab and check Enable IO APIC.</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Cloudera VirtualBox image settings" border="0" alt="Cloudera VirtualBox image settings" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/05/image1.png" width="565" height="421"></p> <p>After this Cloudera image boots fine.</p> <p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Cloudera CDH3" border="0" alt="Cloudera CDH3" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/05/image2.png" width="645" height="536"></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/7/">&larr; Older</a>
@@ -593,6 +594,10 @@ public class CallDetector {
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/08/10/move-to-octopress/">Move to Octopress</a>
+      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -628,10 +633,6 @@ public class CallDetector {
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

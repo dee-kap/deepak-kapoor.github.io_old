@@ -9,7 +9,8 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="Riviera is a sample application for Windows Azure available on MSDN Code Gallery for download. Riviera has been developed by Platform Evangelism &hellip;">
+  <meta name="description" content="Introduction
+In an earlier article I looked at how DO.NET Data Services can be used with ASP.NET. In this post I will talk about using ADO.NET Data &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -39,6 +40,7 @@
 
 <body   >
   <header role="banner"><hgroup>
+
   <h1><a href="/">Debug Release</a></h1>
   
     <h2>Hacking notes of Deepak Kapoor</h2>
@@ -68,6 +70,140 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/08/16/execute-stored-procedure-with-adonet-data-services/">Execute Stored Procedure With ADO.NET Data Services</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-08-16T00:00:00+10:00" pubdate data-updated="true">Aug 16<span>th</span>, 2009</time>
+        
+         | <a href="/2009/08/16/execute-stored-procedure-with-adonet-data-services/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>Introduction</h3>
+In an <a href="http://www.debugrelease.com/adonet-data-services-tutorial-with-aspnet/">earlier article</a> I looked at how DO.NET Data Services can be used with ASP.NET. In this post I will talk about using ADO.NET Data Services to retrieve data via SQL Server stored procedure. Doing this is simple and I will follow a similar approach to hook everything up as I did in my <a href="http://www.debugrelease.com/adonet-data-services-tutorial-with-aspnet/">earlier post</a>.
+
+I have created a stored procedure which retrieves data from Employees table in Northwind database based on city name. Here is the script I used to create the procedure.
+
+<pre class="lang:tsql decode:true " >
+CREATE PROCEDURE [dbo].[GetEmployeesByCity] 
+    @City NVARCHAR(15)
+AS
+
+BEGIN
+
+    SELECT *
+    FROM Employees
+    WHERE City = @City
+
+END
+</pre>
+
+<h3>Creating Data Model</h3>
+ADO.NET Data Services sits between the client and a data source, so the first thing I’ll need is a data source. I will use Entity Framework to create my data source.
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image13.png" border="0" alt="image" width="544" height="427" />
+
+To make things simple I will select Employees table only for my Entity Data Model.
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image14.png" border="0" alt="image" width="544" height="483" />
+<h3>Mapping Stored Procedure in EDM</h3>
+My objective here is to retrieve data from a stored procedure. To this I need to expose the procedure through my data layer which I have created using Entity Framework. Mapping a stored procedure in Entity Framework can be done by following these steps.
+
+Open Model Browser (View –&gt; Other Windows –&gt; Model Browser). Right click on Stored Prodecures under NorthwindModel.Store and click Update Model from Database.
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image6.png" border="0" alt="image" width="380" height="208" />
+
+Select the stored procedure (GetEmployeesByCity in this case) and click Finish.
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image7.png" border="0" alt="image" width="307" height="309" />
+
+Go back to Model Browser and under stored procedure right click the stored procedure and click Create Function Import.
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image8.png" border="0" alt="image" width="411" height="250" />
+
+Select Employees entity as the return type and click OK.
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image9.png" border="0" alt="image" width="399" height="291" />
+
+Entity Model is now setup to execute the stored procedure and return results. It can be called like this.
+ 
+<pre class="lang:c# decode:true " >NorthwindEntities entities = new NorthwindEntities();
+var employees = entities.GetEmployeesByCity("London");</pre> 
+
+My goal however is to retrieve data via ADO.NET Data Services so I’ll start creating my service.
+<h3>And Now With a Service</h3>
+Because I’d like to access this data through my ADO.NET Data Service so the first thing I’ll do is create a service called NorthwindEmployeeService. I will add a new item to my project of type ADO.NET Data Service.
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image10.png" border="0" alt="image" width="540" height="400" />
+
+Visual Studio creates a blank service with some scaffolding for me to get started. First thing I need to do is let my service know about my data source class and then configure appropriate rights to my entities and operations. To be simple I will just allow everything. Below is the code for my service after making changes.
+
+ 
+<pre class="lang:c# decode:true " >public class NorthwindEmployeeService : DataService&lt;NorthwindEntities&gt;
+{
+  // This method is called only once to initialize service-wide policies.
+  public static void InitializeService(IDataServiceConfiguration config)
+  {
+    config.SetEntitySetAccessRule("*", EntitySetRights.AllRead);
+    config.SetServiceOperationAccessRule("*", ServiceOperationRights.All);
+  }
+}</pre> 
+
+
+By default my service does not know that it should also work with a stored procedure. To do this i can write a method which will execute the procedure and return results. Such a method can look like this.
+
+ 
+<pre class="lang:c# decode:true " >[WebGet]
+public ObjectResult&lt;Employees&gt; GetEmployeesByCity(string cityName)
+{
+  NorthwindEntities entities = new NorthwindEntities();
+  return entities.GetEmployeesByCity(cityName);
+}</pre> 
+
+
+Method above tells the service to expose a GetEmployeesByCity method which can be called by clients. Note that the method is decorated with a WebGet attribute which indicates that this is a GET method which can be called by a web client.
+<h3>Running Service and Calling Stored Procedure</h3>
+To see my service in action I can hit F5
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image11.png" border="0" alt="image" width="540" height="500" />
+
+To see the results from the stored procedure I can use the following URL.
+
+<span style="color: #800000; font-size: x-small;">http://localhost:16147/NorthwindEmployeeService.svc/GetEmployeesByCity?cityName=&#8217;London&#8217;</span>
+
+Here I am passing in the parameter as a query string which is accepted by my service and appropriate results are returned.
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image12.png" border="0" alt="image" width="539" height="645" />
+<h3>Conclusion</h3>
+In this article I used ADO.NET Data Services to execute a stored procedure and return results. I am not in favour of implementing a direct mapping between services and database and the design can be a little better whereby data layer can be sensibly abstracted away by service. However the idea was to demonstrate a concept. I hope you enjoyed reading this article.
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -342,44 +478,6 @@ This was a brief introduction to ADO.NET Data Services. We looked at how to crea
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/07/23/windows-7-goes-rtm-release-to-manufacturing/">Windows 7 Goes RTM (Release to Manufacturing)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-07-23T00:00:00+10:00" pubdate data-updated="true">Jul 23<span>rd</span>, 2009</time>
-        
-         | <a href="/2009/07/23/windows-7-goes-rtm-release-to-manufacturing/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>&#160;<img style="border-bottom: 0px; border-left: 0px; display: inline; margin-left: 0px; border-top: 0px; margin-right: 0px; border-right: 0px" title="image" border="0" alt="image" align="left" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image34.png" width="240" height="151" />Much awaited Windows 7 went RTM today. Microsoft’s new Operating System is scheduled to be available to available to public around October 22. MSDN and TechNet subscribers will be able to download Windows 7 in next few weeks, most likely around August 6. Comparing to release of Vista this looks much more well executed. Windows 7 has received more positive press than any other OS by Microsoft. This in my opinion is how expectations were managed. Rather than coming out with hyped up features which never made it to the product (read WinFS) Windows 7 managed communication to the best. </p>  <p>I’m starting the countdown to when I can download Windows 7.</p>  <p>You can read more about it on <a href="http://www.microsoft.com/Presspass/press/2009/jul09/07-22Windows7RTMPR.mspx">Microsoft Press Pass site</a>.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/19/">&larr; Older</a>
@@ -395,6 +493,10 @@ This was a brief introduction to ADO.NET Data Services. We looked at how to crea
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/08/10/move-to-octopress/">Move to Octopress</a>
+      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -430,10 +532,6 @@ This was a brief introduction to ADO.NET Data Services. We looked at how to crea
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>
