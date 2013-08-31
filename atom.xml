@@ -4,7 +4,7 @@
   <title><![CDATA[Debug Release]]></title>
   <link href="http://www.debugrelease.com/atom.xml" rel="self"/>
   <link href="http://www.debugrelease.com/"/>
-  <updated>2013-08-30T21:15:24+10:00</updated>
+  <updated>2013-08-31T14:31:35+10:00</updated>
   <id>http://www.debugrelease.com/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
@@ -18,7 +18,7 @@
     <link href="http://www.debugrelease.com/2013/08/10/move-to-octopress/"/>
     <updated>2013-08-10T21:27:00+10:00</updated>
     <id>http://www.debugrelease.com/2013/08/10/move-to-octopress</id>
-    <content type="html"><![CDATA[<p>Anyone who moves to Octopress must write a post talking about the expeience. This seems like an unwritten rule which I dare not disobey. So here it is. These are my notes related to my move from Wordpress to Octopress. First of all, I still think that Wordpress is a fantastic platform and I have enjoyed running my blog on Wordpress since 2008. So why the move? Being a techie type myself I always crave for new and simple ways of doing things. Octopress at present satisfies the craving perfectly.</p>
+    <content type="html"><![CDATA[<p>Anyone who moves to Octopress must write a post talking about the experience. This seems like an unwritten rule which I dare not disobey. So here it is. These are my notes related to my move from Wordpress to Octopress. First of all, I still think that Wordpress is a fantastic platform and I have enjoyed running my blog on Wordpress since 2008. So why the move? Being a techie type myself I always crave for new and simple ways of doing things. Octopress at present satisfies the craving.</p>
 
 <p>Other than simplicity of Octopress there are also these reasons for me to ditch Wordpress.</p>
 
