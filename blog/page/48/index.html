@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="StyleCop is a source analysis tool for C#. It can be used for analysing source code as opposed to compiled assemblies which is the area for FxCop. &hellip;">
+  <meta name="description" content="Microsoft Sync Framework has just been released. You can download the framework here. Sync Framework is already being used by ADO.NET Sync Services &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,116 +68,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/08/07/stylecop-tutorial/">StyleCop Tutorial</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-08-07T00:00:00+10:00" pubdate data-updated="true">Aug 7<span>th</span>, 2008</time>
-        
-         | <a href="/2008/08/07/stylecop-tutorial/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><a href="http://code.msdn.microsoft.com/sourceanalysis"><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image5.png" border="0" alt="StyleCop" width="388" height="70" /></a>
-
-<a href="http://code.msdn.microsoft.com/sourceanalysis">StyleCop</a> is a source analysis tool for C#. It can be used for analysing source code as opposed to compiled assemblies which is the area for FxCop. StyleCop is currently in version 4.2 and can be downloaded <a href="http://code.msdn.microsoft.com/sourceanalysis">here</a>. In this tutorial I will show you how to use StyleCop.
-
-I will create a simple console application and use StyleCop to analyse the source.  This killer app just initialises a class and prints out few properties. Below is the code for the application.
-
- 
-<pre class="lang:c# decode:true " >public class Customer
-{
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public string Address { get; set; }
-	public CustomerStatus Status { get; set; }
-	public override string ToString()
-	{
-		string result = string.Format
-			("First Name = {0}nLast Name = {1}nAddress = {2}nStatus = {3}"
-			, FirstName, LastName, Address, Status);
-		return result;
-	}
-}
-
-public enum CustomerStatus
-{
-	Active,
-	InActive
-}
-
-class Program
-{
-	static void Main(string[] args)
-	{
-		Customer customer = new Customer
-		{
-			FirstName = "John",
-			LastName = "Smith",
-			Address = "1 George Street, Sydney",
-			Status = CustomerStatus.Active
-		};
-		Console.WriteLine(customer.ToString());
-		Console.ReadKey();
-	}
-}</pre> 
-
-
-I can run source code analysis on the entire project via Tools menu or an individual file by right clicking on the class file.
-
-<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image6.png" border="0" alt="image" width="291" height="268" />
-
-By running source analysis on Program.cs I get 34 violations.
-
-<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image7.png" border="0" alt="image" width="491" height="361" />
-
-Depending on your style or your coding standards, you will either agree or disagree with detected violations. For example in the result above I do not agree with rule SA1200 &#8220;All using directives must be placed inside of the namespace&#8221;. I have never declared my using statements inside the namespace and I do not intend to do so in future. So what can I do? I can easily modify the rule set. Let&#8217;s see how we can do this.
-
-By default StyleCop is installed at C:Program FilesMicrosoft Source Analysis Tool for C#. A quick glance over the contents of this folder look like this.
-
-<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image8.png" border="0" alt="image" width="500" height="122" />
-
-Notice the second last file which is Settings.SourceAnalysis. Double clicking it opens up the SourceAnalysisSettingsEditor where I can select/deselect the rules.
-
-<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image9.png" border="0" alt="image" width="520" height="474" />
-
-I can turn off rule SA1200 &#8220;All using directives must be placed inside of the namespace&#8221; and then if I run analysis again, my result set will not show it as a rule violation.
-
-<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image10.png" border="0" alt="image" width="520" height="474" />
-
-As you can see from screenshots above that rules are categorised into different categories such as Documentation Rules, Layout Rules, Naming Rules etc. This makes is easy work with rules in a logical way.
-<h4>Conclusion</h4>
-StyleCop is a light weight source code analysis tool which fills in the necessary gap. One of the benefits of StyleCop can be realised while conducting code reviews. Lately StyleCop has had its own share of controversy, but it is good that Microsoft is paying attention to this nifty tool which could attract a significant user base. StyleCop can be downloaded <a href="http://code.msdn.microsoft.com/sourceanalysis">here</a>.
-
-<a href="http://www.dotnetkicks.com/kick/?url=http%3a%2f%2fwww.thereforesystems.com%2fstylecop-tutorial%2f"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fwww.thereforesystems.com%2fstylecop-tutorial%2f" border="0" alt="kick it on DotNetKicks.com" /></a>
-<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:92323063-b680-419c-8e6a-72ce622ea3bf" class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/C#">C#</a>,<a rel="tag" href="http://technorati.com/tags/StyleCop">StyleCop</a></div>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -373,6 +263,53 @@ Just unzip VS2008ImageLibrary.zip file located at this location and you have mos
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/05/visual-studio-extensions/">Visual Studio Extensions</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-05T00:00:00+10:00" pubdate data-updated="true">Aug 5<span>th</span>, 2008</time>
+        
+         | <a href="/2008/08/05/visual-studio-extensions/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><a href="http://www.visualstudiogallery.com"><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image1.png" border="0" alt="Visual Studio" width="269" height="45" /></a>
+
+Visual Studio can be extended by using Addins. There already are many useful addins available. Some developed by Microsoft and many by Third Party vendors. <a href="http://www.visualstudiogallery.com">Visual Studio Gallery</a> is one place where you can find pretty much every addin and control library available. Some of my favourite are:
+<ol>
+	<li>GhostDoc</li>
+	<li>Resharper</li>
+	<li>AQtime</li>
+	<li>CodeRush</li>
+</ol>
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:0ab7e260-2fbc-48db-bc1b-fc591fbeaa29" class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/Visual%20Studio">Visual Studio</a>,<a rel="tag" href="http://technorati.com/tags/Addins">Addins</a></div>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/49/">&larr; Older</a>
@@ -388,10 +325,6 @@ Just unzip VS2008ImageLibrary.zip file located at this location and you have mos
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/2013/08/10/move-to-octopress/">Move to Octopress</a>
-      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -427,6 +360,10 @@ Just unzip VS2008ImageLibrary.zip file located at this location and you have mos
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

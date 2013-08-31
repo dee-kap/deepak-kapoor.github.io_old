@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="This snippet shows you how to get information about all CD / DVD drives on your machine using WMI and C#. To run the code you need to add reference &hellip;">
+  <meta name="description" content="Microsoft Thrive is a clever demonstration of how Silverlight can be used for a public facing website. Other than being a showcase for Silverlight &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,59 +68,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/03/09/get-cd-or-dvd-drive-information-using-wmi-and-c/">Get CD or DVD Drive Information Using WMI and C#</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-03-09T00:00:00+11:00" pubdate data-updated="true">Mar 9<span>th</span>, 2009</time>
-        
-         | <a href="/2009/03/09/get-cd-or-dvd-drive-information-using-wmi-and-c/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This snippet shows you how to get information about all CD / DVD drives on your machine using WMI and C#. To run the code you need to add reference to System.Management.</p>  <pre class="code"><span style="color: #2b91af">ManagementObjectSearcher </span>mgmtObjects = </pre>
-
-<pre class="code">  <span style="color: blue">new </span><span style="color: #2b91af">ManagementObjectSearcher</span>(<span style="color: #a31515">&quot;Select * from Win32_CDROMDrive&quot;</span>);
-
-<span style="color: blue">foreach </span>(<span style="color: blue">var </span>item <span style="color: blue">in </span>mgmtObjects.Get())
-{
-<span style="color: #2b91af">  Console</span>.WriteLine(<span style="color: #a31515">&quot;Drive Letter - t&quot; </span>+ item[<span style="color: #a31515">&quot;Drive&quot;</span>]);
-<span style="color: #2b91af">  Console</span>.WriteLine(<span style="color: #a31515">&quot;Name - t&quot; </span>+ item[<span style="color: #a31515">&quot;Name&quot;</span>]);
-}</pre>
-<a href="http://11011.net/software/vspaste"></a>
-
-<p>&#160;</p>
-
-<p>This code snippet will print out the letter and the name of all CD or DVD drives on a machine. Here is the output on my PC.</p>
-
-<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="54" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image7.png" width="378" border="0" /></p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -274,6 +221,53 @@
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/03/03/sql-server-2008-find-if-a-database-is-offline-with-t-sql/">SQL Server 2008 – Find if a Database Is Offline With T-SQL</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-03T00:00:00+11:00" pubdate data-updated="true">Mar 3<span>rd</span>, 2009</time>
+        
+         | <a href="/2009/03/03/sql-server-2008-find-if-a-database-is-offline-with-t-sql/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In SQL Server 2008 you can find if a database is online of offline by querying databases system view. A simple query such as this one gives me a list of all databases on my server and the second column shows if the database is online or offline. </p>  
+
+ 
+<pre class="lang:tsql decode:true " >SELECT Name, state_desc
+FROM sys.databases</pre> 
+
+
+<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="339" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image.png" width="311" border="0" /> </p>
+
+<p>On my server I have a database called LinqToSqlLab which is currently offline. </p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/31/">&larr; Older</a>
@@ -289,10 +283,6 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/2013/08/10/move-to-octopress/">Move to Octopress</a>
-      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -328,6 +318,10 @@
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

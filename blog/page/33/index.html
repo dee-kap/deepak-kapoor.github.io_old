@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="There are times when we want to return empty strings for column(s) which have NULL values. T-SQL makes this easy with ISNULL function. Two parameters &hellip;">
+  <meta name="description" content="SQL Server provides with a stored procedure which can be used to get a list of all OLEDB providers on a machine. Stored procedure: &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,50 +68,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/02/11/t-sql-return-empty-string-instead-of-null/">T-SQL Return Empty String Instead of Null</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-02-11T00:00:00+11:00" pubdate data-updated="true">Feb 11<span>th</span>, 2009</time>
-        
-         | <a href="/2009/02/11/t-sql-return-empty-string-instead-of-null/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>There are times when we want to return empty strings for column(s) which have NULL values. T-SQL makes this easy with ISNULL function. Two parameters for this function are:    <br /></p>  <ol>   <li>The column in question </li>    <li>Replacement value </li> </ol>  <p>&#160;</p>  <p>Here is an example query for Customers table in Northwind database. This query will select Region column from the table and return blank strings where it finds NULL.</p>  
-
-<pre class="lang:tsql decode:true " >SELECT ISNULL(Region,'') FROM Customers</pre>
-
-<p>Here is a partial screenshot of the resultset returned. You can see that the value for top rows is blank. These are actually NULL in database.</p>
-
-<p><img title="image" style="border-top-width: 0px; display: inline; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="226" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image7.png" width="135" border="0" /></p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -381,6 +337,44 @@
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/02/03/download-oslo-tools-and-sdk-update/">Download Oslo Tools and SDK January 2009 CTP</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-03T00:00:00+11:00" pubdate data-updated="true">Feb 3<span>rd</span>, 2009</time>
+        
+         | <a href="/2009/02/03/download-oslo-tools-and-sdk-update/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Microsoft has released <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=f2f4544c-626c-44a3-8866-b2a9fe078956&amp;displaylang=en">January 2009 CTP of Oslo SDK and Tools</a>. </p>  <p>You can download the CTP <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=f2f4544c-626c-44a3-8866-b2a9fe078956&amp;displaylang=en">here</a>.</p>  <p>The SDK includes Intellipad tool and &quot;M&quot; code samples to get you started. This release also support Visual Studio 2008. You can find more details about January 2009 CTP at <a href="http://www.sellsbrothers.com/news/showTopic.aspx?ixTopic=2245">SellsBrothers.com</a>. </p>  <p>Here are few links to get you started with Oslo:</p>  <ol>   <li><a href="http://www.douglaspurdy.com/2008/09/06/what-is-oslo/">What is Oslo? By Douglas Purdy</a></li>    <li><a href="http://msdn.microsoft.com/en-us/oslo/default.aspx">Oslo Developer Center on MSDN</a></li>    <li><a href="http://social.msdn.microsoft.com/Forums/en-US/oslo/threads/">Oslo Forums on MSDN</a></li>    <li><a href="http://www.eweek.com/c/a/Windows/The-Origins-of-Microsofts-Oslo-Software-Modeling-Platform/">The Origins of Microsoft&#8217;s Oslo Software Modeling Platform</a></li> </ol>  <p>&#160;</p>  <p>I am sure that there is someone out there writing a book on Oslo. At present there is only <a href="http://www.amazon.com/Oslo-Modeling-Language-Specification-October/dp/0321606353/ref=sr_1_1?ie=UTF8&amp;s=books&amp;qid=1233643176&amp;sr=1-1">Draft Specification</a> available from Amazon.</p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/34/">&larr; Older</a>
@@ -396,10 +390,6 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/2013/08/10/move-to-octopress/">Move to Octopress</a>
-      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -435,6 +425,10 @@
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

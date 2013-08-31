@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="In SQL Server 2008 you can find if a database is online of offline by querying databases system view. A simple query such as this one gives me a list &hellip;">
+  <meta name="description" content="If you are creating a SQL Server login using a script then it is advisable to check if the login you are creating already exists. If you do not do &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,53 +68,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/03/03/sql-server-2008-find-if-a-database-is-offline-with-t-sql/">SQL Server 2008 – Find if a Database Is Offline With T-SQL</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-03-03T00:00:00+11:00" pubdate data-updated="true">Mar 3<span>rd</span>, 2009</time>
-        
-         | <a href="/2009/03/03/sql-server-2008-find-if-a-database-is-offline-with-t-sql/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In SQL Server 2008 you can find if a database is online of offline by querying databases system view. A simple query such as this one gives me a list of all databases on my server and the second column shows if the database is online or offline. </p>  
-
- 
-<pre class="lang:tsql decode:true " >SELECT Name, state_desc
-FROM sys.databases</pre> 
-
-
-<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="339" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image.png" width="311" border="0" /> </p>
-
-<p>On my server I have a database called LinqToSqlLab which is currently offline. </p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -342,6 +295,48 @@ bitmap.Save(@"c:tempscreenshot.bmp", ImageFormat.Bmp);
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/02/23/sql-server-get-database-mail-configuration-settings/">SQL Server – Get Database Mail Configuration Settings</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-23T00:00:00+11:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2009</time>
+        
+         | <a href="/2009/02/23/sql-server-get-database-mail-configuration-settings/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Database Mail configuration settings can be retrieved using <strong>sysmail_help_configure_sp</strong> stored procedure. Like other database mail object, this stored procedure also resides in msdb database. Running the stored procedure on my machine gives the following results.</p>  
+
+<pre class="lang:tsql decode:true " >sysmail_help_configure_sp</pre>
+
+<p><img title="sysmail_help_configure_sp" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="165" alt="sysmail_help_configure_sp" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image12.png" width="525" border="0" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/32/">&larr; Older</a>
@@ -357,10 +352,6 @@ bitmap.Save(@"c:tempscreenshot.bmp", ImageFormat.Bmp);
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/2013/08/10/move-to-octopress/">Move to Octopress</a>
-      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -396,6 +387,10 @@ bitmap.Save(@"c:tempscreenshot.bmp", ImageFormat.Bmp);
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

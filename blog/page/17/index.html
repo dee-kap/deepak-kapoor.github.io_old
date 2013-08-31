@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="These days I am working on a personal project which I call “my precious”. This projects involves transforming XML documents into HTML using XSLT. &hellip;">
+  <meta name="description" content="Keynote for TechEd Australia started a bit slow with too much concentration on words such as innovation, excitement and productivity. Keynote was &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,44 +68,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/09/16/output-doctype-in-xslt/">Output DOCTYPE in XSLT</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-09-16T00:00:00+10:00" pubdate data-updated="true">Sep 16<span>th</span>, 2009</time>
-        
-         | <a href="/2009/09/16/output-doctype-in-xslt/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>These days I am working on a personal project which I call “my precious”. This projects involves transforming XML documents into HTML using XSLT. Things were going smooth till I decided to output DOCTYPE from XSLT. This is what I did.</p>  <p>&#160;<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="XSLT" border="0" alt="XSLT" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/09/image2.png" width="457" height="80" />&#160; </p>  <p>XSLT parser does not like the code above and gives me this error.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="XSLT" border="0" alt="XSLT" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/09/image3.png" width="404" height="56" /> </p>  <p>After scratching my head for a while and navigating through intellisense few times I found the right solution. The way to output DOCTYPE in XSLT is by placing in inside a CDATA. The following code works like a charm.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="XSLT" border="0" alt="XSLT" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/09/image4.png" width="475" height="74" /> </p>  <p>This I thought was worth sharing.</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -506,6 +468,140 @@ foreach (var item in query)
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/08/16/execute-stored-procedure-with-adonet-data-services/">Execute Stored Procedure With ADO.NET Data Services</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-08-16T00:00:00+10:00" pubdate data-updated="true">Aug 16<span>th</span>, 2009</time>
+        
+         | <a href="/2009/08/16/execute-stored-procedure-with-adonet-data-services/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>Introduction</h3>
+In an <a href="http://www.debugrelease.com/adonet-data-services-tutorial-with-aspnet/">earlier article</a> I looked at how DO.NET Data Services can be used with ASP.NET. In this post I will talk about using ADO.NET Data Services to retrieve data via SQL Server stored procedure. Doing this is simple and I will follow a similar approach to hook everything up as I did in my <a href="http://www.debugrelease.com/adonet-data-services-tutorial-with-aspnet/">earlier post</a>.
+
+I have created a stored procedure which retrieves data from Employees table in Northwind database based on city name. Here is the script I used to create the procedure.
+
+<pre class="lang:tsql decode:true " >
+CREATE PROCEDURE [dbo].[GetEmployeesByCity] 
+    @City NVARCHAR(15)
+AS
+
+BEGIN
+
+    SELECT *
+    FROM Employees
+    WHERE City = @City
+
+END
+</pre>
+
+<h3>Creating Data Model</h3>
+ADO.NET Data Services sits between the client and a data source, so the first thing I’ll need is a data source. I will use Entity Framework to create my data source.
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image13.png" border="0" alt="image" width="544" height="427" />
+
+To make things simple I will select Employees table only for my Entity Data Model.
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image14.png" border="0" alt="image" width="544" height="483" />
+<h3>Mapping Stored Procedure in EDM</h3>
+My objective here is to retrieve data from a stored procedure. To this I need to expose the procedure through my data layer which I have created using Entity Framework. Mapping a stored procedure in Entity Framework can be done by following these steps.
+
+Open Model Browser (View –&gt; Other Windows –&gt; Model Browser). Right click on Stored Prodecures under NorthwindModel.Store and click Update Model from Database.
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image6.png" border="0" alt="image" width="380" height="208" />
+
+Select the stored procedure (GetEmployeesByCity in this case) and click Finish.
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image7.png" border="0" alt="image" width="307" height="309" />
+
+Go back to Model Browser and under stored procedure right click the stored procedure and click Create Function Import.
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image8.png" border="0" alt="image" width="411" height="250" />
+
+Select Employees entity as the return type and click OK.
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image9.png" border="0" alt="image" width="399" height="291" />
+
+Entity Model is now setup to execute the stored procedure and return results. It can be called like this.
+ 
+<pre class="lang:c# decode:true " >NorthwindEntities entities = new NorthwindEntities();
+var employees = entities.GetEmployeesByCity("London");</pre> 
+
+My goal however is to retrieve data via ADO.NET Data Services so I’ll start creating my service.
+<h3>And Now With a Service</h3>
+Because I’d like to access this data through my ADO.NET Data Service so the first thing I’ll do is create a service called NorthwindEmployeeService. I will add a new item to my project of type ADO.NET Data Service.
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image10.png" border="0" alt="image" width="540" height="400" />
+
+Visual Studio creates a blank service with some scaffolding for me to get started. First thing I need to do is let my service know about my data source class and then configure appropriate rights to my entities and operations. To be simple I will just allow everything. Below is the code for my service after making changes.
+
+ 
+<pre class="lang:c# decode:true " >public class NorthwindEmployeeService : DataService&lt;NorthwindEntities&gt;
+{
+  // This method is called only once to initialize service-wide policies.
+  public static void InitializeService(IDataServiceConfiguration config)
+  {
+    config.SetEntitySetAccessRule("*", EntitySetRights.AllRead);
+    config.SetServiceOperationAccessRule("*", ServiceOperationRights.All);
+  }
+}</pre> 
+
+
+By default my service does not know that it should also work with a stored procedure. To do this i can write a method which will execute the procedure and return results. Such a method can look like this.
+
+ 
+<pre class="lang:c# decode:true " >[WebGet]
+public ObjectResult&lt;Employees&gt; GetEmployeesByCity(string cityName)
+{
+  NorthwindEntities entities = new NorthwindEntities();
+  return entities.GetEmployeesByCity(cityName);
+}</pre> 
+
+
+Method above tells the service to expose a GetEmployeesByCity method which can be called by clients. Note that the method is decorated with a WebGet attribute which indicates that this is a GET method which can be called by a web client.
+<h3>Running Service and Calling Stored Procedure</h3>
+To see my service in action I can hit F5
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image11.png" border="0" alt="image" width="540" height="500" />
+
+To see the results from the stored procedure I can use the following URL.
+
+<span style="color: #800000; font-size: x-small;">http://localhost:16147/NorthwindEmployeeService.svc/GetEmployeesByCity?cityName=&#8217;London&#8217;</span>
+
+Here I am passing in the parameter as a query string which is accepted by my service and appropriate results are returned.
+
+<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image12.png" border="0" alt="image" width="539" height="645" />
+<h3>Conclusion</h3>
+In this article I used ADO.NET Data Services to execute a stored procedure and return results. I am not in favour of implementing a direct mapping between services and database and the design can be a little better whereby data layer can be sensibly abstracted away by service. However the idea was to demonstrate a concept. I hope you enjoyed reading this article.
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/18/">&larr; Older</a>
@@ -521,10 +617,6 @@ foreach (var item in query)
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/2013/08/10/move-to-octopress/">Move to Octopress</a>
-      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -560,6 +652,10 @@ foreach (var item in query)
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

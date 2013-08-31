@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="Database Mail configuration settings can be retrieved using sysmail_help_configure_sp stored procedure. Like other database mail object, this stored &hellip;">
+  <meta name="description" content="You can easily get information on how much space a table is using by executing sp_spaceused stored procedure. Executing the following query on &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,48 +68,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/02/23/sql-server-get-database-mail-configuration-settings/">SQL Server – Get Database Mail Configuration Settings</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-02-23T00:00:00+11:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2009</time>
-        
-         | <a href="/2009/02/23/sql-server-get-database-mail-configuration-settings/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Database Mail configuration settings can be retrieved using <strong>sysmail_help_configure_sp</strong> stored procedure. Like other database mail object, this stored procedure also resides in msdb database. Running the stored procedure on my machine gives the following results.</p>  
-
-<pre class="lang:tsql decode:true " >sysmail_help_configure_sp</pre>
-
-<p><img title="sysmail_help_configure_sp" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="165" alt="sysmail_help_configure_sp" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image12.png" width="525" border="0" /></p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -269,6 +227,50 @@
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/02/11/t-sql-return-empty-string-instead-of-null/">T-SQL Return Empty String Instead of Null</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-11T00:00:00+11:00" pubdate data-updated="true">Feb 11<span>th</span>, 2009</time>
+        
+         | <a href="/2009/02/11/t-sql-return-empty-string-instead-of-null/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>There are times when we want to return empty strings for column(s) which have NULL values. T-SQL makes this easy with ISNULL function. Two parameters for this function are:    <br /></p>  <ol>   <li>The column in question </li>    <li>Replacement value </li> </ol>  <p>&#160;</p>  <p>Here is an example query for Customers table in Northwind database. This query will select Region column from the table and return blank strings where it finds NULL.</p>  
+
+<pre class="lang:tsql decode:true " >SELECT ISNULL(Region,'') FROM Customers</pre>
+
+<p>Here is a partial screenshot of the resultset returned. You can see that the value for top rows is blank. These are actually NULL in database.</p>
+
+<p><img title="image" style="border-top-width: 0px; display: inline; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="226" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image7.png" width="135" border="0" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/33/">&larr; Older</a>
@@ -284,10 +286,6 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/2013/08/10/move-to-octopress/">Move to Octopress</a>
-      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -323,6 +321,10 @@
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="This article is about serialization and deserialization in Microsoft .NET Framework. At the time of writing this article I am using .NET Framework 4. &hellip;">
+  <meta name="description" content="Found an uplifting email today in my mailbox which informed me that my app for Windows Phone has been a runner-up in round 5 of Lifehacker and &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,122 +68,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/05/24/net-framework-serialize-and-deserialize-c-sharp/">.NET Framework - Serialize and Deserialize</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-24T00:00:00+10:00" pubdate data-updated="true">May 24<span>th</span>, 2013</time>
-        
-         | <a href="/2013/05/24/net-framework-serialize-and-deserialize-c-sharp/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This article is about serialization and deserialization in Microsoft .NET Framework. At the time of writing this article I am using .NET Framework 4.5. The concepts I talk about here also apply to all earlier versions.</p>
-
-<p>Motivation to write this article came from a colleague on one of the projects I am busy with these days. I am mentoring a couple of developers who have joined the project straight out of university. They are here to learn the ropes of Microsoft .NET centric software development. Yesterday during a design discussion we talked about serialization of objects in our system. They are well familiar with the concepts of serialization, I showed them how it is done in .NET world.</p>
-<p>Serialization is a technique we use to convert the state of an object to a format which can be persisted for later retrieval. Last sentence perhaps sounded very bookish. Let&#8217;s try some plain English and understand the concept using an example. We will use an example which involves pizza.</p>
-
-<p>We will write a class to represent a Pizza. The class has a property Slices to hold the number of slices. When pizza object is initialized, the number of slices are set to 8. Pizza class also has methods for eating a slice, saving the pizza for later consumption and a method to get leftover pizza. Here are the stubs for properties and methods.</p>
-<pre class="lang:c# decode:true " >public int Slices
-public bool IsThereAnyPizzaLeftForMe
-
-public void EatSlice()
-public void SaveForLater()
-public static Pizza GetLeftOverPizza()</pre> 
-<p>We will now fill in the stubs for SaveForLater() and GetLeftOverPizza(). This is where we will serialize and deserialize our pizza object.</p>
- 
-<pre class="lang:c# decode:true " >public void SaveForLater()
-{
-	XmlSerializer serializer = new XmlSerializer(typeof(Pizza));
-
-	using (StreamWriter writer = new StreamWriter(@"c:\temp\pizza.xml"))
-	{
-		serializer.Serialize(writer,this);
-	}
-}</pre> 
-
-<p>In the code above we are saying that serialize the pizza object to XML file. XmlSerializer comes with .NET framework and can be found in System.Xml.Serialization namespace. Objects can also be serialized to binary format. We can look at that some other day. For now let&#8217;s go with XML.</p>
-
-<p>Here is the code from a console application which creates an instance of Pizza class, eats a slice and calls SaveForLater() to serialize the object state to XML.</p>
- 
-<pre class="lang:c# decode:true " >static void Main(string[] args)
-{
-	Pizza pizza = new Pizza();
-	Console.WriteLine("{0} slices left in the pizza", pizza.Slices);
-	
-	pizza.EatSlice();
-	Console.WriteLine("{0} slices left in the pizza", pizza.Slices);
-
-	pizza.SaveForLater();
-}</pre> 
-
-<p>Let&#8217;s look at the XML to which our pizza object was serialized. </p>
- 
-<pre class="lang:xhtml decode:true " >&lt;?xml version="1.0" encoding="utf-8"?&gt;
-&lt;Pizza xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;Slices&gt;7&lt;/Slices&gt;
-&lt;/Pizza&gt;</pre> 
-
-<p>Note that it only saves Slices property. There is no need to save/serialize the IsThereAnyPizzaLeftForMe property because it&#8217;s value can be determined by checking if Slices is equal to zero. XmlSerializer is smart enough to know which data is absolutely required to deserialize an object. Also methods are behaviors which act upon data so there is no need to retain them.</p>
-
-<p>GetLefOverPizza() method creates an instance of Pizza object from XML. To be technically correct, it deserializes a pizza object from XML.</p>
- 
-<pre class="lang:c# decode:true " >public static Pizza GetLeftOverPizza()
-{
-	Pizza pizza = null;
-	XmlSerializer serializer = new XmlSerializer(typeof(Pizza));
-
-	using (FileStream fileStream = new FileStream(@"c:\temp\pizza.xml", FileMode.Open))
-	{
-	pizza = (Pizza)serializer.Deserialize(fileStream);
-	}
-
-	return pizza;
-}</pre> 
-
-<p>Another console application shows retrieving a left over pizza, eating a slice and then again saving it for later.</p>
-
-<pre class="lang:c# decode:true " >static void Main(string[] args)
-{
-	Pizza pizza = Pizza.GetLeftOverPizza();
-	Console.WriteLine("{0} slices left in the pizza", pizza.Slices);
-
-	pizza.EatSlice();
-	Console.WriteLine("{0} slices left in the pizza", pizza.Slices);
-
-	pizza.SaveForLater();
-	
-}</pre> 
-
-<p>So there you have it. A simple example which shows how to serialize and deserialize an object in .NET Framework.</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -401,6 +285,44 @@ Easy, isn’t it?
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/03/25/free-python-books/">Free Python Books</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-25T00:00:00+11:00" pubdate data-updated="true">Mar 25<span>th</span>, 2013</time>
+        
+         | <a href="/2013/03/25/free-python-books/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Found a great collection of Python books available for free. Sharing it with readers of Therefore Systems. Screenshot below is just a small sample. </p> <p><a href="http://pythonbooks.revolunet.com/"><img title="Free Python Books" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="Free Python Books" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/03/image2.png" width="640" height="532"></a></p> <p><a href="http://pythonbooks.revolunet.com/">Link</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -416,10 +338,6 @@ Easy, isn’t it?
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/2013/08/10/move-to-octopress/">Move to Octopress</a>
-      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -455,6 +373,10 @@ Easy, isn’t it?
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

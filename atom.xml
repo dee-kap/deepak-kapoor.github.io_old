@@ -4,7 +4,7 @@
   <title><![CDATA[Debug Release]]></title>
   <link href="http://www.debugrelease.com/atom.xml" rel="self"/>
   <link href="http://www.debugrelease.com/"/>
-  <updated>2013-08-31T14:40:43+10:00</updated>
+  <updated>2013-08-31T15:03:55+10:00</updated>
   <id>http://www.debugrelease.com/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
@@ -12,29 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Move to Octopress]]></title>
-    <link href="http://www.debugrelease.com/2013/08/10/move-to-octopress/"/>
-    <updated>2013-08-10T21:27:00+10:00</updated>
-    <id>http://www.debugrelease.com/2013/08/10/move-to-octopress</id>
-    <content type="html"><![CDATA[<p>Anyone who moves to Octopress must write a post talking about the experience. This seems like an unwritten rule which I dare not disobey. So here it is. These are my notes related to my move from Wordpress to Octopress. First of all, I still think that Wordpress is a fantastic platform and I have enjoyed running my blog on Wordpress since 2008. So why the move? Being a techie type myself I always crave for new and simple ways of doing things. Octopress at present satisfies the craving.</p>
-
-<p>Other than simplicity of Octopress there are also these reasons for me to ditch Wordpress.</p>
-
-<h3>Security</h3>
-
-<p>Wordpress is as secure as it can be. This means that there still are and always will be potential security weak points. With the technical soup Wordpress uses (PHP, MySql and plugins), the attack surface is broad and too exposed for hackers to have a try. With Octopress, there is no database and no server side code execution. There is a satisfaction in knowing that the attack surface is as small as it can be. I also use Github pages for hosting and if Github gets hacked then I&rsquo;m sure there will be many smart people working on the problem immediately.</p>
-
-<h3>Performance</h3>
-
-<p>This is a big one for me. Ever since I moved to Octopress, I have noticed great increased in speed. The page load which used to take an average of 8 seconds has come down to less than 3 seconds. This in my opinion is a big win.</p>
-
-<h3>Should you move to Octopress?</h3>
-
-<p>It totally depends on what you want out of your blogging, and your comfort level with tinkering. Wordpress offers convenience like no other platform for all including techies and non-techies. Octopress on the other hand is best suited for those who code and are comfortable using Git.</p>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Linux - Set wireless bit rate permanently on Ubuntu or Linux Mint]]></title>
@@ -1421,6 +1398,15 @@ What if the photo I am interested in is not on the phone and I’d like to use t
 
 
 Easy, isn’t it?
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Free Python Books]]></title>
+    <link href="http://www.debugrelease.com/2013/03/25/free-python-books/"/>
+    <updated>2013-03-25T00:00:00+11:00</updated>
+    <id>http://www.debugrelease.com/2013/03/25/free-python-books</id>
+    <content type="html"><![CDATA[<p>Found a great collection of Python books available for free. Sharing it with readers of Therefore Systems. Screenshot below is just a small sample. </p> <p><a href="http://pythonbooks.revolunet.com/"><img title="Free Python Books" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="Free Python Books" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/03/image2.png" width="640" height="532"></a></p> <p><a href="http://pythonbooks.revolunet.com/">Link</a></p>
 ]]></content>
   </entry>
   
