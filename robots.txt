@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://www.debugrelease.com/sitemap.xml 
+Sitemap: http://www.deepakkapoor.net/sitemap.xml 

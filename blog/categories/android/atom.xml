@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Android | Debug Release]]></title>
-  <link href="http://www.debugrelease.com/blog/categories/android/atom.xml" rel="self"/>
-  <link href="http://www.debugrelease.com/"/>
-  <updated>2013-08-31T15:15:50+10:00</updated>
-  <id>http://www.debugrelease.com/</id>
+  <title><![CDATA[Category: Android | Deepak Kapoor]]></title>
+  <link href="http://www.deepakkapoor.net/blog/categories/android/atom.xml" rel="self"/>
+  <link href="http://www.deepakkapoor.net/"/>
+  <updated>2013-11-20T18:31:52+11:00</updated>
+  <id>http://www.deepakkapoor.net/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Android - ExpandableListView Tutorial]]></title>
-    <link href="http://www.debugrelease.com/2013/07/31/android-expandablelistview-tutorial/"/>
+    <link href="http://www.deepakkapoor.net/2013/07/31/android-expandablelistview-tutorial/"/>
     <updated>2013-07-31T00:00:00+10:00</updated>
-    <id>http://www.debugrelease.com/2013/07/31/android-expandablelistview-tutorial</id>
+    <id>http://www.deepakkapoor.net/2013/07/31/android-expandablelistview-tutorial</id>
     <content type="html"><![CDATA[<h3>Introduction</h3>
 
 
@@ -356,9 +356,9 @@ public class MainActivity extends Activity {
   
   <entry>
     <title type="html"><![CDATA[Android   - ListView tutorial with images and text]]></title>
-    <link href="http://www.debugrelease.com/2013/06/24/android-listview-tutorial-with-images-and-text/"/>
+    <link href="http://www.deepakkapoor.net/2013/06/24/android-listview-tutorial-with-images-and-text/"/>
     <updated>2013-06-24T00:00:00+10:00</updated>
-    <id>http://www.debugrelease.com/2013/06/24/android-listview-tutorial-with-images-and-text</id>
+    <id>http://www.deepakkapoor.net/2013/06/24/android-listview-tutorial-with-images-and-text</id>
     <content type="html"><![CDATA[<h3>Introduction</h3>
 
 
@@ -663,9 +663,9 @@ public class MainActivity extends Activity {
   
   <entry>
     <title type="html"><![CDATA[Android - Linear Layout Example]]></title>
-    <link href="http://www.debugrelease.com/2013/06/11/android-linear-layout-example/"/>
+    <link href="http://www.deepakkapoor.net/2013/06/11/android-linear-layout-example/"/>
     <updated>2013-06-11T00:00:00+10:00</updated>
-    <id>http://www.debugrelease.com/2013/06/11/android-linear-layout-example</id>
+    <id>http://www.deepakkapoor.net/2013/06/11/android-linear-layout-example</id>
     <content type="html"><![CDATA[<p>In Android Layouts are containers in which you place your widgets like buttons, images, lists etc. Two of the most useful layouts are LinearLayout and RelativeLayout. In this post I will talk about LinearLayout.</p>
 
 

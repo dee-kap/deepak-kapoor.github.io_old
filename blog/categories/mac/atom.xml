@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Mac | Debug Release]]></title>
-  <link href="http://www.debugrelease.com/blog/categories/mac/atom.xml" rel="self"/>
-  <link href="http://www.debugrelease.com/"/>
-  <updated>2013-08-31T15:15:50+10:00</updated>
-  <id>http://www.debugrelease.com/</id>
+  <title><![CDATA[Category: Mac | Deepak Kapoor]]></title>
+  <link href="http://www.deepakkapoor.net/blog/categories/mac/atom.xml" rel="self"/>
+  <link href="http://www.deepakkapoor.net/"/>
+  <updated>2013-11-20T18:31:52+11:00</updated>
+  <id>http://www.deepakkapoor.net/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Connect To SQL Server 2008 From NetBeans IDE On A Mac]]></title>
-    <link href="http://www.debugrelease.com/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac/"/>
+    <link href="http://www.deepakkapoor.net/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac/"/>
     <updated>2010-08-24T00:00:00+10:00</updated>
-    <id>http://www.debugrelease.com/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac</id>
+    <id>http://www.deepakkapoor.net/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac</id>
     <content type="html"><![CDATA[<p>In this post I will show you how to establish a connection to Microsoft SQL Server  from NetBeans IDE.</p>
 
 

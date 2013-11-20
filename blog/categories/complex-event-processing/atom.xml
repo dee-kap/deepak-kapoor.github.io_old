@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Complex Event Processing | Debug Release]]></title>
-  <link href="http://www.debugrelease.com/blog/categories/complex-event-processing/atom.xml" rel="self"/>
-  <link href="http://www.debugrelease.com/"/>
-  <updated>2013-08-31T15:15:50+10:00</updated>
-  <id>http://www.debugrelease.com/</id>
+  <title><![CDATA[Category: Complex Event Processing | Deepak Kapoor]]></title>
+  <link href="http://www.deepakkapoor.net/blog/categories/complex-event-processing/atom.xml" rel="self"/>
+  <link href="http://www.deepakkapoor.net/"/>
+  <updated>2013-11-20T18:31:52+11:00</updated>
+  <id>http://www.deepakkapoor.net/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Complex Event Processing with Esper–Tutorial For Beginners]]></title>
-    <link href="http://www.debugrelease.com/2012/06/14/complex-event-processing-with-esper-tutorial-for-beginners/"/>
+    <link href="http://www.deepakkapoor.net/2012/06/14/complex-event-processing-with-esper-tutorial-for-beginners/"/>
     <updated>2012-06-14T00:00:00+10:00</updated>
-    <id>http://www.debugrelease.com/2012/06/14/complex-event-processing-with-esper-tutorial-for-beginners</id>
+    <id>http://www.deepakkapoor.net/2012/06/14/complex-event-processing-with-esper-tutorial-for-beginners</id>
     <content type="html"><![CDATA[<h3>Introduction</h3>
 
 

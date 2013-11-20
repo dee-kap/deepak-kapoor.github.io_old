@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: IBM | Debug Release]]></title>
-  <link href="http://www.debugrelease.com/blog/categories/ibm/atom.xml" rel="self"/>
-  <link href="http://www.debugrelease.com/"/>
-  <updated>2013-08-31T15:15:50+10:00</updated>
-  <id>http://www.debugrelease.com/</id>
+  <title><![CDATA[Category: IBM | Deepak Kapoor]]></title>
+  <link href="http://www.deepakkapoor.net/blog/categories/ibm/atom.xml" rel="self"/>
+  <link href="http://www.deepakkapoor.net/"/>
+  <updated>2013-11-20T18:31:52+11:00</updated>
+  <id>http://www.deepakkapoor.net/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[IBM BigInsights Web Console Issue With BigDataUniversity VM]]></title>
-    <link href="http://www.debugrelease.com/2012/06/30/ibm-biginsights-web-console-issue-with-bigdatauniversity-vm/"/>
+    <link href="http://www.deepakkapoor.net/2012/06/30/ibm-biginsights-web-console-issue-with-bigdatauniversity-vm/"/>
     <updated>2012-06-30T00:00:00+10:00</updated>
-    <id>http://www.debugrelease.com/2012/06/30/ibm-biginsights-web-console-issue-with-bigdatauniversity-vm</id>
+    <id>http://www.deepakkapoor.net/2012/06/30/ibm-biginsights-web-console-issue-with-bigdatauniversity-vm</id>
     <content type="html"><![CDATA[<p>BigInsights web console error in IBM Infosphere BigInsights VM usually occurs because web console is not running. It can be started by executing start.sh which can be found in /opt/ibm/biginsights/bin. I discovered this issue while working through lab 3 of Hadoop Fundamentals 1 course from <a href="http://bigdatauniversity.com/">BigDataUniversity</a>. </p>
 
 

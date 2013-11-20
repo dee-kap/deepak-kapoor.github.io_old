@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Python | Debug Release]]></title>
-  <link href="http://www.debugrelease.com/blog/categories/python/atom.xml" rel="self"/>
-  <link href="http://www.debugrelease.com/"/>
-  <updated>2013-08-31T15:15:50+10:00</updated>
-  <id>http://www.debugrelease.com/</id>
+  <title><![CDATA[Category: Python | Deepak Kapoor]]></title>
+  <link href="http://www.deepakkapoor.net/blog/categories/python/atom.xml" rel="self"/>
+  <link href="http://www.deepakkapoor.net/"/>
+  <updated>2013-11-20T18:31:52+11:00</updated>
+  <id>http://www.deepakkapoor.net/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Free Python Books]]></title>
-    <link href="http://www.debugrelease.com/2013/03/25/free-python-books/"/>
+    <link href="http://www.deepakkapoor.net/2013/03/25/free-python-books/"/>
     <updated>2013-03-25T00:00:00+11:00</updated>
-    <id>http://www.debugrelease.com/2013/03/25/free-python-books</id>
+    <id>http://www.deepakkapoor.net/2013/03/25/free-python-books</id>
     <content type="html"><![CDATA[<p>Found a great collection of Python books available for free. Sharing it with readers of Therefore Systems. Screenshot below is just a small sample. </p>
 
 
@@ -27,9 +27,9 @@
   
   <entry>
     <title type="html"><![CDATA[Customize Response Headers in Django]]></title>
-    <link href="http://www.debugrelease.com/2012/03/26/customize-response-headers-in-django/"/>
+    <link href="http://www.deepakkapoor.net/2012/03/26/customize-response-headers-in-django/"/>
     <updated>2012-03-26T00:00:00+11:00</updated>
-    <id>http://www.debugrelease.com/2012/03/26/customize-response-headers-in-django</id>
+    <id>http://www.deepakkapoor.net/2012/03/26/customize-response-headers-in-django</id>
     <content type="html"><![CDATA[<p>Django makes it as easy as it can be to work with Response Headers. These headers in case you did not know are sent to the browser along with the response to a request. You can customize values for existing headers and also add new headers. In this example we will look at how easily it is done in Django. </p>
 
 
@@ -107,9 +107,9 @@ def current_datetime(request):
   
   <entry>
     <title type="html"><![CDATA[Beautiful Python: Working With English Alphabets]]></title>
-    <link href="http://www.debugrelease.com/2012/03/21/beautiful-python-working-with-english-alphabets/"/>
+    <link href="http://www.deepakkapoor.net/2012/03/21/beautiful-python-working-with-english-alphabets/"/>
     <updated>2012-03-21T00:00:00+11:00</updated>
-    <id>http://www.debugrelease.com/2012/03/21/beautiful-python-working-with-english-alphabets</id>
+    <id>http://www.deepakkapoor.net/2012/03/21/beautiful-python-working-with-english-alphabets</id>
     <content type="html"><![CDATA[<p>Yesterday while working on my website I came across a need to display links which start with alphabets from A – Z. Now there are many ways to skin a cat and one of them is to create an array and fill it with 26 elements, each representing an alphabet. Something like a[0] = ‘A’, a[1] = ‘B’ and so on. But that is not Pythonic. This is:</p>
 
 
@@ -162,9 +162,9 @@ def current_datetime(request):
   
   <entry>
     <title type="html"><![CDATA[The Zen Of Python]]></title>
-    <link href="http://www.debugrelease.com/2012/03/20/the-zen-of-python/"/>
+    <link href="http://www.deepakkapoor.net/2012/03/20/the-zen-of-python/"/>
     <updated>2012-03-20T00:00:00+11:00</updated>
-    <id>http://www.debugrelease.com/2012/03/20/the-zen-of-python</id>
+    <id>http://www.deepakkapoor.net/2012/03/20/the-zen-of-python</id>
     <content type="html"><![CDATA[<p>These days I am doing a great amount of work using Python. If you are game to learn a new language then I highly recommend looking at Python. You will find it both <a href="http://onstartups.com/tabid/3339/bid/20493/Why-PHP-Is-Fun-and-Easy-But-Python-Is-Marriage-Material.aspx">fun and productive</a>. Basic tenets of the language can be summarized in what is called “The Zen of Python”.</p>
 
 

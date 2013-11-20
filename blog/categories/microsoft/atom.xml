@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Microsoft | Debug Release]]></title>
-  <link href="http://www.debugrelease.com/blog/categories/microsoft/atom.xml" rel="self"/>
-  <link href="http://www.debugrelease.com/"/>
-  <updated>2013-08-31T15:15:50+10:00</updated>
-  <id>http://www.debugrelease.com/</id>
+  <title><![CDATA[Category: Microsoft | Deepak Kapoor]]></title>
+  <link href="http://www.deepakkapoor.net/blog/categories/microsoft/atom.xml" rel="self"/>
+  <link href="http://www.deepakkapoor.net/"/>
+  <updated>2013-11-20T18:31:52+11:00</updated>
+  <id>http://www.deepakkapoor.net/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Find homepage on Internet Explorer]]></title>
-    <link href="http://www.debugrelease.com/2013/05/26/find-homepage-on-internet-explorer/"/>
+    <link href="http://www.deepakkapoor.net/2013/05/26/find-homepage-on-internet-explorer/"/>
     <updated>2013-05-26T00:00:00+10:00</updated>
-    <id>http://www.debugrelease.com/2013/05/26/find-homepage-on-internet-explorer</id>
+    <id>http://www.deepakkapoor.net/2013/05/26/find-homepage-on-internet-explorer</id>
     <content type="html"><![CDATA[<p>When I visit google.com in Internet Explorer, Google is able to detect my homepage. I thought this was not possible but seems like it is as google is doing it. It turns out that there is a <strong>isHomePage</strong> method which only works on Internet Explorer and it can be used to find a user’s home page. </p>
 
 
@@ -27,9 +27,9 @@
   
   <entry>
     <title type="html"><![CDATA[Unable to access IIS Metabase on Windows 8]]></title>
-    <link href="http://www.debugrelease.com/2013/03/14/unable-to-access-iis-metabase-on-windows-8/"/>
+    <link href="http://www.deepakkapoor.net/2013/03/14/unable-to-access-iis-metabase-on-windows-8/"/>
     <updated>2013-03-14T00:00:00+11:00</updated>
-    <id>http://www.debugrelease.com/2013/03/14/unable-to-access-iis-metabase-on-windows-8</id>
+    <id>http://www.deepakkapoor.net/2013/03/14/unable-to-access-iis-metabase-on-windows-8</id>
     <content type="html"><![CDATA[<p>After installing Windows 8, I found that my ASP.NET MVC projects won’t open in Visual Studio. This is the error thrown by Visual Studio 2012.</p>
 
 
@@ -39,9 +39,9 @@
   
   <entry>
     <title type="html"><![CDATA[Run Visual Studio 2012 as administrator every time]]></title>
-    <link href="http://www.debugrelease.com/2013/03/14/run-visual-studio-2012-as-administrator-always/"/>
+    <link href="http://www.deepakkapoor.net/2013/03/14/run-visual-studio-2012-as-administrator-always/"/>
     <updated>2013-03-14T00:00:00+11:00</updated>
-    <id>http://www.debugrelease.com/2013/03/14/run-visual-studio-2012-as-administrator-always</id>
+    <id>http://www.deepakkapoor.net/2013/03/14/run-visual-studio-2012-as-administrator-always</id>
     <content type="html"><![CDATA[<p>As a developer I spend my life inside Visual Studio. Since I installed Windows 8, I was having trouble opening web projects. Turns out that I need to run Visual Studio as an administrator. </p>
 
 
@@ -51,9 +51,9 @@
   
   <entry>
     <title type="html"><![CDATA[WAT080: Failed to locate the Windows Azure SDK. Please make sure the Windows Azure SDK v1.5 is installed.]]></title>
-    <link href="http://www.debugrelease.com/2012/02/07/wat080-failed-to-locate-the-windows-azure-sdk-please-make-sure-the-windows-azure-sdk-v1-5-is-installed/"/>
+    <link href="http://www.deepakkapoor.net/2012/02/07/wat080-failed-to-locate-the-windows-azure-sdk-please-make-sure-the-windows-azure-sdk-v1-5-is-installed/"/>
     <updated>2012-02-07T00:00:00+11:00</updated>
-    <id>http://www.debugrelease.com/2012/02/07/wat080-failed-to-locate-the-windows-azure-sdk-please-make-sure-the-windows-azure-sdk-v1-5-is-installed</id>
+    <id>http://www.deepakkapoor.net/2012/02/07/wat080-failed-to-locate-the-windows-azure-sdk-please-make-sure-the-windows-azure-sdk-v1-5-is-installed</id>
     <content type="html"><![CDATA[<p>After installing Windows Azure SDK and Visual Studio tools November 2011, I got this error when compiling an existing Cloud project.</p>
 
 
@@ -63,9 +63,9 @@
   
   <entry>
     <title type="html"><![CDATA[Google Shortener API For .NET Written In C#]]></title>
-    <link href="http://www.debugrelease.com/2011/01/15/google-shortener-api-with-dotnet-written-in-c-sharp/"/>
+    <link href="http://www.deepakkapoor.net/2011/01/15/google-shortener-api-with-dotnet-written-in-c-sharp/"/>
     <updated>2011-01-15T00:00:00+11:00</updated>
-    <id>http://www.debugrelease.com/2011/01/15/google-shortener-api-with-dotnet-written-in-c-sharp</id>
+    <id>http://www.deepakkapoor.net/2011/01/15/google-shortener-api-with-dotnet-written-in-c-sharp</id>
     <content type="html"><![CDATA[<p><a href="https://code.google.com/p/n-gshortener/"><img style="background-image: none; border-right-width: 0px; margin: 0px 10px 10px; padding-left: 0px; padding-right: 0px; display: inline; float: left; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" align="left" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2011/01/image.png" width="56" height="59" /></a>Google Shortener is a service provided by Google to create short URLs. Google Shortener has been available for some time now but only recently Google released a public API to access this service programmatically. Today I decided to try it out and wrote some C# code to work with the API. I will describe what I did in this post.</p>
 
 
