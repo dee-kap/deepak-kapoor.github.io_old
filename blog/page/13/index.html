@@ -9,8 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="In this post I will show you how to establish a connection to Microsoft SQL Server  from NetBeans IDE.
-I use a Mac so the screenshots here are from &hellip;">
+  <meta name="description" content="This post shows you how to generate self signed certificates on Windows 7. To generate self signed certificates you must have IIS 7.5 installed &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,104 +69,6 @@ I use a Mac so the screenshots here are from &hellip;">
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac/">Connect to SQL Server 2008 From NetBeans IDE on a Mac</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-08-24T00:00:00+10:00" pubdate data-updated="true">Aug 24<span>th</span>, 2010</time>
-        
-         | <a href="/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In this post I will show you how to establish a connection to Microsoft SQL Server  from NetBeans IDE.</p>
-<p>I use a Mac so the screenshots here are from Mac but NetBeans IDE is the same on all other platforms. There should not be any differences.</p>
-<p>First thing we need to do is download the JDBC driver for Microsoft SQL Server from Microsoft. Current version of driver is 3.0 and it can be downloaded <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=%20a737000d-68d0-4531-b65d-da0f2a735707&amp;displaylang=en">here</a>. Download the drivers for UNIX and extract the archive on your machine. Once you have extracted the archive you&#8217;ll get a folder sqljdbc_3.0 under which there is another folder enu. Within enu are the jar files which implement JDBC drivers.</p>
-<p>Now we will start the process to establish our connection to SQL Server from NetBeans. First thing click on Services tab and the Right Click on Databases and then click on New Connection.</p>
-<p><img title="SQLServerNetBeans.png" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/SQLServerNetBeans.png" border="0" alt="Screen shot 2010-08-23 at 6.20.33 PM.png" width="371" height="316" /></p>
-<p>You will see this window. Next to Driver Name click on the drop-down and choose New Driver&#8230;</p>
-<p><img title="NewImage.jpg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/NewImage.jpg" border="0" alt="NewImage.jpg" width="540" height="532" /></p>
-<p>Here click on the Add button and browse to your jar file for SQL Server JDBC driver.</p>
-<p><img title="NewImage.jpg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/NewImage1.jpg" border="0" alt="NewImage.jpg" width="482" height="379" /></p>
-<p>NetBeans is now aware of SQL Server JDBC driver.  You can now start creating the connection to SQL Server. Enter the details for SQL Server. You will need the IP address, port which by default is 1433 and username and password.</p>
-<p><img title="NewImage3.jpg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/NewImage3.jpg" border="0" alt="NewImage3.jpg" width="540" height="554" /></p>
-<p>Click OK and you will be connected to SQL Server.</p>
-<p>On the Server tab in NetBeans under Database you&#8217;ll see your SQL Server. You can browse server objects, view tables, stored procedures etc.</p>
-<p><img title="NewImage5.jpg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/NewImage5.jpg" border="0" alt="NewImage5.jpg" width="356" height="433" /></p>
-<p>You can also run SQL queries on your SQL Server from NetBeans IDE.</p>
-<p><img title="NewImage6.jpg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/NewImage6.jpg" border="0" alt="NewImage6.jpg" width="540" height="489" /></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/08/23/running-glassfish-in-verbose-mode-from-netbeans/">Running Glassfish in Verbose Mode From NetBeans</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-08-23T00:00:00+10:00" pubdate data-updated="true">Aug 23<span>rd</span>, 2010</time>
-        
-         | <a href="/2010/08/23/running-glassfish-in-verbose-mode-from-netbeans/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The title of this post &#8220;Running Glassfish In Verbose Mode From NetBeans&#8221; is slightly misleading because what I am showing here is a way to view Glassfish logs within NetBeans IDE.</p>
-<p>To start Glassfish in verbose mode on a command prompt or Terminal on a mac you&#8217;ll use this command.</p>
-<p><strong>asadmin start-domain &#8211;verbose</strong></p>
-<p>This will show you a nice verbose log of Glassfish activity on the Terminal.</p>
-<p><strong></strong> From NetBeans all you need to do is start Glassfish as you normally would.</p>
-<p><img title="Screen shot 2010-08-23 at 5.09.05 PM.png" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/Screen-shot-2010-08-23-at-5.09.05-PM1.png" border="0" alt="Start Glassfish" width="375" height="397" /></p>
-<p>Now click on View Server Log and you&#8217;ll see a log of all Glassfish activity in NetBeans IDE.</p>
-<p><img style="float: left;" title="Glassfish2.png" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/Glassfish21.png" border="0" alt="Screen shot 2010-08-23 at 5.20.17 PM.png" width="372" height="417" /></p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -297,6 +198,82 @@ I use a Mac so the screenshots here are from &hellip;">
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/08/06/five-reasons-why-google-wave-failed/">Five Reasons Why Google Wave Failed</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-08-06T00:00:00+10:00" pubdate data-updated="true">Aug 6<span>th</span>, 2010</time>
+        
+         | <a href="/2010/08/06/five-reasons-why-google-wave-failed/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Hopefully most planet earth inhabitants know that Google pulled the plug on Wave or maybe most inhabitants who care about it. Together with my friend Graham we came up with these reasons for failure over a Japanese lunch today. Here’s the list.</p>  <ol>   <li>It did not ripple through masses.</li>    <li>The tide was not on it’s side.</li>    <li>It did not create waves in hearts or minds of people.</li>    <li>The sail was in opposite direction.</li>    <li>The product itself was shallow.</li> </ol>  <p>&#160;</p>  <p>So it is finally time to wave it goodbye.</p> For the record this was getting way out of hand for our geeky minds and we were attracting unwanted attention at the restaurant. We decided to abandon the idea of coming out with more reasons. 
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/07/30/easiest-way-to-generate-connection-string-and-verify-database-connectivity/">Easiest Way to Generate Connection String and Verify Database Connectivity</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-07-30T00:00:00+10:00" pubdate data-updated="true">Jul 30<span>th</span>, 2010</time>
+        
+         | <a href="/2010/07/30/easiest-way-to-generate-connection-string-and-verify-database-connectivity/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>There are two things which I as a consultant / developer come across many times. One is verifying connectivity to a database which is often a cause of production issues and second is creating valid connection string in the least amount of time. This is the way I do it. Hopefully it will be of help to you.</p>  <p>First of all forget that you have Visual Studio, SSMS or anything so big and fancy. You just want to get a connection string baked up pronto. I usually end up creating a .udl file. UDL which stands for Universal Data Link allows you to establish a connection and then stores the connection string in text format. Doing this is very simple. Create a file in any folder or desktop and call it <strong>test.udl</strong>. </p>  <p>Now double click the file and you’ll get a window where you can enter your connection properties.</p>  <p>&#160;<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image2.png" width="377" height="473" /> </p>  <p>You can also select different providers.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image3.png" width="377" height="473" /> </p>  <p>Once you have filled in the information about your server, security and database just click on Test Connection to verify connectivity. Click OK to close the window.</p>  <p>To get a connection string with information you just entered just open the test.udl file in a text editor and you’ll see the connection string. </p>  <p>&#160;<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image4.png" width="582" height="68" /> </p>  <p>That’s it. Simple and easy ninja style.</p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/14/">&larr; Older</a>
@@ -312,6 +289,10 @@ I use a Mac so the screenshots here are from &hellip;">
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/11/27/octopress-setup-existing-blog-on-another-machine/">Octopress-Setup Existing Blog on Another Machine</a>
+      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -347,10 +328,6 @@ I use a Mac so the screenshots here are from &hellip;">
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

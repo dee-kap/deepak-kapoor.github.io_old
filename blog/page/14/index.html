@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="Hopefully most planet earth inhabitants know that Google pulled the plug on Wave or maybe most inhabitants who care about it. Together with my friend &hellip;">
+  <meta name="description" content="This post shows you how to find Data Providers installed on a machine. Data providers in .NET Framework provide the plumbing necessary to connect to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,120 +75,6 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/08/06/five-reasons-why-google-wave-failed/">Five Reasons Why Google Wave Failed</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-08-06T00:00:00+10:00" pubdate data-updated="true">Aug 6<span>th</span>, 2010</time>
-        
-         | <a href="/2010/08/06/five-reasons-why-google-wave-failed/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Hopefully most planet earth inhabitants know that Google pulled the plug on Wave or maybe most inhabitants who care about it. Together with my friend Graham we came up with these reasons for failure over a Japanese lunch today. Here’s the list.</p>  <ol>   <li>It did not ripple through masses.</li>    <li>The tide was not on it’s side.</li>    <li>It did not create waves in hearts or minds of people.</li>    <li>The sail was in opposite direction.</li>    <li>The product itself was shallow.</li> </ol>  <p>&#160;</p>  <p>So it is finally time to wave it goodbye.</p> For the record this was getting way out of hand for our geeky minds and we were attracting unwanted attention at the restaurant. We decided to abandon the idea of coming out with more reasons. 
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/08/05/intellisense-enhancements-i-want/">Intellisense Enhancements I Want</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-08-05T00:00:00+10:00" pubdate data-updated="true">Aug 5<span>th</span>, 2010</time>
-        
-         | <a href="/2010/08/05/intellisense-enhancements-i-want/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Back in 2008 I posted a suggestion on Microsoft’s Connect website. To be precise the date was 15th May 2008. To my surprise I received an email today (5th August 2010) informing me that there is a comment on my suggestion. It only took a little more than 2 years. Wow! talk about a speedy response. “What’s wrong with Microsoft” will be a topic for another post. Today I want to revisit my suggestion. It’s about Intellisense. Here it is exactly how I posted it on Connect site.</p>  <p><strong>Problem Statement</strong></p>  <p>At present we have Ctrl + . which opens intellisense and lists all methods, properties events available for the corresponding object. There are times when I and I assume other users are only interested in looking at either events, methods or properties. </p>  <p><strong>Proposed Solution</strong></p>  <p>I suggest the following shortcuts which will filter the list:    <br />Ctrl + . + p - Display only properties     <br />Ctrl + . + e - Display only events     <br />Ctrl + . + m - Display only methods </p>  <p>And the response from Microsoft today is:</p>  <blockquote>   <p>Thanks for taking the time to submit this suggestion! I sincerely apologize for the amount of time that has taken to get back to you.      <br />When we locked down on our final feature set for the next version of Visual Studio, IntelliSense completion set filtering for member types didn&#8217;t make the cut&#8211;though it was considered. However, his is a commonly requested feature, and we&#8217;ll consider it for a future release of Visual Studio. Please feel free to contact me directly at … if you have any further thoughts.</p> </blockquote>  <p>I am glad to know that this will at-least be considered for a future release. I’ll be happy if it ever gets implemented. </p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/07/30/easiest-way-to-generate-connection-string-and-verify-database-connectivity/">Easiest Way to Generate Connection String and Verify Database Connectivity</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-07-30T00:00:00+10:00" pubdate data-updated="true">Jul 30<span>th</span>, 2010</time>
-        
-         | <a href="/2010/07/30/easiest-way-to-generate-connection-string-and-verify-database-connectivity/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>There are two things which I as a consultant / developer come across many times. One is verifying connectivity to a database which is often a cause of production issues and second is creating valid connection string in the least amount of time. This is the way I do it. Hopefully it will be of help to you.</p>  <p>First of all forget that you have Visual Studio, SSMS or anything so big and fancy. You just want to get a connection string baked up pronto. I usually end up creating a .udl file. UDL which stands for Universal Data Link allows you to establish a connection and then stores the connection string in text format. Doing this is very simple. Create a file in any folder or desktop and call it <strong>test.udl</strong>. </p>  <p>Now double click the file and you’ll get a window where you can enter your connection properties.</p>  <p>&#160;<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image2.png" width="377" height="473" /> </p>  <p>You can also select different providers.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image3.png" width="377" height="473" /> </p>  <p>Once you have filled in the information about your server, security and database just click on Test Connection to verify connectivity. Click OK to close the window.</p>  <p>To get a connection string with information you just entered just open the test.udl file in a text editor and you’ll see the connection string. </p>  <p>&#160;<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image4.png" width="582" height="68" /> </p>  <p>That’s it. Simple and easy ninja style.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
       <h1 class="entry-title"><a href="/2010/07/29/find-all-data-providers-installed-on-a-machine/">Find All Data Providers Installed on a Machine</a></h1>
     
     
@@ -240,7 +126,7 @@ foreach (DataRow provider in dataProviders.Rows)
       
   <header>
     
-      <h1 class="entry-title"><a href="/2010/07/19/download-visual-studio-2010-productivity-power-tools/">Download Visual Studio 2010 Productivity Power Tools</a></h1>
+      <h1 class="entry-title"><a href="/2010/05/27/visual-studio-2010-code-generation-with-intellisense/">Visual Studio 2010 Code Generation With Intellisense</a></h1>
     
     
       <p class="meta">
@@ -256,16 +142,153 @@ foreach (DataRow provider in dataProviders.Rows)
   
 
 
-<time datetime="2010-07-19T00:00:00+10:00" pubdate data-updated="true">Jul 19<span>th</span>, 2010</time>
+<time datetime="2010-05-27T00:00:00+10:00" pubdate data-updated="true">May 27<span>th</span>, 2010</time>
         
-         | <a href="/2010/07/19/download-visual-studio-2010-productivity-power-tools/#disqus_thread">Comments</a>
+         | <a href="/2010/05/27/visual-studio-2010-code-generation-with-intellisense/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>A newer version of Visual Studio 2010 Productivity Power Tools has been released. If you use Visual Studio 2010 then do yourself a favor and download these power tools and use Visual Studio 2010 like a power user. Checkout all details at <a href="http://blogs.msdn.com/b/visualstudio/archive/2010/07/18/new-version-of-the-productivity-power-tools-is-available.aspx">Visual Studio blog</a>. </p>  <p><a href="http://visualstudiogallery.msdn.microsoft.com/en-us/d0d33361-18e2-46c0-8ff2-4adea1e34fef">Download link for Productivity Power Tools</a>.</p>
+  <div class="entry-content"><p>Visual Studio 2010 provides a nifty little feature which let’s you generate code from within the editor. In this post I will show you how to use this feature. Imagine that you are having a fantastic coding day and you are coding at 100mph. You have just realised that you need a class called car and you want to do it ninja style. Just type in this.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/05/image3.png" width="172" height="28" /> </p>  <p>Visual studio displays Car in red because it cannot find a Type named Car. Put your cursor on Car and hit <strong><font color="#000080">Ctrl + . </font></strong></p>  <p><a href="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/05/image4.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/05/image5.png" width="354" height="128" /></a> </p>  <p>The smart tag gives you two options:</p>  <ol>   <li>Generate class for ‘Car’ </li>    <li>Generate new type… </li> </ol>  <p>If you select the first option, a new class is created for you in a new file and appropriately named Car. </p>  <p>The second option which is “Generate new type…” gives you more control over the code which will be generated.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/05/image6.png" width="374" height="403" /> </p>  <p>In the dialog box you can choose Access (public or private) and you can also select if you’d like to generate a class, struct, interface or an enum. An option also exists down below to either add the newly generated code to an existing file or create a new file.</p>  <p>Pretty neat I think. </p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/05/20/turn-on-msdtc-windows-7/">Turn on MSDTC Windows 7</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-05-20T00:00:00+10:00" pubdate data-updated="true">May 20<span>th</span>, 2010</time>
+        
+         | <a href="/2010/05/20/turn-on-msdtc-windows-7/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Here is a step by step guide to turn on MSDTC on Windows 7. MSDTC settings are somewhat hidden in Windows 7 and I could not get to them as I did on Windows XP or Server 2003. I found a way and I’m putting it out here. </p>  <h4>Step 1</h4>  <p>Run dcomcnfg. This will open MMC with Component Services snapin.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="dcomcnfg" border="0" alt="dcomcnfg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/05/image.png" width="427" height="235" /> </p>  <h4>Step 2</h4>  <p>Expand Distributed Transaction Coordinator folder</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/05/image1.png" width="540" height="418" /> </p>  <h4>Step 3</h4>  <p>Right click on Local DTC and click Properties. Click on Security tab. Here you can modify DTC settings.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/05/image2.png" width="462" height="505" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/05/10/mother-of-all-sharepoint-2010-virtual-machines/">Mother of All SharePoint 2010 Virtual Machines</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-05-10T00:00:00+10:00" pubdate data-updated="true">May 10<span>th</span>, 2010</time>
+        
+         | <a href="/2010/05/10/mother-of-all-sharepoint-2010-virtual-machines/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">This is one Machine to rule them all (I know Lord of Rings is so old school). In the Virtual Machine you will get the following.
+<ol>
+	<li>Windows Server 2008 R2 Standard Evaluation Edition x64, running as  an Active Directory Domain Controller for the “CONTOSO.COM” domain with  DNS and WINS</li>
+	<li>Microsoft SQL Server 2008 R2 Enterprise Edition with Analysis,  Notification, and Reporting Services</li>
+	<li>Microsoft Office Communication Server 2007 R2</li>
+	<li>Microsoft Visual Studio 2010</li>
+	<li>Microsoft SharePoint Server 2010 Enterprise Edition</li>
+	<li>Microsoft Office Web Applications</li>
+	<li>Microsoft FAST Search for SharePoint 2010</li>
+	<li>Microsoft Project Server 2010</li>
+	<li>Microsoft Office Professional Plus 2010</li>
+	<li>Microsoft Visio 2010</li>
+	<li>Microsoft Project 2010</li>
+	<li>Microsoft Office Communicator 2007 R2</li>
+</ol>
+So fireup your <a href="http://www.freedownloadmanager.org/">free download manager</a> and download this absolute SharePoint 2010 nirvana. If you are contrained on bandwidth then just to let you know that full download will set you back by approximately 18GB.
+
+Here is the <a href="http://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=751fa0d1-356c-4002-9c60-d539896c66ce">download link</a>.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/05/03/remove-hardware-virtualization-requirement-on-windows-7/">Remove Hardware Virtualization Requirement on Windows 7</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-05-03T00:00:00+10:00" pubdate data-updated="true">May 3<span>rd</span>, 2010</time>
+        
+         | <a href="/2010/05/03/remove-hardware-virtualization-requirement-on-windows-7/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">Running XP mode on Windows 7 requires Hardware Virtualization to be enabled. You set this through BIOS settings. But what if your machine does not support Hardware Virtualization. Yes such machines do exist and I have one. My SONY Vaio does not allow Hardware Virtualization. Why? Because it’s a SONY.
+
+A good news for me and others who are in same boat is that Microsoft has released a patch which removes this requirement. Seriously, I cannot thank Microsoft enough for this. Good stuff guys, I owe you a beer.
+
+Download the patch <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=837f12aa-1d37-464e-ae59-20c9ecbebaf6&amp;displaylang=en">here</a>.
+
+Download patch for 64bit <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=e70dd043-e262-43c0-a002-446567f1e2b4&amp;displaylang=en">here</a>.
 </div>
   
   
@@ -288,6 +311,10 @@ foreach (DataRow provider in dataProviders.Rows)
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/11/27/octopress-setup-existing-blog-on-another-machine/">Octopress-Setup Existing Blog on Another Machine</a>
+      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -323,10 +350,6 @@ foreach (DataRow provider in dataProviders.Rows)
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="Wrap panel in Silverlight is missing out of the box, but this need is fulfilled by Silverlight Toolkit which also includes many other controls. In &hellip;">
+  <meta name="description" content="Conficker worm which strikes on April 1st is already being labelled as one of the most dangerous cyber attacks ever. The way this worm works is that &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,7 +75,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/06/28/silverlight-wrap-panel/">Silverlight Wrap Panel</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/29/5-ways-to-remove-conficker-worm/">5 Ways to Remove Conficker Worm</a></h1>
     
     
       <p class="meta">
@@ -91,76 +91,16 @@
   
 
 
-<time datetime="2009-06-28T00:00:00+10:00" pubdate data-updated="true">Jun 28<span>th</span>, 2009</time>
+<time datetime="2009-03-29T00:00:00+11:00" pubdate data-updated="true">Mar 29<span>th</span>, 2009</time>
         
-         | <a href="/2009/06/28/silverlight-wrap-panel/#disqus_thread">Comments</a>
+         | <a href="/2009/03/29/5-ways-to-remove-conficker-worm/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Wrap panel in Silverlight is missing out of the box, but this need is fulfilled by Silverlight Toolkit which also includes many other controls. In this post we will look at WrapPanel. I will show you how to use it and what it is used for.</p>  <p>To use wrap panel you have to install <a href="http://www.codeplex.com/Silverlight">Silverlight Toolkit</a>. Once installed, you will need to add a reference to Silverlight.Windows.Controls.Toolkit</p>  <p>&#160;<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Silverlight.Windows.Controls.Toolkit" border="0" alt="Silverlight.Windows.Controls.Toolkit" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image2.png" width="482" height="406" /> </p>  <p>And you can now use the WrapPanel. In the XAML below you can see that the main container of my user control is a WrapPanel.</p>  
-
- 
-<pre class="lang:xhtml decode:true " >&lt;UserControl 
-xmlns:controls=
-"clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"  
-  x:Class="SilverlightWrapPanelDemo.Page"
-  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-  Width="400" Height="300"&gt;
-  &lt;controls:WrapPanel x:Name="LayoutRoot" Background="White"&gt;
-
-  &lt;/controls:WrapPanel&gt;
-&lt;/UserControl&gt;</pre> 
-
-
-<p>WrapPanel as the name says will wrap controls. Any controls which cannot fit on the first line will be wrapped to next line and so forth. Here is a demo.</p>
-
- 
-<pre class="lang:xhtml decode:true " >&lt;UserControl 
-xmlns:controls=
-"clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"  
-  x:Class="SilverlightWrapPanelDemo.Page"
-  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-  Width="400" Height="300" Background="CornflowerBlue"&gt;
-  &lt;controls:WrapPanel x:Name="LayoutRoot" Background="Honeydew"&gt;
-    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkBlue" /&gt;
-    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkRed" /&gt;
-    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkGoldenrod" /&gt;
-    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkSeaGreen" /&gt;
-    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DodgerBlue" /&gt;
-    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkOrchid" /&gt;
-  &lt;/controls:WrapPanel&gt;
-&lt;/UserControl&gt;</pre> 
-
-
-<p>&#160;<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="WrapPanel" border="0" alt="WrapPanel" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image3.png" width="399" height="300" /> </p>
-
-<p>If I reduce the width of UserControl you can see that WrapPanel automatically wraps controls placed inside the container.</p>
-
- 
-<pre class="lang:xhtml decode:true " >&lt;UserControl 
-xmlns:controls=
-"clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"  
-  x:Class="SilverlightWrapPanelDemo.Page"
-  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-  Width="350" Height="300" Background="CornflowerBlue"&gt;
-  &lt;controls:WrapPanel x:Name="LayoutRoot" Background="Honeydew"&gt;
-    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkBlue" /&gt;
-    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkRed" /&gt;
-    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkGoldenrod" /&gt;
-    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkSeaGreen" /&gt;
-    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DodgerBlue" /&gt;
-    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkOrchid" /&gt;
-  &lt;/controls:WrapPanel&gt;
-&lt;/UserControl&gt;</pre> 
-
-
-<p>&#160;<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="WrapPanel" border="0" alt="WrapPanel" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image4.png" width="348" height="300" /></p>
+  <div class="entry-content"><p>Conficker worm which strikes on April 1st is already being labelled as <a href="http://www.smh.com.au/articles/2009/03/29/1238261419679.html">one of the most dangerous cyber attacks ever</a>. The way this worm works is that it sets up what are known as botnets on computers around the world. The worm goes active on April 1st when it can be used by its creators to potentially damage computers, networks and do all kind of bad guys stuff.&#160; The worm exploits <a href="http://www.microsoft.com/technet/security/bulletin/ms08-067.mspx">MS088-067 Windows Server vulnerability</a>. </p>  <p>It goes without saying that you should protect your computers. There are many removal tools available which can be used to remove Conficker from your computer. This is a list of different options you have to remove this worm.</p>  <ol>   <li><a href="http://vil.nai.com/vil/conficker_stinger/Stinger_Coficker.exe">McAftee AVERT Stinger Conficker</a></li>    <li><a href="http://www.microsoft.com/windows/enterprise/technologies/mdop.aspx">Stand-Alone System Sweeper tool (available as part of Microsoft Desktop Optimization Pack)</a>.</li>    <li><a href="http://www.enigmasoftware.com/a1/download/cfremover.exe">Enigma Software Conficker Removal Tool</a>.</li>    <li><a href="http://www.f-secure.com/v-descs/worm_w32_downadup_al.shtml">Removal tool by F-Secure</a>.</li>    <li><a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=AD724AE0-E72D-4F54-9AB3-75B8EB148356&amp;displaylang=en">Windows Malicious Software Removal Tool by Microsoft</a>.</li> </ol>  <p>&#160;</p>  <p>As a good practice you should always keep your system patched. This can be done by configuring automatic updates on your windows computer. Keep it safe, keep it updated :)</p> <img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image44.png" width="540" height="136" />
 </div>
   
   
@@ -173,7 +113,7 @@ xmlns:controls=
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/06/25/silverlight-canvas-panel/">Silverlight Canvas Panel</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/26/reverse-array-elements-using-c/">Reverse Array Elements Using C#</a></h1>
     
     
       <p class="meta">
@@ -189,38 +129,72 @@ xmlns:controls=
   
 
 
-<time datetime="2009-06-25T00:00:00+10:00" pubdate data-updated="true">Jun 25<span>th</span>, 2009</time>
+<time datetime="2009-03-26T00:00:00+11:00" pubdate data-updated="true">Mar 26<span>th</span>, 2009</time>
         
-         | <a href="/2009/06/25/silverlight-canvas-panel/#disqus_thread">Comments</a>
+         | <a href="/2009/03/26/reverse-array-elements-using-c/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Panels are basic layout mechanism in both Silverlight and WPF. They act as containers for other controls and each panel provides a different way of laying out controls on the screen. In this post we will look at Canvas Panel in Silverlight. Canvas allows us to put controls based on x and y&#160; coordinates. This gives us precise control over where our UI elements e.g buttons, text boxes etc. are placed. </p>  <p>In this example we can see that different ellipses are placed on the canvas using x and y coordinates. </p>  
+  <div class="entry-content"><p>In .Net Framework reversing array elements can be done by using Reverse method on Array type. This code snippet shows you how this method can be used to reverse an array. </p>  
 
- 
-<pre class="lang:xhtml decode:true " >&lt;Canvas x:Name="LayoutRoot" Background="LightGoldenrodYellow"&gt;
-  &lt;Ellipse Height="50" Width="50" Fill="Coral" 
+<pre class="lang:c# decode:true " >
+// Declare an array with 10 elements
+int[] numbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-    Canvas.Left="20" Canvas.Top="20" /&gt;
-  &lt;Ellipse Height="50" Width="50" Fill="Red" 
+// Output elements in original order
+for (int i = 0; i < numbers.Length; i++)
+{
+  Console.Write(" {0}", numbers[i]);
+}
+Console.WriteLine();
 
-    Canvas.Left="70" Canvas.Top="70" /&gt;
-  &lt;Ellipse Height="50" Width="50" Fill="Pink" 
+// Reverse the array
+Array.Reverse(numbers);
 
-    Canvas.Left="120" Canvas.Top="120" /&gt;
-  &lt;Ellipse Height="50" Width="50" Fill="Purple" 
+// Output elements with changed order
+for (int i = 0; i < numbers.Length; i++)
+{
+  Console.Write(" {0}", numbers[i]);
+}
 
-    Canvas.Left="170" Canvas.Top="170" /&gt;
-  &lt;Ellipse Height="50" Width="50" Fill="RoyalBlue" 
+Console.ReadKey();
+</pre>
 
-    Canvas.Left="220" Canvas.Top="220" /&gt;
-&lt;/Canvas&gt;</pre> 
+<p>Here is the output.</p>
 
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image42.png" width="208" height="45" /> </p>
 
-<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Canvas Panel" border="0" alt="Canvas Panel" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image1.png" width="399" height="299" /></p>
+<p>Array.Reverse method also provides an overload which can be used to reverse elements at a given indexes. For example we want to reverse elements 3, 4 and 5 but leave others intact. This can be achieved using the following code snippet.</p>
+
+<pre class="lang:c# decode:true " >
+// Declare an array with 10 elements
+int[] numbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+// Output elements in original order
+for (int i = 0; i < numbers.Length; i++)
+{
+   Console.Write(" {0}", numbers[i]);
+}
+Console.WriteLine();
+
+// Reverse numbers 3 , 4 and 5
+Array.Reverse(numbers, 2, 3);
+
+// Output elements with changed order
+for (int i = 0; i < numbers.Length; i++)
+{
+  Console.Write(" {0}", numbers[i]);
+}
+
+Console.ReadKey();
+</pre>
+
+<p>And the output is.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image43.png" width="186" height="59" /></p>
 </div>
   
   
@@ -233,7 +207,7 @@ xmlns:controls=
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/06/16/request-error-in-adonet-data-services/">Request Error in ADO.NET Data Services</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/24/sql-server-2008-get-all-indexes-in-a-database/">SQL Server 2008 – Get All Indexes in a Database</a></h1>
     
     
       <p class="meta">
@@ -249,16 +223,22 @@ xmlns:controls=
   
 
 
-<time datetime="2009-06-16T00:00:00+10:00" pubdate data-updated="true">Jun 16<span>th</span>, 2009</time>
+<time datetime="2009-03-24T00:00:00+11:00" pubdate data-updated="true">Mar 24<span>th</span>, 2009</time>
         
-         | <a href="/2009/06/16/request-error-in-adonet-data-services/#disqus_thread">Comments</a>
+         | <a href="/2009/03/24/sql-server-2008-get-all-indexes-in-a-database/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>When creating a new ADO.NET Data Service you may find yourself with this error.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="ServiceErrorCapture" border="0" alt="ServiceErrorCapture" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/serviceerrorcapture.png" width="534" height="96" /> </p>  <p>Don’t call it quits on ADO.NET Data Services because of this error. It is very easy to fix. Have a close look at the code generated by Visual Studio for you.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image.png" width="550" height="205" /> </p>  <p>Here the code calls SetEntitySetAccessRule on “MyEntitySet” but most likely your entity set is not called “MyEntitySet”. Similarly the second line sets operation access rule again on “MyServiceOperation” and you may want to set access rules on your operations. If you want to include all operations and all entity sets in the two method calls you can simply specify “*” as the value for first parameter.</p>
+  <div class="entry-content"><p>You’ve got to love sys views in SQL Server. While learning about performance tuning on SQL Server 2008 I wanted to get a list of all Indexes on my database and the answer was as simple as it can be. Here i a statement which can be used to get a list of all indexes on a database.</p>  
+
+<pre class="lang:tsql decode:true " >SELECT * FROM sys.indexes</pre>
+
+<p>And here is the partial output from AdventureWorks database.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="sys.indexes" border="0" alt="sys.indexes" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image39.png" width="458" height="279" /></p>
 </div>
   
   
@@ -271,7 +251,7 @@ xmlns:controls=
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/05/29/silverlight-ebay-sidebar-for-internet-explorer-8/">Silverlight Ebay Sidebar for Internet Explorer 8</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/24/get-free-disk-space-using-t-sql/">Get Free Disk Space Using T-SQL</a></h1>
     
     
       <p class="meta">
@@ -287,16 +267,22 @@ xmlns:controls=
   
 
 
-<time datetime="2009-05-29T00:00:00+10:00" pubdate data-updated="true">May 29<span>th</span>, 2009</time>
+<time datetime="2009-03-24T00:00:00+11:00" pubdate data-updated="true">Mar 24<span>th</span>, 2009</time>
         
-         | <a href="/2009/05/29/silverlight-ebay-sidebar-for-internet-explorer-8/#disqus_thread">Comments</a>
+         | <a href="/2009/03/24/get-free-disk-space-using-t-sql/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Today I visited ebay for I think the 5th time in my life and I found that they have a new sidebar for Internet Explorer 8. What’s cool about this side bar is that it uses Silverlight.. You can view your active auctions and get information on your bids. A cool addin for ebay users.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/05/image35.png" width="185" height="236" /> </p>  <p><a href="http://ie8.ebay.com/sidebar/">Link to download ebay Sidebar</a>.</p>
+  <div class="entry-content"><p>To get free disk space for all physical drives on a machine we can use xp_fixeddrives extended stored procedure. An interesting this about this procedure is that it is not documented in books online.</p>  
+
+<pre class="lang:tsql decode:true " >EXEC xp_fixeddrives</pre>
+
+<p>Here is output on my machine.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="xp_fixeddrives" border="0" alt="xp_fixeddrives" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image40.png" width="161" height="46" /></p>
 </div>
   
   
@@ -309,7 +295,7 @@ xmlns:controls=
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/05/28/find-unused-css-on-a-website/">Find Unused CSS on a Website</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/24/create-t-sql-case-statements-with-linq-to-sql/">Create T-SQL CASE Statements With LINQ to SQL</a></h1>
     
     
       <p class="meta">
@@ -325,16 +311,82 @@ xmlns:controls=
   
 
 
-<time datetime="2009-05-28T00:00:00+10:00" pubdate data-updated="true">May 28<span>th</span>, 2009</time>
+<time datetime="2009-03-24T00:00:00+11:00" pubdate data-updated="true">Mar 24<span>th</span>, 2009</time>
         
-         | <a href="/2009/05/28/find-unused-css-on-a-website/#disqus_thread">Comments</a>
+         | <a href="/2009/03/24/create-t-sql-case-statements-with-linq-to-sql/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>During the course of a project we often end up adding elements to style sheets which do not get used. This causes css files to bloat which impacts performance. The best thing to do is to keep track of css elements which are not being used and remove them. This can become a strenuous task especially if you have a large website. But there is a tool which can be used to find unused css. The tool is called Dust-Me Selectors and it is an addon for Firefox.&#160;&#160; </p>  <p>Running the tool on <a href="http://www.debugrelease.com/">One .Net Way</a> gives me this result. There are 131 selectors which are not being used at present. This should however be taken as a starting point for clean up. You must always manually check if css is being used in client side scripts or server side code.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/05/image34.png" width="408" height="390" /> </p>  <p><a href="http://www.sitepoint.com/dustmeselectors/">Download link for Dust-Me Selectors</a>.</p>
+  <div class="entry-content"><p>I was recently helping <a href="http://twitter.com/nosherwan">Nosh</a> with a LINQ To SQL query where he wanted the resulting T-SQL query to have CASE statements. Having CASE statements in T-SQL queries is a common scenario but how do we it in LINQ To SQL .After some investigation I found the solution which I am presenting here using an example.</p>  <p>I have created a table called CityWeather. This table has&#160; two fields: Name and Temperature. Here is the script if you wish to create the table on your machine.</p>  
+
+<pre class="lang:tsql decode:true " >
+CREATE TABLE [dbo].[CityWeather](
+    [Name] [nvarchar](100) NOT NULL,
+    [Temperature] [decimal](18, 0) NOT NULL
+) ON [PRIMARY]
+</pre>
+
+<p>My objective is to get LINQ To SQL to produce a T-SQL statement similar to this.</p>
+
+<pre class="lang:tsql decode:true " >
+SELECT 
+    Name, 
+    Temperature, 
+    CASE Temperature
+        WHEN 30 THEN 'Toasted'
+        WHEN 25 THEN 'I like it'
+        WHEN 10 THEN 'Just perfect'
+        WHEN -15 THEN 'Gonna freeze my'
+    END AS 'Message'
+FROM CityWeather
+</pre>
+
+<p>Using my trusted LINQPad here is how I wrote my LINQ To SQL query.</p>
+
+<pre class="lang:c# decode:true " >
+from c in CityWeathers
+select new
+        {
+          c.Name,
+          c.Temperature,
+          Messaage = c.Temperature == 30 ? "Toasted" : 
+          c.Temperature == 25 ? "I like it" :
+          c.Temperature == 10 ? "Just perfect" :
+          c.Temperature == -15 ? "Gonna freeze my" : ""
+        }
+</pre>
+
+
+<p>My LINQ To SQL query produced the following T-SQL Query</p>
+
+<pre class="lang:tsql decode:true " >
+SELECT [t0].[Name], [t0].[Temperature], 
+    (CASE 
+        WHEN [t0].[Temperature] = @p0 THEN CONVERT(NVarChar(15),@p1)
+        WHEN [t0].[Temperature] = @p2 THEN CONVERT(NVarChar(15),@p3)
+        WHEN [t0].[Temperature] = @p4 THEN CONVERT(NVarChar(15),@p5)
+        WHEN [t0].[Temperature] = @p6 THEN @p7
+        ELSE CONVERT(NVarChar(15),@p8)
+     END) AS [Messaage]
+FROM [CityWeather] AS [t0]
+-- @p0: Input Decimal (Size = 0; Prec = 33; Scale = 4) [30]
+-- @p1: Input NVarChar (Size = 7; Prec = 0; Scale = 0) [Toasted]
+-- @p2: Input Decimal (Size = 0; Prec = 33; Scale = 4) [25]
+-- @p3: Input NVarChar (Size = 9; Prec = 0; Scale = 0) [I like it]
+-- @p4: Input Decimal (Size = 0; Prec = 33; Scale = 4) [10]
+-- @p5: Input NVarChar (Size = 12; Prec = 0; Scale = 0) [Just perfect]
+-- @p6: Input Decimal (Size = 0; Prec = 33; Scale = 4) [-15]
+-- @p7: Input NVarChar (Size = 15; Prec = 0; Scale = 0) [Gonna freeze my]
+-- @p8: Input NVarChar (Size = 0; Prec = 0; Scale = 0) []
+-- Context: SqlProvider(Sql2008) Model: AttributedMetaModel Build: 3.5.30729.1
+</pre>
+
+<p>And here is the output.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="LINQ To SQL When Case" border="0" alt="LINQ To SQL When Case" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image38.png" width="329" height="147" /></p>
 </div>
   
   
@@ -357,6 +409,10 @@ xmlns:controls=
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/11/27/octopress-setup-existing-blog-on-another-machine/">Octopress-Setup Existing Blog on Another Machine</a>
+      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -392,10 +448,6 @@ xmlns:controls=
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

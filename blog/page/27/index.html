@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="To get free disk space for all physical drives on a machine we can use xp_fixeddrives extended stored procedure. An interesting this about this &hellip;">
+  <meta name="description" content="SQL Server provides with a stored procedure which can be used to get a list of all OLEDB providers on a machine. Stored procedure: &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,7 +75,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/24/get-free-disk-space-using-t-sql/">Get Free Disk Space Using T-SQL</a></h1>
+      <h1 class="entry-title"><a href="/2009/02/11/get-a-list-of-all-oledb-providers-in-sql-server/">Get a List of All OLEDB Providers in SQL Server</a></h1>
     
     
       <p class="meta">
@@ -91,22 +91,22 @@
   
 
 
-<time datetime="2009-03-24T00:00:00+11:00" pubdate data-updated="true">Mar 24<span>th</span>, 2009</time>
+<time datetime="2009-02-11T00:00:00+11:00" pubdate data-updated="true">Feb 11<span>th</span>, 2009</time>
         
-         | <a href="/2009/03/24/get-free-disk-space-using-t-sql/#disqus_thread">Comments</a>
+         | <a href="/2009/02/11/get-a-list-of-all-oledb-providers-in-sql-server/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>To get free disk space for all physical drives on a machine we can use xp_fixeddrives extended stored procedure. An interesting this about this procedure is that it is not documented in books online.</p>  
+  <div class="entry-content"><p>SQL Server provides with a stored procedure which can be used to get a list of all OLEDB providers on a machine.</p>  <p>Stored procedure:</p>  <p>xp_enum_oledb_providers</p>  <p>Executing this stored procedure which is in master database with the following statement</p>  
 
-<pre class="lang:tsql decode:true " >EXEC xp_fixeddrives</pre>
+<pre class="lang:tsql decode:true " >EXEC master..xp_enum_oledb_providers</pre>
 
-<p>Here is output on my machine.</p>
+<p>gives a list of all available OLEDB providers on my machine.</p>
 
-<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="xp_fixeddrives" border="0" alt="xp_fixeddrives" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image40.png" width="161" height="46" /></p>
+<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="238" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image6.png" width="525" border="0" /></p>
 </div>
   
   
@@ -119,7 +119,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/24/create-t-sql-case-statements-with-linq-to-sql/">Create T-SQL CASE Statements With LINQ to SQL</a></h1>
+      <h1 class="entry-title"><a href="/2009/02/04/writing-windows-forms-client-for-live-search/">Writing Windows Forms Client for Live Search</a></h1>
     
     
       <p class="meta">
@@ -135,82 +135,126 @@
   
 
 
-<time datetime="2009-03-24T00:00:00+11:00" pubdate data-updated="true">Mar 24<span>th</span>, 2009</time>
+<time datetime="2009-02-04T00:00:00+11:00" pubdate data-updated="true">Feb 4<span>th</span>, 2009</time>
         
-         | <a href="/2009/03/24/create-t-sql-case-statements-with-linq-to-sql/#disqus_thread">Comments</a>
+         | <a href="/2009/02/04/writing-windows-forms-client-for-live-search/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I was recently helping <a href="http://twitter.com/nosherwan">Nosh</a> with a LINQ To SQL query where he wanted the resulting T-SQL query to have CASE statements. Having CASE statements in T-SQL queries is a common scenario but how do we it in LINQ To SQL .After some investigation I found the solution which I am presenting here using an example.</p>  <p>I have created a table called CityWeather. This table has&#160; two fields: Name and Temperature. Here is the script if you wish to create the table on your machine.</p>  
+  <div class="entry-content"><p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="36" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image.png" width="134" align="left" border="0" /> In this article we will look at how to write a Windows Forms Client to access <strong>Microsoft Live Search API</strong>. Via this API you can use the power of a giant <strong>search engine</strong> within your application. While developing our application we will see that the overall design of the API is simple and easy to work with. We will create a Windows Forms Application which will access Live Search.</p>  <p>&#160;</p>  <h4>Basics</h4>  <p>To access Live Search through our application we will need an Application ID which can be obtained from <a href="http://search.live.com/developers/">Live Search Developer Center</a>. The process requires us to sign in with Live ID and then fill out a form telling Microsoft about our application. Once we have submitted the form an Application ID is issued immediately. This ID is required to query WSDL and access the web services from our application.</p>  <p>Live Search API 2.0 can be accessed via three protocols:</p>  <ol>   <li>SOAP </li>    <li>JSON </li>    <li>XML </li> </ol>  <p>For this article we will work with SOAP protocol. </p>  <p>&#160;</p>  <h4>Creating our application</h4>  <p>We will follow the standard process of creating a Windows Forms application by selecting Windows Forms Application as a template. </p>  <p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="462" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image1.png" width="525" border="0" /> </p>  <p>On our form we will place three controls. </p>  <ol>   <li>Text Box to capture information we will search for. </li>    <li>Button to initiate the search on Live Search </li>    <li>Web Browser to display the search results. </li> </ol>  <p>&#160;</p>  <p>The resulting form will look something like this:</p>  <p>&#160;<img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="535" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image2.png" width="450" border="0" /> </p>  <p>To access the Live Search API which is exposed as a web service we will add a Service Reference in our project. Service References can be added by right clicking on the project in solution explorer and then by clicking Add Service Reference. This brings the following dialog:</p>  <p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="422" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image3.png" width="525" border="0" /> </p>  <p>In the address box we will enter the location of WSDL for Live Search Web Service. The address is </p>  <p><strong>http://api.search.live.net/search.wsdl?AppID=</strong></p>  <p>Before entering the address we need to append our application ID to the URL.</p>  <p><strong>http://api.search.live.net/search.wsdl?AppID=&lt;substitute this with your application ID&gt;</strong></p>  <p>After entering the address and hitting Go, Visual Studio comes back with a list of services available at the address we entered. In our case it finds one service called &quot;LiveSearchService&quot; </p>  <p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="422" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image4.png" width="525" border="0" /> </p>  <p>Things look good so we will change the default namespace to LiveSerchClient and click OK. Visual Studio at this stage generates a proxy and creates a App.config file which contains address, bindings and contract information required to access the service.</p>  <p>Most of the work our application does happens in the click event of the button. Within the event handler we will create objects required to conduct the search and receive a response. </p>  <div style="font-size: 10pt; background: white; color: black; font-family: courier new">   <pre style="margin: 0px"><span style="color: blue">private</span> <span style="color: blue">void</span> btnSearch_Click(<span style="color: blue">object</span> sender, <span style="color: #2b91af">EventArgs</span> e)</pre>
 
-<pre class="lang:tsql decode:true " >
-CREATE TABLE [dbo].[CityWeather](
-    [Name] [nvarchar](100) NOT NULL,
-    [Temperature] [decimal](18, 0) NOT NULL
-) ON [PRIMARY]
-</pre>
+  <pre style="margin: 0px">{</pre>
 
-<p>My objective is to get LINQ To SQL to produce a T-SQL statement similar to this.</p>
+  <pre style="margin: 0px"><span style="color: green">  // Create an instance for client which is used</span></pre>
 
-<pre class="lang:tsql decode:true " >
-SELECT 
-    Name, 
-    Temperature, 
-    CASE Temperature
-        WHEN 30 THEN 'Toasted'
-        WHEN 25 THEN 'I like it'
-        WHEN 10 THEN 'Just perfect'
-        WHEN -15 THEN 'Gonna freeze my'
-    END AS 'Message'
-FROM CityWeather
-</pre>
+  <pre style="margin: 0px"><span style="color: green">  // to make web service calls</span></pre>
 
-<p>Using my trusted LINQPad here is how I wrote my LINQ To SQL query.</p>
+  <pre style="margin: 0px"><span style="color: #2b91af">  LiveSearchPortTypeClient</span> client = <span style="color: blue">new</span> <span style="color: #2b91af">LiveSearchPortTypeClient</span>();</pre>
 
-<pre class="lang:c# decode:true " >
-from c in CityWeathers
-select new
-        {
-          c.Name,
-          c.Temperature,
-          Messaage = c.Temperature == 30 ? "Toasted" : 
-          c.Temperature == 25 ? "I like it" :
-          c.Temperature == 10 ? "Just perfect" :
-          c.Temperature == -15 ? "Gonna freeze my" : ""
-        }
-</pre>
+  <pre style="margin: 0px">&#160;</pre>
 
+  <pre style="margin: 0px"><span style="color: green">  // SearchRequest is used to define search parameters</span></pre>
 
-<p>My LINQ To SQL query produced the following T-SQL Query</p>
+  <pre style="margin: 0px"><span style="color: #2b91af">  SearchRequest</span> request = <span style="color: blue">new</span> <span style="color: #2b91af">SearchRequest</span>();</pre>
 
-<pre class="lang:tsql decode:true " >
-SELECT [t0].[Name], [t0].[Temperature], 
-    (CASE 
-        WHEN [t0].[Temperature] = @p0 THEN CONVERT(NVarChar(15),@p1)
-        WHEN [t0].[Temperature] = @p2 THEN CONVERT(NVarChar(15),@p3)
-        WHEN [t0].[Temperature] = @p4 THEN CONVERT(NVarChar(15),@p5)
-        WHEN [t0].[Temperature] = @p6 THEN @p7
-        ELSE CONVERT(NVarChar(15),@p8)
-     END) AS [Messaage]
-FROM [CityWeather] AS [t0]
--- @p0: Input Decimal (Size = 0; Prec = 33; Scale = 4) [30]
--- @p1: Input NVarChar (Size = 7; Prec = 0; Scale = 0) [Toasted]
--- @p2: Input Decimal (Size = 0; Prec = 33; Scale = 4) [25]
--- @p3: Input NVarChar (Size = 9; Prec = 0; Scale = 0) [I like it]
--- @p4: Input Decimal (Size = 0; Prec = 33; Scale = 4) [10]
--- @p5: Input NVarChar (Size = 12; Prec = 0; Scale = 0) [Just perfect]
--- @p6: Input Decimal (Size = 0; Prec = 33; Scale = 4) [-15]
--- @p7: Input NVarChar (Size = 15; Prec = 0; Scale = 0) [Gonna freeze my]
--- @p8: Input NVarChar (Size = 0; Prec = 0; Scale = 0) []
--- Context: SqlProvider(Sql2008) Model: AttributedMetaModel Build: 3.5.30729.1
-</pre>
+  <pre style="margin: 0px">&#160;</pre>
 
-<p>And here is the output.</p>
+  <pre style="margin: 0px"><span style="color: green">  // assign the required Application Id</span></pre>
 
-<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="LINQ To SQL When Case" border="0" alt="LINQ To SQL When Case" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image38.png" width="329" height="147" /></p>
+  <pre style="margin: 0px">  request.AppId = appId;</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px"><span style="color: green">  // we are conducting a web search</span></pre>
+
+  <pre style="margin: 0px">  request.Sources = <span style="color: blue">new</span> <span style="color: #2b91af">SourceType</span>[] { <span style="color: #2b91af">SourceType</span>.Web };</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px"><span style="color: green">  // thing we are searching for</span></pre>
+
+  <pre style="margin: 0px">  request.Query = txtSearchFor.Text;</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px"><span style="color: green">  // response we recieve from Live Search is stored here</span></pre>
+
+  <pre style="margin: 0px"><span style="color: #2b91af">  SearchResponse</span> response = client.Search(request);</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px"><span style="color: green">  // Display the results</span></pre>
+
+  <pre style="margin: 0px">  DisplayResults(response.Web.Results);</pre>
+
+  <pre style="margin: 0px">}</pre>
+</div>
+
+<p></p>
+
+<p>&#160;</p>
+
+<p>Once we have received our results we will use two helper methods to display the results in Web Browser control.</p>
+
+<div style="font-size: 10pt; background: white; color: black; font-family: courier new">
+  <pre style="margin: 0px"><span style="color: blue">private</span> <span style="color: blue">void</span> DisplayResults(<span style="color: #2b91af">WebResult</span>[] results)</pre>
+
+  <pre style="margin: 0px">{</pre>
+
+  <pre style="margin: 0px"><span style="color: #2b91af">  StringBuilder</span> sb = <span style="color: blue">new</span> <span style="color: #2b91af">StringBuilder</span>();</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px">  results.ToList().ForEach(x =&gt; sb.Append(GetFormattedResult(x)));</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px">  webResults.DocumentText = sb.ToString();</pre>
+
+  <pre style="margin: 0px">}</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px"><span style="color: blue">private</span> <span style="color: blue">string</span> GetFormattedResult(<span style="color: #2b91af">WebResult</span> result)</pre>
+
+  <pre style="margin: 0px">{</pre>
+
+  <pre style="margin: 0px"><span style="color: blue">  string</span> formattedResult = <span style="color: #a31515">&quot;&lt;a href=&quot;</span> + result.Url + <span style="color: #a31515">&quot;&gt;&quot;</span></pre>
+
+  <pre style="margin: 0px">    + result.Title + <span style="color: #a31515">&quot;&lt;/a&gt;&lt;br/&gt;&quot;</span></pre>
+
+  <pre style="margin: 0px">    + result.Description + <span style="color: #a31515">&quot;&lt;br/&gt;&lt;br/&gt;&quot;</span>;</pre>
+
+  <pre style="margin: 0px">&#160;</pre>
+
+  <pre style="margin: 0px"><span style="color: blue">  return</span> formattedResult;</pre>
+
+  <pre style="margin: 0px">}</pre>
+</div>
+
+<p></p>
+
+<p>&#160;</p>
+
+<p>Running the application and doing some <a href="http://www.debugrelease.com/">ego-surfing</a> we see our search results displayed in our application.</p>
+
+<p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="535" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image5.png" width="450" border="0" /> </p>
+
+<p>&#160;</p>
+
+<h4>Is this all Live Search Offers?</h4>
+
+<p>The answer is no. Live Search API exposes much more functionality that what we saw here. Other than web searches we can also search for images, news etc. individually or by combining them in one search request. If you application needs to search the web then Live Search can be used very easily. </p>
+
+<p>&#160;</p>
+
+<h4>Conclusion</h4>
+
+<p>In this article we saw how easy it is to programmatically access Microsoft Live Search. You are not limited to just Windows Forms applications. Live Search can be used in any type of application such as Silverlight, ASP.NET, WPF or Class Library. This article gave you a brief introduction to Live Search API using Windows Forms Client as an example. I hope you enjoyed reading it.</p>
+<a href="http://www.dotnetkicks.com/kick/?url=http%3a%2f%2fwww.thereforesystems.com%2fwriting-windows-forms-client-for-live-search%2f"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fwww.thereforesystems.com%2fwriting-windows-forms-client-for-live-search%2f" border="0" alt="kick it on DotNetKicks.com" /></a>
 </div>
   
   
@@ -223,7 +267,7 @@ FROM [CityWeather] AS [t0]
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/24/convert-hexadecimal-to-number-in-c/">Convert Hexadecimal to Number in C#</a></h1>
+      <h1 class="entry-title"><a href="/2009/01/27/get-a-list-of-running-processes-using-c-code-snippet/">Get a List of Running Processes Using C# – Code Snippet</a></h1>
     
     
       <p class="meta">
@@ -239,22 +283,24 @@ FROM [CityWeather] AS [t0]
   
 
 
-<time datetime="2009-03-24T00:00:00+11:00" pubdate data-updated="true">Mar 24<span>th</span>, 2009</time>
+<time datetime="2009-01-27T00:00:00+11:00" pubdate data-updated="true">Jan 27<span>th</span>, 2009</time>
         
-         | <a href="/2009/03/24/convert-hexadecimal-to-number-in-c/#disqus_thread">Comments</a>
+         | <a href="/2009/01/27/get-a-list-of-running-processes-using-c-code-snippet/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>To convert a Hexadecimal to a number we can use an overload of Convert.ToInt32 method.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Convert.ToInt32" border="0" alt="Convert.ToInt32" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image41.png" width="397" height="57" /> </p>  <p>Using the overload I can convert for example hex string “BB” to a number.</p>  
+  <div class="entry-content">This code will retrieve a list of currently running process on a machine and write their names to console.
 
 <pre class="lang:c# decode:true " >
-int number = Convert.ToInt32("BB", 16);
+// Get A List of process using 
+// System.Diagnostics.Process class
+List<Process> processes = Process.GetProcesses().ToList();
+// Write them out to Console
+processes.ForEach(x => Console.WriteLine(x.ProcessName));
 </pre>
-
-<p>And the number variable gets assigned value of 187.</p>
 </div>
   
   
@@ -267,7 +313,7 @@ int number = Convert.ToInt32("BB", 16);
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/23/get-name-of-current-executing-assembly-in-c/">Get Name of Current Executing Assembly in C#</a></h1>
+      <h1 class="entry-title"><a href="/2009/01/06/var-keyword-in-c/">Var Keyword in C#</a></h1>
     
     
       <p class="meta">
@@ -283,38 +329,42 @@ int number = Convert.ToInt32("BB", 16);
   
 
 
-<time datetime="2009-03-23T00:00:00+11:00" pubdate data-updated="true">Mar 23<span>rd</span>, 2009</time>
+<time datetime="2009-01-06T00:00:00+11:00" pubdate data-updated="true">Jan 6<span>th</span>, 2009</time>
         
-         | <a href="/2009/03/23/get-name-of-current-executing-assembly-in-c/#disqus_thread">Comments</a>
+         | <a href="/2009/01/06/var-keyword-in-c/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>This is where reflection comes in handy. The following code snippet shows you how to get the name of executing assembly.</p>  
+  <div class="entry-content"><p>I have a confession to make. When I saw <strong>var</strong> keyword for the first time I did not like it at all. My first opinion was that var was so variant like. Call me a control freak but I like to clearly see what I am declaring. And var was something I thought made the code less readable. However since I started working with LINQ I got into a habit of using var. I realised that it makes my life easy by letting the compiler figure things out for me. So in this post I will pay due respect to var keyword. </p>  <p>Anything declared using var keyword is implicitly typed which means that compiler will determine the correct type based on what the variable is initialised to. Here I am declaring three variables x, y and z. All of them are initialised to different values which are also of different Types such as DateTime, string and List&lt;T&gt;.</p>  
 
 <pre class="lang:c# decode:true " >
-string assemblyName;
-assemblyName = System.Reflection.Assembly.GetExecutingAssembly().FullName;
-Console.WriteLine(assemblyName);
+var x = DateTime.Now;
+var y = "Hello";
+var z = new List<String>();
 </pre>
 
-<p>Output for the above code returns the fully qualified name as shown below</p>
 
-<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image36.png" width="540" height="40" /> </p>
+<p>Let&#8217;s examine the IL to verify that x, y and z are of Types they have been initialised to.</p>
 
-<p>To just get the Assembly name we can use this snippet.</p>
+<p><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" height="72" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/01/image3.png" width="550" border="0" /> </p>
+
+<p>Here you can see that x is of valuetype, y is a string and z is of type List&lt;string&gt;.</p>
+
+<p>I find this as neat little syntax sugar to which I have become addicted.</p>
+
+<p>Keep in mind that you cannot write a statement like this. </p>
 
 <pre class="lang:c# decode:true " >
-string assemblyName;
-assemblyName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
-Console.WriteLine(assemblyName);
+var x;
 </pre>
 
-<p>Here is the output.</p>
 
-<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image37.png" width="245" height="48" /></p>
+<p>This will give an error while compiling. And it makes sense because the compiler does not know which Type it should consider x as.</p>
+
+<p><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" height="34" alt="Compiler Error" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/01/image2.png" width="307" border="0" /></p>
 </div>
   
   
@@ -327,7 +377,7 @@ Console.WriteLine(assemblyName);
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/20/internet-explorer-8-first-experience/">Internet Explorer 8 – First Experience</a></h1>
+      <h1 class="entry-title"><a href="/2009/01/05/linq-equivalent-of-where-in-with-int/">LINQ Equivalent of Where in With Int</a></h1>
     
     
       <p class="meta">
@@ -343,16 +393,45 @@ Console.WriteLine(assemblyName);
   
 
 
-<time datetime="2009-03-20T00:00:00+11:00" pubdate data-updated="true">Mar 20<span>th</span>, 2009</time>
+<time datetime="2009-01-05T00:00:00+11:00" pubdate data-updated="true">Jan 5<span>th</span>, 2009</time>
         
-         | <a href="/2009/03/20/internet-explorer-8-first-experience/#disqus_thread">Comments</a>
+         | <a href="/2009/01/05/linq-equivalent-of-where-in-with-int/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I’ll be honest that I was not much excited about Internet Explorer 8 until it went RTM. There is only so much beta software one can take. But today when IE8 went RTM I decided to install it on my main machine. This post talks about my first experience with the browser. </p>  <p>Installation of IE8 is one of the best I’ve ever seen.&#160; The thing installed itself in less than 2 minutes. Good on you Microsoft. It did ask me to restart my machine and I happily obliged. After the restart I fired up the browser and was presented with a Set Up Windows Internet Explorer 8 wizard. Here are the screenshots from that wizard. BTW: I run Windows 2008 Server on my main machine as my workstation.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Internet Explorer 8" border="0" alt="Internet Explorer 8" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image26.png" width="540" height="400" /> </p>  <p>Next screen asked me if I wanted IE to discover websites based on the sites I visit. Sure! Why not. The way this works is that Microsoft gathers data about the sites you browse and makes recommendations about similar sites. I usually turn such features off but just to see how it works I left it on. If it does a good job then I will leave it on forever. You can read the Internet Explorer Privacy Statement if you are concerned about what data will be collected. The Privacy Statement can be found <a href="http://www.microsoft.com/windows/internet-explorer/privacy.aspx">here</a>.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Internet Explorer 8" border="0" alt="Internet Explorer 8" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image35.png" width="540" height="400" /> </p>  <p>Next screen asked me if I’d like to use express settings or custom settings. I always choose custom settings so that I know what is being installed. After choosing custom settings and clicking on the Next button, the first screen allowed me to configure my search provider. I opted to keep my search provider.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Internet Explorer 8" border="0" alt="Internet Explorer 8" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image28.png" width="540" height="400" /></p>  <p> After this I was asked if I wanted to download updates for search provider. What is this? I don’t understand so it’s a no.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Internet Explorer 8" border="0" alt="Internet Explorer 8" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image29.png" width="540" height="400" /> </p>  <p>Next screen is for accelerators. Accelerators are a new addition to Internet Explorer. Here is what help has to say about accelerators.</p>  <blockquote>   <p>You can use Accelerators with text that you select on a webpage to perform such tasks as opening a street address in a mapping website or looking up the dictionary definition for a word. You can also choose the web services or websites that Accelerators use to handle different types of tasks. Internet Explorer 8 comes with a selection of Accelerators included by default, but you can add or remove them as you like.</p> </blockquote>  <p>I decided to keep my current accelerators. </p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Internet Explorer 8" border="0" alt="Internet Explorer 8" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image30.png" width="540" height="400" /> </p>  <p>Then I was asked about SmartScreen Filters. Turning this on means that some websites addresses will be sent to Microsoft where they can be checked for being malicious, fraudulent types. Because I do not go to any such sites, I decided to turn this off. </p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Internet Explorer 8" border="0" alt="Internet Explorer 8" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image31.png" width="540" height="400" /> </p>  <p>Next screen was about Compatibility Settings. Turning this on will make sites designed for older browsers look better (whatever that means) in IE8. Because I want to see how old sites look in IE8 in their raw form, I decided to turn this off. Of course this can be turned on at anytime.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Internet Explorer 8" border="0" alt="Internet Explorer 8" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image32.png" width="540" height="400" /> </p>  <p>And that’s about it. I clicked on the Finish button and I was all ready to browse the World Wide Web. The first site I opened in IE8 is <a href="http://www.debugrelease.com/">One .Net Way</a>. Just typing one in the address bar presented me with a history of sites I have visited with the word “one” in them.</p>  <p>&#160;<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Internet Explorer 8" border="0" alt="Internet Explorer 8" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image33.png" width="530" height="219" /> </p>  <p>Right away I was impressed by the performance. Drop down on address bar with my history items was very fast. </p>  <p>Overall experience of upgrading to Internet Explorer 8 has been good. I can’t say that I am disappointed with anything so far. I am sure that Microsoft has put in tremendous effort to get it right and more so because of the competition in the browser market. My overall gut feel about IE 8 is good. I’ll be using it a bit more and I will post anything I find interesting. </p>  <p>Finally here is a screenshot of One .Net Way in Internet Explorer 8.</p>  <p>&#160;<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Internet Explorer 8" border="0" alt="Internet Explorer 8" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image34.png" width="540" height="450" /></p>
+  <div class="entry-content"><p>Earlier I wrote a post showing how to write a <a href="http://www.debugrelease.com/linq-equivalent-of-where-in/">LINQ query which gets transformed into a T-SQL query with a &quot;Where In&quot; clause</a>. I had a comment on the post by Steve saying that the approach only works with strings. In this post I will show you a similar query which works with Integers.</p>  <p>Let&#8217;s say that we want to select rows from Products table in Northwind database where ProductId matches 3, 7, 8, 10. Our query should include the Where IN clause. Something like this:</p>  
+
+ 
+<pre class="lang:tsql decode:true " >SELECT * 
+FROM Products
+WHERE ProductID in (3, 7, 8, 10)</pre> 
+
+
+<p>Of course Select * is not a good way to write any Query but this is just to convey a point. LINQ query which will work with integers and give me a Where IN looks like this:</p>
+
+ 
+<pre class="lang:c# decode:true " >List&lt;int&gt; productIds = new List&lt;int&gt; { 3, 7, 8, 10 };
+
+using (NorthwindDataContext context = new NorthwindDataContext())
+{
+  var query = from p in context.Products
+    where productIds.Contains(p.ProductID)
+    select p;
+}</pre> 
+
+
+<p>This results in the following T-SQL query:</p>
+
+ 
+<pre class="lang:tsql decode:true " >exec sp_executesql N'SELECT [t0].[ProductID], [t0].[ProductName], [t0].[SupplierID], 
+[t0].[CategoryID], [t0].[QuantityPerUnit], [t0].[UnitPrice], [t0].[UnitsInStock], 
+[t0].[UnitsOnOrder], [t0].[ReorderLevel], [t0].[Discontinued]
+FROM [dbo].[Products] AS [t0]
+WHERE [t0].[ProductID] IN (@p0, @p1, @p2, @p3)',N'@p0 int,@p1 int,@p2 int,@p3 int',
+@p0=3,@p1=7,@p2=8,@p3=10</pre> 
 </div>
   
   
@@ -375,6 +454,10 @@ Console.WriteLine(assemblyName);
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/11/27/octopress-setup-existing-blog-on-another-machine/">Octopress-Setup Existing Blog on Another Machine</a>
+      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -410,10 +493,6 @@ Console.WriteLine(assemblyName);
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

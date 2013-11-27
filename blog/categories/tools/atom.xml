@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tools | Deepak Kapoor]]></title>
   <link href="http://www.deepakkapoor.net/blog/categories/tools/atom.xml" rel="self"/>
   <link href="http://www.deepakkapoor.net/"/>
-  <updated>2013-11-27T22:22:27+11:00</updated>
+  <updated>2013-11-27T23:21:01+11:00</updated>
   <id>http://www.deepakkapoor.net/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
@@ -42,18 +42,6 @@
 <p><a href="http://www.impressivewebs.com/custom-zenburn-theme-for-sublime-text-2/">Zenburn for Sublime Text</a></p>
 
 <p><p>Enjoy beautiful coding.</p></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[java.lang.NoClassDefFoundError: …/guava/common/primitives/UnsignedBytes]]></title>
-    <link href="http://www.deepakkapoor.net/2012/07/04/java-lang-noclassdeffounderror-orgapachehadoopthirdpartyguavacommonprimitivesunsignedbytes/"/>
-    <updated>2012-07-04T00:00:00+10:00</updated>
-    <id>http://www.deepakkapoor.net/2012/07/04/java-lang-noclassdeffounderror-orgapachehadoopthirdpartyguavacommonprimitivesunsignedbytes</id>
-    <content type="html"><![CDATA[<p>No idea why this happened today on a Hadoop project which was running fine till now. </p>
-
-
-<p> <p><font color="#c0504d">java.lang.NoClassDefFoundError: org/apache/hadoop/thirdparty/guava/common/primitives/UnsignedBytes<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.FastByteComparisons$LexicographicalComparerHolder</font></p> <p><font color="#c0504d">$UnsafeComparer.compareTo(FastByteComparisons.java:226)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.FastByteComparisons$LexicographicalComparerHolder</font></p> <p><font color="#c0504d">$UnsafeComparer.compareTo(FastByteComparisons.java:113)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.FastByteComparisons.compareTo(FastByteComparisons.java:42)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.WritableComparator.compareBytes(WritableComparator.java:150)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.io.Text$Comparator.compare(Text.java:306)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask$MapOutputBuffer.compare(MapTask.java:968)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.util.QuickSort.fix(QuickSort.java:30)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.util.QuickSort.sortInternal(QuickSort.java:83)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.util.QuickSort.sort(QuickSort.java:59)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask$MapOutputBuffer.sortAndSpill(MapTask.java:1254)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask$MapOutputBuffer.flush(MapTask.java:1155)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask$NewOutputCollector.close(MapTask.java:582)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:649)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.MapTask.run(MapTask.java:323)<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:210)<br>Caused by: java.lang.ClassNotFoundException: org.apache.hadoop.thirdparty.guava.common.primitives.UnsignedBytes<br>&nbsp;&nbsp;&nbsp; at java.net.URLClassLoader$1.run(URLClassLoader.java:202)<br>&nbsp;&nbsp;&nbsp; at java.security.AccessController.doPrivileged(Native Method)<br>&nbsp;&nbsp;&nbsp; at java.net.URLClassLoader.findClass(URLClassLoader.java:190)<br>&nbsp;&nbsp;&nbsp; at java.lang.ClassLoader.loadClass(ClassLoader.java:306)<br>&nbsp;&nbsp;&nbsp; at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:301)<br>&nbsp;&nbsp;&nbsp; at java.lang.ClassLoader.loadClass(ClassLoader.java:247)<br>&nbsp;&nbsp;&nbsp; &hellip; 15 more</font></p> <p>Anyhow, the way to fix this issue is by adding guava-r09-jarjar.jar to build path. In Netbeans add the jar to Libraries for your project.</p> <p>guava-r09-jarjar.jar can be found in /usr/lib/hadoop-0.20/lib</p> <p>or use the locate command to find it on your system</p> <p><font color="#0000ff">locate guava-r09-jarjar.jar</font></p></p>
 ]]></content>
   </entry>
   
@@ -128,6 +116,25 @@
 
 <p><img style="float: left;" title="Glassfish2.png" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/Glassfish21.png" border="0" alt="Screen shot 2010-08-23 at 5.20.17 PM.png" width="372" height="417" /></p>
 
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[LINQPad with Intellisense]]></title>
+    <link href="http://www.deepakkapoor.net/2008/12/23/linqpad-with-intellisense/"/>
+    <updated>2008-12-23T00:00:00+11:00</updated>
+    <id>http://www.deepakkapoor.net/2008/12/23/linqpad-with-intellisense</id>
+    <content type="html"><![CDATA[<p>I had a look at <a href="http://www.linqpad.net/">LINQPad</a> few months ago when I wrote about how you can use this tool to <a href="http://www.debugrelease.com/view-t-sql-query-generated-by-linq-to-sql-using-linqpad/">view generated LINQ To SQL Queries</a>. There is not doubt that LINQPad comes in as a very handy tool when writing LINQ queries. But writing queries in LINQPad has not been that easy. Until Now!</p>
+
+<p>LINQPad now has <strong>Intellisense</strong>. <a href="http://www.albahari.com/">Joseph Albahari</a> has released this much desired feature. He is running a $17 for single license deal till December 23rd. At 17 bucks you can&rsquo;t go wrong. The time it will save you justifies the price many times.</p>
+
+<p><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/12/image2.png" border="0" alt="image" width="550" height="379" /></p>
+
+<p>If you are new to LINQ and need some guidance then LINQPad also comes with a  collection of sample queries to get you started.</p>
+
+<p><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/12/image3.png" border="0" alt="image" width="550" height="379" /></p>
+
+<p>I bought my auto-completion code today and I&rsquo;ve been playing with LINQPad like a kid with a new toy. Thanks Joseph for putting together this nice tool.</p>
 ]]></content>
   </entry>
   

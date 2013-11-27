@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="What is the first thing you do when you open the control panel in Windows Vista? I always switch it to Classic View and most people I know do the &hellip;">
+  <meta name="description" content="This snippet shows you how to get information about all CD / DVD drives on your machine using WMI and C#. To run the code you need to add reference &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,7 +75,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/05/02/windows-7-control-panel-in-classic-mode/">Windows 7 Control Panel in Classic Mode</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/09/get-cd-or-dvd-drive-information-using-wmi-and-c/">Get CD or DVD Drive Information Using WMI and C#</a></h1>
     
     
       <p class="meta">
@@ -91,16 +91,31 @@
   
 
 
-<time datetime="2009-05-02T00:00:00+10:00" pubdate data-updated="true">May 2<span>nd</span>, 2009</time>
+<time datetime="2009-03-09T00:00:00+11:00" pubdate data-updated="true">Mar 9<span>th</span>, 2009</time>
         
-         | <a href="/2009/05/02/windows-7-control-panel-in-classic-mode/#disqus_thread">Comments</a>
+         | <a href="/2009/03/09/get-cd-or-dvd-drive-information-using-wmi-and-c/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>What is the first thing you do when you open the control panel in Windows Vista? I always switch it to Classic View and most people I know do the same. Microsoft got it so right with the Classic View and I cannot understand whey they are trying to convince people to move away from it. This is what Classic View looks like in Vista.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Windows7" border="0" alt="Windows7" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/05/image.png" width="540" height="329" /> </p>  <p>So what did I do when I opened the Control Panel in Windows 7? Yup! I wanted to switch it to the Classic Mode. The way I achieved my objective is a little different than how it is done in Vista. In Windows 7 you have to click on the View by drop-down and choose large icons of small icons depending on your preference. And I’m back to my Classic Mode for the Control Panel. And life is once again good :)</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Windows7" border="0" alt="Windows7" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/05/image1.png" width="450" height="384" /></p>
+  <div class="entry-content"><p>This snippet shows you how to get information about all CD / DVD drives on your machine using WMI and C#. To run the code you need to add reference to System.Management.</p>  <pre class="code"><span style="color: #2b91af">ManagementObjectSearcher </span>mgmtObjects = </pre>
+
+<pre class="code">  <span style="color: blue">new </span><span style="color: #2b91af">ManagementObjectSearcher</span>(<span style="color: #a31515">&quot;Select * from Win32_CDROMDrive&quot;</span>);
+
+<span style="color: blue">foreach </span>(<span style="color: blue">var </span>item <span style="color: blue">in </span>mgmtObjects.Get())
+{
+<span style="color: #2b91af">  Console</span>.WriteLine(<span style="color: #a31515">&quot;Drive Letter - t&quot; </span>+ item[<span style="color: #a31515">&quot;Drive&quot;</span>]);
+<span style="color: #2b91af">  Console</span>.WriteLine(<span style="color: #a31515">&quot;Name - t&quot; </span>+ item[<span style="color: #a31515">&quot;Name&quot;</span>]);
+}</pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+<p>&#160;</p>
+
+<p>This code snippet will print out the letter and the name of all CD or DVD drives on a machine. Here is the output on my PC.</p>
+
+<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="54" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image7.png" width="378" border="0" /></p>
 </div>
   
   
@@ -113,7 +128,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/04/29/announcing-vnext-user-group/">Announcing vNext User Group</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/05/sharepoint-installation-failed-to-create-sample-data/">SharePoint Installation Failed to Create Sample Data</a></h1>
     
     
       <p class="meta">
@@ -129,16 +144,16 @@
   
 
 
-<time datetime="2009-04-29T00:00:00+10:00" pubdate data-updated="true">Apr 29<span>th</span>, 2009</time>
+<time datetime="2009-03-05T00:00:00+11:00" pubdate data-updated="true">Mar 5<span>th</span>, 2009</time>
         
-         | <a href="/2009/04/29/announcing-vnext-user-group/#disqus_thread">Comments</a>
+         | <a href="/2009/03/05/sharepoint-installation-failed-to-create-sample-data/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>As developers we are always excited about latest technologies, and as a developer working in Microsoft eco-system there is no shortage of new tools and technologies. This is the driving point behind starting vNext User Group. The group aims to share knowledge about offerings from Microsoft which are in pipeline i.e they are to be released in future. </p>  <p>vNext is an extension of <a href="http://www.sdnug.org">SDNUG</a> which has been running in Sydney for more than seven years. At this stage vNext announcements will be made via SDNUG website and mailing list so members will not miss out on meeting info.&#160; The group meets at the same location as SDNUG on first Thursday of alternate months. To make things clear here is the schedule of meetings for both vNext and SDNUG for year 2009. </p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="vNext" border="0" alt="vNext" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/04/image7.png" width="353" height="452" /> </p>  <p>&#160;</p>  <p>For our first meeting on Thursday 7th May 6:00pm to 8:00pm I am doing a presentation on Cloud Computing in which I will talk about Microsoft Azure and what it means for .Net developers. Pizza will be provided and there will be many goodies for attendees to take home. </p>  <p>On an emotional note this is a big step for me and I hope that I am able to serve developer community. Of course I need your wishes for this. What better way than to come to the meeting and give them to me in person :)</p>
+  <div class="entry-content"><p>This one always gets me off guard so I’m posting this here for more than anything else to remind me. The issue occurs when you configure your MOSS environment which is normally done after installing MOSS. The issue is that while inserting sample data the wizard throws an error which says “Failed to create sample data”. The reason this occurs is because you’ve not configured MSDTC properly. Here are the steps to resolve the problem picked up from this <a href="http://support.microsoft.com/kb/916894">link</a>. </p>  <p>To resolve this issue, configure the security settings for the Microsoft Distributed Transaction Coordinator (DTC) to use the <strong>Allow Remote Clients</strong> setting. To do this, follow these steps: </p>  <ol>   <li>Click <strong>Start</strong>, point to <strong>Administrative Tools</strong>, and then click <strong>Component Services</strong>. </li>    <li>In the left pane of the Component Services snap-in, expand <strong>Component Services</strong>, and then expand <strong>Computers</strong>. </li>    <li>Right-click <strong>My Computer</strong>, and then click <strong>Properties</strong>. </li>    <li>Click the <strong>MSDTC</strong> tab, and then click <strong>Security Configuration</strong> under <strong>Transaction Configuration</strong>. </li>    <li>Under <strong>Security Settings</strong>, click to select the <strong>Network DTC Access</strong> check box, if it is not already selected. Then, click to select the <strong>Allow Remote Clients</strong> check box </li>    <li>Click <strong>OK</strong>. </li>    <li>When you receive the message that states that the DTC service will be stopped and restarted, click <strong>Yes</strong> to confirm that you want to continue. </li>    <li>Click <strong>OK</strong> when you receive the message that the DTC service was restarted. </li>    <li>Click <strong>OK</strong>.</li> </ol>  <p>&#160;</p>  <p>Once the above steps have been executed, running the wizard inserts sample data without any problem.</p>
 </div>
   
   
@@ -151,7 +166,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/04/27/ssms-tools-for-sql-server-2008/">SSMS Tools for SQL Server 2008</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/03/sql-server-2008-find-if-a-database-is-offline-with-t-sql/">SQL Server 2008 – Find if a Database Is Offline With T-SQL</a></h1>
     
     
       <p class="meta">
@@ -167,16 +182,25 @@
   
 
 
-<time datetime="2009-04-27T00:00:00+10:00" pubdate data-updated="true">Apr 27<span>th</span>, 2009</time>
+<time datetime="2009-03-03T00:00:00+11:00" pubdate data-updated="true">Mar 3<span>rd</span>, 2009</time>
         
-         | <a href="/2009/04/27/ssms-tools-for-sql-server-2008/#disqus_thread">Comments</a>
+         | <a href="/2009/03/03/sql-server-2008-find-if-a-database-is-offline-with-t-sql/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>SSMS Tools Pack is a must have add-in for SQL Server Management Studio. It comes packed with a great set of features which as the author says on his site “…were missing from Management Studio”. Here is run down of three features I use most. </p>  <h3>Text Format</h3>  <p>If SSMS Tools Pack had only one feature and it was text formatting I’d still have praise for the tool. In the past I have used tricks such as switching to query designer view or an online SQL formatting service to format my SQL. With SSMS Tools Pack this can easily be done by pressing Ctrl+K and Ctrl+G. This feature is also configurable and you can enable/ disable keywords.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="SSMS Tools Pack" border="0" alt="SSMS Tools Pack" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/04/image4.png" width="540" height="465" /> </p>  <h3>Generate Insert Statements</h3>  <p>Insert Statements can be easily generated for data in your tables. This comes in handy when you want to script your data and maybe run it on another database. Generating Insert Statements is easily done by right clicking on the table –&gt; SSMS Tools –&gt; Generate Insert Statements.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="SSMS Tools Pack" border="0" alt="SSMS Tools Pack" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/04/image5.png" width="188" height="426" /> </p>  <h3>SQL Query Execution History</h3>  <p>While working with databases I can at times write a lot of queries. I usually end up commenting many in Query editor just to keep them around. With SQL Query Execution History I don’t bother. I always get a nice history of all queries I have executed in the order of execution.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="SSMS Tools Pack" border="0" alt="SSMS Tools Pack" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/04/image6.png" width="540" height="173" /> </p>  <p>Other than its features, the thing I like most about SSMS Tools Pack is that it is a light weight add-in which does not mess up your environment. So if you spend a lot or any time writing SQL then SSMS Tools Pack is worth a look.</p>  <p><a href="http://www.ssmstoolspack.com/">Link to Download SSMS Tools Pack.</a></p>
+  <div class="entry-content"><p>In SQL Server 2008 you can find if a database is online of offline by querying databases system view. A simple query such as this one gives me a list of all databases on my server and the second column shows if the database is online or offline. </p>  
+
+ 
+<pre class="lang:tsql decode:true " >SELECT Name, state_desc
+FROM sys.databases</pre> 
+
+
+<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="339" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image.png" width="311" border="0" /> </p>
+
+<p>On my server I have a database called LinqToSqlLab which is currently offline. </p>
 </div>
   
   
@@ -189,7 +213,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/04/27/outlook-2007-hotfix/">Outlook 2007 Hotfix</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/02/check-if-a-login-exists-in-sql-server-2008/">Check if a Login Exists in SQL Server 2008</a></h1>
     
     
       <p class="meta">
@@ -205,16 +229,56 @@
   
 
 
-<time datetime="2009-04-27T00:00:00+10:00" pubdate data-updated="true">Apr 27<span>th</span>, 2009</time>
+<time datetime="2009-03-02T00:00:00+11:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2009</time>
         
-         | <a href="/2009/04/27/outlook-2007-hotfix/#disqus_thread">Comments</a>
+         | <a href="/2009/03/02/check-if-a-login-exists-in-sql-server-2008/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>If you have been having issues with Outlook 2007 related to performance, erratic behaviour and just annoyance in general then this hotfix maybe what you need. Released in February 2007 the patch fixes many issues which can make working with Outlook 2007 a punishment. I installed it today morning and it’s been working fine and dandy for me. </p>  <p><a href="http://support.microsoft.com/?kbid=961752">Link to Hotfix.</a></p>
+  <div class="entry-content"><p>If you are creating a SQL Server login using a script then it is advisable to check if the login you are creating already exists. If you do not do this then SQL Server will throw an error. For example if I execute this statement when a login with name test_user already exists, I will get the following error.</p>  <pre class="code"><span style="color: blue">CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'Password123'</span></pre>
+
+<pre class="code"><span style="color: red">
+</span></pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+<pre class="code"><font color="#ff0000">Msg 15025, Level 16, State 1, Line 1
+The server principal 'test_user' already exists.</font></pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+<p>To avoid this a check can be used before creating the login. One way to do this is to write a statement like this.</p>
+
+<pre class="code"><span style="color: blue">IF </span><span style="color: gray">NOT EXISTS(</span><span style="color: blue">SELECT </span>name <span style="color: blue">FROM master</span><span style="color: gray">.</span>dbo<span style="color: gray">.</span><span style="color: green">syslogins </span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'test_user'</span><span style="color: gray">)
+</span><span style="color: blue">BEGIN
+    CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'Password123'
+</span><span style="color: blue">END
+</span></pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+<p>&#160;</p>
+
+<p>The above statement will check for the login and it will only create it if the login does not already exist. This works but it is not the best way to do it in SQL Server 2008. The problem is that we are querying <strong>master.dbo.syslogins</strong> which is available only for backward compatibility and as per Microsoft it will be removed in future versions. So the best way to do a check before creating a login is to use <strong>sys.sql_logins</strong> or <strong>sys.server_principals</strong> system view. Our statement can be re-written in following two ways.</p>
+
+<pre class="code"><span style="color: blue">IF </span><span style="color: gray">NOT EXISTS(</span><span style="color: blue">SELECT </span>name <span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">server_principals </span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'test_user'</span><span style="color: gray">)
+</span><span style="color: blue">BEGIN
+    CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'Password123'
+</span><span style="color: blue">END</span></pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+<p>&#160;</p>
+
+<p>OR</p>
+
+<pre class="code"><span style="color: blue">IF </span><span style="color: gray">NOT EXISTS(</span><span style="color: blue">SELECT </span>name <span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">sql_logins </span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'test_user'</span><span style="color: gray">)
+</span><span style="color: blue">BEGIN
+    CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'Password123'
+</span><span style="color: blue">END</span></pre>
+
+<p><a href="http://11011.net/software/vspaste"></a></p>
+
+<p>This approach will ensure that your script will work in future versions of SQL Server when Microsoft decides to remove master.dbo.syslogins.</p>
 </div>
   
   
@@ -227,7 +291,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/04/01/capture-xml-in-wcf-service/">Capture XML in WCF Service</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/02/bypass-windows-password-requirements-for-sql-login/">Bypass Windows Password Requirements for SQL Login</a></h1>
     
     
       <p class="meta">
@@ -243,287 +307,33 @@
   
 
 
-<time datetime="2009-04-01T00:00:00+11:00" pubdate data-updated="true">Apr 1<span>st</span>, 2009</time>
+<time datetime="2009-03-02T00:00:00+11:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2009</time>
         
-         | <a href="/2009/04/01/capture-xml-in-wcf-service/#disqus_thread">Comments</a>
+         | <a href="/2009/03/02/bypass-windows-password-requirements-for-sql-login/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content">Working on a project where we wrote WCF Services a need was identified to capture the raw xml passed in to the service operation and also capture the reply xml sent back by the service. WCF does not provide such facility out of the box but it can be easily implemented using behaviours. In this article we will look at how to capture raw xml messages when a call is made to a service.
+  <div class="entry-content"><p>SQL Server by default follows Windows password policy requirements for SQL Server Login accounts. This forces you to follow the same policy for SQL Server logins as you would for windows logins and this is a good thing. But sometimes you want to bypass that validation maybe to get a test login in place. You can do this by using CHECK_POLICY = OFF. For example when I try to create a login using this statement I get an error.</p>  <pre class="code"><span style="color: blue">CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'password123'
+</span></pre>
 
-As an example we will create a simple service which implements one operation called SayHello. Our service contract will look like this.
-<pre class="lang:c# decode:true">[ServiceContract]
-public interface IHelloService
-{ 
-  [OperationContract] 
-  string SayHello(string name);
-}</pre>
-In the operation “SayHello” we will return a string. Here is the implementation of IHelloService contract.
-<pre class="lang:c# decode:true">public class HelloService : IHelloService
-{  
-  public string SayHello(string name) 
-  { 
-    return string.Concat("Hello ", name); 
-  }
-}</pre>
-We will host our Service In a Windows Forms application so that we can easily view xml we capture. Just to get a feel for it, our host application will look like this. Clicking the button will start the service and as calls are made we will see request and response content in the tabs.
+<p><a href="http://11011.net/software/vspaste"></a></p>
 
-<img style="display: inline; border-width: 0px;" title="image" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/04/image.png" width="540" height="540" border="0" />
-<h4>Capturing XML</h4>
-To capture XML we need to implement two interfaces IDispatchMessageInspector and IServiceBehavior. The way our solution works is that we will add our implementation of IDispatchMessageInspector to MessageInspectors collection on endpoints used by our ServiceHost.
+<p><font color="#ff0000">Msg 15118, Level 16, State 1, Line 1
+    <br />Password validation failed. The password does not meet Windows policy requirements because it is not complex enough.</font></p>
 
-We will first implement IDispatchMessaageInspector in a class called Inspector.
-<pre class="lang:c# decode:true">public class Inspector : IDispatchMessageInspector
-{ 
-  ///  
-  /// Stores contents of Request message 
-  /// passed to the service. 
-  ///  
-  /// The request XML. 
-  public string Request { get; set; } 
+<p>&#160;</p>
 
-  ///  
-  /// Stores contents of Response messge 
-  /// which is sent back to the client. 
-  ///  
-  /// The response XML. 
-  public string Response { get; set; } 
+<p>The error itself tells me that my password does not meet policy requirements. The policy on my machine requires me to have at-least one upper case letter in my password. To bypass this requirement I can execute this statement which will create my SQL Login. </p>
 
-  #region IDispatchMessageInspector Members 
+<pre class="code"><span style="color: blue">CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'password123'</span><span style="color: gray">, </span><span style="color: blue">CHECK_POLICY </span><span style="color: gray">= </span><span style="color: blue">OFF
+</span></pre>
 
-  ///  
-  /// Called after an inbound message has been received but 
-  /// before the message is dispatched to the intended operation. 
-  ///  
-  ///The request message. 
-  ///The incoming channel. 
-  ///The current service instance. 
-  ///  /// The object used to correlate state. 
-  ///  
-  public object AfterReceiveRequest(
-    ref System.ServiceModel.Channels.Message request, 
-    System.ServiceModel.IClientChannel channel, 
-    System.ServiceModel.InstanceContext instanceContext) 
-    { 
-      Request = request.ToString(); 
-      return null; 
-    } 
+<p><a href="http://11011.net/software/vspaste"></a></p>
 
-  ///  
-  /// Called after the operation has returned but before the reply message is sent. 
-  ///  
-  ///The reply message. 
-  /// This value is null if the operation is one way.
-  ///The correlation object returned from the 
-  /// AfterReceiveRequest method. 
-  public void BeforeSendReply(ref System.ServiceModel.Channels.Message reply, 
-    object correlationState) 
-    { 
-      Response = reply.ToString(); 
-    } 
-  #endregion
-
-}</pre>
-Next we need to create a custom behaviour by implementing IServiceBehavior. The only method we are interested in this interface is the ApplyDispatchBehavior method. Here is our implementation of IServiceBehavior.
-<pre class="lang:c# decode:true">public class CustomBehavior : IServiceBehavior
-{ 
-
-  #region IServiceBehavior Members 
-  ///  
-  /// Provides the ability to pass custom data to binding elements 
-  /// to support the contract implementation. 
-  ///  
-  ///The service description of the service. 
-  ///The host of the service. 
-  ///The service endpoints. 
-  ///Custom objects to which binding elements have access. 
-  ///  
-  public void AddBindingParameters(ServiceDescription serviceDescription, 
-    System.ServiceModel.ServiceHostBase serviceHostBase, 
-    System.Collections.ObjectModel.Collection endpoints, 
-	System.ServiceModel.Channels.BindingParameterCollection bindingParameters) 
-  { 
-    return; 
-  } 
-
-  ///  
-  /// Provides the ability to change run-time property values or 
-  /// insert custom extension objects such as error handlers, 
-  /// message or parameter interceptors, 
-  /// security extensions, and other custom extension objects. 
-  ///  
-  ///The service description. 
-  ///The host that is currently being built. 
-  public void ApplyDispatchBehavior(ServiceDescription serviceDescription, System.ServiceModel.ServiceHostBase serviceHostBase) 
-  { 
-    foreach (ChannelDispatcher dispatcher in serviceHostBase.ChannelDispatchers) 
-    { 
-      dispatcher.Endpoints
-	    .ToList()
-        .ForEach(x =&gt; x.DispatchRuntime.MessageInspectors.Add(new Inspector())); 
-    } 
-  } 
-
-  ///  
-  /// Provides the ability to inspect the service host and 
-  /// the service description to confirm that the service 
-  /// can run successfully. 
-  ///  
-  ///The service description. 
-  ///The service host that is currently being constructed. 
-  ///  
-  public void Validate(ServiceDescription serviceDescription, System.ServiceModel.ServiceHostBase serviceHostBase) 
-  { 
-    return; 
-  }
-
-  #endregion
-
-}</pre>
-As said earlier, we will host our service in a Windows Forms application and we would like to display messages in the UI. For this we need access to messages outside the Inspector class we created above. This can be done by raising events when messages are captured. To do just that we will extend our Inspector class with two events and raise them from AfterReceiveRequest and BeforeSendReply methods.
-<pre class="lang:c# decode:true">/// 
-/// Triggered from AfterReceiveRequest method.
-/// 
-public event EventHandler RaiseRequestReceived;
-
-/// 
-/// Triggered from BeforeSendReply method.
-/// 
-public event EventHandler RaiseSendingReply;
-
-protected void OnRaiseRequestReceived(string message)
-{ 
-  EventHandler handler = RaiseRequestReceived; 
-  if (handler != null) 
-  { 
-    handler(this, new InspectorEventArgs(message)); 
-  }
-}
-
-protected void OnRaiseSendingReply(string message)
-{ 
-  EventHandler handler = RaiseSendingReply;
-  if (handler != null) 
-  { 
-    handler(this, new InspectorEventArgs(message)); 
-  }
-}</pre>
-And we will also modify AfterReceiveRequest and BeforeSendReply to raise these events.
-<pre class="lang:c# decode:true">/// 
-/// Called after an inbound message has been received but
-/// before the message is dispatched to the intended operation.
-///
-/// This method will also raise RaiseRequestReceived event.
-/// 
-///The request message.
-///The incoming channel.
-///The current service instance.
-/// 
-/// The object used to correlate state.
-/// 
-public object AfterReceiveRequest( ref System.ServiceModel.Channels.Message request, 
-System.ServiceModel.IClientChannel channel, 
-System.ServiceModel.InstanceContext instanceContext)
-{ 
-  Request = request.ToString(); 
-  OnRaiseRequestReceived(Request); 
-  return null;
-}
-
-/// 
-/// Called after the operation has returned but before the reply message is sent.
-///
-/// This method will also raise RaiseSendReply event.
-/// 
-///The reply message.
-/// This value is null if the operation is one way.
-///The correlation object returned from the
-/// AfterReceiveRequest method.
-public void BeforeSendReply(ref System.ServiceModel.Channels.Message reply, object correlationState)
-{ 
-  Response = reply.ToString(); 
-  OnRaiseSendingReply(Response);
-}</pre>
-InspectorEventArgs is a simple class used to store and pass information with our events.
-<pre class="lang:c# decode:true">public class InspectorEventArgs : EventArgs
-{ 
-  public InspectorEventArgs(string message) 
-  { 
-    this.Message = message; 
-  } 
-
-  public string Message { get; set; }
-}</pre>
-<h4>Hosting The Service And Using Inspector</h4>
-Now we are at the point where we can use our behaviour to capture request and response messages. First of all we need to put in some code to host our service. This code will go in the click event handler for our button. There are two main things do here. First we add our custom behaviour to the Behaviors collection of our host and second we hook up the events that are raised by our Inspector class.
-<pre class="lang:c# decode:true">private void buttonStartService_Click(object sender, EventArgs e)
-{ 
-  // Add our Custom Behaviour to the list of behaviours 
-  host.Description.Behaviors.Add(behavior); 
-
-  // start the service 
-  host.Open(); 
-
-  // add event handlers 
-  foreach (ChannelDispatcher dispatcher in host.ChannelDispatchers) 
-  { 
-    foreach (var endPoint in dispatcher.Endpoints) 
-    { 
-
-	  // get a list of MessageInspectors that are of type Inspector 
-      var query = (from ex in endPoint.DispatchRuntime.MessageInspectors 
-        where ex.GetType() == typeof(Inspector) 
-        select ex).Cast(); 
-
-      // hook up the events 
-      foreach (var item in query) 
-      { 
-        item.RaiseRequestReceived += 
-		  new EventHandler(Form1_RaiseRequestReceived); 
-
-        item.RaiseSendingReply += 
-		  new EventHandler(Form1_RaiseSendingReply); 
-      } 
-    } 
-  }
-}</pre>
-Now when HelloService is called we will see request and response xml in our Windows Forms application which is also a host for HelloService. We will use WebBrowser controls to display XML. Displaying XML in the WebBrowser control is not just setting a property. There is little but not too much work involved. I picked up a nice technique from this <a href="http://www.c-sharpcorner.com/Forums/ShowMessages.aspx?ThreadID=51473">link</a>.
-<pre class="lang:c# decode:true">/// 
-/// Writes xml to browser.
-/// WebBrowser control does render xml properly and to get around
-/// I am using this handy tip from this link.
-/// http://www.c-sharpcorner.com/Forums/ShowMessages.aspx?ThreadID=51473
-/// 
-///The browser.
-///The message.
-private void WriteToBrowser(WebBrowser browser, string message)
-{ 
-  XslCompiledTransform xTrans = new XslCompiledTransform(); 
-  xTrans.Load("default.xslt"); 
-  StringReader sr = new StringReader(message); 
-  XmlReader xReader = XmlReader.Create(sr); 
-  System.IO.MemoryStream ms = new MemoryStream(); 
-  xTrans.Transform(xReader, null, ms); 
-  ms.Position = 0; 
-  browser.DocumentStream = ms;
-}</pre>
-<h4>Creating The Client</h4>
-Client for HelloService is a simple Windows Forms application with a text box, button and a label. You can download the code at the end of this article and see it for yourself.
-<h4>The Output</h4>
-Here are screenshots of both client and host showing request and response XML.
-
-<img style="display: inline; border-width: 0px;" title="WCF Request" alt="WCF Request" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/04/image1.png" width="540" height="324" border="0" />
-
-<img style="display: inline; border-width: 0px;" title="WCF Response" alt="WCF Response" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/04/image2.png" width="540" height="324" border="0" />
-
-<img style="display: inline; border-width: 0px;" title="WCF Client" alt="WCF Client" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/04/image3.png" width="393" height="175" border="0" />
-
-I hope you found this article interesting. If yes, then how about <a href="http://feeds.feedburner.com/debug-release">subscribing to the feed</a> :)
-
-<a href="http://bit.ly/debug-release-wcf-capture-xml">Code on GitHub</a>
+<p>You should however use this with caution because password policies are there for a reason i.e. to make your environment more secure.</p>
 </div>
   
   
@@ -546,6 +356,10 @@ I hope you found this article interesting. If yes, then how about <a href="http:
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/11/27/octopress-setup-existing-blog-on-another-machine/">Octopress-Setup Existing Blog on Another Machine</a>
+      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -581,10 +395,6 @@ I hope you found this article interesting. If yes, then how about <a href="http:
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

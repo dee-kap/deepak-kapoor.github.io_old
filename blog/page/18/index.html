@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="Riviera is a sample application for Windows Azure available on MSDN Code Gallery for download. Riviera has been developed by Platform Evangelism &hellip;">
+  <meta name="description" content="Scrolling is a very basic User Interface feature which allows you to navigate vertically or horizontally the content which may take up more than &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,7 +75,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/08/14/windows-azure-sample-application-riviera/">Windows Azure Sample Application Riviera</a></h1>
+      <h1 class="entry-title"><a href="/2009/07/07/scrolling-in-silverlight-panels/">Scrolling in Silverlight Panels</a></h1>
     
     
       <p class="meta">
@@ -91,16 +91,62 @@
   
 
 
-<time datetime="2009-08-14T00:00:00+10:00" pubdate data-updated="true">Aug 14<span>th</span>, 2009</time>
+<time datetime="2009-07-07T00:00:00+10:00" pubdate data-updated="true">Jul 7<span>th</span>, 2009</time>
         
-         | <a href="/2009/08/14/windows-azure-sample-application-riviera/#disqus_thread">Comments</a>
+         | <a href="/2009/07/07/scrolling-in-silverlight-panels/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Riviera is a sample application for Windows Azure available on MSDN Code Gallery for download. Riviera has been developed by Platform Evangelism group in collaboration with <a href="http://www.cumulux.com/">Cumulx</a> who are a Cloud ISV partner. Key features of Riviera are:</p>  <ul>   <li>Multi-tenant data store based on Azure Table Storage as well as SQL Azure.</li>    <li>Per tenant customization of data model</li>    <li>Per tenant customization of business logic (using Windows Workflow in Windows Azure)</li>    <li>Per tenant customization of user interface using Silverlight 3.0. Customization can be multi-level – custom theme, custom XAML, and custom XAP.</li>    <li>Automated tenant provisioning</li>    <li>Windows Azure web role-&gt;Azure Queue-&gt;worker role pattern for high volume transaction processing that can scale on demand</li>    <li>Claims aware web service and web application using Geneva Framework</li>    <li>Active and Passive Federation using Geneva Framework, Geneva Server and .NET Access Control Service (ACS)</li>    <li>Windows Live ID authentication for consumer facing web site</li>    <li>Use of Patterns &amp; Practices Enterprise Library Caching and Logging application blocks in Windows Azure</li> </ul>  <p>&#160;</p>  <p>As you can see from the list above that Riviera uses many features of Azure. This makes it an excellent sample to learn from. Assuming that Windows Azure is not too far from RTM, developers should start sharpening their Cloud Computing skills. </p>  <p><a href="http://code.msdn.microsoft.com/riviera">Link To Riviera home page</a>.</p>
+  <div class="entry-content"><p>Scrolling is a very basic User Interface feature which allows you to navigate vertically or horizontally the content which may take up more than available area. In Silverlight scrolling is not available by default for any of the panels. But it can easily be made available with just a little bit of XAML. In this post I will show you how to enable scrolling for a StackPanel which contains more items than it can fit within its size.</p>  <p>To begin with I will create a StackPanel with about 10 rectangles. </p>  <pre class="code"><span style="color: blue">&lt;</span><span style="color: #a31515">StackPanel </span><span style="color: red">x</span><span style="color: blue">:</span><span style="color: red">Name</span><span style="color: blue">=&quot;LayoutRoot&quot; 
+            </span><span style="color: red">Background</span><span style="color: blue">=&quot;Honeydew&quot;&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkBlue&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkRed&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkGoldenrod&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkSeaGreen&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DodgerBlue&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkGreen&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkMagenta&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkOrchid&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkTurquoise&quot; /&gt;
+  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkViolet&quot; /&gt;
+&lt;/</span><span style="color: #a31515">StackPanel</span><span style="color: blue">&gt;</span></pre>
+
+<pre class="code"><span style="color: blue"></span></pre>
+
+<p><a href="http://11011.net/software/vspaste"></a></p>
+
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Panel without ScrollViewer" border="0" alt="Panel without ScrollViewer" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image2.png" width="539" height="320" /></p>
+
+<p>To get a ScrollViewer all I need to do is Wrap my StackPanel inside a ScrollViewer.</p>
+
+<pre class="code"><span style="color: blue">&lt;</span><span style="color: #a31515">ScrollViewer</span><span style="color: blue">&gt;
+  &lt;</span><span style="color: #a31515">StackPanel </span><span style="color: red">x</span><span style="color: blue">:</span><span style="color: red">Name</span><span style="color: blue">=&quot;LayoutRoot&quot; 
+              </span><span style="color: red">Background</span><span style="color: blue">=&quot;Honeydew&quot;&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkBlue&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkRed&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkGoldenrod&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkSeaGreen&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DodgerBlue&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkGreen&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkMagenta&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkOrchid&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkTurquoise&quot; /&gt;
+    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkViolet&quot; /&gt;
+  &lt;/</span><span style="color: #a31515">StackPanel</span><span style="color: blue">&gt;
+&lt;/</span><span style="color: #a31515">ScrollViewer</span><span style="color: blue">&gt;</span></pre>
+
+<p><a href="http://11011.net/software/vspaste"></a></p>
+
+<p>&#160;</p>
+
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="ScrollViewer" border="0" alt="ScrollViewer" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image3.png" width="539" height="321" /></p>
+
+<p>ScrollViewer can also be used with other panels such as Grid, Canvas etc. Other than scrolling vertically ScrollViewer can also be uses to scroll horizontally. This can be done by setting HorizontalScrollBarVisibility property as shown below.</p>
+
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="HorizontalScrollBarVisibility" border="0" alt="HorizontalScrollBarVisibility" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image4.png" width="406" height="115" /></p>
 </div>
   
   
@@ -113,7 +159,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/08/05/pdc-2009-registration-is-open/">PDC 2009 Registration Is Open</a></h1>
+      <h1 class="entry-title"><a href="/2009/06/30/silverlight-predefined-colors-what-color-are-they/">Silverlight Predefined Colors – What Color Are They?</a></h1>
     
     
       <p class="meta">
@@ -129,175 +175,370 @@
   
 
 
-<time datetime="2009-08-05T00:00:00+10:00" pubdate data-updated="true">Aug 5<span>th</span>, 2009</time>
+<time datetime="2009-06-30T00:00:00+10:00" pubdate data-updated="true">Jun 30<span>th</span>, 2009</time>
         
-         | <a href="/2009/08/05/pdc-2009-registration-is-open/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Microsoft PDC 2009 site is now accepting registrations. PDC 2009 will run from 17th November to 19th November 2009 at Los Angeles Convention Center Los Angeles. Here is pricing information from <a href="http://microsoftpdc.com/Registration">PDC website</a>.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/08/image.png" width="315" height="289" /> </p>  <p>I think in or around PDC 2009 we should see commercial launch of Azure, Visual Studio 2010, .NET Framework 4.0 and maybe even Oslo.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/07/28/adonet-data-services-tutorial-with-aspnet/">ADO.NET Data Services With ASP.NET</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-07-28T00:00:00+10:00" pubdate data-updated="true">Jul 28<span>th</span>, 2009</time>
-        
-         | <a href="/2009/07/28/adonet-data-services-tutorial-with-aspnet/#disqus_thread">Comments</a>
+         | <a href="/2009/06/30/silverlight-predefined-colors-what-color-are-they/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h3>Introduction</h3>
-In this tutorial we will look at how ADO.NET Data Services can be used to create services which are consumed by ASP.NET client. We will use Adventure works Lite database as an example to demonstrate the concepts. Code for this article can be downloaded at the bottom of the article.
+  <div class="entry-content"><p>While writing Silverlight applications, I find it challenging to pick colors from the list of predefined colors supported by Silverlight. Honestly I don’t know what those fancy colors look like. There! I said it!. Happy? To overcome this issue in true developer style, I wrote a small utility which shows all predefined colors on a page. This post is about how I wrote the utility. Here is a screenshot of what my little application looks like when it is running. </p>  <p>&#160;</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image5.png" width="550" height="534" /> </p>  <br />  <p>In XAML we have more colors available to us as compared to when we are in code behind. When&#160; we write something like Fill=”DarkBlue”, XAML parser converts it into the proper dark blue color. Look at the choice of colors we get when writing XAML.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image6.png" width="205" height="225" /> </p>  <p>And this is our limited choice in c#.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image7.png" width="188" height="221" /> </p>  <p>But for my little utility I needed to know about all those pre-defined colors in c#. I found a <a href="http://silverlight.net/forums/p/13225/43867.aspx">post by Jabb</a> which came in handy for this. </p>  <p>Writing this application was very simple. In my XAML I defined a DataTemplate which is used by a ListBox to show all colors. </p>  
 
-ADO.NET Data Services as the name says is a services layer between your application and an underlying data source. It uses REST principals to access and persist information to and from the data source. Services layer itself can be created very easily. Most of the work is done by  Visual Studio for you.
-
-In this tutorial we will build an application for AdventureWorks Lite database. We will build a page which let’s a user browse through products. The reason for picking up AdventureWorks Lite as an example is so that we can work with a variety of data including images. If you do not have AdventureWorks Lite then you can download it <a href="http://www.codeplex.com/Wiki/View.aspx?ProjectName=SqlServerSamples">here</a>. For our application we will work with this data model
-
-<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image46.png" border="0" alt="image" width="540" height="406" />
-<h3>Creating Service</h3>
-Creating a ADO.NET Data Service in Visual Studio is a no brainer. All we need to do is add a new item of type ADO.NET Data Service, give it an appropriate name and we are done.
-
-<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image47.png" border="0" alt="image" width="540" height="432" />
-
-Our ADO.NET Service will interact with some kind of data source and Entity Framework perfectly fits that purpose. We now need to create a EDM (Entity Data Model) which includes tables we want to interact with via our services. If you never worked with Entity Framework then <a href="http://msdn.microsoft.com/en-us/library/bb399182.aspx">this quickstart</a> will get you going.
-
-By creating a service and our Entity Data Model we have put together two major components of our solution. Before we can hit F5 to see our service running, there are few things we need to put in place. We must tell our service that there is a Data Layer that we want it to use. Now all ADO.NET Data Services inherit from DataService&lt;T&gt; which can be found in System.Data.Services namespace. The code produced by Visual Studio for our service leaves a placeholder for &lt;T&gt; with a comment. All we need to do is specify the correct type. Our class declaration for our service should look like this.
  
-<pre class="lang:c# decode:true " >public class AdventureWorksService : DataService&lt;AdventureWorksEntities&gt;</pre> 
+<pre class="lang:xhtml decode:true " >&lt;UserControl x:Class="AllColors.Page"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Loaded="UserControl_Loaded"&gt;
+  &lt;StackPanel x:Name="LayoutRoot" Background="White"&gt;
+    &lt;StackPanel.Resources&gt;
+      &lt;DataTemplate x:Key="ColorsTemplate"&gt;
+        &lt;StackPanel Margin="10" Orientation="Horizontal"&gt;
+          &lt;TextBlock 
+            Margin="20" 
+            Width="200" 
+            VerticalAlignment="Center" 
+            Text="{Binding Path=ColorName}" 
+            FontFamily="Verdana" 
+            FontSize="20"  /&gt;
+          &lt;Rectangle 
+            Margin="20" 
+            Width="300" 
+            VerticalAlignment="Center" 
+            HorizontalAlignment="Center" 
+            Height="100" 
+            Fill="{Binding Path=ColorName}" /&gt;
+        &lt;/StackPanel&gt;
+      &lt;/DataTemplate&gt;
+    &lt;/StackPanel.Resources&gt;
 
-Here we have established integration between our service and our data source. Next thing we need to do is configure appropriate access levels for our service and its operations. Code below when executed initializes our service to have all possible access over all entities defined in our EDM and all access over all operations. Note the asterix, basically we are saying here that include all Entity Sets and all operations.
- 
-<pre class="lang:c# decode:true " >public static void InitializeService(IDataServiceConfiguration config)
+    &lt;ListBox x:Name="lstColors" 
+      Margin="50" 
+      Height="800" 
+      ItemTemplate="{StaticResource ColorsTemplate}" 
+      ScrollViewer.VerticalScrollBarVisibility="Visible" /&gt;
+    &lt;/StackPanel&gt;
+&lt;/UserControl&gt;</pre> 
+
+
+<p>In C# code for my UserControl, I assigned ItemSource property to a list of pre-defined colors. </p>
+
+<pre class="lang:c# decode:true " >
+private void UserControl_Loaded(object sender, RoutedEventArgs e)
 {
-  config.SetEntitySetAccessRule("*", EntitySetRights.All);
-  config.SetServiceOperationAccessRule("*", ServiceOperationRights.All);
-}</pre> 
+  AllColorsHelper helper = new AllColorsHelper();
+  lstColors.ItemsSource = helper.PredefinedColors;
+}
+</pre>
 
-We are now ready to go and hit F5. If we set AdventureWorksService.svc as a start page and run our project we can see our service running. Now that we have our service running, we will start building our ASP.NET pages which will query our service, receive and display data.
+<p>A collection of pre-defined colors came from a helper class. This collection is loaded in the constructor of AllColorsHelper class.</p>
 
-<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image48.png" border="0" alt="image" width="540" height="597" />
-<h3>Creating Proxy Objects</h3>
-Our ASP.NET application will need to access the service through a proxy. Creating a proxy is very easy. After making sure that our service is running, we need to add a service reference to our serivce. This can be done this way.
-
-<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image49.png" border="0" alt="image" width="540" height="434" />
-
-It is also a good idea to change the Namespace from ServiceReference1 to AdventureWorksService.
-<h3>Creating Web Page To Display Data</h3>
-We can now make calls to our service and retrieve data. First thing we need to do is load data from ProductCategory and bind it to a dropdown. But before that let’s have a look at what we will produce.
-
-<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image50.png" border="0" alt="image" width="540" height="521" />
-
-Getting back to binding our dropdown control. We should write a query which calls our service which in turns fetches data from database and delivers to us. One good thing about ADO.NET Data Services is that you can write LINQ queries with it. ADO.NET Data Services comes with a LINQ provider popularly known as LINQ To REST.  Without LINQ support ADO.NET Data Services will be just too complicated and IMO useless. However LINQ support is limited. Here are things you cannot do:
-<ol>
-	<li>You cannot write queries which involve joins or sub queries.</li>
-	<li>You cannot create anonymous types in your queries.</li>
-	<li>Aggregates such as Count, Min, Max are not available.</li>
-	<li>There is no GroupBy support available.</li>
-</ol>
-Besides the list of can’t do above, LINQ To REST still makes working with ADO.NET Data Services much easier than otherwise. Following code will make a service call and bind our drop down.
- 
-<pre class="lang:c# decode:true " >private void BindProductCategories()
+<pre class="lang:c# decode:true " >
+public class Color
 {
-  DataServiceQuery&lt;ProductCategory&gt; productCategories =
-    context.CreateQuery&lt;ProductCategory&gt;("/ProductCategory");
+  public string ColorName { get; set; }
+  public uint ColorCode { get; set; }
+}
 
-  var query = from p in productCategories
-    orderby p.Name
-    select p;
-
-  ddlProductCategory.DataSource = query;
-  ddlProductCategory.DataBind();
-}</pre> 
-
-We’d also like to refresh data in our grid when the user selects another category. This is done by BindProductsGrid method.
-
- 
-<pre class="lang:c# decode:true " >private void BindProductsGrid()
+public class AllColorsHelper
 {
-  int productCategoryID = Convert.ToInt32(ddlProductCategory.SelectedValue);
+  public AllColorsHelper()
+  {
+    PredefinedColors = new List<Color> 
+      {
+         new Color{ColorName = "Aliceblue", ColorCode = 0xFFF0F8FF},
+         new Color{ColorName = "AntiqueWhite", ColorCode = 0xFFFAEBD7},
+         new Color{ColorName = "Aqua", ColorCode = 0xFF00FFFF},
+         new Color{ColorName = "Aquamarine", ColorCode = 0xFF7FFFD4},
+         new Color{ColorName = "Azure", ColorCode = 0xFFF0FFFF},
+         new Color{ColorName = "Beige", ColorCode = 0xFFF5F5DC},
+         new Color{ColorName = "Bisque", ColorCode = 0xFFFFE4C4},
+         new Color{ColorName = "Black", ColorCode = 0xFF000000},
+         new Color{ColorName = "BlanchedAlmond", ColorCode = 0xFFFFEBCD},
+         new Color{ColorName = "Blue", ColorCode = 0xFF0000FF},
+         new Color{ColorName = "BlueViolet", ColorCode = 0xFF8A2BE2},
+         new Color{ColorName = "Brown", ColorCode = 0xFFA52A2A},
+         new Color{ColorName = "BurlyWood", ColorCode = 0xFFDEB887},
+         new Color{ColorName = "CadetBlue", ColorCode = 0xFF5F9EA0},
+         new Color{ColorName = "Chartreuse", ColorCode = 0xFF7FFF00},
+         new Color{ColorName = "Chocolate", ColorCode = 0xFFD2691E},
+         new Color{ColorName = "Coral", ColorCode = 0xFFFF7F50},
+         new Color{ColorName = "CornflowerBlue", ColorCode = 0xFF6495ED},
+         new Color{ColorName = "Cornsilk", ColorCode = 0xFFFFF8DC},
+         new Color{ColorName = "Crimson", ColorCode = 0xFFDC143C},
+         new Color{ColorName = "Cyan", ColorCode = 0xFF00FFFF},
+         new Color{ColorName = "DarkBlue", ColorCode = 0xFF00008B},
+         new Color{ColorName = "DarkCyan", ColorCode = 0xFF008B8B},
+         new Color{ColorName = "DarkGoldenrod", ColorCode = 0xFFB8860B},
+         new Color{ColorName = "DarkGray", ColorCode = 0xFFA9A9A9},
+         new Color{ColorName = "DarkGreen", ColorCode = 0xFF006400},
+         new Color{ColorName = "DarkKhaki", ColorCode = 0xFFBDB76B},
+         new Color{ColorName = "DarkMagenta", ColorCode = 0xFF8B008B},
+         new Color{ColorName = "DarkOliveGreen", ColorCode = 0xFF556B2F},
+         new Color{ColorName = "DarkOrange", ColorCode = 0xFFFF8C00},
+         new Color{ColorName = "DarkOrchid", ColorCode = 0xFF9932CC},
+         new Color{ColorName = "DarkRed", ColorCode = 0xFF8B0000},
+         new Color{ColorName = "DarkSalmon", ColorCode = 0xFFE9967A},
+         new Color{ColorName = "DarkSeaGreen", ColorCode = 0xFF8FBC8F},
+         new Color{ColorName = "DarkSlateBlue", ColorCode = 0xFF483D8B},
+         new Color{ColorName = "DarkSlateGray", ColorCode = 0xFF2F4F4F},
+         new Color{ColorName = "DarkTurquoise", ColorCode = 0xFF00CED1},
+         new Color{ColorName = "DarkViolet", ColorCode = 0xFF9400D3},
+         new Color{ColorName = "DeepPink", ColorCode = 0xFFFF1493},
+         new Color{ColorName = "DeepSkyBlue", ColorCode = 0xFF00BFFF},
+         new Color{ColorName = "DimGray", ColorCode = 0xFF696969},
+         new Color{ColorName = "DodgerBlue", ColorCode = 0xFF1E90FF},
+         new Color{ColorName = "Firebrick", ColorCode = 0xFFB22222},
+         new Color{ColorName = "FloralWhite", ColorCode = 0xFFFFFAF0},
+         new Color{ColorName = "ForestGreen", ColorCode = 0xFF228B22},
+         new Color{ColorName = "Fuchsia", ColorCode = 0xFFFF00FF},
+         new Color{ColorName = "Gainsboro", ColorCode = 0xFFDCDCDC},
+         new Color{ColorName = "GhostWhite", ColorCode = 0xFFF8F8FF},
+         new Color{ColorName = "Gold", ColorCode = 0xFFFFD700},
+         new Color{ColorName = "Goldenrod", ColorCode = 0xFFDAA520},
+         new Color{ColorName = "Gray", ColorCode = 0xFF808080},
+         new Color{ColorName = "Green", ColorCode = 0xFF008000},
+         new Color{ColorName = "GreenYellow", ColorCode = 0xFFADFF2F},
+         new Color{ColorName = "Honeydew", ColorCode = 0xFFF0FFF0},
+         new Color{ColorName = "HotPink", ColorCode = 0xFFFF69B4},
+         new Color{ColorName = "IndianRed", ColorCode = 0xFFCD5C5C},
+         new Color{ColorName = "Indigo", ColorCode = 0xFF4B0082},
+         new Color{ColorName = "Ivory", ColorCode = 0xFFFFFFF0},
+         new Color{ColorName = "Khaki", ColorCode = 0xFFF0E68C},
+         new Color{ColorName = "Lavender", ColorCode = 0xFFE6E6FA},
+         new Color{ColorName = "LavenderBlush", ColorCode = 0xFFFFF0F5},
+         new Color{ColorName = "LawnGreen", ColorCode = 0xFF7CFC00},
+         new Color{ColorName = "LemonChiffon", ColorCode = 0xFFFFFACD},
+         new Color{ColorName = "LightBlue", ColorCode = 0xFFADD8E6},
+         new Color{ColorName = "LightCoral", ColorCode = 0xFFF08080},
+         new Color{ColorName = "LightCyan", ColorCode = 0xFFE0FFFF},
+         new Color{ColorName = "LightGoldenrodYellow", ColorCode = 0xFFFAFAD2},
+         new Color{ColorName = "LightGray", ColorCode = 0xFFD3D3D3},
+         new Color{ColorName = "LightGreen", ColorCode = 0xFF90EE90},
+         new Color{ColorName = "LightPink", ColorCode = 0xFFFFB6C1},
+         new Color{ColorName = "LightSalmon", ColorCode = 0xFFFFA07A},
+         new Color{ColorName = "LightSeaGreen", ColorCode = 0xFF20B2AA},
+         new Color{ColorName = "LightSkyBlue", ColorCode = 0xFF87CEFA},
+         new Color{ColorName = "LightSlateGray", ColorCode = 0xFF778899},
+         new Color{ColorName = "LightSteelBlue", ColorCode = 0xFFB0C4DE},
+         new Color{ColorName = "LightYellow", ColorCode = 0xFFFFFFE0},
+         new Color{ColorName = "Lime", ColorCode = 0xFF00FF00},
+         new Color{ColorName = "LimeGreen", ColorCode = 0xFF32CD32},
+         new Color{ColorName = "Linen", ColorCode = 0xFFFAF0E6},
+         new Color{ColorName = "Magenta", ColorCode = 0xFFFF00FF},
+         new Color{ColorName = "Maroon", ColorCode = 0xFF800000},
+         new Color{ColorName = "MediumAquamarine", ColorCode = 0xFF66CDAA},
+         new Color{ColorName = "MediumBlue", ColorCode = 0xFF0000CD},
+         new Color{ColorName = "MediumOrchid", ColorCode = 0xFFBA55D3},
+         new Color{ColorName = "MediumPurple", ColorCode = 0xFF9370DB},
+         new Color{ColorName = "MediumSeaGreen", ColorCode = 0xFF3CB371},
+         new Color{ColorName = "MediumSlateBlue", ColorCode = 0xFF7B68EE},
+         new Color{ColorName = "MediumSpringGreen", ColorCode = 0xFF00FA9A},
+         new Color{ColorName = "MediumTurquoise", ColorCode = 0xFF48D1CC},
+         new Color{ColorName = "MediumVioletRed", ColorCode = 0xFFC71585},
+         new Color{ColorName = "MidnightBlue", ColorCode = 0xFF191970},
+         new Color{ColorName = "MintCream", ColorCode = 0xFFF5FFFA},
+         new Color{ColorName = "MistyRose", ColorCode = 0xFFFFE4E1},
+         new Color{ColorName = "Moccasin", ColorCode = 0xFFFFE4B5},
+         new Color{ColorName = "NavajoWhite", ColorCode = 0xFFFFDEAD},
+         new Color{ColorName = "Navy", ColorCode = 0xFF000080},
+         new Color{ColorName = "OldLace", ColorCode = 0xFFFDF5E6},
+         new Color{ColorName = "Olive", ColorCode = 0xFF808000},
+         new Color{ColorName = "OliveDrab", ColorCode = 0xFF6B8E23},
+         new Color{ColorName = "Orange", ColorCode = 0xFFFFA500},
+         new Color{ColorName = "OrangeRed", ColorCode = 0xFFFF4500},
+         new Color{ColorName = "Orchid", ColorCode = 0xFFDA70D6},
+         new Color{ColorName = "PaleGoldenrod", ColorCode = 0xFFEEE8AA},
+         new Color{ColorName = "PaleGreen", ColorCode = 0xFF98FB98},
+         new Color{ColorName = "PaleTurquoise", ColorCode = 0xFFAFEEEE},
+         new Color{ColorName = "PaleVioletRed", ColorCode = 0xFFDB7093},
+         new Color{ColorName = "PapayaWhip", ColorCode = 0xFFFFEFD5},
+         new Color{ColorName = "PeachPuff", ColorCode = 0xFFFFDAB9},
+         new Color{ColorName = "Peru", ColorCode = 0xFFCD853F},
+         new Color{ColorName = "Pink", ColorCode = 0xFFFFC0CB},
+         new Color{ColorName = "Plum", ColorCode = 0xFFDDA0DD},
+         new Color{ColorName = "PowderBlue", ColorCode = 0xFFB0E0E6},
+         new Color{ColorName = "Purple", ColorCode = 0xFF800080},
+         new Color{ColorName = "Red", ColorCode = 0xFFFF0000},
+         new Color{ColorName = "RosyBrown", ColorCode = 0xFFBC8F8F},
+         new Color{ColorName = "RoyalBlue", ColorCode = 0xFF4169E1},
+         new Color{ColorName = "SaddleBrown", ColorCode = 0xFF8B4513},
+         new Color{ColorName = "Salmon", ColorCode = 0xFFFA8072},
+         new Color{ColorName = "SandyBrown", ColorCode = 0xFFF4A460},
+         new Color{ColorName = "SeaGreen", ColorCode = 0xFF2E8B57},
+         new Color{ColorName = "SeaShell", ColorCode = 0xFFFFF5EE},
+         new Color{ColorName = "Sienna", ColorCode = 0xFFA0522D},
+         new Color{ColorName = "Silver", ColorCode = 0xFFC0C0C0},
+         new Color{ColorName = "SkyBlue", ColorCode = 0xFF87CEEB},
+         new Color{ColorName = "SlateBlue", ColorCode = 0xFF6A5ACD},
+         new Color{ColorName = "SlateGray", ColorCode = 0xFF708090},
+         new Color{ColorName = "Snow", ColorCode = 0xFFFFFAFA},
+         new Color{ColorName = "SpringGreen", ColorCode = 0xFF00FF7F},
+         new Color{ColorName = "SteelBlue", ColorCode = 0xFF4682B4},
+         new Color{ColorName = "Tan", ColorCode = 0xFFD2B48C},
+         new Color{ColorName = "Teal", ColorCode = 0xFF008080},
+         new Color{ColorName = "Thistle", ColorCode = 0xFFD8BFD8},
+         new Color{ColorName = "Tomato", ColorCode = 0xFFFF6347},
+         new Color{ColorName = "Transparent", ColorCode = 0x00FFFFFF},
+         new Color{ColorName = "Turquoise", ColorCode = 0xFF40E0D0},
+         new Color{ColorName = "Violet", ColorCode = 0xFFEE82EE},
+         new Color{ColorName = "Wheat", ColorCode = 0xFFF5DEB3},
+         new Color{ColorName = "White", ColorCode = 0xFFFFFFFF},
+         new Color{ColorName = "WhiteSmoke", ColorCode = 0xFFF5F5F5},
+         new Color{ColorName = "Yellow", ColorCode = 0xFFFFFF00},
+         new Color{ColorName = "YellowGreen", ColorCode = 0xFF9ACD32}
+       };
+ }
+  public List<Color> PredefinedColors { get; set; }
+}
+</pre>
 
-  DataServiceQuery&lt;Product&gt; products =
-    context.CreateQuery&lt;Product&gt;("/Product");
+<p>This gave me a list of all predefined colors. Here is a partial screenshot.</p>
 
-  var query = from p in products
-    where p.ProductCategory.ProductCategoryID == productCategoryID
-    select p;
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image8.png" width="550" height="468" /> </p>
 
-  gdvProducts.DataSource = query;
-  gdvProducts.DataBind();
-}</pre> 
+<p>&#160;</p>
 
-
-The way I bind the image is by using another page which just does Response.BinaryWrite.  Here is the markup of default.aspx page which is the entire UI. You can play with it by downloading the entire solution. The markup is here just to make the post look good ;)
+<p>I thought it would be nice if I could filter colors by name. Surely this will make my life easy. So I added few controls for filtering and refactored my C# code. </p>
 
  
-<pre class="lang:xhtml decode:true " >&lt;form id="form1" runat="server"&gt;
-  &lt;div&gt;
-    &lt;div&gt;
-      Product Category
-      &lt;asp:DropDownList ID="ddlProductCategory" runat="server"
-        DataValueField="ProductCategoryID"
-        AutoPostBack="true"
-        DataTextField="Name"
-        OnSelectedIndexChanged="ddlProductCategory_SelectedIndexChanged"&gt;
-      &lt;/asp:DropDownList&gt;
-    &lt;/div&gt;
-    &lt;br /&gt;
-    Products
-    &lt;br /&gt;
-    &lt;div&gt;
-      &lt;asp:GridView ID="gdvProducts" runat="server"
-        CssClass="sample"
-        Width="600px"
-        AutoGenerateColumns="false"
-        OnRowCreated="gdvProducts_RowCreated"&gt;
-        &lt;Columns&gt;
-          &lt;asp:BoundField DataField="ProductNumber" HeaderText="Number" /&gt;
-          &lt;asp:BoundField DataField="Name" HeaderText="Name" /&gt;
-          &lt;asp:TemplateField&gt;
-            &lt;ItemTemplate&gt;
-              &lt;asp:Image ID="Image1" runat="server" ImageUrl='ImageHelper.aspx' /&gt;
-            &lt;/ItemTemplate&gt;
-          &lt;/asp:TemplateField&gt;
-        &lt;/Columns&gt;
-      &lt;/asp:GridView&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/form&gt;</pre> 
+<pre class="lang:xhtml decode:true " >&lt;StackPanel Orientation="Horizontal" Margin="7"&gt;
+  &lt;TextBlock 
+    Margin="7" 
+    VerticalAlignment="Center" 
+    Text="Color Name" /&gt;
+  &lt;TextBox x:Name="txtColorName" 
+    Margin="7" 
+    Width="200" 
+    TextChanged="txtColorName_TextChanged" /&gt;
+&lt;/StackPanel&gt;
+        
+&lt;TextBlock x:Name="txtCount" 
+    Margin="7" /&gt;</pre> 
 
 
-<h3>Conclusion</h3>
-This was a brief introduction to ADO.NET Data Services. We looked at how to create a service and consume it in a ASP.NET website. We also looked at some limitations of LINQ provider used by ADO.NET Data Services. In future posts I will talk about other features of ADO.NET Data Services.
+<p>And here is my refactored C# code.</p>
+
+<pre class="lang:c# decode:true " >
+private AllColorsHelper helper = new AllColorsHelper();
+
+private void UserControl_Loaded(object sender, RoutedEventArgs e)
+{
+  DisplayColors(helper.PredefinedColors);
+}
+
+private void txtColorName_TextChanged(object sender, TextChangedEventArgs e)
+{
+  string filterCriteria = txtColorName.Text.Trim().ToLower();
+
+  if (!string.IsNullOrEmpty(filterCriteria))
+  {
+    var query = from c in helper.PredefinedColors
+       where c.ColorName.ToLower().StartsWith(filterCriteria)
+       select c;
+    DisplayColors(query);
+  }
+  else
+    DisplayColors(helper.PredefinedColors);
+}
+
+private void DisplayColors(IEnumerable<Color> colorCollection)
+{
+  lstColors.ItemsSource = colorCollection;
+
+  txtCount.Text = 
+    string.Format("Now displaying {0} colors", colorCollection.Count());
+}
+</pre>
+
+<p>I now had filtering available in my application</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image10.png" width="550" height="511" /> </p>
+
+<p>Thus the features set of my application was implemented. But there was something missing. It did not look very Silverlight / XAMAL-ish. And that ground was easily covered by applying styles. Here is my final XAML.</p>
+
+ 
+<pre class="lang:xhtml decode:true " >&lt;UserControl x:Class="AllColors.Page"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Loaded="UserControl_Loaded"&gt;
+  &lt;!--Start Main Container--&gt;
+  &lt;StackPanel x:Name="LayoutRoot" Background="White"&gt;
+    &lt;!--Start Resources--&gt;
+    &lt;StackPanel.Resources&gt;
+      &lt;Style x:Key="TextBlockStyle" TargetType="TextBlock"&gt;
+        &lt;Setter Property="FontFamily" Value="Verdana" /&gt;
+        &lt;Setter Property="FontSize" Value="18" /&gt;
+      &lt;/Style&gt;
+
+      &lt;DataTemplate x:Key="ColorsTemplate"&gt;
+        &lt;StackPanel Margin="10" Orientation="Horizontal"&gt;
+          &lt;TextBlock 
+            Style="{StaticResource TextBlockStyle}"
+            Margin="5" 
+            Width="200" 
+            VerticalAlignment="Center" 
+            Text="{Binding Path=ColorName}" /&gt;
+            &lt;Rectangle 
+              Margin="5" 
+              Width="300" 
+              VerticalAlignment="Center" 
+              HorizontalAlignment="Center" 
+              Height="50" 
+              Fill="{Binding Path=ColorName}" /&gt;
+        &lt;/StackPanel&gt;
+      &lt;/DataTemplate&gt;
+    &lt;/StackPanel.Resources&gt;
+    &lt;!--End Resources--&gt;
+        
+    &lt;!--Start Filter Area--&gt;
+    &lt;StackPanel Orientation="Horizontal" Margin="7"&gt;
+      &lt;StackPanel.Background&gt;
+        &lt;LinearGradientBrush&gt;
+          &lt;GradientStop Color="LightSkyBlue" Offset="0.1" /&gt;
+          &lt;GradientStop Color="LightBlue" Offset="0.5" /&gt;
+        &lt;/LinearGradientBrush&gt;
+      &lt;/StackPanel.Background&gt;
+      &lt;TextBlock 
+        Style="{StaticResource TextBlockStyle}"
+        Margin="7" 
+        VerticalAlignment="Center" 
+        Text="Color Name" /&gt;
+      &lt;TextBox x:Name="txtColorName" 
+        Margin="7" 
+        Width="200" 
+        TextChanged="txtColorName_TextChanged" /&gt;
+    &lt;/StackPanel&gt;
+    &lt;!--End Filter Area--&gt;
+
+    &lt;!--Start Results Area--&gt;
+    &lt;Border
+      Margin="5"
+      CornerRadius="20"
+      Background="LightGray"
+      BorderThickness="2" &gt;
+      &lt;StackPanel&gt;
+        &lt;TextBlock x:Name="txtCount" 
+          Style="{StaticResource TextBlockStyle}"
+          Margin="20,10,0,0" /&gt;
+        &lt;ListBox x:Name="lstColors" 
+          Margin="20" 
+          Height="400" 
+          ItemTemplate="{StaticResource ColorsTemplate}" 
+          ScrollViewer.VerticalScrollBarVisibility="Visible" /&gt;
+      &lt;/StackPanel&gt;
+    &lt;/Border&gt;
+    &lt;!--End Results Area--&gt;
+
+  &lt;/StackPanel&gt;
+  &lt;!--End Main Container--&gt;
+&lt;/UserControl&gt;</pre> 
+
+
+<p>And once again a screenshot of the finished product.</p>
+
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image5.png" width="550" height="534" /></p>
+
+<p>So writing a Siverlight application which displays all predefined colors was not hard at all, and I used Silverlight features like Styles, DataTemplate, Resources and Data Binding. So now that I can quickly see what those colors look like, I’m off to learn how to match them properly. </p>
 </div>
   
   
@@ -310,7 +551,7 @@ This was a brief introduction to ADO.NET Data Services. We looked at how to crea
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/07/27/10-ways-to-bing-it/">10 Ways to Bing It!</a></h1>
+      <h1 class="entry-title"><a href="/2009/06/28/silverlight-wrap-panel/">Silverlight Wrap Panel</a></h1>
     
     
       <p class="meta">
@@ -326,16 +567,76 @@ This was a brief introduction to ADO.NET Data Services. We looked at how to crea
   
 
 
-<time datetime="2009-07-27T00:00:00+10:00" pubdate data-updated="true">Jul 27<span>th</span>, 2009</time>
+<time datetime="2009-06-28T00:00:00+10:00" pubdate data-updated="true">Jun 28<span>th</span>, 2009</time>
         
-         | <a href="/2009/07/27/10-ways-to-bing-it/#disqus_thread">Comments</a>
+         | <a href="/2009/06/28/silverlight-wrap-panel/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I’ve been using Bing as my main search engine for sometime and I’m very happy with it. Within that plain search box lies a lot of power and many ways to search for information. Here I am sharing some of the ways I use Bing on daily bases. You may find these interesting and see that there is more to Bing than just plain old web search. </p>  <h3>1. Search For Weather</h3>  <p>Just type in the city name followed by forecast</p>  <p><font color="#0000ff">sydney forecast</font></p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image36.png" width="460" height="144" /> </p>  <h3>2. Get Search Results returned in RSS format</h3>  <p>Bing can return your results in RSS format. In this example I am searching for “Best Search Engine” and I want my results in RSS format. I can then subscribe to the feed in my feed reader and keep an eye on when search results are updated.</p>  <p><a title="http://www.bing.com/search?q=best+search+engine&amp;format=rss" href="http://www.bing.com/search?q=best+search+engine&amp;format=rss">http://www.bing.com/search?q=best+search+engine&amp;format=rss</a></p>  <p>&#160;<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image37.png" width="540" height="430" /> </p>  <h3>3. Search Within A Website</h3>  <p>With Bing you can search for content on a particular website. For example here I am searching for “Silverilght” on One .NET Way.</p>  <p><font color="#0000ff">site:thereforesystems.com silverlight</font></p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image38.png" width="540" height="430" /> </p>  <h3>4. Exclude a website from your search</h3>  <p>Following search for Silverlight will exclude results from One .NET Way</p>  <p><font color="#0000ff">-site:thereforesystems.com silverlight</font></p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image39.png" width="540" height="430" /> </p>  <h3>5. Celebrity Search</h3>  <p>Bing has a feature called xRank which keeps track of search volume on celebrities. You can also compare Bing popularity of celebrities. Here I am comparing popularity of Michael Jackson with Jet Li. xRank can be accessed at <a href="http://www.Bing.com/xRank">http://www.Bing.com/xRank</a></p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image40.png" width="540" height="398" /> </p>  <h3>6. Bing Without Background Image</h3>  <p>Bing home page by default displays a background image. Here is a sample:</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image41.png" width="540" height="459" /> </p>  <p>If you don’t want to see the background (and why not?), you can turn it off by going to this address.</p>  <p><a title="http://www.bing.com/?rb=0" href="http://www.bing.com/?rb=0">http://www.bing.com/?rb=0</a></p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image42.png" width="540" height="459" /> </p>  <h3>7. Search Where results lead to File Type</h3>  <p>A site can be searched for all links which further have links to specified file type. For example here I am searching Codeplex and I’d like to see results where I can find pdf files.</p>  <p><font color="#0000ff">codeplex contains:pdf</font></p>  <h3>8. Search For Flight Information</h3>  <p>Bing also returns real-time flight information. Following text when typed into Bing search box return information for United flight 660</p>  <p><font color="#0000ff">flight info united 660</font></p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image43.png" width="416" height="265" /> </p>  <h3>9. Search within a country</h3>  <p>You can specify a location for your search. Here I am searching for Bill Gates and I want search results from India.</p>  <p><font color="#0000ff">Bill Gates loc:IN</font></p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image44.png" width="540" height="436" /> </p>  <h3>10. Use Bing as a Dictionary</h3>  <p>You can definition of any word by simply typing define and then the word. Example</p>  <p><font color="#0000ff">define cyberspace</font></p>  <p>&#160;<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image45.png" width="539" height="242" /></p>
+  <div class="entry-content"><p>Wrap panel in Silverlight is missing out of the box, but this need is fulfilled by Silverlight Toolkit which also includes many other controls. In this post we will look at WrapPanel. I will show you how to use it and what it is used for.</p>  <p>To use wrap panel you have to install <a href="http://www.codeplex.com/Silverlight">Silverlight Toolkit</a>. Once installed, you will need to add a reference to Silverlight.Windows.Controls.Toolkit</p>  <p>&#160;<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Silverlight.Windows.Controls.Toolkit" border="0" alt="Silverlight.Windows.Controls.Toolkit" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image2.png" width="482" height="406" /> </p>  <p>And you can now use the WrapPanel. In the XAML below you can see that the main container of my user control is a WrapPanel.</p>  
+
+ 
+<pre class="lang:xhtml decode:true " >&lt;UserControl 
+xmlns:controls=
+"clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"  
+  x:Class="SilverlightWrapPanelDemo.Page"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  Width="400" Height="300"&gt;
+  &lt;controls:WrapPanel x:Name="LayoutRoot" Background="White"&gt;
+
+  &lt;/controls:WrapPanel&gt;
+&lt;/UserControl&gt;</pre> 
+
+
+<p>WrapPanel as the name says will wrap controls. Any controls which cannot fit on the first line will be wrapped to next line and so forth. Here is a demo.</p>
+
+ 
+<pre class="lang:xhtml decode:true " >&lt;UserControl 
+xmlns:controls=
+"clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"  
+  x:Class="SilverlightWrapPanelDemo.Page"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  Width="400" Height="300" Background="CornflowerBlue"&gt;
+  &lt;controls:WrapPanel x:Name="LayoutRoot" Background="Honeydew"&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkBlue" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkRed" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkGoldenrod" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkSeaGreen" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DodgerBlue" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkOrchid" /&gt;
+  &lt;/controls:WrapPanel&gt;
+&lt;/UserControl&gt;</pre> 
+
+
+<p>&#160;<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="WrapPanel" border="0" alt="WrapPanel" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image3.png" width="399" height="300" /> </p>
+
+<p>If I reduce the width of UserControl you can see that WrapPanel automatically wraps controls placed inside the container.</p>
+
+ 
+<pre class="lang:xhtml decode:true " >&lt;UserControl 
+xmlns:controls=
+"clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"  
+  x:Class="SilverlightWrapPanelDemo.Page"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  Width="350" Height="300" Background="CornflowerBlue"&gt;
+  &lt;controls:WrapPanel x:Name="LayoutRoot" Background="Honeydew"&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkBlue" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkRed" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkGoldenrod" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkSeaGreen" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DodgerBlue" /&gt;
+    &lt;Rectangle Margin="5" Width="70" Height="70" Fill="DarkOrchid" /&gt;
+  &lt;/controls:WrapPanel&gt;
+&lt;/UserControl&gt;</pre> 
+
+
+<p>&#160;<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="WrapPanel" border="0" alt="WrapPanel" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image4.png" width="348" height="300" /></p>
 </div>
   
   
@@ -348,7 +649,7 @@ This was a brief introduction to ADO.NET Data Services. We looked at how to crea
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/07/23/windows-7-goes-rtm-release-to-manufacturing/">Windows 7 Goes RTM (Release to Manufacturing)</a></h1>
+      <h1 class="entry-title"><a href="/2009/06/25/silverlight-canvas-panel/">Silverlight Canvas Panel</a></h1>
     
     
       <p class="meta">
@@ -364,16 +665,76 @@ This was a brief introduction to ADO.NET Data Services. We looked at how to crea
   
 
 
-<time datetime="2009-07-23T00:00:00+10:00" pubdate data-updated="true">Jul 23<span>rd</span>, 2009</time>
+<time datetime="2009-06-25T00:00:00+10:00" pubdate data-updated="true">Jun 25<span>th</span>, 2009</time>
         
-         | <a href="/2009/07/23/windows-7-goes-rtm-release-to-manufacturing/#disqus_thread">Comments</a>
+         | <a href="/2009/06/25/silverlight-canvas-panel/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>&#160;<img style="border-bottom: 0px; border-left: 0px; display: inline; margin-left: 0px; border-top: 0px; margin-right: 0px; border-right: 0px" title="image" border="0" alt="image" align="left" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image34.png" width="240" height="151" />Much awaited Windows 7 went RTM today. Microsoft’s new Operating System is scheduled to be available to available to public around October 22. MSDN and TechNet subscribers will be able to download Windows 7 in next few weeks, most likely around August 6. Comparing to release of Vista this looks much more well executed. Windows 7 has received more positive press than any other OS by Microsoft. This in my opinion is how expectations were managed. Rather than coming out with hyped up features which never made it to the product (read WinFS) Windows 7 managed communication to the best. </p>  <p>I’m starting the countdown to when I can download Windows 7.</p>  <p>You can read more about it on <a href="http://www.microsoft.com/Presspass/press/2009/jul09/07-22Windows7RTMPR.mspx">Microsoft Press Pass site</a>.</p>
+  <div class="entry-content"><p>Panels are basic layout mechanism in both Silverlight and WPF. They act as containers for other controls and each panel provides a different way of laying out controls on the screen. In this post we will look at Canvas Panel in Silverlight. Canvas allows us to put controls based on x and y&#160; coordinates. This gives us precise control over where our UI elements e.g buttons, text boxes etc. are placed. </p>  <p>In this example we can see that different ellipses are placed on the canvas using x and y coordinates. </p>  
+
+ 
+<pre class="lang:xhtml decode:true " >&lt;Canvas x:Name="LayoutRoot" Background="LightGoldenrodYellow"&gt;
+  &lt;Ellipse Height="50" Width="50" Fill="Coral" 
+
+    Canvas.Left="20" Canvas.Top="20" /&gt;
+  &lt;Ellipse Height="50" Width="50" Fill="Red" 
+
+    Canvas.Left="70" Canvas.Top="70" /&gt;
+  &lt;Ellipse Height="50" Width="50" Fill="Pink" 
+
+    Canvas.Left="120" Canvas.Top="120" /&gt;
+  &lt;Ellipse Height="50" Width="50" Fill="Purple" 
+
+    Canvas.Left="170" Canvas.Top="170" /&gt;
+  &lt;Ellipse Height="50" Width="50" Fill="RoyalBlue" 
+
+    Canvas.Left="220" Canvas.Top="220" /&gt;
+&lt;/Canvas&gt;</pre> 
+
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Canvas Panel" border="0" alt="Canvas Panel" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image1.png" width="399" height="299" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/06/16/request-error-in-adonet-data-services/">Request Error in ADO.NET Data Services</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-16T00:00:00+10:00" pubdate data-updated="true">Jun 16<span>th</span>, 2009</time>
+        
+         | <a href="/2009/06/16/request-error-in-adonet-data-services/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When creating a new ADO.NET Data Service you may find yourself with this error.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="ServiceErrorCapture" border="0" alt="ServiceErrorCapture" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/serviceerrorcapture.png" width="534" height="96" /> </p>  <p>Don’t call it quits on ADO.NET Data Services because of this error. It is very easy to fix. Have a close look at the code generated by Visual Studio for you.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/06/image.png" width="550" height="205" /> </p>  <p>Here the code calls SetEntitySetAccessRule on “MyEntitySet” but most likely your entity set is not called “MyEntitySet”. Similarly the second line sets operation access rule again on “MyServiceOperation” and you may want to set access rules on your operations. If you want to include all operations and all entity sets in the two method calls you can simply specify “*” as the value for first parameter.</p>
 </div>
   
   
@@ -396,6 +757,10 @@ This was a brief introduction to ADO.NET Data Services. We looked at how to crea
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/11/27/octopress-setup-existing-blog-on-another-machine/">Octopress-Setup Existing Blog on Another Machine</a>
+      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -431,10 +796,6 @@ This was a brief introduction to ADO.NET Data Services. We looked at how to crea
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

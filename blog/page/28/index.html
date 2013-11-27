@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="To find out the space used by a table we can use sp_spaceused procedure. Most of the times sp_spaceused will give correct information. Why do I say &hellip;">
+  <meta name="description" content="I had a look at LINQPad few months ago when I wrote about how you can use this tool to view generated LINQ To SQL Queries. There is not doubt that &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,7 +75,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/19/sql-server-sp_spaceused-use-the-right-way/">SQL Server – Sp_spaceused Use the Right Way</a></h1>
+      <h1 class="entry-title"><a href="/2008/12/23/linqpad-with-intellisense/">LINQPad With Intellisense</a></h1>
     
     
       <p class="meta">
@@ -91,30 +91,26 @@
   
 
 
-<time datetime="2009-03-19T00:00:00+11:00" pubdate data-updated="true">Mar 19<span>th</span>, 2009</time>
+<time datetime="2008-12-23T00:00:00+11:00" pubdate data-updated="true">Dec 23<span>rd</span>, 2008</time>
         
-         | <a href="/2009/03/19/sql-server-sp_spaceused-use-the-right-way/#disqus_thread">Comments</a>
+         | <a href="/2008/12/23/linqpad-with-intellisense/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content">To find out the space used by a table we can use sp_spaceused procedure. Most of the times sp_spaceused will give correct information. Why do I say most of the time? Well consider this example. I just inserted a large amount of data in Orders table in Northwind database and ran sp_spaceused.
-<pre class="code"><span style="color: blue">EXEC </span><span style="color: maroon">sp_spaceused </span><span style="color: red">'Orders'</span></pre>
-which returns this result
+  <div class="entry-content">I had a look at <a href="http://www.linqpad.net/">LINQPad</a> few months ago when I wrote about how you can use this tool to <a href="http://www.debugrelease.com/view-t-sql-query-generated-by-linq-to-sql-using-linqpad/">view generated LINQ To SQL Queries</a>. There is not doubt that LINQPad comes in as a very handy tool when writing LINQ queries. But writing queries in LINQPad has not been that easy. Until Now!
 
-<img style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image24.png" border="0" alt="image" width="431" height="47" />
+LINQPad now has <strong>Intellisense</strong>. <a href="http://www.albahari.com/">Joseph Albahari</a> has released this much desired feature. He is running a $17 for single license deal till December 23rd. At 17 bucks you can&#8217;t go wrong. The time it will save you justifies the price many times.
 
-But if I run sp_spaceused with true for its second parameter which is updateusage
-<pre class="code"><span style="color: blue">EXEC </span><span style="color: maroon">sp_spaceused </span><span style="color: red">'Orders'</span><span style="color: gray">, </span>TRUE</pre>
-<a href="http://11011.net/software/vspaste"></a>
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/12/image2.png" border="0" alt="image" width="550" height="379" />
 
-I get the following result
+If you are new to LINQ and need some guidance then LINQPad also comes with a  collection of sample queries to get you started.
 
-<img style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image25.png" border="0" alt="image" width="430" height="48" />
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/12/image3.png" border="0" alt="image" width="550" height="379" />
 
-Notice the difference in reserved space and index size. What has happened here is that by passing in true for updateusage SQL Server automatically runs DBCC UPDATEUSAGE which corrects any inaccuracies in catalog views. So it is a good idea to run sp_spaceused by supplying true for updateusage parameter if you absolutely must get accurate information. And especially after inserting large amounts of data.
+I bought my auto-completion code today and I&#8217;ve been playing with LINQPad like a kid with a new toy. Thanks Joseph for putting together this nice tool.
 </div>
   
   
@@ -127,7 +123,7 @@ Notice the difference in reserved space and index size. What has happened here i
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/19/download-entire-sharepoint-2007-technical-library-in-chm/">Download Entire SharePoint 2007 Technical Library in CHM</a></h1>
+      <h1 class="entry-title"><a href="/2008/12/12/remove-duplicate-lines-from-a-text-file-using-linq/">Remove Duplicate Lines From a Text File Using LINQ</a></h1>
     
     
       <p class="meta">
@@ -143,16 +139,122 @@ Notice the difference in reserved space and index size. What has happened here i
   
 
 
-<time datetime="2009-03-19T00:00:00+11:00" pubdate data-updated="true">Mar 19<span>th</span>, 2009</time>
+<time datetime="2008-12-12T00:00:00+11:00" pubdate data-updated="true">Dec 12<span>th</span>, 2008</time>
         
-         | <a href="/2009/03/19/download-entire-sharepoint-2007-technical-library-in-chm/#disqus_thread">Comments</a>
+         | <a href="/2008/12/12/remove-duplicate-lines-from-a-text-file-using-linq/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>The title says it all.</p>  <p>Here is the <a href="http://www.microsoft.com/downloads/details.aspx?familyid=ba006584-711d-4ce7-9e1f-181aedf6434a&amp;displaylang=en">Link</a>.</p>
+  <div class="entry-content"><p>A question was posted on c-sharpcorner forums asking how you would <a href="http://www.c-sharpcorner.com/Forums/ShowMessages.aspx?ThreadID=51446">remove duplicate lines from a text file</a>. It got me thinking about how this problem could be addressed using LINQ. Before I get into the solution, here is the problem statement. </p>  <h4>The problem</h4>  <blockquote>   <p>I am trying to remove duplicate lines from a text file. To make things difficult the lines contain non unique timestamps but a unique reference number. Some of the duplicates amount to 10 lines whereas others can only be 2 lines.</p>    <p>     <br />1. Here are some examples of duplicates lines:&lt;timestamp&gt;,&lt;reference&gt;,&lt;error message&gt;       <br />08:47:22,95847170050,Problem inputting data.       <br />08:48:28,96672540040,More problems inputting data.       <br />08:49:29,95847170050,Problem inputting data.       <br />08:55:28,106622510040,Extra issues inputting data.       <br />08:56:35,95847170050,Problem inputting data.       <br />08:57:35,106622510040,Extra issues inputting data.       <br />09:02:35,96672540040,More problems inputting data.       <br />09:03:41,96672540040,More problems inputting data.       <br />09:04:41,106622510040,Extra issues inputting data.       <br /></p>   <b></b>    <p><b>I want to delete all but KEEP the most recent duplicate line.</b></p> </blockquote>  <p>On the forum there is also some Java code which has been used as a solution. But I will ignore it so that I can approach it from a fresh perspective.</p>  <p>&#160;</p>  <h4>Solution The LINQ Way</h4>  <p>Here is my approach to remove duplicate lines from a text file. Firstly, I read the contents of the file into a collection of Type List&lt;Error&gt; using an approach <a href="http://www.debugrelease.com/tutorial-reading-a-text-file-using-linq/">I described in an earlier post</a> .</p>  
+
+<pre class="lang:c# decode:true " >
+var query = from e in
+  (from line in File.ReadAllLines(originalFile)
+    let errorRecord = line.Split(',')
+    let timestamp = errorRecord[0].Split(':')
+    select new Error() 
+    {                           
+      TimeStamp = new TimeSpan(
+        Convert.ToInt32(timestamp[0]), 
+        Convert.ToInt32(timestamp[1]), 
+        Convert.ToInt32(timestamp[2])),
+      Reference = errorRecord[1],
+      Message = errorRecord[2]
+    })
+  select e;
+</pre>
+
+<p>This is what my Error class looks like. This class maps to a record in the file.</p>
+
+<pre class="lang:c# decode:true " >
+public class Error
+{
+  public TimeSpan TimeStamp { get; set; }
+  public string Reference { get; set; }
+  public string Message { get; set; }
+}
+</pre>
+
+<p>Once I have the collection loaded up from the file. I then use a LINQ query to select the results I want. This query uses combination of group by and aggregates to select the most current record for a reference number as per the original problem statement.</p>
+
+<pre class="lang:c# decode:true " >
+var query = from e in errorCollection
+  group e by new { e.Reference, e.Message } into g
+  let MaxDate = g.Max(x => x.TimeStamp)
+  select new Error 
+  {
+    TimeStamp = MaxDate,
+    Reference = g.Key.Reference, 
+    Message = g.Key.Message
+  };
+</pre>
+
+<p>Finally I write the collection I get from the query above to another text file.</p>
+
+<pre class="lang:c# decode:true " >
+List<Error> newList = query.ToList();
+
+using (StreamWriter sw = new StreamWriter(processedFile))
+{
+  newList.ForEach(x => sw.WriteLine(x.TimeStamp+","+x.Reference+","+x.Message));
+  sw.Close();
+}
+</pre>
+
+<p>The code which loads the collection from the file can be optimized for performance but it does a good job when dealing with a reasonably small file. Below is the full code for my two methods.</p>
+
+<pre class="lang:c# decode:true " >
+public void RemoveDuplicates(string originalFile, string processedFile)
+{
+  List<Error> errorCollection = ReadFileIntoCollection(originalFile);
+            
+  var query = from e in errorCollection
+    group e by new { e.Reference, e.Message } into g
+    let MaxDate = g.Max(x => x.TimeStamp)
+    select new Error 
+    {
+      TimeStamp = MaxDate,
+      Reference = g.Key.Reference, 
+      Message = g.Key.Message
+    };
+
+  List<Error> newList = query.ToList();
+
+  using (StreamWriter sw = new StreamWriter(processedFile))
+  {
+    newList.ForEach(x => sw.WriteLine(x.TimeStamp+","+x.Reference+","+x.Message));
+    sw.Close();
+  }
+}
+
+public List<Error> ReadFileIntoCollection(string originalFile)
+{
+  List<Error> errorCollection = null;
+
+  var query = from e in
+    (from line in File.ReadAllLines(originalFile)
+    let errorRecord = line.Split(',')
+    let timestamp = errorRecord[0].Split(':')
+    select new Error() 
+    {
+      TimeStamp = new TimeSpan(
+        Convert.ToInt32(timestamp[0]), 
+        Convert.ToInt32(timestamp[1]), 
+        Convert.ToInt32(timestamp[2])),
+      Reference = errorRecord[1],
+      Message = errorRecord[2]
+    })
+    select e;
+
+  errorCollection = query.ToList<Error>();
+  return errorCollection;
+}
+</pre>
+
+<p>So this is my approach to remove duplicates from a text file using LINQ. This is just one example of how LINQ can be used to create creative solutions to some common programming problem. The power of LINQ lies in its simplicity which you can use to write beautiful code. </p>
 </div>
   
   
@@ -165,7 +267,7 @@ Notice the difference in reserved space and index size. What has happened here i
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/18/walkthrough-generate-test-data-with-red-gate-sql-data-generator/">Walkthrough – Generate Test Data With Red Gate SQL Data Generator</a></h1>
+      <h1 class="entry-title"><a href="/2008/12/04/the-era-of-cloud-computing-consultant/">The Era of Cloud Computing Consultant</a></h1>
     
     
       <p class="meta">
@@ -181,16 +283,16 @@ Notice the difference in reserved space and index size. What has happened here i
   
 
 
-<time datetime="2009-03-18T00:00:00+11:00" pubdate data-updated="true">Mar 18<span>th</span>, 2009</time>
+<time datetime="2008-12-04T00:00:00+11:00" pubdate data-updated="true">Dec 4<span>th</span>, 2008</time>
         
-         | <a href="/2009/03/18/walkthrough-generate-test-data-with-red-gate-sql-data-generator/#disqus_thread">Comments</a>
+         | <a href="/2008/12/04/the-era-of-cloud-computing-consultant/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>In this walkthrough I will show you how to use Red Gate SQL Data Generator to generate test data for a database. While writing software which interacts with a database developers often write scripts to insert some data. Usually this data is not big enough to find performance bottlenecks and/or issues with presenting data on UI. An application may work well under the load of dev data and possibly test data but becomes a different beast when run against proper production data. So the question is how do you get some real looking data. There are two options; one you can ask your friendly DBA to give it to you, second you can generate your own data which mimics production data at-least in size. In this post I will deal with the second. I will show you how easy it is to generate good quality test data.</p>  <p>As a disclaimer I’d like to say that Red Gate did not pay for this post in any form. I installed a 14 day trial of Red Gate SQL Data Generator and I liked the tool. </p>  <p>&#160;</p>  <h4>Creating SQL Data Generator Project</h4>  <p>SQL Data Generator works with projects which are .sqlgen files. The project file stores settings such as database you are generating data for and few other settings such as should Insert Triggers be fired. A project can be created by clicking on the New Project&#160; button on the toolbar which brings this dialog</p>  <p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="540" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image16.png" width="540" border="0" /> </p>  <p>You can specify the database server and the database name&#160; here. For this walkthrough I will generate data for Northwind database. After supplying database values click OK and it will import schema information from database.</p>  <p>The main windows displays the tables for which data will be generated. You can exclude tables by clicking on the checkbox. </p>  <p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="417" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image17.png" width="292" border="0" /> </p>  <p>On the right side of the window you can set the number of rows to be generated, what should be done when data is invalid and you can choose if existing data should be deleted.</p>  <p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="162" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image18.png" width="540" border="0" /> </p>  <p>For this example let’s set number of rows to be 100,000 for customer table and do the same for few other tables. I think that is a good number to do some testing. </p>  <p>Clicking Generate Data button on the toolbar presents this dialog which presents a summary of actions which will be taken.</p>  <p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="396" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image19.png" width="540" border="0" /> </p>  <p>Once the data is generated successfully a report is presented which shows the number of rows inserted for tables.</p>  <p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="414" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image20.png" width="540" border="0" /> </p>  <p>A quick query on Northwind database in SSMS shows a sample of newly inserted data.</p>  <p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="545" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image21.png" width="540" border="0" /> </p>  <p>And that’s how easy it is to generate data which can be used for load testing, and finding performance bottlenecks while developing an application.</p>
+  <div class="entry-content"><p><img style="border-top-width: 0px; border-left-width: 0px; float: left; border-bottom-width: 0px; border-right-width: 0px" height="109" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/12/image1.png" width="150" border="0" /> <strong>CCC stands for Cloud Computing Consultant</strong>. There, I have said it. This is my contribution to acronyms-land. I have also cleverly designed it to minimize <a href="http://en.wikipedia.org/wiki/Repetitive_strain_injury">RSI</a> which I am sure will be appreciated. You only have to use one key to type the acronym. If you ever come across the term Cloud Computing Consultant then remember that you read about it on <a href="http://www.debugrelease.com/">One .Net Way</a>. Before you start googling this out let me make few things clear. IBM has a service called Cloud Computing Consulting which is more of a practice. <strong>Cloud Computing Consultant</strong> on the other hand is about an <strong>individual</strong>. </p>  <p>&#160;</p>  <h4>So who is a CCC? </h4>  <p>He or she (if girls get interested in this stuff) is a person who sucks up the knowledge and complexity from Cloud vendors (Microsoft in my case) and translates it into real world English for his clients. </p>  <p>&#160;</p>  <h4>Why do we need him?</h4>  <p>Good question. I am glad you asked it. No I seriously am. We need him for the same reasons we need tech consultants today. He is skilled and knowledgeable to recommend, advise and also implement business solutions based on Cloud Computing. CCS (Cloud Computing Solution) to be more precise. There, I&#8217;ve done it again. For the records; the term CCS also calls OneDotNetWay its birthplace.</p>  <p>&#160;</p>  <h4>Should you become one?</h4>  <p>If you are a night programmer who sacrifices luxuries of life such as television, sleep etc. to keep yourself up to date with new technologies then I highly recommend it. This is where the industry is heading. Of course if you are a maintenance programmer who is willing to spend rest of his years working on an application which went into support mode a decade ago then you can skip the whole cloud thing.</p>  <p>&#160;</p>  <h4>How do you get started?</h4>  <p>A lot of it depends on what is your learning style. But this is what I would suggest. Leave not a single unread word on <a href="http://www.microsoft.com/azure/default.mspx">Microsoft Azure site</a> and to everything else linked from here. Once you have done that, I recommend watching all <a href="https://sessions.microsoftpdc.com/public/timeline.aspx">PDC videos</a> on Azure. By this time you will be ready and excited to check out the Cloud for yourself. To do just that you can <a href="http://www.microsoft.com/azure/sdk.mspx">download Azure SDK</a> and also <a href="https://connect.microsoft.com/SelfNomination.aspx?SiteID=681&amp;ProgramID=2500&amp;pageType=1">ask for access to CTP</a>. Microsoft will be more than happy to provide one. I got mine in less than a day. Finally keep visiting <a href="http://www.deepakkapoor.net/">DeepakKapoor.net</a>.</p>  <p>All the best.</p>
 </div>
   
   
@@ -203,7 +305,7 @@ Notice the difference in reserved space and index size. What has happened here i
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/18/sql-server-2008-2-ways-to-get-object-id-of-a-database-object/">SQL Server 2008 – 2 Ways to Get Object Id of a Database Object</a></h1>
+      <h1 class="entry-title"><a href="/2008/12/03/google-chrome-gains-market-share/">Google Chrome Gains Market Share</a></h1>
     
     
       <p class="meta">
@@ -219,44 +321,16 @@ Notice the difference in reserved space and index size. What has happened here i
   
 
 
-<time datetime="2009-03-18T00:00:00+11:00" pubdate data-updated="true">Mar 18<span>th</span>, 2009</time>
+<time datetime="2008-12-03T00:00:00+11:00" pubdate data-updated="true">Dec 3<span>rd</span>, 2008</time>
         
-         | <a href="/2009/03/18/sql-server-2008-2-ways-to-get-object-id-of-a-database-object/#disqus_thread">Comments</a>
+         | <a href="/2008/12/03/google-chrome-gains-market-share/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Every object in SQL Server database has an Object Id which is used extensively by SQL Server for most operations. There are times when we would like to know what the object ID is for a particular object. In this example I will show you two ways to retrieve Object Id. My examples will retrieve Object Id for HumanResources.Employee table in AdventureWorks database.</p>  <p>&#160;</p>  <h5>Method 1</h5>  <p>First method is to query sys.objects system view and pass in the name of object and also the name of schema.</p>  <pre class="code"><span style="color: blue">SELECT </span><span style="color: magenta">OBJECT_ID </span><span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">objects
-</span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'Employee'
-</span><span style="color: gray">AND </span><span style="color: magenta">SCHEMA_ID </span><span style="color: gray">= 
-    (</span><span style="color: blue">SELECT </span><span style="color: magenta">SCHEMA_ID 
-    </span><span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">schemas
-    </span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'HumanResources'</span><span style="color: gray">)
-
-</span></pre>
-<a href="http://11011.net/software/vspaste"></a>
-
-<p>This query returns the Object Id shown below.</p>
-
-<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="46" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image22.png" width="141" border="0" /> </p>
-
-<p>&#160;</p>
-
-<h5>Method 2</h5>
-
-<p>While the first approach works, there is a better way to get the Object ID and that is to use the OBJECT_ID function. Here is another query which fetches the Object ID for HumanResources.Employee table in AdventureWorkds database.</p>
-
-<pre class="code"><span style="color: blue">SELECT </span><span style="color: magenta">OBJECT_ID</span><span style="color: gray">(</span><span style="color: red">N'HumanResources.Employee'</span><span style="color: gray">)</span></pre>
-
-<p><a href="http://11011.net/software/vspaste"></a></p>
-
-<p>And as expected I get my result.</p>
-
-<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="46" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image23.png" width="176" border="0" /> </p>
-
-<p>Both approaches are valid. However there are subtle differences. For example method 1 returns the result set in which the column is called ‘OBJECT_ID’, method 2 does not name the column. Another difference is that if you mistype the object name them method 1 will return zero rows while method 2 will simply return a NULL value.</p>
+  <div class="entry-content"><p>According to <a href="http://marketshare.hitslink.com/browser-market-share.aspx?qprid=0">Market Share</a> Google Chrome has 1% of browser market share. I am sure I must be a part of that statistics because I have Chrome installed on one of machines, and I think of it as just another browser. Although integrating search into address bar is a clever feature but again it is just a browser for me. After reading browser statistics on Market Share I decided to have a look at analytics for this site to see the browser share. Here is a chart:</p>  <p>&#160;<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" height="290" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/12/image.png" width="498" border="0" /> </p>  <p>Yu can see that Chrome ranks third after IE and Firefox. Six percent readers of this site use Chrome. Now I assume that most of my readers are people who work with Microsoft technologies and most likely developers. Does this mean that developers are embracing Chrome. Of course I do not have any hard data to back up the assertion but it is still worth a thought.</p>  <p>Are you a developer? Do you use Google Chrome?</p>
 </div>
   
   
@@ -269,7 +343,7 @@ Notice the difference in reserved space and index size. What has happened here i
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/16/wpf-community-workshop-learn-wpf-and-raise-money/">WPF Community Workshop – Learn WPF and Raise Money</a></h1>
+      <h1 class="entry-title"><a href="/2008/11/19/dynamic-sort-with-linq-to-sql/">Dynamic Sort With LINQ to SQL</a></h1>
     
     
       <p class="meta">
@@ -285,16 +359,16 @@ Notice the difference in reserved space and index size. What has happened here i
   
 
 
-<time datetime="2009-03-16T00:00:00+11:00" pubdate data-updated="true">Mar 16<span>th</span>, 2009</time>
+<time datetime="2008-11-19T00:00:00+11:00" pubdate data-updated="true">Nov 19<span>th</span>, 2008</time>
         
-         | <a href="/2009/03/16/wpf-community-workshop-learn-wpf-and-raise-money/#disqus_thread">Comments</a>
+         | <a href="/2008/11/19/dynamic-sort-with-linq-to-sql/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Ok, so you’ve seen Windows Presentation Foundation (WPF) and you thought the technology looked interesting. You know your applications are starting to look dated, you understand WPF has matured, now in its 3rd release; but life gets in the way and you haven’t had the chance to get down and dirty with it yet. So here’s your opportunity to skill up, and raise money for the Red Cross Bushfire Appeal, in this One-Day Workshop!!</p>  <p>To help you get to grips with this great technology quickly, Microsoft has created a series of Hands on Labs and Presentations. These will grow your skill set, putting you on the path to building the rich user interfaces your customers are demanding.</p>  <p>This training event comes to you courtesy of the .NET User Groups across Australia, and <a href="http://www.cliftons.com.au/">Cliftons</a>, who are generously providing their training facilities at minimal cost. This is your chance to learn new skills, network with other professionals, and have a bit of fun along the way.</p>  <p>&#160;</p>  <h4>Registration and Payment</h4>  <p>There is a nominal charge of $100. With the help of <a href="http://www.cliftons.com.au/">Cliftons</a> we are keeping costs minimal and if we fill all workshops across the country then this event will raise close to $23,000 for the Red Cross “<a href="http://www.redcross.org.au/vic/services_emergencyservices_victorian-bushfires-appeal-2009.htm">Victorian Bushfire Appeal 2009</a>”.</p>  <p>Places are limited and to register interest follow this <a href="http://www.acs.org.au/index.cfm?action=event&amp;area=9005&amp;temID=eventdetails&amp;eveID=10133342390563">link</a>.</p>  <p>&#160;</p>  <h4>Workshop Format</h4>  <p>To make it easy for you to attend we are running the workshops on a Saturday in all major cities. The sessions will commence at 8.30am with registration. Check the schedule below for the date and location in Sydney.</p>  <p>Following a 10 to 15 minute introduction to each topic, you will kick start Visual Studio 2008 and Expression Blend and work on the relevant lab!! Regardless of your current level of experience, you can work at your own pace; a facilitator will be on hand to guide your learning; and you’ll be able to take the lab content home for further learning.</p>  <p>&#160;</p>  <h4>Content</h4>  <p>The WPF Skills day will cover</p>  <ol>   <ol>     <ol>       <li>Creating layouts, compositions and templates </li>        <li>Building custom controls </li>        <li>Working with Styles and control templates (includes using Expression Blend to restyle) </li>        <li>Using the Ribbon control to effortlessly create applications that are as familiar to your customers as Office 2007 (not to mention the Windows 7 Core Applications) </li>        <li>Working with the new DataGrid control to display tabular and editable data </li>        <li>Binding data with ease to your user interface </li>        <li>And more… </li>     </ol>   </ol> </ol>  <h4>&#160;</h4>  <h4>Event Dates</h4>  <p>The Windows Presentation Foundation Community workshop in Sydney is to be held on Saturday, April 4th, 2009 at <a href="http://www.cliftons.com.au/page/sydney.html">Cliftons on George Street</a>.</p>  <p>&#160;</p>  <h4>Be in to Win</h4>  <p>The workshop will also feature a prize draw to win a copy of Visual Studio 2008. Nice!!</p>  <p>To register for the even please follow this <a href="http://www.acs.org.au/index.cfm?action=event&amp;area=9005&amp;temID=eventdetails&amp;eveID=10133342390563">link</a>.</p>
+  <div class="entry-content"><blockquote></blockquote>  <p>Sometime ago I wrote a post showing how to do <a href="http://www.debugrelease.com/dynamic-sort-with-linq/">dynamic sort with LINQ</a>. That approach worked well with LINQ To Objects. Today I spotted a <a href="http://forums.asp.net/p/1349895/2753778.aspx">question on the forums</a> where Levi asked a question about doing dynamic sorts with LINQ To SQL. My earlier approach will work once all the data is retrieved on the client side. This of course is not an ideal way. A&#160; better option is to do sorting on database. Here is the question as it was posted on the forum.</p>  <p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="525" alt="C# Visual Studio .Net Code" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/11/image11.png" width="522" border="0" /> </p>  <h4>I thought this will work</h4>  <p>My initial reaction was to modify the code I wrote earlier to dynamically create a query. This is what I did.</p>  <p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="132" alt="C# Visual Studio .Net Code" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/11/image12.png" width="479" border="0" /></p>  <p>and I used this code to call my method</p>  <p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="36" alt="C# Visual Studio .Net Code" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/11/image13.png" width="440" border="0" /> </p>  <p>LINQ To SQL is not able to generate a query and instead throws an exception when I try to access the results in debugger.</p>  <p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="43" alt="C# Visual Studio .Net Code" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/11/image14.png" width="550" border="0" /> </p>  <h4>So what can be done?</h4>  <p>The key here is to generate the query dynamically. And we can&#160; use the built-in Expression type to do just that. So I gave it another go with this code.</p>  <p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="325" alt="C# Visual Studio .Net Code" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/11/image15.png" width="523" border="0" /> </p>  <p>This method takes in a column name to sort by and returns&#160; IQueryable&lt;T&gt;. </p>  <p>It works but looks like a lot of effort and appears miles away from any kind of normal LINQ code. Fortunately I can achieve the same results with this code.</p>  <p>&#160;<img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="82" alt="C# Visual Studio .Net Code" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/11/image16.png" width="570" border="0" /> </p>  <p>To sort by Title, I can call the method like this.</p>  <p>&#160;<img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="20" alt="C# Visual Studio .Net Code" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/11/image17.png" width="391" border="0" /> </p>  <p>This gives me exactly what I want and partially answers the question posted on the forum. Partially, because I have not addressed dynamic grouping. I assume that it is doable with a similar approach.</p> <a href="http://www.dotnetkicks.com/kick/?url=http%3a%2f%2fwww.thereforesystems.com%2fdynamic-sort-with-linq-to-sql%2f"><img alt="kick it on DotNetKicks.com" src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fwww.thereforesystems.com%2fdynamic-sort-with-linq-to-sql%2f" border="0" /></a>
 </div>
   
   
@@ -317,6 +391,10 @@ Notice the difference in reserved space and index size. What has happened here i
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/11/27/octopress-setup-existing-blog-on-another-machine/">Octopress-Setup Existing Blog on Another Machine</a>
+      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -352,10 +430,6 @@ Notice the difference in reserved space and index size. What has happened here i
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

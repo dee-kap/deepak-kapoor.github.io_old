@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Python | Deepak Kapoor]]></title>
   <link href="http://www.deepakkapoor.net/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://www.deepakkapoor.net/"/>
-  <updated>2013-11-27T22:22:27+11:00</updated>
+  <updated>2013-11-27T23:21:01+11:00</updated>
   <id>http://www.deepakkapoor.net/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
@@ -157,18 +157,6 @@ def current_datetime(request):
 
 <p>I think this is pretty cool. </p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[The Zen Of Python]]></title>
-    <link href="http://www.deepakkapoor.net/2012/03/20/the-zen-of-python/"/>
-    <updated>2012-03-20T00:00:00+11:00</updated>
-    <id>http://www.deepakkapoor.net/2012/03/20/the-zen-of-python</id>
-    <content type="html"><![CDATA[<p>These days I am doing a great amount of work using Python. If you are game to learn a new language then I highly recommend looking at Python. You will find it both <a href="http://onstartups.com/tabid/3339/bid/20493/Why-PHP-Is-Fun-and-Easy-But-Python-Is-Marriage-Material.aspx">fun and productive</a>. Basic tenets of the language can be summarized in what is called “The Zen of Python”.</p>
-
-
-<p> <p>The Zen of Python, by Tim Peters</p> <ul> <li>Beautiful is better than ugly.</li> <li>Explicit is better than implicit.</li> <li>Simple is better than complex.</li> <li>Complex is better than complicated.</li> <li>Flat is better than nested.</li> <li>Sparse is better than dense.</li> <li>Readability counts.</li> <li>Special cases aren&rsquo;t special enough to break the rules.</li> <li>Although practicality beats purity.</li> <li>Errors should never pass silently.</li> <li>Unless explicitly silenced.</li> <li>In the face of ambiguity, refuse the temptation to guess.</li> <li>There should be one&mdash; and preferably only one &mdash;obvious way to do it.</li> <li>Although that way may not be obvious at first unless you&rsquo;re Dutch.</li> <li>Now is better than never.</li> <li>Although never is often better than <em>right</em> now.</li> <li>If the implementation is hard to explain, it&rsquo;s a bad idea.</li> <li>If the implementation is easy to explain, it may be a good idea.</li> <li>Namespaces are one honking great idea &mdash; let&rsquo;s do more of those!</li></ul> <p>Where did I get this from? Well, from Python itself. Just type <font style="background-color: #cccccc" color="#0000ff">&nbsp; import this&nbsp; </font> on Python prompt.</p></p>
 ]]></content>
   </entry>
   

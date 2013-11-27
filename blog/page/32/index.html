@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="You can easily get information on how much space a table is using by executing sp_spaceused stored procedure. Executing the following query on &hellip;">
+  <meta name="description" content="Working with LINQ to SQL I came across a need of writing a LINQ query equivalent of  T-SQL &#8220;Where IN&#8221; clause. This is what T-SQL query &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,7 +75,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/02/23/sql-server-2008-get-space-used-by-a-table/">SQL Server 2008 – Get Space Used by a Table</a></h1>
+      <h1 class="entry-title"><a href="/2008/08/25/linq-equivalent-of-where-in/">LINQ Equivalent of Where In</a></h1>
     
     
       <p class="meta">
@@ -91,22 +91,45 @@
   
 
 
-<time datetime="2009-02-23T00:00:00+11:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2009</time>
+<time datetime="2008-08-25T00:00:00+10:00" pubdate data-updated="true">Aug 25<span>th</span>, 2008</time>
         
-         | <a href="/2009/02/23/sql-server-2008-get-space-used-by-a-table/#disqus_thread">Comments</a>
+         | <a href="/2008/08/25/linq-equivalent-of-where-in/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>You can easily get information on how much space a table is using by executing <strong>sp_spaceused </strong>stored procedure. Executing the following query on AdventureWorks database shows me how much space Person.Contact table is using. Information presented is detailed which includes the number of rows, reserved space, index size, space used by data and any unused space in kilo-bytes.</p>  
+  <div class="entry-content">Working with LINQ to SQL I came across a need of writing a LINQ query equivalent of  T-SQL &#8220;Where IN&#8221; clause. This is what T-SQL query looks like.
 
  
-<pre class="lang:tsql decode:true " >exec sp_spaceused [Person.Contact]</pre> 
+<pre class="lang:tsql decode:true " >SELECT     CustomerID, CompanyName, ContactName, ContactTitle, Address,
+           City, Region, PostalCode, Country, Phone, Fax
+FROM       Customers
+WHERE      (Country IN ('UK', 'USA', 'Australia'))</pre> 
 
 
-<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="68" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image11.png" width="423" border="0" /></p>
+<h4>How do I write Where IN in LINQ?</h4>
+Below is the query which can be used for a &#8220;WHERE IN&#8221; scenario. Query 1 uses query syntax and Query 2 uses lambda expression. I am using using a DataContext for Northwind database. See <a href="http://www.debugrelease.com/linq-to-sql-tutorial/">LINQ To SQL Tutorial</a> to see how to generate a DataContext.
+<h5>LINQ Query 1</h5>
+
+ 
+<pre class="lang:c# decode:true " >string[] countries = new string[] { "UK", "USA", "Australia" };
+var customers =
+    from c in context.Customers
+    where countries.Contains(c.Country)
+    select c;</pre> 
+
+
+<h5>LINQ Query 2</h5>
+
+ 
+<pre class="lang:c# decode:true " >string[] countries = new string[] { "UK", "USA", "Australia" };
+var customers =
+    context.Customers
+    .Where(c =&gt; countries.Contains(c.Country));
+</pre> 
+
 </div>
   
   
@@ -119,7 +142,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/02/18/microsoft-museum-microsoft-1978-picture-at-museum-of-hoaxes/">Microsoft Museum: Microsoft 1978 Picture at Museum of Hoaxes</a></h1>
+      <h1 class="entry-title"><a href="/2008/08/16/find-duplicates-using-linq/">Find Duplicates Using LINQ</a></h1>
     
     
       <p class="meta">
@@ -135,16 +158,62 @@
   
 
 
-<time datetime="2009-02-18T00:00:00+11:00" pubdate data-updated="true">Feb 18<span>th</span>, 2009</time>
+<time datetime="2008-08-16T00:00:00+10:00" pubdate data-updated="true">Aug 16<span>th</span>, 2008</time>
         
-         | <a href="/2009/02/18/microsoft-museum-microsoft-1978-picture-at-museum-of-hoaxes/#disqus_thread">Comments</a>
+         | <a href="/2008/08/16/find-duplicates-using-linq/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><img title="Microsoft 1978" style="border-right: 0px; border-top: 0px; display: inline; margin-left: 0px; border-left: 0px; margin-right: 0px; border-bottom: 0px" height="154" alt="Microsoft 1978" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image10.png" width="226" align="left" border="0" /> This famous picture of the main crew at Microsoft Corporation in 1978 is perhaps one of the most famous photos of Microsoft employees of that time. The picture is mostly seen with the slogan “Would you have invested?” This photo also made it to <a href="http://www.museumofhoaxes.com">Museum Of Hoaxes</a> website which lists facts about people in the photo. While the accuracy of the numbers mentioned is questionable as there is no hard fact and information on the time it was calculated is missing, it however makes an interesting read. From <a href="http://www.museumofhoaxes.com/photos/microsoft.html">Museum Of Hoaxes</a>:</p>  <blockquote>   <p><b>Bill Gates:</b> Still with Microsoft as it&#8217;s chairman and chief software architect. His fortune is somewhere in the range of $50 billion.      <br /><b>Paul Allen:</b> Left Microsoft in 1983 but remains a senior strategy advisor to the company. Worth around $25 billion.      <br /><b>Bob O&#8217;Rear:</b> Left Microsoft in 1983. Is now a cattle rancher and is worth around $100 million.      <br /><b>Bob Greenberg:</b> Left Microsoft in 1981 and then helped launch those Cabbage Patch Dolls that were so popular in the 1980s. Last time anyone checked, he was worth around $20 million.      <br /><b>Jim Lane:</b> Left Microsoft in 1985. Now has his own software company and is worth around $20 million.      <br /><b>Gordon Letwin:</b> Left Microsoft in 1993 and now devotes himself to environmental causes. Is worth around $20 million.      <br /><b>Steve and Marla Wood:</b> They both left Microsoft in 1980 and Marla then sued the company for sex discrimination. They&#8217;re worth around $15 million.      <br /><b>Bob Wallace:</b> Left Microsoft in 1983. Worth around $5 million.      <br /><b>Andrea Lewis:</b> Was Microsoft&#8217;s first technical writer. Left the company in 1983. Worth around $2 million.      <br /><b>Marc McDonald:</b> Was Microsoft&#8217;s first employee. Left the company in 1984, but recently rejoined the company when Microsoft bought Design Intelligence, the company he was working for. Has the honor of getting to wear badge number 00001. Probably worth at least $1 million.</p></blockquote>
+  <div class="entry-content">How can we find duplicate occurrences of values in a collection? I will demonstrate this here using a collection of cities. City class looks like this:
+
+ 
+<pre class="lang:c# decode:true " >public class City
+{
+public string Name { get; set; }
+public string Country { get; set; }
+}</pre> 
+
+
+Cities collection is initialised with this code:
+
+<pre class="lang:c# decode:true " >
+List cities =
+new List
+{
+new City{ Name = "Sydney", Country = "Australia" },
+new City{ Name = "Sydney", Country = "Australia" },
+new City{ Name = "New York", Country = "USA" },
+new City{ Name = "Paris", Country = "France" },
+new City{ Name = "Milan", Country = "Spain" },
+new City{ Name = "Melbourne", Country = "Australia" },
+new City{ Name = "Auckland", Country = "New Zealand" },
+new City{ Name = "Tokyo", Country = "Japan" },
+new City{ Name = "New Delhi", Country = "India" },
+new City{ Name = "Hobart", Country = "Australia" },
+new City{ Name = "Boston", Country = "USA"}
+};
+</pre>
+
+Objective is to find countries which occur more than once in the collection and while I am doing that I would also like to know the number of cities for that country. To do this I can use this query. I am using a foreach loop to output my results.
+
+<pre class="lang:c# decode:true " >
+var query =
+from c in cities
+group c by c.Country into g
+where g.Count() &gt; 1
+select new { Country = g.Key, CityCount = g.Count()};</pre>
+<pre class="lang:c# decode:true " > foreach (var item in query)
+{
+Console.WriteLine("Country {0} has {1} cities", item.Country, item.CityCount);
+}
+</pre>
+
+By running the above query I get this output which is correct as there are only two countries in the collection which have more than one city.
+
+<img style="border: 0px;" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image28.png" width="279" height="48" border="0" />
 </div>
   
   
@@ -157,7 +226,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/02/17/microsoft-museum-windows-2000-windows-nt-4-source-code-leaks/">Microsoft Museum: Windows 2000 & Windows NT 4 Source Code Leaks</a></h1>
+      <h1 class="entry-title"><a href="/2008/08/16/bulk-copy-data-using-sqlbulkcopy-class/">Bulk Copy Data Using SQLBulkCopy Class</a></h1>
     
     
       <p class="meta">
@@ -173,16 +242,77 @@
   
 
 
-<time datetime="2009-02-17T00:00:00+11:00" pubdate data-updated="true">Feb 17<span>th</span>, 2009</time>
+<time datetime="2008-08-16T00:00:00+10:00" pubdate data-updated="true">Aug 16<span>th</span>, 2008</time>
         
-         | <a href="/2009/02/17/microsoft-museum-windows-2000-windows-nt-4-source-code-leaks/#disqus_thread">Comments</a>
+         | <a href="/2008/08/16/bulk-copy-data-using-sqlbulkcopy-class/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Today I am starting a series of posts in which I will post some interesting tit-bits about Microsoft. Mostly past stuff. I will prefix these posts with “Microsoft Museum” and tag them the same for easy search ability. The idea is to have light hearted and interesting posts about Microsoft. The ones that you read and go “…oh yes, I remember that…”.&#160; Hope you enjoy them. </p>  <p>So here is the first piece for my museum. Back in February 2004 Neowin <a href="http://www.neowin.net/news/main/04/02/12/exclusive-windows-2000--windows-nt-4-source-code-leaks">broke the story</a> that Windows 2000 and NT 4 source code was leaked on the internet. The story was legitimized by Microsoft posting a <a href="http://www.microsoft.com/presspass/press/2004/Feb04/02-12windowssource.mspx">response</a> on their site which went something like this:</p>  <blockquote>   <p><b>REDMOND, Wash., Updated, Feb. 20, 2004 — </b>On Thursday, February 12, Microsoft became aware that portions of the Microsoft Windows 2000 and Windows NT 4.0 source code were illegally made available on the Internet. Subsequent investigation has shown this was not the result of any breach of Microsofts corporate network or internal security, nor is it related to Microsofts Shared Source Initiative or its Government Security Program, which enable our customers and partners, as well as governments, to legally access Microsoft source code. Microsoft reaffirms its support for both the Shared Source Initiative and the Government Security Program. </p>    <p>Microsoft continues to work closely with the U.S. Federal Bureau of Investigation and other law enforcement authorities on this matter. Microsoft source code is both copyrighted and protected as a trade secret. As such, it is illegal to post it, make it available to others, download it or use it. Microsoft will take all appropriate legal actions to protect its intellectual property. These actions include communicating both directly and indirectly with those who possess or seek to possess, post, download or share the illegally disclosed source code. </p></blockquote>
+  <div class="entry-content">SQLBulkCopy class in ADO.NET can be used to do bulk copy operations from a .Net application. There are two ways data can be bulk copied using this class. You can either do a single bulk copy or a multiple bulk copy operation. In this post I will show you how to perform a single bulk copy operation. I will copy all data in [order details] table from one Northwind database to another. Before running the code I have already cleared the [order details] table in destination database using a truncate statement.
+
+Here is a complete sample which copies data from my Northwind database to Northwind2 database:
+<div>
+<div style="border-style: none; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> Main(<span style="color: #0000ff;">string</span>[] args)</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">{</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    <span style="color: #008000;">/******************************************************************</span></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"><span style="color: #008000;">     * Bulk copy Order Details data from Northwind to Northwind2 database</span></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"><span style="color: #008000;">     *****************************************************************/</span></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    <span style="color: #0000ff;">string</span> northwindConnectionString =</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">        <span style="color: #006080;">"Data Source=.;Initial Catalog=Northwind;Integrated Security=True"</span>;</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    <span style="color: #0000ff;">string</span> northwind2ConnectionString =</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">        <span style="color: #006080;">"Data Source=.;Initial Catalog=Northwind2;Integrated Security=True"</span>;</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    <span style="color: #0000ff;">using</span> (SqlConnection northwindConnection =</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">        <span style="color: #0000ff;">new</span> SqlConnection(northwindConnectionString))</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    {</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">        northwindConnection.Open();</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">        SqlCommand command =</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">            <span style="color: #0000ff;">new</span> SqlCommand(<span style="color: #006080;">"Select * from [order details]"</span>, northwindConnection);</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">        SqlDataReader dataReader = command.ExecuteReader();</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">        <span style="color: #0000ff;">using</span> (SqlConnection northwind2Connection =</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">            <span style="color: #0000ff;">new</span> SqlConnection(northwind2ConnectionString))</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">        {</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">            northwind2Connection.Open();</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">            SqlBulkCopy bulkCopy = <span style="color: #0000ff;">new</span> SqlBulkCopy(northwind2Connection);</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">            bulkCopy.DestinationTableName = <span style="color: #006080;">"[Order Details]"</span>;</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">            bulkCopy.WriteToServer(dataReader);</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">            northwind2Connection.Close();</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">        }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">        northwindConnection.Close();</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    Console.WriteLine(<span style="color: #006080;">"Bulk Copy Operation Successful"</span>);</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    Console.WriteLine(<span style="color: #006080;">"Press any key to exit..."</span>);</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    Console.ReadKey();</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">}</pre>
+</div>
+</div>
+While executing the above code, I also ran profiler to see the generated statements. SQLBulkCopy produced the following SQL statement for this bulk copy operation.
+<div>
+<div style="border-style: none; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">insert <span style="color: #0000ff;">bulk</span> [<span style="color: #0000ff;">Order</span> Details] ([OrderID] <span style="color: #0000ff;">Int</span>,</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">[ProductID] <span style="color: #0000ff;">Int</span>,</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">[UnitPrice] Money,</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">[Quantity] <span style="color: #0000ff;">SmallInt</span>,</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">[Discount] <span style="color: #0000ff;">Real</span>)</pre>
+</div>
+</div>
+SQLBulkCopy is a fast efficient way to do bulk copy operations. It is useful when you are handling large amount of data for simple operations such as copying from one location to another.
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:1386bcbe-e058-4a2a-a19e-cfcce06f9e15" class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/.NET">.NET</a>,<a rel="tag" href="http://technorati.com/tags/ADO.NET">ADO.NET</a></div>
 </div>
   
   
@@ -195,7 +325,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/02/17/create-silverlight-game-and-win-5000/">Create Silverlight Game and Win $5000</a></h1>
+      <h1 class="entry-title"><a href="/2008/08/13/tutorial-reading-a-text-file-using-linq/">Tutorial Reading a Text File Using LINQ</a></h1>
     
     
       <p class="meta">
@@ -211,16 +341,109 @@
   
 
 
-<time datetime="2009-02-17T00:00:00+11:00" pubdate data-updated="true">Feb 17<span>th</span>, 2009</time>
+<time datetime="2008-08-13T00:00:00+10:00" pubdate data-updated="true">Aug 13<span>th</span>, 2008</time>
         
-         | <a href="/2009/02/17/create-silverlight-game-and-win-5000/#disqus_thread">Comments</a>
+         | <a href="/2008/08/13/tutorial-reading-a-text-file-using-linq/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Participants of this contest will create a game in Silverlight and the winner will get $5000 as the first prize. The contest is open to residents of US and you must be 16 years or older to enter. You can find the official rules <a href="http://www.serverquestcontest.com/rules.aspx">here</a>.&#160; You&#160; are allowed to submit 3 entries which will be judged by a panel. Best of the lot will be chosen as 18 finalists. The contest will then go into a stage where visitors will cast their votes on the finalist entries. </p>  <p><img title="Silverlight Contest" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="329" alt="Silverlight Contest" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image9.png" width="516" border="0" /> </p>  <p>There are also second and third place prizes. Read more about the contest and prizes at <a href="http://www.serverquestcontest.com/">serverquest</a>.</p>
+  <div class="entry-content"><h4>Introduction</h4>
+At times us developers have to deal with delimited text files in our applications. Such files have been around since yonks and I often come across data import/export tasks where delimited files are used. Till now the common way in .NET has been to read each line and then extract data using some sort of creative string functions within for loops. But there is another way by using LINQ. In this tutorial I will show you how to use LINQ to read such data. By the end of tutorial you will appreciate how easy and logical it is to use LINQ for reading data from delimited text files.
+<h4>Sample Data</h4>
+I will use a sample file which contains a data about customers. When working with text files we must know the number of columns and the data contained in each column. Below is a list of columns in their right order for our file.
+<ol>
+	<li>First Name</li>
+	<li>Last Name</li>
+	<li>Job Title</li>
+	<li>City</li>
+	<li>Country</li>
+</ol>
+The file itself will contain this data. I have pulled this out of Employees table in Northwind database.
+
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image23.png" border="0" alt="image" width="462" height="233" />
+<h4>Reading Data</h4>
+Before we start reading our csv file we will create a class which will hold a record we will read from our csv file. For this I will create a customer class which looks like this. I know I pulled data from Employees table so just imagine that data above is customer data. Employees can also be customers ;)
+
+ 
+<pre class="lang:c# decode:true " >public class Customer
+{
+  string Firstname { get; set; }
+  string Lastname { get; set; }
+  string JobTitle { get; set; }
+  string City { get; set; }
+  string Country { get; set; }
+}</pre> 
+
+
+<h5>Reading Entire File</h5>
+Now we are ready to read data from our file using LINQ. Using this code we can read the entire file. I am also using a foreach statement to output the results.
+
+ 
+<pre class="lang:c# decode:true " >var query =
+  from line in File.ReadAllLines(filePath)
+  let customerRecord = line.Split(',')
+  select new Customer()
+  {
+    Firstname = customerRecord[0],
+    Lastname = customerRecord[1],
+    JobTitle = customerRecord[2],
+    City = customerRecord[3],
+    Country = customerRecord[4]
+  };
+
+foreach (var item in query)
+{
+  Console.WriteLine("{0}, {1}, {2}, {3}, {4}",
+    item.Firstname, item.Lastname, item.JobTitle, item.City, item.Country);
+}</pre> 
+
+
+File.ReadAllLines() returns an array of lines and we then use the split function of array to split it by a comma. Its just that simple.
+<h5>Reading selected records</h5>
+We can use this code to read all customers who live in UK.
+
+ 
+<pre class="lang:c# decode:true " >var query =
+  from c in
+  (from line in File.ReadAllLines(filePath)
+    let customerRecord = line.Split(',')
+    select new Customer()
+    {
+      Firstname = customerRecord[0],
+      Lastname = customerRecord[1],
+      JobTitle = customerRecord[2],
+      City = customerRecord[3],
+      Country = customerRecord[4]
+    })
+    where c.Country == "UK"
+    select c;</pre> 
+
+
+This code can be used to read customers who have sales in their job title.
+
+ 
+<pre class="lang:c# decode:true " >var query =
+        from c in
+            (from line in File.ReadAllLines(filePath)
+             let customerRecord = line.Split(',')
+             select new Customer()
+                 {
+                     Firstname = customerRecord[0],
+                     Lastname = customerRecord[1],
+                     JobTitle = customerRecord[2],
+                     City = customerRecord[3],
+                     Country = customerRecord[4]
+                 })
+        where c.JobTitle.Contains("Sales")
+        select c;</pre> 
+
+
+I am sure that above queries can be polished by using a bit more syntax sugar but I am just too excited to see LINQ working with a csv file.
+<h4>Conclusion</h4>
+LINQ makes it extremely simple to work with delimited text files. Once we have the records from a csv file in an object we can use all the power of LINQ to query our hearts out on such files. This functionality is available to us via LINQ to objects and we do not need another flavour of LINQ to achieve this. Stay tuned for more posts on LINQ.
 </div>
   
   
@@ -233,7 +456,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/02/11/t-sql-return-empty-string-instead-of-null/">T-SQL Return Empty String Instead of Null</a></h1>
+      <h1 class="entry-title"><a href="/2008/08/09/refactoring-in-visual-studio-2008/">Refactoring in Visual Studio 2008</a></h1>
     
     
       <p class="meta">
@@ -249,22 +472,187 @@
   
 
 
-<time datetime="2009-02-11T00:00:00+11:00" pubdate data-updated="true">Feb 11<span>th</span>, 2009</time>
+<time datetime="2008-08-09T00:00:00+10:00" pubdate data-updated="true">Aug 9<span>th</span>, 2008</time>
         
-         | <a href="/2009/02/11/t-sql-return-empty-string-instead-of-null/#disqus_thread">Comments</a>
+         | <a href="/2008/08/09/refactoring-in-visual-studio-2008/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>There are times when we want to return empty strings for column(s) which have NULL values. T-SQL makes this easy with ISNULL function. Two parameters for this function are:    <br /></p>  <ol>   <li>The column in question </li>    <li>Replacement value </li> </ol>  <p>&#160;</p>  <p>Here is an example query for Customers table in Northwind database. This query will select Region column from the table and return blank strings where it finds NULL.</p>  
+  <div class="entry-content">While there is a lot of talk about refactoring tools such as Resharper and Refactor Pro, not much is said about refactoring features available in Visual Studio 2008 straight out of the box. I think Resharper and Refactor Pro are fantastic tools but they cost money and most of the time our refactoring needs are simple or you maybe in an environment where such tools are not available. So what do you do? Worry not, Visual Studio comes with excellent refactoring support. In this post I will show different refactoring features of Visual Studio.
 
-<pre class="lang:tsql decode:true " >SELECT ISNULL(Region,'') FROM Customers</pre>
+Refactoring can be accessed either by going to Refactor menu or by right clicking on the text editor. Visual Studio comes with 7 refactoring options as seen below.
 
-<p>Here is a partial screenshot of the resultset returned. You can see that the value for top rows is blank. These are actually NULL in database.</p>
+<img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image15.png" border="0" alt="image" width="305" height="194" />
 
-<p><img title="image" style="border-top-width: 0px; display: inline; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="226" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image7.png" width="135" border="0" /></p>
+I will now show you how some of these refactorings work. I will work with this simple piece of code to illustrate simple refactorings. I will use another code sample for some refactorings. You will see it when it is required.
+<div>
+<div style="border-style: none; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> Main(<span style="color: #0000ff;">string</span>[] args)</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">{</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    <span style="color: #0000ff;">string</span> msg = <span style="color: #006080;">"Hello"</span>;</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    <span style="color: #0000ff;">if</span> (msg != <span style="color: #0000ff;">string</span>.Empty)</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    {</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">        Console.WriteLine(msg);</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">}</pre>
+</div>
+</div>
+<h4>Rename</h4>
+This is perhaps simplest of all. It renames a member. This refactoring comes in very handy and is most likely one of the most used refactoring. It can rename a member within scope. Here I have few lines of code with a member declared as msg. To rename the member I just need to put my cursor on the member name and click on Refator &#8211;&gt; Rename menu or hit F2.
+
+<img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image16.png" border="0" alt="image" width="511" height="299" />
+
+I can also include comments and/or strings in my refactor operation. Here I will ask msg to be renamed to message. Clicking OK on the dialog above opens another dialog where I can preview my changes.
+
+<img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image17.png" border="0" alt="image" width="562" height="449" />
+<h4>Extract Method</h4>
+Extract Method extracts a method out of one or many statements. I can extract a method for the code within if statement. I am presented with a dialog which asks me the name of my new method. It is also smart enough to figure out that I need a parameter passed into this method.
+
+<img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image18.png" border="0" alt="image" width="560" height="222" />
+
+Resulting code now looks like this.
+<div>
+<div style="border-style: none; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"><span style="color: #0000ff;">class</span> Program</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">{</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> Main(<span style="color: #0000ff;">string</span>[] args)</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    {</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">        <span style="color: #0000ff;">string</span> msg = <span style="color: #006080;">"Hello"</span>;</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">        PrintToConsole(msg);</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> PrintToConsole(<span style="color: #0000ff;">string</span> msg)</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    {</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">        <span style="color: #0000ff;">if</span> (msg != <span style="color: #0000ff;">string</span>.Empty)</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">        {</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">            Console.WriteLine(msg);</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">        }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">}</pre>
+</div>
+</div>
+<h4>Encapsulate Field</h4>
+From here on I will use a different code sample. This code sample is a customer object with two variables and a method.
+<div>
+<div style="border-style: none; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> Customer</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">{</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">string</span> name;</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">string</span> address;</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> PrintCustomerInformation()</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    {</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">        <span style="color: #0000ff;">string</span> result =</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">            <span style="color: #0000ff;">string</span>.Format(<span style="color: #006080;">"Name = {0}nAddress = {1}n"</span>, Name, Address);</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">}</pre>
+</div>
+</div>
+This refactoring converts a private variable into a public property. By running Encapsulate Field on the private name variable presents this screen.
+
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image19.png" border="0" alt="image" width="423" height="320" />
+
+Once again I get a preview of changes which will be made.
+
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image20.png" border="0" alt="image" width="562" height="449" />
+
+I will also apply Encapsulate Field to address variable. The resulting code is modified to this.
+<div>
+<div style="border-style: none; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> Customer</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">{</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">string</span> name;</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> Name</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    {</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">        get { <span style="color: #0000ff;">return</span> name; }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">        set { name = <span style="color: #0000ff;">value</span>; }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">string</span> address;</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> Address</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    {</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">        get { <span style="color: #0000ff;">return</span> address; }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">        set { address = <span style="color: #0000ff;">value</span>; }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> PrintCustomerInformation()</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    {</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">        <span style="color: #0000ff;">string</span> result =</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">            <span style="color: #0000ff;">string</span>.Format(<span style="color: #006080;">"Name = {0}nAddress = {1}n"</span>, name, address);</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">}</pre>
+</div>
+</div>
+<h4>Extract Interface</h4>
+Extract Interface as the name says will extract an interface based on the members I select. By running Extract Interface I am presented with a dialog where I can select the members I wish to include in my interface definition. For this example I will include all Address, Name and PrintCustomerInformation members. I will also name my interface ICustomer.
+
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image21.png" border="0" alt="image" width="473" height="379" />
+
+By applying this refactoring Visual Studio creates another file for ICustomer interface. The resulting code of both files looks like this.
+<div>
+<div style="border-style: none; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"><span style="color: #0000ff;">interface</span> ICustomer</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">{</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    <span style="color: #0000ff;">string</span> Address { get; set; }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    <span style="color: #0000ff;">string</span> Name { get; set; }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    <span style="color: #0000ff;">void</span> PrintCustomerInformation();</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">}</pre>
+</div>
+</div>
+<div>
+<div style="border-style: none; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> Customer : RefactoringDemo.ICustomer</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">{</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">string</span> name;</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> Name</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    {</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">        get { <span style="color: #0000ff;">return</span> name; }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">        set { name = <span style="color: #0000ff;">value</span>; }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">string</span> address;</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> Address</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    {</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">        get { <span style="color: #0000ff;">return</span> address; }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">        set { address = <span style="color: #0000ff;">value</span>; }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> PrintCustomerInformation()</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    {</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">        <span style="color: #0000ff;">string</span> result =</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">            <span style="color: #0000ff;">string</span>.Format(<span style="color: #006080;">"Name = {0}nAddress = {1}n"</span>, name, address);</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    }</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">}</pre>
+</div>
+</div>
+<h4>Conclusion</h4>
+Visual Studio refactoring tools may not be at the level of Resharper or Refactor Pro but they are powerful enough for most refactoring jobs. I have demonstrated some of these here. If you are interested in learning more about refactoring then I highly recommend this classic book.
+<table border="0">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Technology/dp/0201485672%3FSubscriptionId%3D0525E2PQ81DD7ZTWTK82%26tag%3Dws%26linkCode%3Dsp1%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0201485672"><img src="http://ecx.images-amazon.com/images/I/519XT0DER6L._SL75_.jpg" border="1" alt="" /></a></td>
+<td valign="top"><strong>Refactoring: Improving the Design of Existing Code (The Addison-Wesley Object Technology Series)</strong>
+
+by Martin Fowler, Kent Beck, John Brant, William Opdyke, Don Roberts
+
+<a href="http://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Technology/dp/0201485672%3FSubscriptionId%3D0525E2PQ81DD7ZTWTK82%26tag%3Dws%26linkCode%3Dsp1%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0201485672">Read more about this book&#8230;</a></td>
+</tr>
+</tbody></table>
+<a href="http://www.dotnetkicks.com/kick/?url=http%3a%2f%2fwww.thereforesystems.com%2frefactoring-in-visual-studio-2008%2f"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fwww.thereforesystems.com%2frefactoring-in-visual-studio-2008%2f" border="0" alt="kick it on DotNetKicks.com" /></a>
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:0bf14328-0add-479c-9f70-8816ac22108d" class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/Visual%20Studio">Visual Studio</a></div>
 </div>
   
   
@@ -287,6 +675,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/11/27/octopress-setup-existing-blog-on-another-machine/">Octopress-Setup Existing Blog on Another Machine</a>
+      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -322,10 +714,6 @@
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

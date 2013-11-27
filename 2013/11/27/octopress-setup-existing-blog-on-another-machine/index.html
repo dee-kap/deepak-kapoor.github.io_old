@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>How Do I Display Line Numbers In Visual Studio - Deepak Kapoor</title>
+  <title>Octopress-Setup existing blog on another machine - Deepak Kapoor</title>
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="Go to Tools &#8211;&gt; Options &#8211;&gt; Text Editor &#8211;&gt; All Languages and check Line numbers checkbox. Technorati Tags: Visual Studio, &hellip;">
+  <meta name="description" content="I am enjoying tinkering with Octopress and at present it feels like I will use it at-least for foreseeable future. And so today I decided to install &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.deepakkapoor.net/2008/08/09/tip-1-how-do-i-display-line-numbers-in-visual-studio">
+  <link rel="canonical" href="http://www.deepakkapoor.net/2013/11/27/octopress-setup-existing-blog-on-another-machine">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/deepakkapoor" rel="alternate" title="Deepak Kapoor" type="application/atom+xml">
@@ -72,7 +72,7 @@
   
   <header>
     
-      <h1 class="entry-title">How Do I Display Line Numbers in Visual Studio</h1>
+      <h1 class="entry-title">Octopress-Setup Existing Blog on Another Machine</h1>
     
     
       <p class="meta">
@@ -88,7 +88,7 @@
   
 
 
-<time datetime="2008-08-09T00:00:00+10:00" pubdate data-updated="true">Aug 9<span>th</span>, 2008</time>
+<time datetime="2013-11-27T22:41:00+11:00" pubdate data-updated="true">Nov 27<span>th</span>, 2013</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -97,10 +97,29 @@
   </header>
 
 
-<div class="entry-content">Go to Tools &#8211;&gt; Options &#8211;&gt; Text Editor &#8211;&gt; All Languages and check Line numbers checkbox.
+<div class="entry-content"><p>I am enjoying tinkering with <a href="http://octopress.org">Octopress</a> and at present it feels like I will use it at-least for foreseeable future. And so today I decided to install Octopress on my other machine. It&rsquo;s a mac if you must ask. After setting up Octopress and pulling from my <a href="https://github.com/deepak-kapoor">Github</a> repo, I was ready to make some changes to the blog. These are the steps I followed so that I could contribute to my existing Octopress blog which is hosted on Github.</p>
 
-<a href="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image14.png"><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image-thumb1.png" border="0" alt="image" width="555" height="438" /></a>
-<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:fdb15ab2-4e23-41f0-87b4-0b06d13e91be" class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/Visual%20Studio">Visual Studio</a>,<a rel="tag" href="http://technorati.com/tags/Tips">Tips</a></div>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git clone http://github.com/deepak-kapoor/deepak-kapoor.github.io.git
+</span><span class='line'>$ cd deepak-kapoor.github.io.git
+</span><span class='line'>$ git checkout source
+</span><span class='line'>$ mkdir _deploy
+</span><span class='line'>$ cd _deploy
+</span><span class='line'>$ git init
+</span><span class='line'>$ git remote add origin http://github.com/deepak-kapoor/deepak-kapoor.github.io.git
+</span><span class='line'>$ git pull origin master
+</span><span class='line'>$ cd ..</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After this setup I was up and running. This is the first post from the new machine.</p>
 </div>
 
 
@@ -123,21 +142,15 @@
   
 
 
-<time datetime="2008-08-09T00:00:00+10:00" pubdate data-updated="true">Aug 9<span>th</span>, 2008</time>
+<time datetime="2013-11-27T22:41:00+11:00" pubdate data-updated="true">Nov 27<span>th</span>, 2013</time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/microsoft/'>Microsoft</a>, <a class='category' href='/blog/categories/visual-studio/'>Visual Studio</a>
-  
-</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.deepakkapoor.net/2008/08/09/tip-1-how-do-i-display-line-numbers-in-visual-studio/" data-via="" data-counturl="http://www.deepakkapoor.net/2008/08/09/tip-1-how-do-i-display-line-numbers-in-visual-studio/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.deepakkapoor.net/2013/11/27/octopress-setup-existing-blog-on-another-machine/" data-via="" data-counturl="http://www.deepakkapoor.net/2013/11/27/octopress-setup-existing-blog-on-another-machine/" >Tweet</a>
   
   
   
@@ -146,10 +159,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2008/08/09/refactoring-in-visual-studio-2008/" title="Previous Post: Refactoring In Visual Studio 2008">&laquo; Refactoring In Visual Studio 2008</a>
+        <a class="basic-alignment left" href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/" title="Previous Post: Linux - Set wireless bit rate permanently on Ubuntu or Linux Mint">&laquo; Linux - Set wireless bit rate permanently on Ubuntu or Linux Mint</a>
       
-      
-        <a class="basic-alignment right" href="/2008/08/11/exam-70-502-microsoft-net-framework-35-windows-presentation-foundation-study-links-part-2/" title="Next Post: Exam 70-502 Microsoft .NET Framework 3.5 Windows Presentation Foundation Study Links – Part 2">Exam 70-502 Microsoft .NET Framework 3.5 Windows Presentation Foundation Study Links – Part 2 &raquo;</a>
       
     </p>
   </footer>
@@ -168,6 +179,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/11/27/octopress-setup-existing-blog-on-another-machine/">Octopress-Setup Existing Blog on Another Machine</a>
+      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -203,10 +218,6 @@
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>
@@ -264,8 +275,8 @@ alt="free hit counters"></a></div></noscript>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.deepakkapoor.net/2008/08/09/tip-1-how-do-i-display-line-numbers-in-visual-studio/';
-        var disqus_url = 'http://www.deepakkapoor.net/2008/08/09/tip-1-how-do-i-display-line-numbers-in-visual-studio/';
+        var disqus_identifier = 'http://www.deepakkapoor.net/2013/11/27/octopress-setup-existing-blog-on-another-machine/';
+        var disqus_url = 'http://www.deepakkapoor.net/2013/11/27/octopress-setup-existing-blog-on-another-machine/';
         var disqus_script = 'embed.js';
       
     (function () {

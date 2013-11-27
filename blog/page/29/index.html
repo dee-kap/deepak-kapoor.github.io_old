@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="This script returns all default constraints on a table in a SQL Server 2008 database. It gives me the name and definition of the constraints on &hellip;">
+  <meta name="description" content="As a programmer I love my enums. I find code written using enums to be more readable than without them. However, there has been and there still is a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,7 +75,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/12/sql-server-2008-find-default-constraints-on-a-table-using-t-sql/">SQL Server 2008 – Find Default Constraints on a Table Using T-SQL</a></h1>
+      <h1 class="entry-title"><a href="/2008/11/18/enum-support-with-linq-to-sql-and-sqlmetal/">Enum Support With LINQ to SQL and SqlMetal</a></h1>
     
     
       <p class="meta">
@@ -91,25 +91,16 @@
   
 
 
-<time datetime="2009-03-12T00:00:00+11:00" pubdate data-updated="true">Mar 12<span>th</span>, 2009</time>
+<time datetime="2008-11-18T00:00:00+11:00" pubdate data-updated="true">Nov 18<span>th</span>, 2008</time>
         
-         | <a href="/2009/03/12/sql-server-2008-find-default-constraints-on-a-table-using-t-sql/#disqus_thread">Comments</a>
+         | <a href="/2008/11/18/enum-support-with-linq-to-sql-and-sqlmetal/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>This script returns all default constraints on a table in a SQL Server 2008 database. It gives me the name and definition of the constraints on Person.Address table in Adventure Works database. You can substitute the table name with any other table to get the constraints for that table.</p>  <pre class="code"><span style="color: blue">SELECT    </span>[name]<span style="color: gray">,
-        </span>[definition]
-<span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">default_constraints
-</span><span style="color: blue">WHERE </span>parent_object_id <span style="color: gray">= 
-    (</span><span style="color: blue">SELECT </span><span style="color: magenta">OBJECT_ID </span><span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">tables
-    </span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'Address'</span><span style="color: gray">)</span></pre>
-
-<p><a href="http://11011.net/software/vspaste"></a></p>
-
-<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="68" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image15.png" width="317" border="0" /></p>
+  <div class="entry-content"><p>As a programmer I love my enums. I find code written using enums to be more readable than without them. However, there has been and there still is a disconnect between lookup tables in a database and enums in code. One has to restore to some creative trickery to get them working in harmony. Recently while working on a project which involves using LINQ To SQL, I came up with a process which gives me the best of both worlds i.e. using lookup tables in database and enums in code. I am documenting my solution here. Hopefully it will help you.</p>  <p>&#160;</p>  <h4>The problem</h4>  <p>In my database I have two tables. To make things simple I will call them Customer and CustomerStatus. Customer table stores information about a customer and CustomerStatus table is a lookup table which will store values such as &quot;Active&quot; and &quot;Inactive&quot;.</p>  <p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="146" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/11/image6.png" width="459" border="0" /> </p>  <p>For CustomerStatus I would like to use an enum in code. This can be done using the designer as explained <a href="http://geekswithblogs.net/robp/archive/2008/05/19/using-c-enumerations-as-linq-to-sql-entity-properties.aspx">here</a>. But I would like to use SqlMetal to automate code generation. SqlMetal does not have any options which can be used to solve my problem.</p>  <p>&#160;</p>  <h4>My Solution</h4>  <p>My solution is to generate dbml file using SqlMetal, then run a custom process which modifies dbml to make it enum ready and finally generate code using SqlMetal looking over dbml file.</p>  <p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="281" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/11/image7.png" width="261" border="0" /> </p>  <h5>Step 1</h5>  <p>Step 1 is to generate a dbml file from database using SQLMetal with a statement like this:</p>  <p><font color="#000080">SqlMetal /server:. /database:CustomerDb /dbml:CustomerDb.dbml /namespace:CustomerApp</font></p>  <p>In the dbml file I look at the column element generated for CustomerStatusID in Customer Table node. I find that it&#8217;s Type is set to System.Int32</p>  <p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="68" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/11/image8.png" width="292" border="0" /> </p>  <h5>Step 2</h5>  <p>Step 2 involves writing a process which could just be a simple console application. This process looks for usage of lookup table&#8217;s Id colum in main table and replaces the value of Type attribute with corresponding enum. I am following a naming convention so that my enums are all suffixed with Enum and in database the foreign key field on my main table is named &lt;lookup table name&gt; + Id.</p>  <p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="67" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/11/image9.png" width="278" border="0" /> </p>  <h5>Step 3 </h5>  <p>Generate code with SqlMetal. Use the option which works with a dbml file. Here is a sample statement:</p>  <p><font color="#000080">SqlMetal /code:Customer.cs /map:CustomerDb.map CustomerDb.dbml</font></p>  <div>&#160;</div>  <div>Generated code now uses the enum for CustomerStatusId property rather than System.Int32</div>  <div>&#160;</div>  <div><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="370" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/11/image10.png" width="359" border="0" /> </div>  <h5>Step 4</h5>  <p>A batch file can be created to tie this all up. Batch file will do the following things:</p>  <ol>   <li>Run SqlMetal to generate dbml file </li>    <li>Run the process which modifies dbml file as mentioned in step 2 </li>    <li>Generate code using SqlMetal from dbml file </li> </ol>  <p>&#160;</p>  <p>Doing this allows me to work with enums in my code and at the same use lookup tables in database. As an addition a simple process can also be written which can populate lookup tables with the values from enums.</p>  <p>&#160;</p> <a href="http://www.dotnetkicks.com/kick/?url=http%3a%2f%2fwww.thereforesystems.com%2fenum-support-with-linq-to-sql-and-sqlmetal%2f"><img alt="kick it on DotNetKicks.com" src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fwww.thereforesystems.com%2fenum-support-with-linq-to-sql-and-sqlmetal%2f" border="0" /></a>
 </div>
   
   
@@ -122,7 +113,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/12/installing-oracle-soa-suite-on-windows-xp/">Installing Oracle SOA Suite on Windows XP</a></h1>
+      <h1 class="entry-title"><a href="/2008/11/05/writing-visual-studio-2010-shell-in-wpf-reflects-confidence/">Writing Visual Studio 2010 Shell in WPF Reflects Confidence</a></h1>
     
     
       <p class="meta">
@@ -138,16 +129,28 @@
   
 
 
-<time datetime="2009-03-12T00:00:00+11:00" pubdate data-updated="true">Mar 12<span>th</span>, 2009</time>
+<time datetime="2008-11-05T00:00:00+11:00" pubdate data-updated="true">Nov 5<span>th</span>, 2008</time>
         
-         | <a href="/2009/03/12/installing-oracle-soa-suite-on-windows-xp/#disqus_thread">Comments</a>
+         | <a href="/2008/11/05/writing-visual-studio-2010-shell-in-wpf-reflects-confidence/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>In this post I will document my experience of installing Oracle SOA Suite on Windows XP. No I am not switching and I’m still a Microsoft developer by heart. But I do feel that for me to improve my craft I must also understand how things are done in other camps such as Oracle, SUN, IBM etc. </p>  <p>The version I installed is Oracle Application Server SOA Suite 10.1.3.1.10 and I decided to do a basic installation which installs Oracle Lite database as opposed to a full blown Oracle database. You can think of Oracle Lite as similar to SQL Server Express. </p>  <p>Installation can be started by clicking setup.exe after extracting all files form the downloaded zip. Setup.exe will conduct a quick check to see that right amount of disk space is available. After this the installation wizard starts.</p>  <p>&#160;</p>  <h4>Screen 1</h4>  <p>&#160;</p>  <p>This screen allows me to make a choice between a Basic Install or Advance Install and supply a name for my Oracle Application Server and passwords for admin account. Note that you cannot change the admin user name and database type will be Oracle OLite. Next thing is to click on Install button.</p>  <p><img title="Oracle SOA Suite On Windows Screen" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="422" alt="Oracle SOA Suite On Windows Screen" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image9.png" width="540" border="0" /></p>  <p>&#160;</p>  <h4>Screen 2</h4>  <p>&#160;</p>  <p>The wizard at this stage will happily go and install the software. This screen shows that my installation is at 74%. </p>  <p><img title="Oracle SOA Suite On Windows Screen" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="428" alt="Oracle SOA Suite On Windows Screen" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image10.png" width="540" border="0" /> </p>  <p>&#160;</p>  <h4>Error Mesage</h4>  <p>&#160;</p>  <p>At almost 99% the installer may throw an error.</p>  <p><img title="Oracle SOA Suite On Windows Screen" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="112" alt="Oracle SOA Suite On Windows Screen" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image11.png" width="540" border="0" /> </p>  <p>I just clicked okay few times and the error went away. The installer continued fine after that.</p>  <p>&#160;</p>  <h4>Screen 3</h4>  <p>&#160;</p>  <p>This screen shows that the installer is configuring required components which are required for applications in the suite. </p>  <p><img title="Oracle SOA Suite On Windows Screen" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="428" alt="Oracle SOA Suite On Windows Screen" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image12.png" width="540" border="0" /> </p>  <p>&#160;</p>  <h4>Screen 4</h4>  <p>&#160;</p>  <p>This final screen tells me that the installation was successful. Hurray!</p>  <p><img title="Oracle SOA Suite On Windows Screen" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="428" alt="Oracle SOA Suite On Windows Screen" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image13.png" width="540" border="0" /> </p>  <p>&#160;</p>  <p>After clicking exit, the start page for Oracle Suite appears.</p>  <p><img title="Oracle SOA Suite On Windows Screen" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="374" alt="Oracle SOA Suite On Windows Screen" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image14.png" width="540" border="0" /> </p>  <h4>Conclusion</h4>  <p>&#160;</p>  <p>Overall experience of installing Oracle SOA Suite on WindowsXP is pleasant. The installer other than a minor hitch does a good job without nagging you with too many questions. </p>  <p>Now that I have the suite installed, I’ll play with it a bit more and post my learning experiences here. </p>  <p>You can download Oracle SOA Suite for Windows <a href="http://www.oracle.com/technology/software/tech/soa/index.html">here</a>.</p>
+  <div class="entry-content"><h4>Where are we today?</h4>
+Since its inception as Avalon I have dedicated countless hours to the technology we now know as WPF. I can probably say that I am one of the few people who have worked on WPF at a commercial level at least in Australia. This is because the number of projects using WPF have been scarce. And I was fortunate to get involved because of my community work around WPF.
+
+I have also tried to convince clients to go with WPF as the preferred choice over Windows Forms. I will admit that I have not been very successful in doing this. The main reason I believe is that WPF has suffered with lack of confidence. While the push has been there from Microsoft, somehow it has not come across very well. We all know about demos about spinning text boxes and playing videos in buttons. These I must say have not conveyed the benefits of WPF to business gracefully. Even though Microsoft has used WPF for their Expression products, it just has not been enough.
+<h4>Do I see things changing?</h4>
+You bet! With Microsoft writing Visual Studio 2010 shell using WPF, it will change the opinions about this technology in minds of many. Visual Studio is an integral part of any dev shop running Microsoft Platform. And when the flagship product which is bread and butter of millions of developers uses WPF it delivers a confident statement. Microsoft by using WPF for development of Visual Studio will communicate the benefits of data visualization better than any number of presentations. When you will work with Visual Studio 2010 I am sure the conversation will be something like this. Hey! Look at that Architecture Explorer. I really like the way it lays out all those diagrams. Did you know that the entire shell is written in WPF?
+<h4>What else can Microsoft do?</h4>
+Visual Studio 2010 launch will be a defining point for WPF&#8217;s future. Microsoft should produce white papers, guidance documents and start conversation around how they used WPF for development of Visual Studio. I have always felt that a successful path to WPF is through interop with Windows Forms. Somehow that balance has been missing or the message has not been sent out properly. I cannot imagine Visual Studio 2010 to be without significant interop between WPF and Windows Forms. This is also a golden opportunity for Microsoft to talk about their journey on the interop path. How decisions were made, when and how did they engage designers, did the collaboration between designers and developers work well? Microsoft should start talking about these topics.
+<h4>Finally</h4>
+Seize the moment by which I mean the beta cycle for Visual Studio 2010. This is the time for WPF to shine. For a glimpse of Visual Studio 2010 here is screenshot from <a href="http://blogs.msdn.com/tims/archive/2008/11/03/wpf-developers-pdc-wrap-up-and-visual-studio-tooling-update.aspx">Tim&#8217;s blog</a>.
+
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/11/image3.png" border="0" alt="Visual Studio 2010" width="550" height="414" />
+<a href="http://www.dotnetkicks.com/kick/?url=http%3a%2f%2fwww.thereforesystems.com%2fwriting-visual-studio-2010-shell-in-wpf-reflects-confidence%2f"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fwww.thereforesystems.com%2fwriting-visual-studio-2010-shell-in-wpf-reflects-confidence%2f" border="0" alt="kick it on DotNetKicks.com" /></a>
 </div>
   
   
@@ -160,7 +163,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/09/get-processor-information-in-net-using-c/">Get Processor Information in .NET Using C#</a></h1>
+      <h1 class="entry-title"><a href="/2008/11/05/wi-fi-not-working-with-vodafone-software/">Wi-Fi Not Working With Vodafone Software</a></h1>
     
     
       <p class="meta">
@@ -176,48 +179,26 @@
   
 
 
-<time datetime="2009-03-09T00:00:00+11:00" pubdate data-updated="true">Mar 9<span>th</span>, 2009</time>
+<time datetime="2008-11-05T00:00:00+11:00" pubdate data-updated="true">Nov 5<span>th</span>, 2008</time>
         
-         | <a href="/2009/03/09/get-processor-information-in-net-using-c/#disqus_thread">Comments</a>
+         | <a href="/2008/11/05/wi-fi-not-working-with-vodafone-software/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>.NET Framework provides classes which give information about the machine on which code is executed. One Such class is <strong>System.Environment</strong> which gives us things like Machine Name, OS Version and much more. I recently had a requirement to programmatically detect the number of Processors on a machine. I thought this was a simple enough task. <strong>System.Environment.ProcessorCount</strong> gives me that information. But I was in for a surprise. Let me walk you through my findings.</p>  <p>On my machine I have a dual core CPU which I can quickly see by opening Task Manager.</p>  <p><img title="Task Manager" style="border-top-width: 0px; display: inline; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="464" alt="Task Manager" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image8.png" width="412" border="0" /></p>  <p>What do you think is the output of this statement.</p>  <pre class="code"><span style="color: #2b91af">Console</span>.WriteLine(System.<span style="color: #2b91af">Environment</span>.ProcessorCount.ToString());</pre>
+  <div class="entry-content">As a part of my job I often travel around Sydney so I use a <a href="http://www.vodafone.com.au">Vodafone mobile Internet</a> connection to keep myself connected. At home I connect to my wireless network. Recently I faced a problem with my <a href="http://www.hardwarezone.com.au/reviews/view.php?cid=14&amp;id=2700">new laptop</a>. The issue was that I could not connect to wireless network at home. After many attempts to repair, renew my IP address and apply other tricks I decided to uninstall Vodafone software. After uninstalling Vodafone software I could connect to Wi-Fi. But I need to connect to mobile internet when I am on road. Thankfully I found the solution to my problem
+<h4>Solution</h4>
+Ditch the Vodafone software and start using <a href="http://www.nerve.org.za/mdma/">MDMA (Mobile Data Monitoring Application)</a>. MDMA does not require you to install anything and works without any problems. I can now connect to mobile Internet and to Wi-Fi without any fuss.
 
-<p><a href="http://11011.net/software/vspaste"></a></p>
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/11/image2.png" border="0" alt="MDMA" width="442" height="480" />
 
-<p>The output is <strong>2</strong>. But I have one physical processor so I expected to see <strong>1</strong>. I could not find a way to get this information from the framework. So I went to good old WMI for this. Running this code gives me accurate information about my processor.</p>
+<a href="http://www.nerve.org.za/mdma/">MDMA</a> is also very light weight and has a small memory footprint.
 
-<pre class="code"><span style="color: #2b91af">ManagementObjectSearcher </span>mgmtObjects = </pre>
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/11/image1.png" border="0" alt="MDMA" width="412" height="457" />
 
-<pre class="code">  <span style="color: blue">new </span><span style="color: #2b91af">ManagementObjectSearcher</span>(<span style="color: #a31515">&quot;Select * from Win32_ComputerSystem&quot;</span>);
-
-<span style="color: blue">foreach </span>(<span style="color: blue">var </span>item <span style="color: blue">in </span>mgmtObjects.Get())
-{
-<span style="color: #2b91af">  Console</span>.WriteLine(<span style="color: #a31515">&quot;Number Of Processors - &quot; </span>+ </pre>
-
-<pre class="code">                     item[<span style="color: #a31515">&quot;NumberOfProcessors&quot;</span>]);
-<span style="color: #2b91af">  Console</span>.WriteLine(<span style="color: #a31515">&quot;Number Of Logical Processors - &quot; </span>+ </pre>
-
-<pre class="code">                     item[<span style="color: #a31515">&quot;NumberOfLogicalProcessors&quot;</span>]);
-}</pre>
-<a href="http://11011.net/software/vspaste"></a>
-
-<p>&#160;</p>
-
-<p>And the output this time is</p>
-
-<p><strong>Number Of Processors – 1</strong></p>
-
-<p><strong>Number Of Logical Processors – 2 </strong></p>
-
-<p>This is exactly what I need.</p>
-
-<p>So here is my lesson learned. To get detailed and accurate information about number of processors on your machine, WMI is a better approach than <strong>System.Environment.ProcessorCount</strong>.</p>
-<a href="http://www.dotnetkicks.com/kick/?url=http%3a%2f%2fwww.thereforesystems.com%2fget-processor-information-in-net-using-c%2f"><img alt="kick it on DotNetKicks.com" src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fwww.thereforesystems.com%2fget-processor-information-in-net-using-c%2f" border="0" /></a>
+You can <a href="http://www.nerve.org.za/mdma/">download MDMA here</a>.
 </div>
   
   
@@ -230,7 +211,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/09/get-last-row-from-table-using-linq-to-sql/">Get Last Row From Table Using LINQ to SQL</a></h1>
+      <h1 class="entry-title"><a href="/2008/10/29/free-linq-to-sql-training-in-sydney/">Free LINQ to SQL Training in Sydney</a></h1>
     
     
       <p class="meta">
@@ -246,26 +227,20 @@
   
 
 
-<time datetime="2009-03-09T00:00:00+11:00" pubdate data-updated="true">Mar 9<span>th</span>, 2009</time>
+<time datetime="2008-10-29T00:00:00+11:00" pubdate data-updated="true">Oct 29<span>th</span>, 2008</time>
         
-         | <a href="/2009/03/09/get-last-row-from-table-using-linq-to-sql/#disqus_thread">Comments</a>
+         | <a href="/2008/10/29/free-linq-to-sql-training-in-sydney/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>This query returns the last row from Sales.Customer table in Adventure Works database. I am using LINQPad to write and execute my query. </p>  
+  <div class="entry-content">I am running a LINQ To SQL Training day on Saturday November 8th at Microsoft Office in North Ryde. The course is <strong>FREE</strong> for anyone to attend but there are <strong>only 20 places</strong> available. So if have not yet jumped into the wonderful world of writing LINQ queries. If you are considering LINQ To SQL for your project. If you think that you need a head start on LINQ To SQL. Then attend this one day course and give yourself a LINQ To SQL confidence boost.
 
- 
-<pre class="lang:c# decode:true " >(from c in Customers
-select c)
-.OrderByDescending(x=&gt; x.CustomerID).First()</pre> 
+You can register for this course by contacting <a href="http://blogs.msdn.com/acoat/archive/2008/10/29/free-linq-to-sql-training-in-sydney-nov-8th.aspx">Andrew Coates</a> through this <a href="http://blogs.msdn.com/acoat/contact.aspx">link</a>.
 
-
-<p>Here is the result as displayed in LINQPad</p>
-
-<p>&#160;<img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="177" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image6.png" width="425" border="0" /> </p>
+There will be computers available in the training room. You are also welcome to bring your own laptops and that way you can take the code you write during training with you. If you plan to bring your own laptop then make sure that you have Visual Studio 2008 and SQL Server 2005/2008 installed.
 </div>
   
   
@@ -278,7 +253,7 @@ select c)
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/09/get-cd-or-dvd-drive-information-using-wmi-and-c/">Get CD or DVD Drive Information Using WMI and C#</a></h1>
+      <h1 class="entry-title"><a href="/2008/09/28/how-i-fixed-error-0x80070052-on-sd-card/">How I Fixed Error 0×80070052 on SD Card</a></h1>
     
     
       <p class="meta">
@@ -294,31 +269,20 @@ select c)
   
 
 
-<time datetime="2009-03-09T00:00:00+11:00" pubdate data-updated="true">Mar 9<span>th</span>, 2009</time>
+<time datetime="2008-09-28T00:00:00+10:00" pubdate data-updated="true">Sep 28<span>th</span>, 2008</time>
         
-         | <a href="/2009/03/09/get-cd-or-dvd-drive-information-using-wmi-and-c/#disqus_thread">Comments</a>
+         | <a href="/2008/09/28/how-i-fixed-error-0x80070052-on-sd-card/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>This snippet shows you how to get information about all CD / DVD drives on your machine using WMI and C#. To run the code you need to add reference to System.Management.</p>  <pre class="code"><span style="color: #2b91af">ManagementObjectSearcher </span>mgmtObjects = </pre>
+  <div class="entry-content"><img style="border-top-width: 0px; border-left-width: 0px; float: left; border-bottom-width: 0px; border-right-width: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/09/image16.png" border="0" alt="image" width="50" height="63" /> My SD Card which I use between my PC and PDA was giving me Error 0x80070052. The error would occur when I created a new folder on the card. Initially I suspected this to be a virus but I also wanted to explore other options. And I discovered the solution pretty much by accident.
+<h5>Solution</h5>
+I had many files in the root of SD Card. <strong>Moving files from root to another folder fixed the error</strong> and I can now create new folders and copy new files.
 
-<pre class="code">  <span style="color: blue">new </span><span style="color: #2b91af">ManagementObjectSearcher</span>(<span style="color: #a31515">&quot;Select * from Win32_CDROMDrive&quot;</span>);
-
-<span style="color: blue">foreach </span>(<span style="color: blue">var </span>item <span style="color: blue">in </span>mgmtObjects.Get())
-{
-<span style="color: #2b91af">  Console</span>.WriteLine(<span style="color: #a31515">&quot;Drive Letter - t&quot; </span>+ item[<span style="color: #a31515">&quot;Drive&quot;</span>]);
-<span style="color: #2b91af">  Console</span>.WriteLine(<span style="color: #a31515">&quot;Name - t&quot; </span>+ item[<span style="color: #a31515">&quot;Name&quot;</span>]);
-}</pre>
-<a href="http://11011.net/software/vspaste"></a>
-
-<p>&#160;</p>
-
-<p>This code snippet will print out the letter and the name of all CD or DVD drives on a machine. Here is the output on my PC.</p>
-
-<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="54" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image7.png" width="378" border="0" /></p>
+So if you have too many files in the root and cannot create new folders or copy new files then check if you have a little too many files in the root. If yes, then move these files to another folder on your SD card.
 </div>
   
   
@@ -341,6 +305,10 @@ select c)
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/11/27/octopress-setup-existing-blog-on-another-machine/">Octopress-Setup Existing Blog on Another Machine</a>
+      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -376,10 +344,6 @@ select c)
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

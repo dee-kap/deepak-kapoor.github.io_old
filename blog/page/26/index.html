@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="To get width and height of an image we can use System.Drawing.Image class. This code snippet shows how to retrieve width and height of an image. &hellip;">
+  <meta name="description" content="To do this you will need to add references to System.Drawing and System.Windows.Forms. Make sure that you have following using statements: using &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,7 +75,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/31/get-width-and-height-of-image-in-c/">Get Width and Height of Image in C#</a></h1>
+      <h1 class="entry-title"><a href="/2009/02/26/programmatically-take-screenshot-using-c/">Programmatically Take Screenshot Using C#</a></h1>
     
     
       <p class="meta">
@@ -91,22 +91,32 @@
   
 
 
-<time datetime="2009-03-31T00:00:00+11:00" pubdate data-updated="true">Mar 31<span>st</span>, 2009</time>
+<time datetime="2009-02-26T00:00:00+11:00" pubdate data-updated="true">Feb 26<span>th</span>, 2009</time>
         
-         | <a href="/2009/03/31/get-width-and-height-of-image-in-c/#disqus_thread">Comments</a>
+         | <a href="/2009/02/26/programmatically-take-screenshot-using-c/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>To get width and height of an image we can use System.Drawing.Image class. This code snippet shows how to retrieve width and height of an image.</p>  
+  <div class="entry-content"><p>To do this you will need to add references to System.Drawing and System.Windows.Forms. Make sure that you have following using statements:</p>  
 
 <pre class="lang:c# decode:true " >
-string filePath = @"c:deepakMeeGo.jpg";
-Image img = Image.FromFile(filePath);
-Console.WriteLine(string.Format("Height: {0}",img.Size.Height));
-Console.WriteLine(string.Format("Width: {0}",img.Size.Width));
+using System;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Windows.Forms;
+</pre>
+
+<p>In your method add this code. It will take a screenshot of your primary screen and save it to a file.</p>
+
+<pre class="lang:c# decode:true " >
+Bitmap bitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width, 
+                  Screen.PrimaryScreen.Bounds.Height);
+Graphics graphics = Graphics.FromImage(bitmap as Image);
+graphics.CopyFromScreen(0, 0, 0, 0, bitmap.Size);
+bitmap.Save(@"c:tempscreenshot.bmp", ImageFormat.Bmp);
 </pre>
 </div>
   
@@ -120,7 +130,7 @@ Console.WriteLine(string.Format("Width: {0}",img.Size.Width));
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/29/get-windows-registry-size-with-wmi-and-c/">Get Windows Registry Size With WMI and C#</a></h1>
+      <h1 class="entry-title"><a href="/2009/02/25/mystery-of-scott-and-tiger-in-oracle/">Mystery of Scott and Tiger in Oracle</a></h1>
     
     
       <p class="meta">
@@ -136,31 +146,16 @@ Console.WriteLine(string.Format("Width: {0}",img.Size.Width));
   
 
 
-<time datetime="2009-03-29T00:00:00+11:00" pubdate data-updated="true">Mar 29<span>th</span>, 2009</time>
+<time datetime="2009-02-25T00:00:00+11:00" pubdate data-updated="true">Feb 25<span>th</span>, 2009</time>
         
-         | <a href="/2009/03/29/get-windows-registry-size-with-wmi-and-c/#disqus_thread">Comments</a>
+         | <a href="/2009/02/25/mystery-of-scott-and-tiger-in-oracle/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Windows Registry Size can be retrieved using WMI objects. This code snippet shows you how to get current size and maximum size for Windows registry.</p>  
-
-<pre class="lang:c# decode:true " >
-ManagementObjectSearcher mgmtObjects = 
-  new ManagementObjectSearcher("Select * from Win32_Registry");
-
-foreach (var item in mgmtObjects.Get())
-{
-  Console.WriteLine(string.Format("Current Size: {0}MB", item["CurrentSize"]));
-  Console.WriteLine(string.Format("Maximum Size: {0}MB", item["MaximumSize"]));
-}
-</pre>
-
-<p>The output.</p>
-
-<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Windows Registry Size" border="0" alt="Windows Registry Size" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image45.png" width="186" height="41" /></p>
+  <div class="entry-content"><p>I found this very interesting.</p>  <p>When you install Oracle, a user by the name of Scott is always created for you. This users’ password is Tiger. The user is actually named after Bruce Scott who was one of the first employees at Oracle and Tiger was his cat’s name.</p>  <p><a href="http://www.go4expert.com/forums/showthread.php?t=2252">Original Source.</a></p>
 </div>
   
   
@@ -173,7 +168,7 @@ foreach (var item in mgmtObjects.Get())
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/29/5-ways-to-remove-conficker-worm/">5 Ways to Remove Conficker Worm</a></h1>
+      <h1 class="entry-title"><a href="/2009/02/23/sql-server-get-database-mail-configuration-settings/">SQL Server – Get Database Mail Configuration Settings</a></h1>
     
     
       <p class="meta">
@@ -189,16 +184,20 @@ foreach (var item in mgmtObjects.Get())
   
 
 
-<time datetime="2009-03-29T00:00:00+11:00" pubdate data-updated="true">Mar 29<span>th</span>, 2009</time>
+<time datetime="2009-02-23T00:00:00+11:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2009</time>
         
-         | <a href="/2009/03/29/5-ways-to-remove-conficker-worm/#disqus_thread">Comments</a>
+         | <a href="/2009/02/23/sql-server-get-database-mail-configuration-settings/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Conficker worm which strikes on April 1st is already being labelled as <a href="http://www.smh.com.au/articles/2009/03/29/1238261419679.html">one of the most dangerous cyber attacks ever</a>. The way this worm works is that it sets up what are known as botnets on computers around the world. The worm goes active on April 1st when it can be used by its creators to potentially damage computers, networks and do all kind of bad guys stuff.&#160; The worm exploits <a href="http://www.microsoft.com/technet/security/bulletin/ms08-067.mspx">MS088-067 Windows Server vulnerability</a>. </p>  <p>It goes without saying that you should protect your computers. There are many removal tools available which can be used to remove Conficker from your computer. This is a list of different options you have to remove this worm.</p>  <ol>   <li><a href="http://vil.nai.com/vil/conficker_stinger/Stinger_Coficker.exe">McAftee AVERT Stinger Conficker</a></li>    <li><a href="http://www.microsoft.com/windows/enterprise/technologies/mdop.aspx">Stand-Alone System Sweeper tool (available as part of Microsoft Desktop Optimization Pack)</a>.</li>    <li><a href="http://www.enigmasoftware.com/a1/download/cfremover.exe">Enigma Software Conficker Removal Tool</a>.</li>    <li><a href="http://www.f-secure.com/v-descs/worm_w32_downadup_al.shtml">Removal tool by F-Secure</a>.</li>    <li><a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=AD724AE0-E72D-4F54-9AB3-75B8EB148356&amp;displaylang=en">Windows Malicious Software Removal Tool by Microsoft</a>.</li> </ol>  <p>&#160;</p>  <p>As a good practice you should always keep your system patched. This can be done by configuring automatic updates on your windows computer. Keep it safe, keep it updated :)</p> <img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image44.png" width="540" height="136" />
+  <div class="entry-content"><p>Database Mail configuration settings can be retrieved using <strong>sysmail_help_configure_sp</strong> stored procedure. Like other database mail object, this stored procedure also resides in msdb database. Running the stored procedure on my machine gives the following results.</p>  
+
+<pre class="lang:tsql decode:true " >sysmail_help_configure_sp</pre>
+
+<p><img title="sysmail_help_configure_sp" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="165" alt="sysmail_help_configure_sp" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image12.png" width="525" border="0" /></p>
 </div>
   
   
@@ -211,7 +210,7 @@ foreach (var item in mgmtObjects.Get())
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/26/reverse-array-elements-using-c/">Reverse Array Elements Using C#</a></h1>
+      <h1 class="entry-title"><a href="/2009/02/23/sql-server-2008-get-space-used-by-a-table/">SQL Server 2008 – Get Space Used by a Table</a></h1>
     
     
       <p class="meta">
@@ -227,72 +226,22 @@ foreach (var item in mgmtObjects.Get())
   
 
 
-<time datetime="2009-03-26T00:00:00+11:00" pubdate data-updated="true">Mar 26<span>th</span>, 2009</time>
+<time datetime="2009-02-23T00:00:00+11:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2009</time>
         
-         | <a href="/2009/03/26/reverse-array-elements-using-c/#disqus_thread">Comments</a>
+         | <a href="/2009/02/23/sql-server-2008-get-space-used-by-a-table/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>In .Net Framework reversing array elements can be done by using Reverse method on Array type. This code snippet shows you how this method can be used to reverse an array. </p>  
+  <div class="entry-content"><p>You can easily get information on how much space a table is using by executing <strong>sp_spaceused </strong>stored procedure. Executing the following query on AdventureWorks database shows me how much space Person.Contact table is using. Information presented is detailed which includes the number of rows, reserved space, index size, space used by data and any unused space in kilo-bytes.</p>  
 
-<pre class="lang:c# decode:true " >
-// Declare an array with 10 elements
-int[] numbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+ 
+<pre class="lang:tsql decode:true " >exec sp_spaceused [Person.Contact]</pre> 
 
-// Output elements in original order
-for (int i = 0; i < numbers.Length; i++)
-{
-  Console.Write(" {0}", numbers[i]);
-}
-Console.WriteLine();
 
-// Reverse the array
-Array.Reverse(numbers);
-
-// Output elements with changed order
-for (int i = 0; i < numbers.Length; i++)
-{
-  Console.Write(" {0}", numbers[i]);
-}
-
-Console.ReadKey();
-</pre>
-
-<p>Here is the output.</p>
-
-<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image42.png" width="208" height="45" /> </p>
-
-<p>Array.Reverse method also provides an overload which can be used to reverse elements at a given indexes. For example we want to reverse elements 3, 4 and 5 but leave others intact. This can be achieved using the following code snippet.</p>
-
-<pre class="lang:c# decode:true " >
-// Declare an array with 10 elements
-int[] numbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-
-// Output elements in original order
-for (int i = 0; i < numbers.Length; i++)
-{
-   Console.Write(" {0}", numbers[i]);
-}
-Console.WriteLine();
-
-// Reverse numbers 3 , 4 and 5
-Array.Reverse(numbers, 2, 3);
-
-// Output elements with changed order
-for (int i = 0; i < numbers.Length; i++)
-{
-  Console.Write(" {0}", numbers[i]);
-}
-
-Console.ReadKey();
-</pre>
-
-<p>And the output is.</p>
-
-<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image43.png" width="186" height="59" /></p>
+<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="68" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image11.png" width="423" border="0" /></p>
 </div>
   
   
@@ -305,7 +254,7 @@ Console.ReadKey();
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/24/sql-server-2008-get-all-indexes-in-a-database/">SQL Server 2008 – Get All Indexes in a Database</a></h1>
+      <h1 class="entry-title"><a href="/2009/02/11/t-sql-return-empty-string-instead-of-null/">T-SQL Return Empty String Instead of Null</a></h1>
     
     
       <p class="meta">
@@ -321,22 +270,22 @@ Console.ReadKey();
   
 
 
-<time datetime="2009-03-24T00:00:00+11:00" pubdate data-updated="true">Mar 24<span>th</span>, 2009</time>
+<time datetime="2009-02-11T00:00:00+11:00" pubdate data-updated="true">Feb 11<span>th</span>, 2009</time>
         
-         | <a href="/2009/03/24/sql-server-2008-get-all-indexes-in-a-database/#disqus_thread">Comments</a>
+         | <a href="/2009/02/11/t-sql-return-empty-string-instead-of-null/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>You’ve got to love sys views in SQL Server. While learning about performance tuning on SQL Server 2008 I wanted to get a list of all Indexes on my database and the answer was as simple as it can be. Here i a statement which can be used to get a list of all indexes on a database.</p>  
+  <div class="entry-content"><p>There are times when we want to return empty strings for column(s) which have NULL values. T-SQL makes this easy with ISNULL function. Two parameters for this function are:    <br /></p>  <ol>   <li>The column in question </li>    <li>Replacement value </li> </ol>  <p>&#160;</p>  <p>Here is an example query for Customers table in Northwind database. This query will select Region column from the table and return blank strings where it finds NULL.</p>  
 
-<pre class="lang:tsql decode:true " >SELECT * FROM sys.indexes</pre>
+<pre class="lang:tsql decode:true " >SELECT ISNULL(Region,'') FROM Customers</pre>
 
-<p>And here is the partial output from AdventureWorks database.</p>
+<p>Here is a partial screenshot of the resultset returned. You can see that the value for top rows is blank. These are actually NULL in database.</p>
 
-<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="sys.indexes" border="0" alt="sys.indexes" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image39.png" width="458" height="279" /></p>
+<p><img title="image" style="border-top-width: 0px; display: inline; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="226" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image7.png" width="135" border="0" /></p>
 </div>
   
   
@@ -359,6 +308,10 @@ Console.ReadKey();
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/11/27/octopress-setup-existing-blog-on-another-machine/">Octopress-Setup Existing Blog on Another Machine</a>
+      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -394,10 +347,6 @@ Console.ReadKey();
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

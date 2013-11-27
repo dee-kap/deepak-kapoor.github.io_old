@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="SQL Server provides with a stored procedure which can be used to get a list of all OLEDB providers on a machine. Stored procedure: &hellip;">
+  <meta name="description" content="Event Log is a central place to log application events. These events can be errors, warnings or just information. Each event log entry in Windows &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,7 +75,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/02/11/get-a-list-of-all-oledb-providers-in-sql-server/">Get a List of All OLEDB Providers in SQL Server</a></h1>
+      <h1 class="entry-title"><a href="/2008/08/07/write-to-vista-event-log-using-c/">Write to Vista Event Log Using C#</a></h1>
     
     
       <p class="meta">
@@ -91,22 +91,44 @@
   
 
 
-<time datetime="2009-02-11T00:00:00+11:00" pubdate data-updated="true">Feb 11<span>th</span>, 2009</time>
+<time datetime="2008-08-07T00:00:00+10:00" pubdate data-updated="true">Aug 7<span>th</span>, 2008</time>
         
-         | <a href="/2009/02/11/get-a-list-of-all-oledb-providers-in-sql-server/#disqus_thread">Comments</a>
+         | <a href="/2008/08/07/write-to-vista-event-log-using-c/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>SQL Server provides with a stored procedure which can be used to get a list of all OLEDB providers on a machine.</p>  <p>Stored procedure:</p>  <p>xp_enum_oledb_providers</p>  <p>Executing this stored procedure which is in master database with the following statement</p>  
+  <div class="entry-content">Event Log is a central place to log application events. These events can be errors, warnings or just information. Each event log entry in Windows Vista has a level of event, date and time the event occurred, source of event, an event Id and a task category. While event logs such as Application, System, Security exist by default, you can also create your own event log.
 
-<pre class="lang:tsql decode:true " >EXEC master..xp_enum_oledb_providers</pre>
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image11.png" border="0" alt="image" width="560" height="342" />
 
-<p>gives a list of all available OLEDB providers on my machine.</p>
+You can also write to event log from your own  application using <strong>System.Diagnostics.EventLog</strong> class. The best practice is to check if the source exists. If it does not then you should create it before you write to it.
+<div>
+<div style="border-style: none; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"><span style="color: #0000ff;">string</span> source = <span style="color: #006080;">"EventLog Demo"</span>;</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"><span style="color: #0000ff;">if</span> (!EventLog.Exists(source))</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    EventLog.CreateEventSource(source, <span style="color: #006080;">"Application"</span>);</pre>
+</div>
+</div>
+We can now safely write to event log with a statement like this.
+<div>
+<div style="border-style: none; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">EventLog.WriteEntry(source, <span style="color: #006080;">"Writing Error"</span>, EventLogEntryType.Error, 7);</pre>
+</div>
+</div>
+In the above statement I am writing an event of type error. There are five EventLogEntryType values available. Event viewer will show the appropriate icon depending on the entry type.
 
-<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="238" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image6.png" width="525" border="0" /></p>
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image12.png" border="0" alt="image" width="127" height="99" />
+
+After executing the code we can verify that my event entry is viewable in Event Viewer.
+
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image13.png" border="0" alt="image" width="538" height="71" />
+
+Writing application events into Event Log should be a standard message/error logging practice for any application. Windows provides this standard location where it records its own events and this is where you look first when troubleshooting. Thus it makes perfect sense to use this for your own custom applications.
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:0a7437bc-ec4f-4933-aaaf-272b0892474f" class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/.Net">.Net</a>,<a rel="tag" href="http://technorati.com/tags/C#">C#</a>,<a rel="tag" href="http://technorati.com/tags/Vista">Vista</a></div>
 </div>
   
   
@@ -119,7 +141,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/02/11/get-a-free-website-including-your-own-domain-with-office-live/">Get a Free Website Including Your Own Domain With Office Live</a></h1>
+      <h1 class="entry-title"><a href="/2008/08/07/stylecop-tutorial/">StyleCop Tutorial</a></h1>
     
     
       <p class="meta">
@@ -135,164 +157,88 @@
   
 
 
-<time datetime="2009-02-11T00:00:00+11:00" pubdate data-updated="true">Feb 11<span>th</span>, 2009</time>
+<time datetime="2008-08-07T00:00:00+10:00" pubdate data-updated="true">Aug 7<span>th</span>, 2008</time>
         
-         | <a href="/2009/02/11/get-a-free-website-including-your-own-domain-with-office-live/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img title="Microsoft Office Live Small Business" style="border-right: 0px; border-top: 0px; display: inline; margin-left: 0px; border-left: 0px; margin-right: 0px; border-bottom: 0px" height="60" alt="Microsoft Office Live Small Business" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image8.png" width="355" align="left" border="0" /> Microsoft is offering free website hosting and domain of your choice when you sign up for <a href="http://officeliveoffers.com/affiliate/default.htm?AID=10554589&amp;PID=1260291&amp;refid=cj">Office Live Small Business</a>. Included in the package are hosting, your own domain if it is available, and online applications like Contact Manager, Document Manager, Project Manager and Workspaces. And this is all for free for first year. After first year there is an annual fee for USD 14.95.</p>  <p>This offer is great if you are planning to get a business or a personal site up and running without any cost for the first year. Even if you already have a site, the offerings from Microsoft are still worth consideration. </p>  <p><a href="http://officeliveoffers.com/affiliate/default.htm?AID=10554589&amp;PID=1260291&amp;refid=cj">Link to Office Live Small Business Offer</a>.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/02/04/writing-windows-forms-client-for-live-search/">Writing Windows Forms Client for Live Search</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-02-04T00:00:00+11:00" pubdate data-updated="true">Feb 4<span>th</span>, 2009</time>
-        
-         | <a href="/2009/02/04/writing-windows-forms-client-for-live-search/#disqus_thread">Comments</a>
+         | <a href="/2008/08/07/stylecop-tutorial/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="36" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image.png" width="134" align="left" border="0" /> In this article we will look at how to write a Windows Forms Client to access <strong>Microsoft Live Search API</strong>. Via this API you can use the power of a giant <strong>search engine</strong> within your application. While developing our application we will see that the overall design of the API is simple and easy to work with. We will create a Windows Forms Application which will access Live Search.</p>  <p>&#160;</p>  <h4>Basics</h4>  <p>To access Live Search through our application we will need an Application ID which can be obtained from <a href="http://search.live.com/developers/">Live Search Developer Center</a>. The process requires us to sign in with Live ID and then fill out a form telling Microsoft about our application. Once we have submitted the form an Application ID is issued immediately. This ID is required to query WSDL and access the web services from our application.</p>  <p>Live Search API 2.0 can be accessed via three protocols:</p>  <ol>   <li>SOAP </li>    <li>JSON </li>    <li>XML </li> </ol>  <p>For this article we will work with SOAP protocol. </p>  <p>&#160;</p>  <h4>Creating our application</h4>  <p>We will follow the standard process of creating a Windows Forms application by selecting Windows Forms Application as a template. </p>  <p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="462" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image1.png" width="525" border="0" /> </p>  <p>On our form we will place three controls. </p>  <ol>   <li>Text Box to capture information we will search for. </li>    <li>Button to initiate the search on Live Search </li>    <li>Web Browser to display the search results. </li> </ol>  <p>&#160;</p>  <p>The resulting form will look something like this:</p>  <p>&#160;<img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="535" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image2.png" width="450" border="0" /> </p>  <p>To access the Live Search API which is exposed as a web service we will add a Service Reference in our project. Service References can be added by right clicking on the project in solution explorer and then by clicking Add Service Reference. This brings the following dialog:</p>  <p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="422" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image3.png" width="525" border="0" /> </p>  <p>In the address box we will enter the location of WSDL for Live Search Web Service. The address is </p>  <p><strong>http://api.search.live.net/search.wsdl?AppID=</strong></p>  <p>Before entering the address we need to append our application ID to the URL.</p>  <p><strong>http://api.search.live.net/search.wsdl?AppID=&lt;substitute this with your application ID&gt;</strong></p>  <p>After entering the address and hitting Go, Visual Studio comes back with a list of services available at the address we entered. In our case it finds one service called &quot;LiveSearchService&quot; </p>  <p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="422" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image4.png" width="525" border="0" /> </p>  <p>Things look good so we will change the default namespace to LiveSerchClient and click OK. Visual Studio at this stage generates a proxy and creates a App.config file which contains address, bindings and contract information required to access the service.</p>  <p>Most of the work our application does happens in the click event of the button. Within the event handler we will create objects required to conduct the search and receive a response. </p>  <div style="font-size: 10pt; background: white; color: black; font-family: courier new">   <pre style="margin: 0px"><span style="color: blue">private</span> <span style="color: blue">void</span> btnSearch_Click(<span style="color: blue">object</span> sender, <span style="color: #2b91af">EventArgs</span> e)</pre>
+  <div class="entry-content"><a href="http://code.msdn.microsoft.com/sourceanalysis"><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image5.png" border="0" alt="StyleCop" width="388" height="70" /></a>
 
-  <pre style="margin: 0px">{</pre>
+<a href="http://code.msdn.microsoft.com/sourceanalysis">StyleCop</a> is a source analysis tool for C#. It can be used for analysing source code as opposed to compiled assemblies which is the area for FxCop. StyleCop is currently in version 4.2 and can be downloaded <a href="http://code.msdn.microsoft.com/sourceanalysis">here</a>. In this tutorial I will show you how to use StyleCop.
 
-  <pre style="margin: 0px"><span style="color: green">  // Create an instance for client which is used</span></pre>
+I will create a simple console application and use StyleCop to analyse the source.  This killer app just initialises a class and prints out few properties. Below is the code for the application.
 
-  <pre style="margin: 0px"><span style="color: green">  // to make web service calls</span></pre>
+ 
+<pre class="lang:c# decode:true " >public class Customer
+{
+	public string FirstName { get; set; }
+	public string LastName { get; set; }
+	public string Address { get; set; }
+	public CustomerStatus Status { get; set; }
+	public override string ToString()
+	{
+		string result = string.Format
+			("First Name = {0}nLast Name = {1}nAddress = {2}nStatus = {3}"
+			, FirstName, LastName, Address, Status);
+		return result;
+	}
+}
 
-  <pre style="margin: 0px"><span style="color: #2b91af">  LiveSearchPortTypeClient</span> client = <span style="color: blue">new</span> <span style="color: #2b91af">LiveSearchPortTypeClient</span>();</pre>
+public enum CustomerStatus
+{
+	Active,
+	InActive
+}
 
-  <pre style="margin: 0px">&#160;</pre>
+class Program
+{
+	static void Main(string[] args)
+	{
+		Customer customer = new Customer
+		{
+			FirstName = "John",
+			LastName = "Smith",
+			Address = "1 George Street, Sydney",
+			Status = CustomerStatus.Active
+		};
+		Console.WriteLine(customer.ToString());
+		Console.ReadKey();
+	}
+}</pre> 
 
-  <pre style="margin: 0px"><span style="color: green">  // SearchRequest is used to define search parameters</span></pre>
 
-  <pre style="margin: 0px"><span style="color: #2b91af">  SearchRequest</span> request = <span style="color: blue">new</span> <span style="color: #2b91af">SearchRequest</span>();</pre>
+I can run source code analysis on the entire project via Tools menu or an individual file by right clicking on the class file.
 
-  <pre style="margin: 0px">&#160;</pre>
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image6.png" border="0" alt="image" width="291" height="268" />
 
-  <pre style="margin: 0px"><span style="color: green">  // assign the required Application Id</span></pre>
+By running source analysis on Program.cs I get 34 violations.
 
-  <pre style="margin: 0px">  request.AppId = appId;</pre>
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image7.png" border="0" alt="image" width="491" height="361" />
 
-  <pre style="margin: 0px">&#160;</pre>
+Depending on your style or your coding standards, you will either agree or disagree with detected violations. For example in the result above I do not agree with rule SA1200 &#8220;All using directives must be placed inside of the namespace&#8221;. I have never declared my using statements inside the namespace and I do not intend to do so in future. So what can I do? I can easily modify the rule set. Let&#8217;s see how we can do this.
 
-  <pre style="margin: 0px"><span style="color: green">  // we are conducting a web search</span></pre>
+By default StyleCop is installed at C:Program FilesMicrosoft Source Analysis Tool for C#. A quick glance over the contents of this folder look like this.
 
-  <pre style="margin: 0px">  request.Sources = <span style="color: blue">new</span> <span style="color: #2b91af">SourceType</span>[] { <span style="color: #2b91af">SourceType</span>.Web };</pre>
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image8.png" border="0" alt="image" width="500" height="122" />
 
-  <pre style="margin: 0px">&#160;</pre>
+Notice the second last file which is Settings.SourceAnalysis. Double clicking it opens up the SourceAnalysisSettingsEditor where I can select/deselect the rules.
 
-  <pre style="margin: 0px"><span style="color: green">  // thing we are searching for</span></pre>
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image9.png" border="0" alt="image" width="520" height="474" />
 
-  <pre style="margin: 0px">  request.Query = txtSearchFor.Text;</pre>
+I can turn off rule SA1200 &#8220;All using directives must be placed inside of the namespace&#8221; and then if I run analysis again, my result set will not show it as a rule violation.
 
-  <pre style="margin: 0px">&#160;</pre>
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image10.png" border="0" alt="image" width="520" height="474" />
 
-  <pre style="margin: 0px"><span style="color: green">  // response we recieve from Live Search is stored here</span></pre>
-
-  <pre style="margin: 0px"><span style="color: #2b91af">  SearchResponse</span> response = client.Search(request);</pre>
-
-  <pre style="margin: 0px">&#160;</pre>
-
-  <pre style="margin: 0px"><span style="color: green">  // Display the results</span></pre>
-
-  <pre style="margin: 0px">  DisplayResults(response.Web.Results);</pre>
-
-  <pre style="margin: 0px">}</pre>
-</div>
-
-<p></p>
-
-<p>&#160;</p>
-
-<p>Once we have received our results we will use two helper methods to display the results in Web Browser control.</p>
-
-<div style="font-size: 10pt; background: white; color: black; font-family: courier new">
-  <pre style="margin: 0px"><span style="color: blue">private</span> <span style="color: blue">void</span> DisplayResults(<span style="color: #2b91af">WebResult</span>[] results)</pre>
-
-  <pre style="margin: 0px">{</pre>
-
-  <pre style="margin: 0px"><span style="color: #2b91af">  StringBuilder</span> sb = <span style="color: blue">new</span> <span style="color: #2b91af">StringBuilder</span>();</pre>
-
-  <pre style="margin: 0px">&#160;</pre>
-
-  <pre style="margin: 0px">  results.ToList().ForEach(x =&gt; sb.Append(GetFormattedResult(x)));</pre>
-
-  <pre style="margin: 0px">&#160;</pre>
-
-  <pre style="margin: 0px">  webResults.DocumentText = sb.ToString();</pre>
-
-  <pre style="margin: 0px">}</pre>
-
-  <pre style="margin: 0px">&#160;</pre>
-
-  <pre style="margin: 0px"><span style="color: blue">private</span> <span style="color: blue">string</span> GetFormattedResult(<span style="color: #2b91af">WebResult</span> result)</pre>
-
-  <pre style="margin: 0px">{</pre>
-
-  <pre style="margin: 0px"><span style="color: blue">  string</span> formattedResult = <span style="color: #a31515">&quot;&lt;a href=&quot;</span> + result.Url + <span style="color: #a31515">&quot;&gt;&quot;</span></pre>
-
-  <pre style="margin: 0px">    + result.Title + <span style="color: #a31515">&quot;&lt;/a&gt;&lt;br/&gt;&quot;</span></pre>
-
-  <pre style="margin: 0px">    + result.Description + <span style="color: #a31515">&quot;&lt;br/&gt;&lt;br/&gt;&quot;</span>;</pre>
-
-  <pre style="margin: 0px">&#160;</pre>
-
-  <pre style="margin: 0px"><span style="color: blue">  return</span> formattedResult;</pre>
-
-  <pre style="margin: 0px">}</pre>
-</div>
-
-<p></p>
-
-<p>&#160;</p>
-
-<p>Running the application and doing some <a href="http://www.debugrelease.com/">ego-surfing</a> we see our search results displayed in our application.</p>
-
-<p><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="535" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image5.png" width="450" border="0" /> </p>
-
-<p>&#160;</p>
-
-<h4>Is this all Live Search Offers?</h4>
-
-<p>The answer is no. Live Search API exposes much more functionality that what we saw here. Other than web searches we can also search for images, news etc. individually or by combining them in one search request. If you application needs to search the web then Live Search can be used very easily. </p>
-
-<p>&#160;</p>
-
+As you can see from screenshots above that rules are categorised into different categories such as Documentation Rules, Layout Rules, Naming Rules etc. This makes is easy work with rules in a logical way.
 <h4>Conclusion</h4>
+StyleCop is a light weight source code analysis tool which fills in the necessary gap. One of the benefits of StyleCop can be realised while conducting code reviews. Lately StyleCop has had its own share of controversy, but it is good that Microsoft is paying attention to this nifty tool which could attract a significant user base. StyleCop can be downloaded <a href="http://code.msdn.microsoft.com/sourceanalysis">here</a>.
 
-<p>In this article we saw how easy it is to programmatically access Microsoft Live Search. You are not limited to just Windows Forms applications. Live Search can be used in any type of application such as Silverlight, ASP.NET, WPF or Class Library. This article gave you a brief introduction to Live Search API using Windows Forms Client as an example. I hope you enjoyed reading it.</p>
-<a href="http://www.dotnetkicks.com/kick/?url=http%3a%2f%2fwww.thereforesystems.com%2fwriting-windows-forms-client-for-live-search%2f"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fwww.thereforesystems.com%2fwriting-windows-forms-client-for-live-search%2f" border="0" alt="kick it on DotNetKicks.com" /></a>
+<a href="http://www.dotnetkicks.com/kick/?url=http%3a%2f%2fwww.thereforesystems.com%2fstylecop-tutorial%2f"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fwww.thereforesystems.com%2fstylecop-tutorial%2f" border="0" alt="kick it on DotNetKicks.com" /></a>
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:92323063-b680-419c-8e6a-72ce622ea3bf" class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/C#">C#</a>,<a rel="tag" href="http://technorati.com/tags/StyleCop">StyleCop</a></div>
 </div>
   
   
@@ -305,7 +251,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/02/03/important-dates-for-windows-7-beta-download/">Important Dates for Windows 7 Beta Download</a></h1>
+      <h1 class="entry-title"><a href="/2008/08/06/free-icons-and-images-with-visual-studio-2008/">Free Icons and Images With Visual Studio 2008</a></h1>
     
     
       <p class="meta">
@@ -321,16 +267,21 @@
   
 
 
-<time datetime="2009-02-03T00:00:00+11:00" pubdate data-updated="true">Feb 3<span>rd</span>, 2009</time>
+<time datetime="2008-08-06T00:00:00+10:00" pubdate data-updated="true">Aug 6<span>th</span>, 2008</time>
         
-         | <a href="/2009/02/03/important-dates-for-windows-7-beta-download/#disqus_thread">Comments</a>
+         | <a href="/2008/08/06/free-icons-and-images-with-visual-studio-2008/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><strong>Update On Windows 7 Beta Download Dates. Thanks Jeff</strong></p>  <blockquote>   <p>&#8220;<font color="#000080">Final days: We&#8217;re just about at the limit for Beta downloads, so act now if you want to try Windows 7.&#8221;       <br />It is my understanding that it is possible that the download link is capped before the 10th, depending on what the &#8220;limit&#8221; is and if this number is reached before the 10th.</font></p> </blockquote>  <p>Here are some dates for Windows 7 Beta which you should be aware of especially if you are planning to download the beta. </p>  <ol dir="ltr" style="margin-right: 0px">   <ol>     <ol>       <ol>         <ol>           <ol>             <ol>               <li>Starting January 27th, the Windows 7 page will be updated with a warning that time is running out on downloading the Windows 7 Beta and that we will be limiting downloads shortly. People will be encouraged to register and start the download of the Windows 7 Beta sooner rather than later.                  <br /></li>                <li>&#160; February 10th, new downloads of the Windows 7 Beta will no longer be available. People who have already started their Windows 7 Beta download and have not yet finished will still be able to finish their download and are encouraged to do so.                  <br /></li>                <li>&#160; February 12th, people will no longer be able to complete their download of the Windows 7 Beta. Anyone who hasn&#8217;t finished downloading the Windows 7 Beta will be unable to do so </li>             </ol>           </ol>         </ol>       </ol>     </ol>   </ol> </ol>  <p dir="ltr">&#160;</p>  <p dir="ltr">Here is the <a href="http://www.microsoft.com/windows/windows-7/beta-download.aspx">download link for Windows 7 Beta</a>,</p>
+  <div class="entry-content"><img style="border-top-width: 0px; border-left-width: 0px; float: left; border-bottom-width: 0px; border-right-width: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image2.png" border="0" alt="image" width="40" height="32" /> Visual Studio 2008 comes with an Image Library which contains thousands of icons, animations and images which you can use in your applications. You can find the Image Library at C:Program FilesMicrosoft Visual Studio 9.0Common7VS2008ImageLibrary1033
+
+Just unzip VS2008ImageLibrary.zip file located at this location and you have most of the graphics used by Microsoft in many applications including Visual Studio itself.
+
+<img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image3.png" border="0" alt="VS2008ImageLibrary" width="150" height="102" />
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:b8c5c7e4-97cf-4d1e-a84b-7f5cacce310b" class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/Visual%20Studio">Visual Studio</a></div>
 </div>
   
   
@@ -343,7 +294,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/02/03/download-oslo-tools-and-sdk-update/">Download Oslo Tools and SDK January 2009 CTP</a></h1>
+      <h1 class="entry-title"><a href="/2008/08/04/dynamic-sort-with-linq/">Dynamic Sort With LINQ</a></h1>
     
     
       <p class="meta">
@@ -359,16 +310,217 @@
   
 
 
-<time datetime="2009-02-03T00:00:00+11:00" pubdate data-updated="true">Feb 3<span>rd</span>, 2009</time>
+<time datetime="2008-08-04T00:00:00+10:00" pubdate data-updated="true">Aug 4<span>th</span>, 2008</time>
         
-         | <a href="/2009/02/03/download-oslo-tools-and-sdk-update/#disqus_thread">Comments</a>
+         | <a href="/2008/08/04/dynamic-sort-with-linq/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Microsoft has released <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=f2f4544c-626c-44a3-8866-b2a9fe078956&amp;displaylang=en">January 2009 CTP of Oslo SDK and Tools</a>. </p>  <p>You can download the CTP <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=f2f4544c-626c-44a3-8866-b2a9fe078956&amp;displaylang=en">here</a>.</p>  <p>The SDK includes Intellipad tool and &quot;M&quot; code samples to get you started. This release also support Visual Studio 2008. You can find more details about January 2009 CTP at <a href="http://www.sellsbrothers.com/news/showTopic.aspx?ixTopic=2245">SellsBrothers.com</a>. </p>  <p>Here are few links to get you started with Oslo:</p>  <ol>   <li><a href="http://www.douglaspurdy.com/2008/09/06/what-is-oslo/">What is Oslo? By Douglas Purdy</a></li>    <li><a href="http://msdn.microsoft.com/en-us/oslo/default.aspx">Oslo Developer Center on MSDN</a></li>    <li><a href="http://social.msdn.microsoft.com/Forums/en-US/oslo/threads/">Oslo Forums on MSDN</a></li>    <li><a href="http://www.eweek.com/c/a/Windows/The-Origins-of-Microsofts-Oslo-Software-Modeling-Platform/">The Origins of Microsoft&#8217;s Oslo Software Modeling Platform</a></li> </ol>  <p>&#160;</p>  <p>I am sure that there is someone out there writing a book on Oslo. At present there is only <a href="http://www.amazon.com/Oslo-Modeling-Language-Specification-October/dp/0321606353/ref=sr_1_1?ie=UTF8&amp;s=books&amp;qid=1233643176&amp;sr=1-1">Draft Specification</a> available from Amazon.</p>
+  <div class="entry-content">In this post I will show you how to perform dynamic sorting with LINQ. I will work with a simple collection of City class. City class is defined below.
+
+<code lang="csharp">
+public class City
+{
+  public string Name { get; set; }
+  public string Country { get; set; }
+}
+</code>
+
+The collection is initialised using this code
+
+<code lang="csharp">
+List<City> cities = new List<City>
+  {
+    new City{ Name = "Sydney", Country = "Australia" },
+    new City{ Name = "New York", Country = "USA" },
+    new City{ Name = "Paris", Country = "France" },
+    new City{ Name = "Milan", Country = "Spain" },
+    new City{ Name = "Melbourne", Country = "Australia" },
+    new City{ Name = "Auckland", Country = "New Zealand" },
+    new City{ Name = "Tokyo", Country = "Japan" },
+    new City{ Name = "New Delhi", Country = "India" },
+    new City{ Name = "Hobart", Country = "Australia" }
+  };
+</code>
+
+A typical example of applying a sort will be to write such a query.
+
+<code lang="csharp">
+var collection =
+  from c in cities
+  orderby c.Country
+  select c;
+</code>
+Here we are sorting the collection on country. Note that this is static in nature.
+
+Code above as you can see can only sort by country. If I wanted to sort by city name then I&#8217;d be writing another query and maybe use a conditional construct such as if or switch and write a method which takes in a parameter. While this will work, it is not the best way to do it.
+
+LINQ gives us the ability to make our code dynamic. I can provide sort functionality for my query by writing a method which takes in a Func&lt;TElement, TKey&gt; delegate. This delegate is used by the OrderBy extension method. This is how I can write my method.
+
+<code lang="csharp">
+public static void Sort<TKey>(List<City> cities, Func<City, TKey> selector)
+{
+  var sortedCollection =
+    from c in cities
+    orderby selector(c)
+    select c;
+
+  foreach (var item in sortedCollection)
+  {
+    Console.WriteLine(item.Name);
+  }
+}
+</code>
+
+This method can be called like this by passing in the cities collection which has been initialised earlier.
+
+<code lang="csharp">
+Sort(cities, c => c.Name);
+</code>
+
+I can also sort by country without changing my query. To sort by country I just need to call my sort method like this.
+
+<code lang="csharp">
+Sort(cities, c => c.Country);
+</code>
+
+LINQ is very powerful when you start using it on daily bases. It would not be very useful if everything was static. In this post I showed you how you can make your sorting code dynamic. Stay tuned for more LINQ goodness.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/01/different-ways-of-retrieving-data-from-collections/">Different Ways of Retrieving Data From Collections</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-01T00:00:00+10:00" pubdate data-updated="true">Aug 1<span>st</span>, 2008</time>
+        
+         | <a href="/2008/08/01/different-ways-of-retrieving-data-from-collections/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">C# as a language has matured over years. We have come a long way from the first version of C# to the current which incorporates LINQ. Here is an example I recently used in a training session. My objective was to show students how we can retrieve items from a collection based on a certain criteria in different ways. The collection in question here is a collection of cities. City class looks like this:
+<div class="csharpcode">
+<pre class="alt"><span class="kwrd">public</span> <span class="kwrd">class</span> City</pre>
+<pre>    {</pre>
+<pre class="alt">        <span class="kwrd">public</span> <span class="kwrd">string</span> Name { get; set; }</pre>
+<pre>        <span class="kwrd">public</span> <span class="kwrd">string</span> Country { get; set; }</pre>
+<pre class="alt">    }</pre>
+</div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+
+Cities collection is initialised using this code:
+<div class="csharpcode">
+<pre class="alt">List&lt;City&gt; cities =</pre>
+<pre>                <span class="kwrd">new</span> List&lt;City&gt;</pre>
+<pre class="alt">                {</pre>
+<pre>                    <span class="kwrd">new</span> City{ Name = <span class="str">"Sydney"</span>, Country = <span class="str">"Australia"</span> },</pre>
+<pre class="alt">                    <span class="kwrd">new</span> City{ Name = <span class="str">"New York"</span>, Country = <span class="str">"USA"</span> },</pre>
+<pre>                    <span class="kwrd">new</span> City{ Name = <span class="str">"Paris"</span>, Country = <span class="str">"France"</span> },</pre>
+<pre class="alt">                    <span class="kwrd">new</span> City{ Name = <span class="str">"Milan"</span>, Country = <span class="str">"Spain"</span> },</pre>
+<pre>                    <span class="kwrd">new</span> City{ Name = <span class="str">"Melbourne"</span>, Country = <span class="str">"Australia"</span> },</pre>
+<pre class="alt">                    <span class="kwrd">new</span> City{ Name = <span class="str">"Auckland"</span>, Country = <span class="str">"New Zealand"</span> },</pre>
+<pre>                    <span class="kwrd">new</span> City{ Name = <span class="str">"Tokyo"</span>, Country = <span class="str">"Japan"</span> },</pre>
+<pre class="alt">                    <span class="kwrd">new</span> City{ Name = <span class="str">"New Delhi"</span>, Country = <span class="str">"India"</span> },</pre>
+<pre>                    <span class="kwrd">new</span> City{ Name = <span class="str">"Hobart"</span>, Country = <span class="str">"Australia"</span> }</pre>
+<pre class="alt">                };</pre>
+</div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+
+The objective is to find all cities in Australia and write their name to console. Here are the different ways it can be done.
+
+Old Fashioned
+<div class="csharpcode">
+<pre class="alt"><span class="kwrd">foreach</span> (City item <span class="kwrd">in</span> cities)</pre>
+<pre>{</pre>
+<pre class="alt">  <span class="kwrd">if</span> (item.Country == <span class="str">"Australia"</span>)</pre>
+<pre>    Console.WriteLine(item.Name);</pre>
+<pre class="alt">}</pre>
+</div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+
+Using FindAll extension method
+<div class="csharpcode">
+<pre class="alt"><span class="kwrd">foreach</span> (City item <span class="kwrd">in</span> cities.FindAll(IsAustralianCity))</pre>
+<pre>{</pre>
+<pre class="alt">  Console.WriteLine(item.Name);</pre>
+<pre>}</pre>
+<pre class="alt"></pre>
+<pre><span class="kwrd">private</span> <span class="kwrd">static</span> <span class="kwrd">bool</span> IsAustralianCity(City c)</pre>
+<pre class="alt">{</pre>
+<pre>  <span class="kwrd">if</span> (c.Country == <span class="str">"Australia"</span>)</pre>
+<pre class="alt">    <span class="kwrd">return</span> <span class="kwrd">true</span>;</pre>
+<pre>  <span class="kwrd">else</span></pre>
+<pre class="alt">    <span class="kwrd">return</span> <span class="kwrd">false</span>;</pre>
+<pre>}</pre>
+</div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+
+using FindAll with anonymous method
+<div class="csharpcode">
+<pre class="alt"><span class="kwrd">foreach</span> (City item <span class="kwrd">in</span> cities.FindAll(</pre>
+<pre>  <span class="kwrd">delegate</span>(City c)</pre>
+<pre class="alt">  {</pre>
+<pre>    <span class="kwrd">return</span> c.Country == <span class="str">"Australia"</span>;</pre>
+<pre class="alt">  }))</pre>
+<pre>{</pre>
+<pre class="alt">Console.WriteLine(item.Name);</pre>
+<pre>}</pre>
+</div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+
+Using a LINQ query
+<div class="csharpcode">
+<pre class="alt">var collection =</pre>
+<pre>  from c <span class="kwrd">in</span> cities</pre>
+<pre class="alt">  <span class="kwrd">where</span> c.Country == <span class="str">"Australia"</span></pre>
+<pre>  select c;</pre>
+<pre class="alt"></pre>
+<pre><span class="kwrd">foreach</span> (City item <span class="kwrd">in</span> collection)</pre>
+<pre class="alt">{</pre>
+<pre>  Console.WriteLine(item.Name);</pre>
+<pre class="alt">}</pre>
+</div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+
+One liner using Lambda. My absolute favourite.
+<div class="csharpcode">
+<pre class="alt">cities.FindAll(c =&gt; c.Country == <span class="str">"Australia"</span>)</pre>
+<pre>  .ForEach(c =&gt; Console.WriteLine(c.Name));</pre>
+</div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
+
+Quite interesting to see how the language has evolved over time. I guess this is the kind of stuff which keeps us developers going. Good on you Microsoft! Keep it coming.
+
+<a href="http://www.dotnetkicks.com/kick/?url=http%3a%2f%2fwww.thereforesystems.com%2fdifferent-ways-of-retrieving-data-from-collections%2f"><img src="http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http%3a%2f%2fwww.thereforesystems.com%2fdifferent-ways-of-retrieving-data-from-collections%2f" border="0" alt="kick it on DotNetKicks.com" /></a>
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:702526be-e7a7-48ad-afd0-1604d867aa9b" class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/C#">C#</a>,<a rel="tag" href="http://technorati.com/tags/LINQ">LINQ</a></div>
+<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
 </div>
   
   
@@ -391,6 +543,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/11/27/octopress-setup-existing-blog-on-another-machine/">Octopress-Setup Existing Blog on Another Machine</a>
+      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -426,10 +582,6 @@
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

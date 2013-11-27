@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="If you are creating a SQL Server login using a script then it is advisable to check if the login you are creating already exists. If you do not do &hellip;">
+  <meta name="description" content="Tomorrow i.e. Wednesday 10th September, I will present Entity Framework at Wollongong .NET User Group (WDNUG). My presentation will focus on What, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,7 +75,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/02/check-if-a-login-exists-in-sql-server-2008/">Check if a Login Exists in SQL Server 2008</a></h1>
+      <h1 class="entry-title"><a href="/2008/09/09/presenting-entity-framework-at-wdnug/">Presenting Entity Framework at WDNUG</a></h1>
     
     
       <p class="meta">
@@ -91,56 +91,18 @@
   
 
 
-<time datetime="2009-03-02T00:00:00+11:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2009</time>
+<time datetime="2008-09-09T00:00:00+10:00" pubdate data-updated="true">Sep 9<span>th</span>, 2008</time>
         
-         | <a href="/2009/03/02/check-if-a-login-exists-in-sql-server-2008/#disqus_thread">Comments</a>
+         | <a href="/2008/09/09/presenting-entity-framework-at-wdnug/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>If you are creating a SQL Server login using a script then it is advisable to check if the login you are creating already exists. If you do not do this then SQL Server will throw an error. For example if I execute this statement when a login with name test_user already exists, I will get the following error.</p>  <pre class="code"><span style="color: blue">CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'Password123'</span></pre>
+  <div class="entry-content">Tomorrow i.e. Wednesday 10th September, I will present Entity Framework at <a href="http://www.wdnug.org.au/">Wollongong .NET User Group (WDNUG)</a>. My presentation will focus on What, Why and How of Entity Framework. WDNUG meets at CSC Offices in Wollongong. You can find more details of the venue <a href="http://www.wdnug.org.au/Default.aspx?tabid=103">here</a>.
 
-<pre class="code"><span style="color: red">
-</span></pre>
-<a href="http://11011.net/software/vspaste"></a>
-
-<pre class="code"><font color="#ff0000">Msg 15025, Level 16, State 1, Line 1
-The server principal 'test_user' already exists.</font></pre>
-<a href="http://11011.net/software/vspaste"></a>
-
-<p>To avoid this a check can be used before creating the login. One way to do this is to write a statement like this.</p>
-
-<pre class="code"><span style="color: blue">IF </span><span style="color: gray">NOT EXISTS(</span><span style="color: blue">SELECT </span>name <span style="color: blue">FROM master</span><span style="color: gray">.</span>dbo<span style="color: gray">.</span><span style="color: green">syslogins </span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'test_user'</span><span style="color: gray">)
-</span><span style="color: blue">BEGIN
-    CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'Password123'
-</span><span style="color: blue">END
-</span></pre>
-<a href="http://11011.net/software/vspaste"></a>
-
-<p>&#160;</p>
-
-<p>The above statement will check for the login and it will only create it if the login does not already exist. This works but it is not the best way to do it in SQL Server 2008. The problem is that we are querying <strong>master.dbo.syslogins</strong> which is available only for backward compatibility and as per Microsoft it will be removed in future versions. So the best way to do a check before creating a login is to use <strong>sys.sql_logins</strong> or <strong>sys.server_principals</strong> system view. Our statement can be re-written in following two ways.</p>
-
-<pre class="code"><span style="color: blue">IF </span><span style="color: gray">NOT EXISTS(</span><span style="color: blue">SELECT </span>name <span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">server_principals </span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'test_user'</span><span style="color: gray">)
-</span><span style="color: blue">BEGIN
-    CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'Password123'
-</span><span style="color: blue">END</span></pre>
-<a href="http://11011.net/software/vspaste"></a>
-
-<p>&#160;</p>
-
-<p>OR</p>
-
-<pre class="code"><span style="color: blue">IF </span><span style="color: gray">NOT EXISTS(</span><span style="color: blue">SELECT </span>name <span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">sql_logins </span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'test_user'</span><span style="color: gray">)
-</span><span style="color: blue">BEGIN
-    CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'Password123'
-</span><span style="color: blue">END</span></pre>
-
-<p><a href="http://11011.net/software/vspaste"></a></p>
-
-<p>This approach will ensure that your script will work in future versions of SQL Server when Microsoft decides to remove master.dbo.syslogins.</p>
+I hope to see you there.
 </div>
   
   
@@ -153,7 +115,7 @@ The server principal 'test_user' already exists.</font></pre>
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/03/02/bypass-windows-password-requirements-for-sql-login/">Bypass Windows Password Requirements for SQL Login</a></h1>
+      <h1 class="entry-title"><a href="/2008/09/09/channel-9-visits-one-net-way/">Channel 9 Visits One .Net Way</a></h1>
     
     
       <p class="meta">
@@ -169,33 +131,19 @@ The server principal 'test_user' already exists.</font></pre>
   
 
 
-<time datetime="2009-03-02T00:00:00+11:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2009</time>
+<time datetime="2008-09-09T00:00:00+10:00" pubdate data-updated="true">Sep 9<span>th</span>, 2008</time>
         
-         | <a href="/2009/03/02/bypass-windows-password-requirements-for-sql-login/#disqus_thread">Comments</a>
+         | <a href="/2008/09/09/channel-9-visits-one-net-way/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>SQL Server by default follows Windows password policy requirements for SQL Server Login accounts. This forces you to follow the same policy for SQL Server logins as you would for windows logins and this is a good thing. But sometimes you want to bypass that validation maybe to get a test login in place. You can do this by using CHECK_POLICY = OFF. For example when I try to create a login using this statement I get an error.</p>  <pre class="code"><span style="color: blue">CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'password123'
-</span></pre>
+  <div class="entry-content"><a href="http://channel9.msdn.com">Channel 9</a> does a &#8221;<a href="http://channel9.msdn.com/shows/This%20Week%20On%20Channel%209/This-Week-on-C9-Dynamic-Silverlight-VSTS-buying-Caio-and-Mech-Wars/">This Week On Channel 9</a>&#8221; video every week and <a href="http://channel9.msdn.com/shows/This%20Week%20On%20Channel%209/This-Week-on-C9-Dynamic-Silverlight-VSTS-buying-Caio-and-Mech-Wars/">this week</a> they paid a visit to One .Net Way. They mentioned my post about <a href="http://www.debugrelease.com/get-a-list-of-installed-applications-using-linq-and-c/">Retrieving a list of applications using LINQ</a> in their news video. I am very happy to see One .Net Way mentioned on Channel 9. It feels good when your work is recognised and you have contributed to the community.
 
-<p><a href="http://11011.net/software/vspaste"></a></p>
-
-<p><font color="#ff0000">Msg 15118, Level 16, State 1, Line 1
-    <br />Password validation failed. The password does not meet Windows policy requirements because it is not complex enough.</font></p>
-
-<p>&#160;</p>
-
-<p>The error itself tells me that my password does not meet policy requirements. The policy on my machine requires me to have at-least one upper case letter in my password. To bypass this requirement I can execute this statement which will create my SQL Login. </p>
-
-<pre class="code"><span style="color: blue">CREATE LOGIN </span>test_user <span style="color: blue">WITH PASSWORD </span><span style="color: gray">= </span><span style="color: red">'password123'</span><span style="color: gray">, </span><span style="color: blue">CHECK_POLICY </span><span style="color: gray">= </span><span style="color: blue">OFF
-</span></pre>
-
-<p><a href="http://11011.net/software/vspaste"></a></p>
-
-<p>You should however use this with caution because password policies are there for a reason i.e. to make your environment more secure.</p>
+Thank you Channel 9. I hope you&#8217;ll come again soon.
+<a href="http://channel9.msdn.com/shows/This+Week+On+Channel+9/This-Week-on-C9-Dynamic-Silverlight-VSTS-buying-Caio-and-Mech-Wars/">This Week on C9: Dynamic Silverlight, VSTS, buying Caio, and Mech Wars</a>
 </div>
   
   
@@ -208,7 +156,7 @@ The server principal 'test_user' already exists.</font></pre>
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/02/26/programmatically-take-screenshot-using-c/">Programmatically Take Screenshot Using C#</a></h1>
+      <h1 class="entry-title"><a href="/2008/09/01/fundamentals-deep-cloning-in-c/">Fundamentals: Deep Cloning in C#</a></h1>
     
     
       <p class="meta">
@@ -224,113 +172,230 @@ The server principal 'test_user' already exists.</font></pre>
   
 
 
-<time datetime="2009-02-26T00:00:00+11:00" pubdate data-updated="true">Feb 26<span>th</span>, 2009</time>
+<time datetime="2008-09-01T00:00:00+10:00" pubdate data-updated="true">Sep 1<span>st</span>, 2008</time>
         
-         | <a href="/2009/02/26/programmatically-take-screenshot-using-c/#disqus_thread">Comments</a>
+         | <a href="/2008/09/01/fundamentals-deep-cloning-in-c/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>To do this you will need to add references to System.Drawing and System.Windows.Forms. Make sure that you have following using statements:</p>  
+  <div class="entry-content">To make an object cloneable in .NET we should implement ICloneable interface. ICloneable is a simple interface with only one method Clone(). In this post I will show you how to make a deep clone of an object.
 
-<pre class="lang:c# decode:true " >
-using System;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.Windows.Forms;
+ 
+<pre class="lang:c# decode:true " >class Program
+    {
+        static void Main(string[] args)
+        {
+            Customer c1 = new Customer
+            {
+                FirstName = "John",
+                LastName = "Smith",
+                Limit = new CreditLimit
+                {
+                    AccountOverdue = false,
+                    ApprovedAmount = 1000
+                }
+            };
+
+            Customer c2 = (Customer)c1.Clone();
+            c2.FirstName = "Deepak";
+            c2.LastName = "Kapoor";
+            c2.Limit.AccountOverdue = true;
+            c2.Limit.ApprovedAmount = 5000;
+            Console.WriteLine("C1.FirstName = {0}, C2.FirstName = {1}", c1.FirstName, c2.FirstName);
+            Console.WriteLine("C1.LastName = {0}, C2.LastName = {1}", c1.LastName, c2.LastName);
+            Console.WriteLine("C1.Limit.AccountOverdue = {0}, C2.Limit.AccountOverdue = {1}",
+                c1.Limit.AccountOverdue, c2.Limit.AccountOverdue);
+            Console.WriteLine("C1.Limit.ApprovedAmount = {0}, C2.Limit.ApprovedAmount = {1}",
+                c1.Limit.ApprovedAmount, c2.Limit.ApprovedAmount);
+            Console.ReadKey();
+        }
+    }
+
+    [Serializable]
+    public class Customer : ICloneable
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public CreditLimit Limit { get; set; }
+
+        #region ICloneable Members
+        public object Clone()
+        {
+            object clone;
+            using (MemoryStream stream = new MemoryStream())
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                // Serialize this object
+                formatter.Serialize(stream, this);
+                stream.Position = 0;
+                // Deserialize to another object
+                clone = formatter.Deserialize(stream);
+            }
+            return clone;
+        }
+        #endregion
+    }
+
+    [Serializable]
+    public class CreditLimit
+    {
+        public int ApprovedAmount { get; set; }
+        public bool AccountOverdue { get; set; }
+    }</pre> 
+
+
+In the code above I have a Customer class which has three properties. In the clone method I use a MemoryStream to serialize and then de-serialize to another object. One of the properties of customer class is called Limit which is of type CreditLimit. I have done this to illustrated deep cloning. As a test I write property values of the original customer class and its clone to console. Note that I modify values for the cloned object. That&#8217;s all you need to do for cloning. Nice and simple.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/29/programmatically-retrieve-information-about-windows-services-using-servicecontroller/">Programmatically Retrieve Information About Windows Services Using ServiceController</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-29T00:00:00+10:00" pubdate data-updated="true">Aug 29<span>th</span>, 2008</time>
+        
+         | <a href="/2008/08/29/programmatically-retrieve-information-about-windows-services-using-servicecontroller/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">ServiceControl can be used to get information about a Windows Service on a machine.  In this post I will show you how to retrieve information about a service using ServiceControl.
+
+To begin with lets examine the properties for ServiceControl. Through the designer we can set the ServiceName property. This can be set to the name of a service for which we wish to get more information.
+
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image36.png" border="0" alt="image" width="383" height="433" />
+
+Retrieving details about a service is simply calling the appropriate properties.
+
+ 
+<pre class="lang:c# decode:true " >private void buttonServiceInfo_Click(object sender, EventArgs e)
+{
+    listBox1.Items.Add("Status: " + serviceController.Status.ToString());
+    listBox1.Items.Add("ServiceType: " + serviceController.ServiceType.ToString());
+    listBox1.Items.Add("ServiceHandle: " + serviceController.ServiceHandle.ToString());
+    listBox1.Items.Add("CanStop: " + serviceController.CanStop.ToString());
+    listBox1.Items.Add("DisplayName: " + serviceController.DisplayName.ToString());
+}</pre> 
+
+
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image37.png" border="0" alt="image" width="338" height="316" />
+
+Other than properties ServiceControl can also be used to start or stop a service. ServiceControl IMO is a little hidden gem which at times can be very useful.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/29/get-a-list-of-installed-applications-using-linq-and-c/">Get a List of Installed Applications Using LINQ and C#</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-29T00:00:00+10:00" pubdate data-updated="true">Aug 29<span>th</span>, 2008</time>
+        
+         | <a href="/2008/08/29/get-a-list-of-installed-applications-using-linq-and-c/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>To get a list of installed applications we need to look into registry. Microsoft.Win32 namespace contains objects which can be used to work with Windows Registry. In this post I will show you some code where I use the power of LINQ to retrieve and display a list of all applications installed on a machine.</p>  <p>The basic idea is that we iterate through a collection of RegistryKey objects within LocalMachineSOFTWAREMicrosoftWindowsCurrentVersionUninstall. We then open the sub keys and get the DisplayName.</p>  <p>Here is the code:</p>  
+
+<pre class="prettyprint" >
+static void DisplayInstalledApplications()
+{
+  string registryKey = 
+    @"SOFTWAREMicrosoftWindowsCurrentVersionUninstall";
+
+  using (Microsoft.Win32.RegistryKey key =
+    Registry.LocalMachine.OpenSubKey(registryKey))
+  {
+    var query = from a in
+              key.GetSubKeyNames()
+              let r = key.OpenSubKey(a)
+              select new
+              {
+                Application = r.GetValue("DisplayName")
+              };
+
+    foreach (var item in query)
+    {
+      if (item.Application != null)
+        Console.WriteLine(item.Application);
+    }
+  }
+}
 </pre>
 
-<p>In your method add this code. It will take a screenshot of your primary screen and save it to a file.</p>
+<div>I can also make this a bit more LINQed by removing the foreach loop. It just adds a bit more C# 3.0 flavour to the code and does the retrieval and writing to console in one line.</div>
 
-<pre class="lang:c# decode:true " >
-Bitmap bitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width, 
-                  Screen.PrimaryScreen.Bounds.Height);
-Graphics graphics = Graphics.FromImage(bitmap as Image);
-graphics.CopyFromScreen(0, 0, 0, 0, bitmap.Size);
-bitmap.Save(@"c:tempscreenshot.bmp", ImageFormat.Bmp);
+<pre class="prettyprint" >
+static void DisplayInstalledApplications2()
+{
+  string registryKey =
+    @"SOFTWAREMicrosoftWindowsCurrentVersionUninstall";
+
+  using (Microsoft.Win32.RegistryKey key = 
+    Registry.LocalMachine.OpenSubKey(registryKey))
+  {
+    (from a in key.GetSubKeyNames()
+    let r = key.OpenSubKey(a)
+    select new
+    {
+      Application = r.GetValue("DisplayName")
+    }).ToList()
+      .FindAll(c => c.Application != null)
+      .ForEach(c => Console.WriteLine(c.Application));
+  }
+}
 </pre>
-</div>
-  
-  
 
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/02/25/mystery-of-scott-and-tiger-in-oracle/">Mystery of Scott and Tiger in Oracle</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-02-25T00:00:00+11:00" pubdate data-updated="true">Feb 25<span>th</span>, 2009</time>
-        
-         | <a href="/2009/02/25/mystery-of-scott-and-tiger-in-oracle/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I found this very interesting.</p>  <p>When you install Oracle, a user by the name of Scott is always created for you. This users’ password is Tiger. The user is actually named after Bruce Scott who was one of the first employees at Oracle and Tiger was his cat’s name.</p>  <p><a href="http://www.go4expert.com/forums/showthread.php?t=2252">Original Source.</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/02/23/sql-server-get-database-mail-configuration-settings/">SQL Server – Get Database Mail Configuration Settings</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-02-23T00:00:00+11:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2009</time>
-        
-         | <a href="/2009/02/23/sql-server-get-database-mail-configuration-settings/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Database Mail configuration settings can be retrieved using <strong>sysmail_help_configure_sp</strong> stored procedure. Like other database mail object, this stored procedure also resides in msdb database. Running the stored procedure on my machine gives the following results.</p>  
-
-<pre class="lang:tsql decode:true " >sysmail_help_configure_sp</pre>
-
-<p><img title="sysmail_help_configure_sp" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="165" alt="sysmail_help_configure_sp" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image12.png" width="525" border="0" /></p>
+<div>I hope you found this post useful. If yes, then do not forget to subscribe to <a href="http://feeds.feedburner.com/debug-release">feed</a> .</div>
 </div>
   
   
@@ -353,6 +418,10 @@ bitmap.Save(@"c:tempscreenshot.bmp", ImageFormat.Bmp);
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/11/27/octopress-setup-existing-blog-on-another-machine/">Octopress-Setup Existing Blog on Another Machine</a>
+      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -388,10 +457,6 @@ bitmap.Save(@"c:tempscreenshot.bmp", ImageFormat.Bmp);
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="SQL Server 2008 Developer Training Kit is available for download from Microsoft. Here is some information about this training kit taken from &hellip;">
+  <meta name="description" content="To convert a Hexadecimal to a number we can use an overload of Convert.ToInt32 method. Using the overload I can convert for example hex string “BB” &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,7 +75,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/05/23/download-sql-server-2008-training-kit/">Download SQL Server 2008 Training Kit</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/24/convert-hexadecimal-to-number-in-c/">Convert Hexadecimal to Number in C#</a></h1>
     
     
       <p class="meta">
@@ -91,16 +91,22 @@
   
 
 
-<time datetime="2009-05-23T00:00:00+10:00" pubdate data-updated="true">May 23<span>rd</span>, 2009</time>
+<time datetime="2009-03-24T00:00:00+11:00" pubdate data-updated="true">Mar 24<span>th</span>, 2009</time>
         
-         | <a href="/2009/05/23/download-sql-server-2008-training-kit/#disqus_thread">Comments</a>
+         | <a href="/2009/03/24/convert-hexadecimal-to-number-in-c/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>SQL Server 2008 Developer Training Kit is available for download from Microsoft. Here is some information about this training kit taken from Microsoft’s site.</p>  <p>The SQL Server 2008 Developer Training Kit will help you understand how to build web applications which deeply exploit the rich data types, programming models and new development paradigms in SQL Server 2008.</p>  <p><b><u>Intended Audience</u> </b>    <br />The training kit is designed for the following technical roles: </p>  <ul>   <li>Web developers who build applications for the Microsoft platform. </li>    <li>Microsoft evangelists, technical specialists and consultants. </li> </ul>  <p>&#160;</p>  <p>You can download the training kit <a href="http://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=e9c68e1b-1e0e-4299-b498-6ab3ca72a6d7">here</a>.</p>
+  <div class="entry-content"><p>To convert a Hexadecimal to a number we can use an overload of Convert.ToInt32 method.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Convert.ToInt32" border="0" alt="Convert.ToInt32" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image41.png" width="397" height="57" /> </p>  <p>Using the overload I can convert for example hex string “BB” to a number.</p>  
+
+<pre class="lang:c# decode:true " >
+int number = Convert.ToInt32("BB", 16);
+</pre>
+
+<p>And the number variable gets assigned value of 187.</p>
 </div>
   
   
@@ -113,7 +119,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/05/21/hide-twitter-status-updates-from-facebook-wall/">Hide Twitter Status Updates From Facebook Wall</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/23/get-name-of-current-executing-assembly-in-c/">Get Name of Current Executing Assembly in C#</a></h1>
     
     
       <p class="meta">
@@ -129,16 +135,38 @@
   
 
 
-<time datetime="2009-05-21T00:00:00+10:00" pubdate data-updated="true">May 21<span>st</span>, 2009</time>
+<time datetime="2009-03-23T00:00:00+11:00" pubdate data-updated="true">Mar 23<span>rd</span>, 2009</time>
         
-         | <a href="/2009/05/21/hide-twitter-status-updates-from-facebook-wall/#disqus_thread">Comments</a>
+         | <a href="/2009/03/23/get-name-of-current-executing-assembly-in-c/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I got a message on Facebook from my friend Rajnesh who said that while he was delighted to see my <a href="http://www.twitter.com/deepakkapoor">Twitter</a> updates which were both motivational and inspiring, he found that the flow of wisdom was a bit too much . Okay, he did not say that exactly but basically my Twitter updates are showing up on his wall and they are let’s just say too many.</p>  <p>So the question is how do you hide them? And the simple answer is that you can hide all updates from a friend on Facebook. This can easily be done by clicking on the arrow next to Hide which appears when you take your mouse towards top right on a message on your wall. And then by clicking “Hide &lt;Your Friend’s Name&gt;”.</p>  <p>And that’s it. You will not see that flood of Twitter status updates from your friend.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Facebook Hide On Wall" border="0" alt="Facebook Hide On Wall" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/05/image33.png" width="540" height="322" /></p>
+  <div class="entry-content"><p>This is where reflection comes in handy. The following code snippet shows you how to get the name of executing assembly.</p>  
+
+<pre class="lang:c# decode:true " >
+string assemblyName;
+assemblyName = System.Reflection.Assembly.GetExecutingAssembly().FullName;
+Console.WriteLine(assemblyName);
+</pre>
+
+<p>Output for the above code returns the fully qualified name as shown below</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image36.png" width="540" height="40" /> </p>
+
+<p>To just get the Assembly name we can use this snippet.</p>
+
+<pre class="lang:c# decode:true " >
+string assemblyName;
+assemblyName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+Console.WriteLine(assemblyName);
+</pre>
+
+<p>Here is the output.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image37.png" width="245" height="48" /></p>
 </div>
   
   
@@ -151,7 +179,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/05/20/enable-windows-search-service-on-windows-2008/">Enable Windows Search Service on Windows 2008</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/19/sql-server-sp_spaceused-use-the-right-way/">SQL Server – Sp_spaceused Use the Right Way</a></h1>
     
     
       <p class="meta">
@@ -167,16 +195,30 @@
   
 
 
-<time datetime="2009-05-20T00:00:00+10:00" pubdate data-updated="true">May 20<span>th</span>, 2009</time>
+<time datetime="2009-03-19T00:00:00+11:00" pubdate data-updated="true">Mar 19<span>th</span>, 2009</time>
         
-         | <a href="/2009/05/20/enable-windows-search-service-on-windows-2008/#disqus_thread">Comments</a>
+         | <a href="/2009/03/19/sql-server-sp_spaceused-use-the-right-way/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I run Windows Server 2008 as my workstation and lately I found the need to search historic emails in Outlook. This resulted in a nag from Outlook telling me that Windows Search Service must be enabled. Thus I am writing this post as a future reference for myself in case I forget how to do this.</p>  <p>The way to enable Windows Search Service in Server 2008 is by going to Server Manager. Right click on Roles and then Add Roles. Check File Services.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Windows Search Service" border="0" alt="Windows Search Service" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/05/image31.png" width="540" height="378" /> </p>  <p>For Role Services make sure that Windows Search Service is checked. And then click Install.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="Windows Search Service" border="0" alt="Windows Search Service" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/05/image32.png" width="540" height="412" /></p>
+  <div class="entry-content">To find out the space used by a table we can use sp_spaceused procedure. Most of the times sp_spaceused will give correct information. Why do I say most of the time? Well consider this example. I just inserted a large amount of data in Orders table in Northwind database and ran sp_spaceused.
+<pre class="code"><span style="color: blue">EXEC </span><span style="color: maroon">sp_spaceused </span><span style="color: red">'Orders'</span></pre>
+which returns this result
+
+<img style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image24.png" border="0" alt="image" width="431" height="47" />
+
+But if I run sp_spaceused with true for its second parameter which is updateusage
+<pre class="code"><span style="color: blue">EXEC </span><span style="color: maroon">sp_spaceused </span><span style="color: red">'Orders'</span><span style="color: gray">, </span>TRUE</pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+I get the following result
+
+<img style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image25.png" border="0" alt="image" width="430" height="48" />
+
+Notice the difference in reserved space and index size. What has happened here is that by passing in true for updateusage SQL Server automatically runs DBCC UPDATEUSAGE which corrects any inaccuracies in catalog views. So it is a good idea to run sp_spaceused by supplying true for updateusage parameter if you absolutely must get accurate information. And especially after inserting large amounts of data.
 </div>
   
   
@@ -189,7 +231,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/05/19/visual-studio-2010-beta-1-first-look/">Visual Studio 2010 Beta 1 First Look</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/18/walkthrough-generate-test-data-with-red-gate-sql-data-generator/">Walkthrough – Generate Test Data With Red Gate SQL Data Generator</a></h1>
     
     
       <p class="meta">
@@ -205,16 +247,16 @@
   
 
 
-<time datetime="2009-05-19T00:00:00+10:00" pubdate data-updated="true">May 19<span>th</span>, 2009</time>
+<time datetime="2009-03-18T00:00:00+11:00" pubdate data-updated="true">Mar 18<span>th</span>, 2009</time>
         
-         | <a href="/2009/05/19/visual-studio-2010-beta-1-first-look/#disqus_thread">Comments</a>
+         | <a href="/2009/03/18/walkthrough-generate-test-data-with-red-gate-sql-data-generator/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>For those who are following me on <a href="http://www.twitter.com/deepakkapoor">Twitter</a> know how eager I was to get my hands on Visual Studio 2010 beta1. Today I downloaded it and installed it on my Windows 7 VM. This post is a random collection of my early observations. It is full of screenshots. Enjoy.</p>  <p>The start page had a new look. Visual Studio 2010 uses WPF for UI and you can see that WPF look and feel with those subtle animations.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Visual Studio 2010" border="0" alt="Visual Studio 2010" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/05/image18.png" width="540" height="380" /></p>  <p>This is what the Create New Project dialog looks like. You will notice that Visual Studio 2010 supports .Net Framework 2.0, 3.0, 3.5 and 4.0.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Visual Studio 2010" border="0" alt="Visual Studio 2010" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/05/image20.png" width="540" height="318" /></p>  <p>On this dialog you can also search for installed templates on your machine.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Visual Studio 2010" border="0" alt="Visual Studio 2010" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/05/image22.png" width="540" height="31" /></p>  <p>You can also browse through recently used templates and online templates. I assume that Microsoft will make more templates available online maybe through CodePlex or other community sites.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Visual Studio 2010" border="0" alt="Visual Studio 2010" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/05/image24.png" width="201" height="239" /></p>  <p>The toolbox looks same as Visual Studio 2008. I was expecting more new controls.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Visual Studio 2010" border="0" alt="Visual Studio 2010" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/05/image26.png" width="231" height="535" /></p>  <p>The code editor is now written in WPF and when you select text you get a nice WPF gradient effect.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Visual Studio 2010" border="0" alt="Visual Studio 2010" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/05/image28.png" width="540" height="445" /></p>  <p>Intellisense has become a little more intelligent. It filters the list based on the characters you’ve typed.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Visual Studio 2010" border="0" alt="Visual Studio 2010" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/05/image29.png" width="540" height="169" /></p>  <p>When debugging your code you will notice a new windows called Debug History. This is a full history of your current debug session. How many times has a method been executed or an event fired can be viewed here.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Visual Studio 2010" border="0" alt="Visual Studio 2010" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/05/image30.png" width="540" height="238" /></p>  <p>Visual Studio 2010 is packed with features which make this already great IDE greater. I will continue learning more about it and post whatever information I find interesting.</p>
+  <div class="entry-content"><p>In this walkthrough I will show you how to use Red Gate SQL Data Generator to generate test data for a database. While writing software which interacts with a database developers often write scripts to insert some data. Usually this data is not big enough to find performance bottlenecks and/or issues with presenting data on UI. An application may work well under the load of dev data and possibly test data but becomes a different beast when run against proper production data. So the question is how do you get some real looking data. There are two options; one you can ask your friendly DBA to give it to you, second you can generate your own data which mimics production data at-least in size. In this post I will deal with the second. I will show you how easy it is to generate good quality test data.</p>  <p>As a disclaimer I’d like to say that Red Gate did not pay for this post in any form. I installed a 14 day trial of Red Gate SQL Data Generator and I liked the tool. </p>  <p>&#160;</p>  <h4>Creating SQL Data Generator Project</h4>  <p>SQL Data Generator works with projects which are .sqlgen files. The project file stores settings such as database you are generating data for and few other settings such as should Insert Triggers be fired. A project can be created by clicking on the New Project&#160; button on the toolbar which brings this dialog</p>  <p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="540" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image16.png" width="540" border="0" /> </p>  <p>You can specify the database server and the database name&#160; here. For this walkthrough I will generate data for Northwind database. After supplying database values click OK and it will import schema information from database.</p>  <p>The main windows displays the tables for which data will be generated. You can exclude tables by clicking on the checkbox. </p>  <p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="417" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image17.png" width="292" border="0" /> </p>  <p>On the right side of the window you can set the number of rows to be generated, what should be done when data is invalid and you can choose if existing data should be deleted.</p>  <p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="162" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image18.png" width="540" border="0" /> </p>  <p>For this example let’s set number of rows to be 100,000 for customer table and do the same for few other tables. I think that is a good number to do some testing. </p>  <p>Clicking Generate Data button on the toolbar presents this dialog which presents a summary of actions which will be taken.</p>  <p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="396" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image19.png" width="540" border="0" /> </p>  <p>Once the data is generated successfully a report is presented which shows the number of rows inserted for tables.</p>  <p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="414" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image20.png" width="540" border="0" /> </p>  <p>A quick query on Northwind database in SSMS shows a sample of newly inserted data.</p>  <p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="545" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image21.png" width="540" border="0" /> </p>  <p>And that’s how easy it is to generate data which can be used for load testing, and finding performance bottlenecks while developing an application.</p>
 </div>
   
   
@@ -227,7 +269,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2009/05/12/vnext-user-group-reflections-on-our-first-meeting/">vNext User Group Reflections on Our First Meeting</a></h1>
+      <h1 class="entry-title"><a href="/2009/03/18/sql-server-2008-2-ways-to-get-object-id-of-a-database-object/">SQL Server 2008 – 2 Ways to Get Object Id of a Database Object</a></h1>
     
     
       <p class="meta">
@@ -243,16 +285,44 @@
   
 
 
-<time datetime="2009-05-12T00:00:00+10:00" pubdate data-updated="true">May 12<span>th</span>, 2009</time>
+<time datetime="2009-03-18T00:00:00+11:00" pubdate data-updated="true">Mar 18<span>th</span>, 2009</time>
         
-         | <a href="/2009/05/12/vnext-user-group-reflections-on-our-first-meeting/#disqus_thread">Comments</a>
+         | <a href="/2009/03/18/sql-server-2008-2-ways-to-get-object-id-of-a-database-object/#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Last Thursday was the first meeting of vNext user group. I’d like to thank attendees for coming to the meeting and I hope that in return everyone learned something. Now to reflections. The turn out was about 50 people and we had plenty of toys to give out. I got great feedback on the presentation itself. Most of the comments were asking for more code and given that the crowd was mostly developers this is a fair comment. </p>  <p>This was also the first time I ran a user group meeting by myself and I now truly appreciate the effort user group leaders put in. I am confident that members of the community will be able to enjoy more interesting content in our future meetings where we will show off new tools and technologies coming out this year. </p>  <p>If you have any feedback, suggestions or comments then please drop me a line below and I will respond promptly. </p>
+  <div class="entry-content"><p>Every object in SQL Server database has an Object Id which is used extensively by SQL Server for most operations. There are times when we would like to know what the object ID is for a particular object. In this example I will show you two ways to retrieve Object Id. My examples will retrieve Object Id for HumanResources.Employee table in AdventureWorks database.</p>  <p>&#160;</p>  <h5>Method 1</h5>  <p>First method is to query sys.objects system view and pass in the name of object and also the name of schema.</p>  <pre class="code"><span style="color: blue">SELECT </span><span style="color: magenta">OBJECT_ID </span><span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">objects
+</span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'Employee'
+</span><span style="color: gray">AND </span><span style="color: magenta">SCHEMA_ID </span><span style="color: gray">= 
+    (</span><span style="color: blue">SELECT </span><span style="color: magenta">SCHEMA_ID 
+    </span><span style="color: blue">FROM </span><span style="color: green">sys</span><span style="color: gray">.</span><span style="color: green">schemas
+    </span><span style="color: blue">WHERE </span>name <span style="color: gray">= </span><span style="color: red">'HumanResources'</span><span style="color: gray">)
+
+</span></pre>
+<a href="http://11011.net/software/vspaste"></a>
+
+<p>This query returns the Object Id shown below.</p>
+
+<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="46" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image22.png" width="141" border="0" /> </p>
+
+<p>&#160;</p>
+
+<h5>Method 2</h5>
+
+<p>While the first approach works, there is a better way to get the Object ID and that is to use the OBJECT_ID function. Here is another query which fetches the Object ID for HumanResources.Employee table in AdventureWorkds database.</p>
+
+<pre class="code"><span style="color: blue">SELECT </span><span style="color: magenta">OBJECT_ID</span><span style="color: gray">(</span><span style="color: red">N'HumanResources.Employee'</span><span style="color: gray">)</span></pre>
+
+<p><a href="http://11011.net/software/vspaste"></a></p>
+
+<p>And as expected I get my result.</p>
+
+<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="46" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image23.png" width="176" border="0" /> </p>
+
+<p>Both approaches are valid. However there are subtle differences. For example method 1 returns the result set in which the column is called ‘OBJECT_ID’, method 2 does not name the column. Another difference is that if you mistype the object name them method 1 will return zero rows while method 2 will simply return a NULL value.</p>
 </div>
   
   
@@ -275,6 +345,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/11/27/octopress-setup-existing-blog-on-another-machine/">Octopress-Setup Existing Blog on Another Machine</a>
+      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -310,10 +384,6 @@
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

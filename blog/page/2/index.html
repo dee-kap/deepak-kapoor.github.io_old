@@ -9,8 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="The command to get the number of files in a directory is. ls –l | grep ^- | wc –l
-If you are here just to get the command then no need to read &hellip;">
+  <meta name="description" content="I came across a scenario which warranted using setgid. The requirement was to allow multiple users to create files and read files in a directory. I &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,6 +69,126 @@ If you are here just to get the command then no need to read &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-25T00:00:00+10:00" pubdate data-updated="true">Jul 25<span>th</span>, 2013</time>
+        
+         | <a href="/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I came across a scenario which warranted using <code>setgid</code>. The requirement was to allow multiple users to create files and read files in a directory. I also wanted to ensure that this requirement can be easily met for any future users. I will explain what I did with a simple example.</p>
+<p>To make it simple we will work with two users and one directory. The directory will be called <strong>shareddocs</strong>. As there are multiple users involved, it is not a good idea to create it in home but some place like <strong>/usr/share</strong>. Only a user with superuser privileges can create a directory in /usr/share, so we will need to use <code>sudo</code>. On my machine I am the master of unixverse and I have permissions to sudo.</p>
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ sudo mkdir /usr/share/shareddocs</pre>
+
+<p>Two users in this example are <strong>deepak</strong> and <strong>chewbacca</strong>. deepak already exists and we need to create chewbacca. If you are trying this at home then replace deepak with whatever your username is. Just remember that you will need to use sudo for some commands so make sure that the account you are using has appropriate permissions.</p>
+
+<p>Let&#8217;s create chewbacca and set chewbacca&#8217;s password.</p>
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ sudo useradd chewbacca
+deepak@ubuntu:~$ sudo passwd chewbacca</pre>
+
+<p>Let&#8217;s also create a group called warriors.</p>
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ sudo groupadd warriors</pre>
+
+<p>Next we need to make deepak and chewbacca members of warrirors group.</p>
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ sudo usermod -a -G warriors deepak
+deepak@ubuntu:~$ sudo usermod -a -G warriors chewbacca</pre>
+
+<p>To see groups a user belongs to, we can run this command.</p>
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ groups chewbacca</pre>
+
+<p>And now the fun starts. Logged in as deepak, let&#8217;s create a file in /usr/share/shareddocs</p>
+
+<pre class="prettyprint lang-bash">
+deepak@ubuntu:~$ sudo touch /usr/share/shareddocs/story1.txt</pre>
+
+<p>View permissions for /usr/share/shareddocs</p>
+
+<pre class="prettyprint lang-bash">
+deepak@ubuntu:~$ ls -ld /usr/share/shareddocs/
+
+drwxr-xr-x 2 root root 4096 Jul 24 22:43 /usr/share/shareddocs/</pre>
+
+<p>Notice how both owner and group are root for /usr/share/sharedocs directory. Now if we try to create a file as chewbacca we will get an error.</p>
+
+<pre class="prettyprint lang-bash">
+chewbacca@ubuntu:~$ touch /usr/share/shareddocs/story2.txt
+touch: cannot touch 'story2.txt': Permission denied</pre>
+
+<p>This is because only root has read and write permissions to the directory. We can fix the situation by first giving the group ownership to warriors group we created earlier.</p>
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ sudo chown :warriors /usr/share/shareddocs/</pre>
+
+<p>Now if we look at the permissions, we see that our directory is owned by warriors group.</p>
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ ls -ld /usr/share/shareddocs/
+
+drwxr-xr-x 2 root warriors 4096 Jul 24 22:43 /usr/share/shareddocs/</pre>
+
+<p>So can chewbacca create a file now? Well not yet. We still need to enable write permission for the group.</p>
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ sudo chmod 775 /usr/share/shareddocs/</pre>
+
+<p>By executing the above command we have given read, write and execute to owner and the group.</p>
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ ls -ld /usr/share/shareddocs/
+
+drwxrwxr-x 2 root warriors 4096 Jul 24 22:43 /usr/share/shareddocs/</pre>
+
+chewbacca can now create files in /usr/share/shareddocs/
+
+<pre class="prettyprint lang-bash">chewbacca@ubuntu:~$ touch story2.txt</pre>
+
+<p>One problem still remains. Files created by chewbacca are owned by group chewbacca. We want all files within the directory to be owned by <strong>warriors</strong> group. This is where <code>setgid</code> comes in. Finally! you say. Let&#8217;s run the following command.</p>
+
+<pre class="prettyprint lang-bash">deepak@ubuntu:~$ sudo chmod g+s /usr/share/shareddocs</pre>
+
+<p>From here on any files created by either deepak or chewbacca will be owned by warriors group. Now if deepak created story3.txt and chewbacca created story4.txt, they will both be owned by warriors group.</p>
+<pre class="prettyprint lang-bash">
+-rw-r--r-- 1 root root 16 Jul 25 15:26 story1.txt
+-rw-rw-r-- 1 chewbacca chewbacca 0 Jul 25 15:36 story2.txt
+-rw-rw-r-- 1 deepak warriors 0 Jul 25 15:42 story3.txt
+-rw-rw-r-- 1 chewbacca warriors 0 Jul 25 15:44 story4.txt</pre>
+
+<p>Note that two files we created earlier are still not owned by warriors. They cannot be shared and we should just delete them.</p>
+
+<p>Let&#8217;s talk a bit more about <code>setgid</code>. The command sets group id bits. This means that any new files or directories created within the directory will inherit the same group as containing directory.</p>
+
+<p>To remove the group id bit we can use <code>g-s</code>.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -807,61 +926,6 @@ public class MainActivity extends Activity {
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-02T00:00:00+10:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2013</time>
-        
-         | <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I have been asked many times about the font I use in Visual Studio. Colleagues who visit my cubicle often admire how I have setup Visual Studio or my text editor. The code just looks better on my machine than it does on theirs :) The answer lies in the font and color scheme.</p>
-
-<p>I use Ubuntu Font for all my code editors. This includes Visual Studio, Sublime Text and WebStorm. Earlier I was hooked to Consolas but ever since I discovered Ubuntu Font, I cannot tolerate anything else.</p>
-
-<p>Changing font in Visual Studio can be done by going to Tools &#8211;&gt; Options. Then go to Environment &#8211;&gt; Fonts and colors<p>
-
-<p>In Sublime Text go to Preferences &#8211;&gt; Settings-User and add the following text between curly braces.</p>
- 
-<pre class="prettyprint lang-bash">"font_face": "Ubuntu mono",
-"font_size": 12</pre> 
-
-<a href="http://font.ubuntu.com/">Ubuntu font</a>
-
-<a href="http://studiostyl.es/schemes/zenburn-2012">Zenburn for Visual Studio</a>
-
-<a href="http://www.impressivewebs.com/custom-zenburn-theme-for-sublime-text-2/">Zenburn for Sublime Text</a>
-
-<p>Enjoy beautiful coding.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -877,6 +941,10 @@ public class MainActivity extends Activity {
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/11/27/octopress-setup-existing-blog-on-another-machine/">Octopress-Setup Existing Blog on Another Machine</a>
+      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -912,10 +980,6 @@ public class MainActivity extends Activity {
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

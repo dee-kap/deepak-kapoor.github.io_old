@@ -4,7 +4,7 @@
   <title><![CDATA[Deepak Kapoor]]></title>
   <link href="http://www.deepakkapoor.net/atom.xml" rel="self"/>
   <link href="http://www.deepakkapoor.net/"/>
-  <updated>2013-11-27T22:22:27+11:00</updated>
+  <updated>2013-11-27T23:21:01+11:00</updated>
   <id>http://www.deepakkapoor.net/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
@@ -12,6 +12,37 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress-Setup existing blog on another machine]]></title>
+    <link href="http://www.deepakkapoor.net/2013/11/27/octopress-setup-existing-blog-on-another-machine/"/>
+    <updated>2013-11-27T22:41:00+11:00</updated>
+    <id>http://www.deepakkapoor.net/2013/11/27/octopress-setup-existing-blog-on-another-machine</id>
+    <content type="html"><![CDATA[<p>I am enjoying tinkering with <a href="http://octopress.org">Octopress</a> and at present it feels like I will use it at-least for foreseeable future. And so today I decided to install Octopress on my other machine. It&rsquo;s a mac if you must ask. After setting up Octopress and pulling from my <a href="https://github.com/deepak-kapoor">Github</a> repo, I was ready to make some changes to the blog. These are the steps I followed so that I could contribute to my existing Octopress blog which is hosted on Github.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git clone http://github.com/deepak-kapoor/deepak-kapoor.github.io.git
+</span><span class='line'>$ cd deepak-kapoor.github.io.git
+</span><span class='line'>$ git checkout source
+</span><span class='line'>$ mkdir _deploy
+</span><span class='line'>$ cd _deploy
+</span><span class='line'>$ git init
+</span><span class='line'>$ git remote add origin http://github.com/deepak-kapoor/deepak-kapoor.github.io.git
+</span><span class='line'>$ git pull origin master
+</span><span class='line'>$ cd ..</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After this setup I was up and running. This is the first post from the new machine.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Linux - Set wireless bit rate permanently on Ubuntu or Linux Mint]]></title>
@@ -1398,15 +1429,6 @@ What if the photo I am interested in is not on the phone and I’d like to use t
 
 
 Easy, isn’t it?
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Free Python Books]]></title>
-    <link href="http://www.deepakkapoor.net/2013/03/25/free-python-books/"/>
-    <updated>2013-03-25T00:00:00+11:00</updated>
-    <id>http://www.deepakkapoor.net/2013/03/25/free-python-books</id>
-    <content type="html"><![CDATA[<p>Found a great collection of Python books available for free. Sharing it with readers of Therefore Systems. Screenshot below is just a small sample. </p> <p><a href="http://pythonbooks.revolunet.com/"><img title="Free Python Books" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="Free Python Books" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/03/image2.png" width="640" height="532"></a></p> <p><a href="http://pythonbooks.revolunet.com/">Link</a></p>
 ]]></content>
   </entry>
   

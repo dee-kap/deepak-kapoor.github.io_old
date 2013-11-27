@@ -9,8 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="This example show you how to apply gzip compression to a file in Java.
-Java supports both Zip and GZip compression out of the box. You do not need &hellip;">
+  <meta name="description" content="Working through Force.com tutorials I came to the point where I wrote some Apex code. Instead of doing this via Browser based interface, I decided to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,79 +69,6 @@ Java supports both Zip and GZip compression out of the box. You do not need &hel
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/12/17/compress-file-with-gzip-in-java-2/">Compress File With GZip in Java</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-12-17T00:00:00+11:00" pubdate data-updated="true">Dec 17<span>th</span>, 2010</time>
-        
-         | <a href="/2010/12/17/compress-file-with-gzip-in-java-2/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p style="clear: both;">This example show you how to apply gzip compression to a file in Java.</p>
-<p style="clear: both;">Java supports both Zip and GZip compression out of the box. You do not need any third party components.</p>
-
-<pre class="lang:java decode:true " >
-import java.io.*;
-import java.util.zip.*;
-
-public class GzipCompressor
-{
-
-  public void Compress(String inputFile, String outputFile)
-  {
-    try
-    {
-      BufferedReader reader =
-        new BufferedReader(new FileReader(inputFile));
-
-      BufferedOutputStream output =
-        new BufferedOutputStream(new GZIPOutputStream(new FileOutputStream(outputFile)));
-
-      int b;
-      while((b =reader.read()) != -1)
-      {
-        output.write(b);
-      }
-
-      reader.close();
-      output.close();
-    }
-    catch(IOException e)
-    {
-      System.out.println(e.getMessage());
-    }
-  }
-}
-</pre>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -410,6 +336,44 @@ byte[] photoBytes;client.GetPhoto(out photoBytes);
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/11/22/search-within-sql-server-database-objects-with-red-gate-sql-search/">Search Within SQL Server Database Objects With Red-Gate SQL Search</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-22T00:00:00+11:00" pubdate data-updated="true">Nov 22<span>nd</span>, 2010</time>
+        
+         | <a href="/2010/11/22/search-within-sql-server-database-objects-with-red-gate-sql-search/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>SQL Search by Red-Gate is a great tool for searching within database objects. It is invaluable on brown field projects where you work with existing databases. My recent experience was working with a database which had hundreds of Stored procedures, Views, Triggers etc. I had to find out all objects which used a particular table. <a href="http://www.red-gate.com/products/SQL_Search/">SQL Search</a> made this job a breeze. SQL Search does a text search across all database objects so you can also look for things like column names.</p>  <p>Taking an example of Northwind database. You could to search for all database objects which have the word “customer” in their text. Below is a screenshot showing the search results.</p>  <p>&#160;<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image29.png" width="539" height="561" /> </p>  <p>The best thing is that <a href="http://www.red-gate.com/products/SQL_Search/">SQL Search</a> is free. </p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/11/">&larr; Older</a>
@@ -425,6 +389,10 @@ byte[] photoBytes;client.GetPhoto(out photoBytes);
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/11/27/octopress-setup-existing-blog-on-another-machine/">Octopress-Setup Existing Blog on Another Machine</a>
+      </li>
     
       <li class="post">
         <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
@@ -460,10 +428,6 @@ byte[] photoBytes;client.GetPhoto(out photoBytes);
     
       <li class="post">
         <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>
