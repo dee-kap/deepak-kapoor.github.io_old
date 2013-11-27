@@ -1,2 +1,9 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
+
+html {
+  background: url('/images/brickwall.png') !important;
+}
+body {
+	box-shadow: 0 2px 6px rgba(100,100,100,.3)
+}
