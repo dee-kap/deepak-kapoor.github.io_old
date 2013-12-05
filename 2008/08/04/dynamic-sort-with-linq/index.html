@@ -41,7 +41,7 @@
   <header role="banner"><hgroup>
   <h1><a href="/">Deepak Kapoor</a></h1>
   
-    <h2>Programming and personal notes of Deepak Kapoor</h2>
+    <h2>programming and personal notes</h2>
   
 </hgroup>
 
@@ -97,19 +97,19 @@
   </header>
 
 
-<div class="entry-content">In this post I will show you how to perform dynamic sorting with LINQ. I will work with a simple collection of City class. City class is defined below.
+<div class="entry-content"><p>In this post I will show you how to perform dynamic sorting with LINQ. I will work with a simple collection of City class. City class is defined below.</p>
 
-<code lang="csharp">
+<pre class="prettyprint">
 public class City
 {
   public string Name { get; set; }
   public string Country { get; set; }
 }
-</code>
+</pre>
 
-The collection is initialised using this code
+<p>The collection is initialised using this code</p>
 
-<code lang="csharp">
+<pre class="prettyprint">
 List<City> cities = new List<City>
   {
     new City{ Name = "Sydney", Country = "Australia" },
@@ -122,23 +122,24 @@ List<City> cities = new List<City>
     new City{ Name = "New Delhi", Country = "India" },
     new City{ Name = "Hobart", Country = "Australia" }
   };
-</code>
+</pre>
 
-A typical example of applying a sort will be to write such a query.
+<p>A typical example of applying a sort will be to write such a query.</p>
 
-<code lang="csharp">
+<pre class="prettyprint">
 var collection =
   from c in cities
   orderby c.Country
   select c;
-</code>
-Here we are sorting the collection on country. Note that this is static in nature.
+</pre>
 
-Code above as you can see can only sort by country. If I wanted to sort by city name then I&#8217;d be writing another query and maybe use a conditional construct such as if or switch and write a method which takes in a parameter. While this will work, it is not the best way to do it.
+<p>Here we are sorting the collection on country. Note that this is static in nature.</p>
 
-LINQ gives us the ability to make our code dynamic. I can provide sort functionality for my query by writing a method which takes in a Func&lt;TElement, TKey&gt; delegate. This delegate is used by the OrderBy extension method. This is how I can write my method.
+<p>Code above as you can see can only sort by country. If I wanted to sort by city name then I&#8217;d be writing another query and maybe use a conditional construct such as if or switch and write a method which takes in a parameter. While this will work, it is not the best way to do it.</p>
 
-<code lang="csharp">
+<p>LINQ gives us the ability to make our code dynamic. I can provide sort functionality for my query by writing a method which takes in a Func&lt;TElement, TKey&gt; delegate. This delegate is used by the OrderBy extension method. This is how I can write my method.</p>
+
+<pre class="prettyprint">
 public static void Sort<TKey>(List<City> cities, Func<City, TKey> selector)
 {
   var sortedCollection =
@@ -151,21 +152,21 @@ public static void Sort<TKey>(List<City> cities, Func<City, TKey> selector)
     Console.WriteLine(item.Name);
   }
 }
-</code>
+</pre>
 
-This method can be called like this by passing in the cities collection which has been initialised earlier.
+<p>This method can be called like this by passing in the cities collection which has been initialised earlier.</p>
 
-<code lang="csharp">
+<pre class="prettyprint">
 Sort(cities, c => c.Name);
-</code>
+</pre>
 
-I can also sort by country without changing my query. To sort by country I just need to call my sort method like this.
+<p>I can also sort by country without changing my query. To sort by country I just need to call my sort method like this.</p>
 
-<code lang="csharp">
+<pre class="prettyprint">
 Sort(cities, c => c.Country);
-</code>
+</pre>
 
-LINQ is very powerful when you start using it on daily bases. It would not be very useful if everything was static. In this post I showed you how you can make your sorting code dynamic. Stay tuned for more LINQ goodness.
+<p>LINQ is very powerful when you start using it on daily bases. It would not be very useful if everything was static. In this post I showed you how you can make your sorting code dynamic. Stay tuned for more LINQ goodness.</p>
 </div>
 
 
