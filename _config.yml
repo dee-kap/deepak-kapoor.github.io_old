@@ -8,6 +8,7 @@ subtitle: programming and personal notes
 author: Deepak Kapoor
 simple_search: http://google.com/search
 description: "Deepak Kapoor's blog about technology, books and life"
+keywords: "Deepak Kapoor, .Net, JavaScript, LINQ, Android, Html5, Apple"
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
