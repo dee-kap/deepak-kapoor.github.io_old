@@ -9,9 +9,9 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="How can we find duplicate occurrences of values in a collection? I will demonstrate this here using a collection of cities. City class looks like &hellip;">
+  <meta name="description" content="Working with LINQ to SQL I came across a need of writing a LINQ query equivalent of  T-SQL &#8220;Where IN&#8221; clause. This is what T-SQL query &hellip;">
   
-  <meta name="keywords" content="Deepak Kapoor, .Net, JavaScript, LINQ, Android, Html5, Apple" />
+  <meta name="keywords" content="" />
 
   
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +71,73 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/25/linq-equivalent-of-where-in/">LINQ Equivalent of Where In</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-25T00:00:00+10:00" pubdate data-updated="true">Aug 25<span>th</span>, 2008</time>
+        
+         | <a href="/2008/08/25/linq-equivalent-of-where-in/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">Working with LINQ to SQL I came across a need of writing a LINQ query equivalent of  T-SQL &#8220;Where IN&#8221; clause. This is what T-SQL query looks like.
+
+ 
+<pre class="lang:tsql decode:true " >SELECT     CustomerID, CompanyName, ContactName, ContactTitle, Address,
+           City, Region, PostalCode, Country, Phone, Fax
+FROM       Customers
+WHERE      (Country IN ('UK', 'USA', 'Australia'))</pre> 
+
+
+<h4>How do I write Where IN in LINQ?</h4>
+Below is the query which can be used for a &#8220;WHERE IN&#8221; scenario. Query 1 uses query syntax and Query 2 uses lambda expression. I am using using a DataContext for Northwind database. See <a href="http://www.debugrelease.com/linq-to-sql-tutorial/">LINQ To SQL Tutorial</a> to see how to generate a DataContext.
+<h5>LINQ Query 1</h5>
+
+ 
+<pre class="lang:c# decode:true " >string[] countries = new string[] { "UK", "USA", "Australia" };
+var customers =
+    from c in context.Customers
+    where countries.Contains(c.Country)
+    select c;</pre> 
+
+
+<h5>LINQ Query 2</h5>
+
+ 
+<pre class="lang:c# decode:true " >string[] countries = new string[] { "UK", "USA", "Australia" };
+var customers =
+    context.Customers
+    .Where(c =&gt; countries.Contains(c.Country));
+</pre> 
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -595,72 +662,6 @@ by Martin Fowler, Kent Beck, John Brant, William Opdyke, Don Roberts
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/08/07/write-to-vista-event-log-using-c/">Write to Vista Event Log Using C#</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-08-07T00:00:00+10:00" pubdate data-updated="true">Aug 7<span>th</span>, 2008</time>
-        
-         | <a href="/2008/08/07/write-to-vista-event-log-using-c/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content">Event Log is a central place to log application events. These events can be errors, warnings or just information. Each event log entry in Windows Vista has a level of event, date and time the event occurred, source of event, an event Id and a task category. While event logs such as Application, System, Security exist by default, you can also create your own event log.
-
-<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image11.png" border="0" alt="image" width="560" height="342" />
-
-You can also write to event log from your own  application using <strong>System.Diagnostics.EventLog</strong> class. The best practice is to check if the source exists. If it does not then you should create it before you write to it.
-<div>
-<div style="border-style: none; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">
-<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"><span style="color: #0000ff;">string</span> source = <span style="color: #006080;">"EventLog Demo"</span>;</pre>
-<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
-<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"><span style="color: #0000ff;">if</span> (!EventLog.Exists(source))</pre>
-<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    EventLog.CreateEventSource(source, <span style="color: #006080;">"Application"</span>);</pre>
-</div>
-</div>
-We can now safely write to event log with a statement like this.
-<div>
-<div style="border-style: none; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">
-<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">EventLog.WriteEntry(source, <span style="color: #006080;">"Writing Error"</span>, EventLogEntryType.Error, 7);</pre>
-</div>
-</div>
-In the above statement I am writing an event of type error. There are five EventLogEntryType values available. Event viewer will show the appropriate icon depending on the entry type.
-
-<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image12.png" border="0" alt="image" width="127" height="99" />
-
-After executing the code we can verify that my event entry is viewable in Event Viewer.
-
-<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image13.png" border="0" alt="image" width="538" height="71" />
-
-Writing application events into Event Log should be a standard message/error logging practice for any application. Windows provides this standard location where it records its own events and this is where you look first when troubleshooting. Thus it makes perfect sense to use this for your own custom applications.
-<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:0a7437bc-ec4f-4933-aaaf-272b0892474f" class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/.Net">.Net</a>,<a rel="tag" href="http://technorati.com/tags/C#">C#</a>,<a rel="tag" href="http://technorati.com/tags/Vista">Vista</a></div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/33/">&larr; Older</a>
@@ -710,11 +711,11 @@ Writing application events into Event Log should be a standard message/error log
       </li>
     
       <li class="post">
-        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+        <a href="/2013/06/19/android-listview-tutorial/">Android - ListView Tutorial</a>
       </li>
     
       <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
+        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
       </li>
     
   </ul>

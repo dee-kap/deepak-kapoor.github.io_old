@@ -9,9 +9,9 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="This script returns all default constraints on a table in a SQL Server 2008 database. It gives me the name and definition of the constraints on &hellip;">
+  <meta name="description" content="Ok, so you’ve seen Windows Presentation Foundation (WPF) and you thought the technology looked interesting. You know your applications are starting &hellip;">
   
-  <meta name="keywords" content="Deepak Kapoor, .Net, JavaScript, LINQ, Android, Html5, Apple" />
+  <meta name="keywords" content="" />
 
   
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +71,44 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/03/16/wpf-community-workshop-learn-wpf-and-raise-money/">WPF Community Workshop – Learn WPF and Raise Money</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-16T00:00:00+11:00" pubdate data-updated="true">Mar 16<span>th</span>, 2009</time>
+        
+         | <a href="/2009/03/16/wpf-community-workshop-learn-wpf-and-raise-money/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Ok, so you’ve seen Windows Presentation Foundation (WPF) and you thought the technology looked interesting. You know your applications are starting to look dated, you understand WPF has matured, now in its 3rd release; but life gets in the way and you haven’t had the chance to get down and dirty with it yet. So here’s your opportunity to skill up, and raise money for the Red Cross Bushfire Appeal, in this One-Day Workshop!!</p>  <p>To help you get to grips with this great technology quickly, Microsoft has created a series of Hands on Labs and Presentations. These will grow your skill set, putting you on the path to building the rich user interfaces your customers are demanding.</p>  <p>This training event comes to you courtesy of the .NET User Groups across Australia, and <a href="http://www.cliftons.com.au/">Cliftons</a>, who are generously providing their training facilities at minimal cost. This is your chance to learn new skills, network with other professionals, and have a bit of fun along the way.</p>  <p>&#160;</p>  <h4>Registration and Payment</h4>  <p>There is a nominal charge of $100. With the help of <a href="http://www.cliftons.com.au/">Cliftons</a> we are keeping costs minimal and if we fill all workshops across the country then this event will raise close to $23,000 for the Red Cross “<a href="http://www.redcross.org.au/vic/services_emergencyservices_victorian-bushfires-appeal-2009.htm">Victorian Bushfire Appeal 2009</a>”.</p>  <p>Places are limited and to register interest follow this <a href="http://www.acs.org.au/index.cfm?action=event&amp;area=9005&amp;temID=eventdetails&amp;eveID=10133342390563">link</a>.</p>  <p>&#160;</p>  <h4>Workshop Format</h4>  <p>To make it easy for you to attend we are running the workshops on a Saturday in all major cities. The sessions will commence at 8.30am with registration. Check the schedule below for the date and location in Sydney.</p>  <p>Following a 10 to 15 minute introduction to each topic, you will kick start Visual Studio 2008 and Expression Blend and work on the relevant lab!! Regardless of your current level of experience, you can work at your own pace; a facilitator will be on hand to guide your learning; and you’ll be able to take the lab content home for further learning.</p>  <p>&#160;</p>  <h4>Content</h4>  <p>The WPF Skills day will cover</p>  <ol>   <ol>     <ol>       <li>Creating layouts, compositions and templates </li>        <li>Building custom controls </li>        <li>Working with Styles and control templates (includes using Expression Blend to restyle) </li>        <li>Using the Ribbon control to effortlessly create applications that are as familiar to your customers as Office 2007 (not to mention the Windows 7 Core Applications) </li>        <li>Working with the new DataGrid control to display tabular and editable data </li>        <li>Binding data with ease to your user interface </li>        <li>And more… </li>     </ol>   </ol> </ol>  <h4>&#160;</h4>  <h4>Event Dates</h4>  <p>The Windows Presentation Foundation Community workshop in Sydney is to be held on Saturday, April 4th, 2009 at <a href="http://www.cliftons.com.au/page/sydney.html">Cliftons on George Street</a>.</p>  <p>&#160;</p>  <h4>Be in to Win</h4>  <p>The workshop will also feature a prize draw to win a copy of Visual Studio 2008. Nice!!</p>  <p>To register for the even please follow this <a href="http://www.acs.org.au/index.cfm?action=event&amp;area=9005&amp;temID=eventdetails&amp;eveID=10133342390563">link</a>.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -275,59 +313,6 @@ select c)
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/03/09/get-cd-or-dvd-drive-information-using-wmi-and-c/">Get CD or DVD Drive Information Using WMI and C#</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-03-09T00:00:00+11:00" pubdate data-updated="true">Mar 9<span>th</span>, 2009</time>
-        
-         | <a href="/2009/03/09/get-cd-or-dvd-drive-information-using-wmi-and-c/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This snippet shows you how to get information about all CD / DVD drives on your machine using WMI and C#. To run the code you need to add reference to System.Management.</p>  <pre class="code"><span style="color: #2b91af">ManagementObjectSearcher </span>mgmtObjects = </pre>
-
-<pre class="code">  <span style="color: blue">new </span><span style="color: #2b91af">ManagementObjectSearcher</span>(<span style="color: #a31515">&quot;Select * from Win32_CDROMDrive&quot;</span>);
-
-<span style="color: blue">foreach </span>(<span style="color: blue">var </span>item <span style="color: blue">in </span>mgmtObjects.Get())
-{
-<span style="color: #2b91af">  Console</span>.WriteLine(<span style="color: #a31515">&quot;Drive Letter - t&quot; </span>+ item[<span style="color: #a31515">&quot;Drive&quot;</span>]);
-<span style="color: #2b91af">  Console</span>.WriteLine(<span style="color: #a31515">&quot;Name - t&quot; </span>+ item[<span style="color: #a31515">&quot;Name&quot;</span>]);
-}</pre>
-<a href="http://11011.net/software/vspaste"></a>
-
-<p>&#160;</p>
-
-<p>This code snippet will print out the letter and the name of all CD or DVD drives on a machine. Here is the output on my PC.</p>
-
-<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="54" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image7.png" width="378" border="0" /></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/25/">&larr; Older</a>
@@ -377,11 +362,11 @@ select c)
       </li>
     
       <li class="post">
-        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+        <a href="/2013/06/19/android-listview-tutorial/">Android - ListView Tutorial</a>
       </li>
     
       <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
+        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
       </li>
     
   </ul>

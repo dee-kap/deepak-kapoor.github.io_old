@@ -9,9 +9,9 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="Introduction With .NET Framework 3.5 Microsoft released Language Integrated Query aka LINQ. LINQ enables developers to query data sources using a &hellip;">
+  <meta name="description" content="LINQ To SQL Tutorial shows you how to use Microsoft LINQ To SQL to create data layer for .Net applications. Topics covered LINQ To SQL designer, &hellip;">
   
-  <meta name="keywords" content="Deepak Kapoor, .Net, JavaScript, LINQ, Android, Html5, Apple" />
+  <meta name="keywords" content="LINQ, LINQ To SQL, .NET, Microsoft" />
 
   
   <!-- http://t.co/dKP3o1e -->
@@ -101,14 +101,14 @@
 
 <div class="entry-content"><h4>Introduction</h4>  <p>With .NET Framework 3.5 Microsoft released Language Integrated Query aka LINQ. LINQ enables developers to query data sources using a query like syntax with both C# and VB.NET. These data sources can be collections, SQL Server databases, XML, DataSets etc. Other than what is supplied by Microsoft, LINQ is also extensible. This means that you can query data sources beyond what Microsoft ships. Examples of such implementations are LINQ To Flickr, LINQ To Amazon, LINQ to Google etc. In this article I will show you how you can use LINQ To SQL to perform CRUD operations on a SQL Server database. I will use Northwind database and build an ASP.NET application to demonstrated the capabilities of LINQ To SQL. You can download Northwind database <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=06616212-0356-46A0-8DA2-EEBC53A68034&amp;displaylang=en">here</a>.</p>  <h4>Toolset for this article</h4>  <ol>   <li>Visual Studio 2008 </li>    <li>.NET Framework 3.5 (This is already installed if you have Visual Studio 2008) </li>    <li>SQL Server 2005 (You can also work with SQL Server Express) </li> </ol>  <h4>Solution Structure</h4>  <p>For this article we will need two projects. One is a data layer (created as a Class Library)which we will generate and the other is an ASP.NET Web Application. The solutions structure looks like this in Solution Explorer.</p>  <p><img style="border-right-width: 0px; margin: 0px 10px 10px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="LINQ" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/07/image-thumb3.png" width="297" height="280" /></p>  <h4>Creating Data Layer</h4>  <p>Before we generate our data layer we must create a new connection in Server Explorer which points to Northwind database.</p>  <p><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="LINQ" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/07/image-thumb8.png" width="251" height="311" /></p>  <p>We will now generate our data layer using LINQ To SQL. To do this you need to add a new item to the data layer project of type LINQ to SQL Classes. We will name it Northwind as shown below.</p>  <p><img style="border-right-width: 0px; margin: 0px 10px 10px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="LINQ" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/07/image41.png" width="540" height="381" /></p>  <p>After adding a LINQ to SQL Class we are presented with a designer surface. Here we can simply drag the tables which will become part of our data layer. For this article we will drag all tables on the designer by selecting them all in one go. Our designer should look like this after dragging all tables on it.</p>  <p><img style="border-right-width: 0px; margin: 0px 10px 10px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="LINQ" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/07/image30-thumb.png" width="451" height="638" /></p>  <p>We should now build our solution to make sure everything is okay. And that&#8217;s it. We have successfully generated our data layer. In Solution Explorer we can see that we have two new files namely Northwind.dbml.layout and Northwind.designer.cs. We can also see that references required to compile and run our code have been added by Visual Studio.</p>  <p><img style="border-right-width: 0px; margin: 0px 10px 10px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="LINQ" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/07/image36.png" width="282" height="509" /></p>  <p>The .cs file contains the code for our data layer. Let&#8217;s examine the code that has been generated for us. We will look at the Region class.</p>  
 
-<pre class="lang:c# decode:true " >
+<pre class="prettyprint" >
 [Table(Name="dbo.Region")]
 public partial class Region : INotifyPropertyChanging, INotifyPropertyChanged
 </pre>
 
 <p>The class itself is decorated with Table attribute and the Name property has been assigned the actual table name we have in our database. Region class also implements INotifyPropertyChanging and INotifyPropertyChanged interfaces. These interfaces are used for databinding. Region class also contains one property per column. Let&#8217;s look at the RegionDescription property.</p>
 
-<pre class="lang:c# decode:true " >
+<pre class="prettyprint" >
 [Column(Storage="_RegionDescription", DbType="NChar(50) NOT NULL",
 CanBeNull=false)]
 public string RegionDescription
@@ -141,7 +141,7 @@ public string RegionDescription
 
 <p>We will also place a GridView control on our form to display search results. We will now put in some code in our button&#8217;s click event handler to do the search and display results in GridView. Make sure that we have a reference to Data Layer project, System.Data.Linq and appropriate using statement. Here is what our button click event handler will contain.</p>
 
-<pre class="lang:c# decode:true " >
+<pre class="prettyprint" >
 protected void buttonSearch_Click(object sender, EventArgs e)
 {
   using (NorthwindDataContext context = new NorthwindDataContext())
@@ -158,7 +158,7 @@ protected void buttonSearch_Click(object sender, EventArgs e)
 
 <p>This code will query the customers table in northwind database and will return all customers. We will now modify it slightly to accept customer name and company name as parameters for our query. After modification our event handler looks like this.</p>
 
-<pre class="lang:c# decode:true " >
+<pre class="prettyprint" >
 protected void buttonSearch_Click(object sender, EventArgs e)
 {
   using (NorthwindDataContext context = new NorthwindDataContext())
@@ -184,7 +184,7 @@ protected void buttonSearch_Click(object sender, EventArgs e)
 
 <p>We expect a new row to be inserted into customers table when Save Customer button is clicked. This code achieves data insertion into customers table for us.</p>
 
-<pre class="lang:c# decode:true " >
+<pre class="prettyprint" >
 protected void buttonSave_Click(object sender, EventArgs e)
 {
   using (NorthwindDataContext context = new NorthwindDataContext())
@@ -242,7 +242,7 @@ protected void buttonSave_Click(object sender, EventArgs e)
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/dot-net/'>.NET</a>, <a class='category' href='/blog/categories/microsoft/'>Microsoft</a>
+    <a class='category' href='/blog/categories/microsoft/'>Microsoft</a>
   
 </span>
 
@@ -314,11 +314,11 @@ protected void buttonSave_Click(object sender, EventArgs e)
       </li>
     
       <li class="post">
-        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+        <a href="/2013/06/19/android-listview-tutorial/">Android - ListView Tutorial</a>
       </li>
     
       <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
+        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
       </li>
     
   </ul>
