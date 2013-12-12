@@ -9,9 +9,9 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="This post shows you how to generate self signed certificates on Windows 7. To generate self signed certificates you must have IIS 7.5 installed &hellip;">
+  <meta name="description" content="Could Not Create SSL/TLS Secure Channel is an error you my get when communicating with web services in a two way SSL scenario from ASP.NET &hellip;">
   
-  <meta name="keywords" content="" />
+  <meta name="keywords" content="Deepak Kapoor, .Net, JavaScript, LINQ, Android, Html5, Apple" />
 
   
   <!-- http://t.co/dKP3o1e -->
@@ -71,44 +71,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/08/20/generate-self-signed-certificates-on-windows-7/">Generate Self Signed Certificates on Windows 7</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-08-20T00:00:00+10:00" pubdate data-updated="true">Aug 20<span>th</span>, 2010</time>
-        
-         | <a href="/2010/08/20/generate-self-signed-certificates-on-windows-7/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This post shows you how to generate self signed certificates on Windows 7. To generate self signed certificates you must have IIS 7.5 installed because you will generate your certificate from within IIS manager. </p>  <h4>Step 1</h4>  <p>Launch IIS manager and in Filter type “Certificates” to see the <strong>Server Certificates Feature</strong>.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/image.png" width="540" height="405" /> </p>  <h4>Step 2</h4>  <p>Double click on Server Certificates feature and click on Create <strong>Self-Signed Certificate… </strong>in <strong>Actions</strong> panel on the right.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/image1.png" width="540" height="405" /> </p>  <h4>Step 3</h4>  <p>Give your certificate a friendly name and click OK.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/image2.png" width="540" height="408" /> </p>  <p>Congratulations you have just generated your self signed certificate. You can right click on the certificate you generated and export it to a file.</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -276,6 +238,57 @@
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/07/29/find-all-data-providers-installed-on-a-machine/">Find All Data Providers Installed on a Machine</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-07-29T00:00:00+10:00" pubdate data-updated="true">Jul 29<span>th</span>, 2010</time>
+        
+         | <a href="/2010/07/29/find-all-data-providers-installed-on-a-machine/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This post shows you how to find Data Providers installed on a machine. Data providers in .NET Framework provide the plumbing necessary to connect to databases. There are different data providers available which can connect to SQL Server, Oracle or other databases through OleDb. You can find the data providers installed on your machine by looking at Machine.config file. In particular you will be looking for DbProviderFactories element under System.Data. In the screenshot below you can see data providers installed on my machine.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image.png" width="539" height="141" /> </p>  <p>A list of data providers can also be retrieved by code. This sample shows you how to retrieve a list of data providers in code.</p>  
+
+ 
+<pre class="lang:c# decode:true " >DataTable dataProviders = DbProviderFactories.GetFactoryClasses();
+            
+foreach (DataRow provider in dataProviders.Rows)
+{
+  Console.WriteLine(provider[0].ToString());
+}</pre> 
+
+
+<p>In the code above I am displaying the name of provider. Here is my output.</p>
+
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image1.png" width="387" height="84" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/14/">&larr; Older</a>
@@ -325,11 +338,11 @@
       </li>
     
       <li class="post">
-        <a href="/2013/06/19/android-listview-tutorial/">Android - ListView Tutorial</a>
+        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
       </li>
     
       <li class="post">
-        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>

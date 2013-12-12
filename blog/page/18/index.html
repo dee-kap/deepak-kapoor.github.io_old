@@ -9,9 +9,9 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="Scrolling is a very basic User Interface feature which allows you to navigate vertically or horizontally the content which may take up more than &hellip;">
+  <meta name="description" content="While writing Silverlight applications, I find it challenging to pick colors from the list of predefined colors supported by Silverlight. Honestly I &hellip;">
   
-  <meta name="keywords" content="" />
+  <meta name="keywords" content="Deepak Kapoor, .Net, JavaScript, LINQ, Android, Html5, Apple" />
 
   
   <!-- http://t.co/dKP3o1e -->
@@ -71,90 +71,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/07/07/scrolling-in-silverlight-panels/">Scrolling in Silverlight Panels</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-07-07T00:00:00+10:00" pubdate data-updated="true">Jul 7<span>th</span>, 2009</time>
-        
-         | <a href="/2009/07/07/scrolling-in-silverlight-panels/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Scrolling is a very basic User Interface feature which allows you to navigate vertically or horizontally the content which may take up more than available area. In Silverlight scrolling is not available by default for any of the panels. But it can easily be made available with just a little bit of XAML. In this post I will show you how to enable scrolling for a StackPanel which contains more items than it can fit within its size.</p>  <p>To begin with I will create a StackPanel with about 10 rectangles. </p>  <pre class="code"><span style="color: blue">&lt;</span><span style="color: #a31515">StackPanel </span><span style="color: red">x</span><span style="color: blue">:</span><span style="color: red">Name</span><span style="color: blue">=&quot;LayoutRoot&quot; 
-            </span><span style="color: red">Background</span><span style="color: blue">=&quot;Honeydew&quot;&gt;
-  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkBlue&quot; /&gt;
-  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkRed&quot; /&gt;
-  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkGoldenrod&quot; /&gt;
-  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkSeaGreen&quot; /&gt;
-  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DodgerBlue&quot; /&gt;
-  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkGreen&quot; /&gt;
-  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkMagenta&quot; /&gt;
-  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkOrchid&quot; /&gt;
-  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkTurquoise&quot; /&gt;
-  &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkViolet&quot; /&gt;
-&lt;/</span><span style="color: #a31515">StackPanel</span><span style="color: blue">&gt;</span></pre>
-
-<pre class="code"><span style="color: blue"></span></pre>
-
-<p><a href="http://11011.net/software/vspaste"></a></p>
-
-<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Panel without ScrollViewer" border="0" alt="Panel without ScrollViewer" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image2.png" width="539" height="320" /></p>
-
-<p>To get a ScrollViewer all I need to do is Wrap my StackPanel inside a ScrollViewer.</p>
-
-<pre class="code"><span style="color: blue">&lt;</span><span style="color: #a31515">ScrollViewer</span><span style="color: blue">&gt;
-  &lt;</span><span style="color: #a31515">StackPanel </span><span style="color: red">x</span><span style="color: blue">:</span><span style="color: red">Name</span><span style="color: blue">=&quot;LayoutRoot&quot; 
-              </span><span style="color: red">Background</span><span style="color: blue">=&quot;Honeydew&quot;&gt;
-    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkBlue&quot; /&gt;
-    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkRed&quot; /&gt;
-    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkGoldenrod&quot; /&gt;
-    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkSeaGreen&quot; /&gt;
-    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DodgerBlue&quot; /&gt;
-    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkGreen&quot; /&gt;
-    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkMagenta&quot; /&gt;
-    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkOrchid&quot; /&gt;
-    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkTurquoise&quot; /&gt;
-    &lt;</span><span style="color: #a31515">Rectangle </span><span style="color: red">Margin</span><span style="color: blue">=&quot;5&quot; </span><span style="color: red">Width</span><span style="color: blue">=&quot;270&quot; </span><span style="color: red">Height</span><span style="color: blue">=&quot;40&quot; </span><span style="color: red">Fill</span><span style="color: blue">=&quot;DarkViolet&quot; /&gt;
-  &lt;/</span><span style="color: #a31515">StackPanel</span><span style="color: blue">&gt;
-&lt;/</span><span style="color: #a31515">ScrollViewer</span><span style="color: blue">&gt;</span></pre>
-
-<p><a href="http://11011.net/software/vspaste"></a></p>
-
-<p>&#160;</p>
-
-<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="ScrollViewer" border="0" alt="ScrollViewer" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image3.png" width="539" height="321" /></p>
-
-<p>ScrollViewer can also be used with other panels such as Grid, Canvas etc. Other than scrolling vertically ScrollViewer can also be uses to scroll horizontally. This can be done by setting HorizontalScrollBarVisibility property as shown below.</p>
-
-<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="HorizontalScrollBarVisibility" border="0" alt="HorizontalScrollBarVisibility" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/07/image4.png" width="406" height="115" /></p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -744,6 +660,44 @@ xmlns:controls=
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/05/28/find-unused-css-on-a-website/">Find Unused CSS on a Website</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-28T00:00:00+10:00" pubdate data-updated="true">May 28<span>th</span>, 2009</time>
+        
+         | <a href="/2009/05/28/find-unused-css-on-a-website/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>During the course of a project we often end up adding elements to style sheets which do not get used. This causes css files to bloat which impacts performance. The best thing to do is to keep track of css elements which are not being used and remove them. This can become a strenuous task especially if you have a large website. But there is a tool which can be used to find unused css. The tool is called Dust-Me Selectors and it is an addon for Firefox.&#160;&#160; </p>  <p>Running the tool on <a href="http://www.debugrelease.com/">One .Net Way</a> gives me this result. There are 131 selectors which are not being used at present. This should however be taken as a starting point for clean up. You must always manually check if css is being used in client side scripts or server side code.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/05/image34.png" width="408" height="390" /> </p>  <p><a href="http://www.sitepoint.com/dustmeselectors/">Download link for Dust-Me Selectors</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/19/">&larr; Older</a>
@@ -793,11 +747,11 @@ xmlns:controls=
       </li>
     
       <li class="post">
-        <a href="/2013/06/19/android-listview-tutorial/">Android - ListView Tutorial</a>
+        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
       </li>
     
       <li class="post">
-        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>
