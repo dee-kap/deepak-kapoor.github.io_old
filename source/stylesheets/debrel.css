@@ -1,28 +1,10 @@
-socialContainer {
-    border:1px solid #ddd;
-    -moz-border-radius:4px;
-    -webkit-border-radius:4px
-}
-.socialWidget {
-    width:100%;
-    overflow:auto;
-    padding-left:30px
-}
-#navlist {
-    margin-bottom:10px
-}
-#navlist li {
-    display:inline;
-    list-style-type:none;
-    padding-right:0;
-    margin:12px
-}
-#respond #commentform label {
-    width:100%
-}
-.socialicon {
-    float:left;
-    margin:12px
+#socialList li {
+  display: inline;
+  list-style-type: none;
+  padding-right: 25px;
+  float: left;
+  margin-bottom: 30px;
+
 }
 .sprite {
     background:url('https://lh5.googleusercontent.com/-_3WshxRDsVw/UgINglzMnLI/AAAAAAAAAOM/PQuZMKev-AI/s160/socialsprite.png') no-repeat top left;
