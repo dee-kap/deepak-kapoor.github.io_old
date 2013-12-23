@@ -1,31 +1,18 @@
 ---
 layout: post
 title: Enable GZip Compression in Django
-categories:
-- Django
-tags:
-- Django
-- Python
+categories: []
+tags: []
+keywords: "Django, Python"
+description: "Enable gzip compression in Django"
 status: publish
 type: post
 published: true
-meta:
-  _wpas_done_all: '1'
-  views: '962'
-  _edit_last: '1'
-  _wp_rp_extracted_image_url: https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/04/image32-150x150.jpg
-  _wp_rp_extracted_image_url_full: https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/04/image32.png
-  wpzoom_is_featured: ''
-  wpzoom_is_carousel: ''
-  wpzoom_show_media: ''
-  wpzoom_post_template: ''
-  wpzoom_post_embed_code: ''
-  simplecatch-sidebarlayout: ''
 ---
 <p>GZip compression reduces size of payload sent to browser which in turn increases performance for your site. If you are not doing this then stop everything and <a title="Benefits of GZip compression." href="http://developer.yahoo.com/performance/rules.html#gzip">read this</a>. Hopefully you will be convinced. I for one use it all the time. </p> <p>How do we do it in Django? Just include GZip Middleware. How? Easy. In your settings.py file look for MIDDLEWARE_CLASSES and add</p> <blockquote> <p>django.middleware.gzip.GZipMiddleware</p></blockquote> <p>Here it is in my settings.py along with other middleware classes I am using.</p> 
 
  
-<pre class="lang:python decode:true " >MIDDLEWARE_CLASSES = (
+<pre class="prettyprint">MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
