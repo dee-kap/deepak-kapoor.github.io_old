@@ -2,13 +2,10 @@
 layout: post
 title: .NET Framework - Serialize and Deserialize
 categories: []
-tags: []
+tags: [Microsoft, .Net, Serialize, Deserialize]
 status: publish
 type: post
 published: true
-meta:
-  _edit_last: '1'
-  simplecatch-sidebarlayout: default
 ---
 <p>This article is about serialization and deserialization in Microsoft .NET Framework. At the time of writing this article I am using .NET Framework 4.5. The concepts I talk about here also apply to all earlier versions.</p>
 
@@ -16,7 +13,7 @@ meta:
 <p>Serialization is a technique we use to convert the state of an object to a format which can be persisted for later retrieval. Last sentence perhaps sounded very bookish. Let's try some plain English and understand the concept using an example. We will use an example which involves pizza.</p>
 
 <p>We will write a class to represent a Pizza. The class has a property Slices to hold the number of slices. When pizza object is initialized, the number of slices are set to 8. Pizza class also has methods for eating a slice, saving the pizza for later consumption and a method to get leftover pizza. Here are the stubs for properties and methods.</p>
-<pre class="lang:c# decode:true " >public int Slices
+<pre class="prettyprint">public int Slices
 public bool IsThereAnyPizzaLeftForMe
 
 public void EatSlice()
@@ -24,7 +21,7 @@ public void SaveForLater()
 public static Pizza GetLeftOverPizza()</pre> 
 <p>We will now fill in the stubs for SaveForLater() and GetLeftOverPizza(). This is where we will serialize and deserialize our pizza object.</p>
  
-<pre class="lang:c# decode:true " >public void SaveForLater()
+<pre class="prettyprint">public void SaveForLater()
 {
 	XmlSerializer serializer = new XmlSerializer(typeof(Pizza));
 
@@ -38,7 +35,7 @@ public static Pizza GetLeftOverPizza()</pre>
 
 <p>Here is the code from a console application which creates an instance of Pizza class, eats a slice and calls SaveForLater() to serialize the object state to XML.</p>
  
-<pre class="lang:c# decode:true " >static void Main(string[] args)
+<pre class="prettyprint">static void Main(string[] args)
 {
 	Pizza pizza = new Pizza();
 	Console.WriteLine("{0} slices left in the pizza", pizza.Slices);
@@ -51,7 +48,7 @@ public static Pizza GetLeftOverPizza()</pre>
 
 <p>Let's look at the XML to which our pizza object was serialized. </p>
  
-<pre class="lang:xhtml decode:true " >&lt;?xml version="1.0" encoding="utf-8"?&gt;
+<pre class="prettyprint">&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;Pizza xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
   &lt;Slices&gt;7&lt;/Slices&gt;
@@ -61,7 +58,7 @@ public static Pizza GetLeftOverPizza()</pre>
 
 <p>GetLefOverPizza() method creates an instance of Pizza object from XML. To be technically correct, it deserializes a pizza object from XML.</p>
  
-<pre class="lang:c# decode:true " >public static Pizza GetLeftOverPizza()
+<pre class="prettyprint">public static Pizza GetLeftOverPizza()
 {
 	Pizza pizza = null;
 	XmlSerializer serializer = new XmlSerializer(typeof(Pizza));
@@ -76,7 +73,7 @@ public static Pizza GetLeftOverPizza()</pre>
 
 <p>Another console application shows retrieving a left over pizza, eating a slice and then again saving it for later.</p>
 
-<pre class="lang:c# decode:true " >static void Main(string[] args)
+<pre class="prettyprint">static void Main(string[] args)
 {
 	Pizza pizza = Pizza.GetLeftOverPizza();
 	Console.WriteLine("{0} slices left in the pizza", pizza.Slices);
