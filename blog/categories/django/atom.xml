@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Django | Deepak Kapoor]]></title>
   <link href="http://www.deepakkapoor.net/blog/categories/django/atom.xml" rel="self"/>
   <link href="http://www.deepakkapoor.net/"/>
-  <updated>2013-12-23T22:29:11+11:00</updated>
+  <updated>2013-12-23T22:40:50+11:00</updated>
   <id>http://www.deepakkapoor.net/</id>
   <author>
     <name><![CDATA[Deepak Kapoor]]></name>
@@ -12,51 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Enable GZip Compression in Django]]></title>
-    <link href="http://www.deepakkapoor.net/2012/03/26/enable-gzip-compression-in-django/"/>
-    <updated>2012-03-26T00:00:00+11:00</updated>
-    <id>http://www.deepakkapoor.net/2012/03/26/enable-gzip-compression-in-django</id>
-    <content type="html"><![CDATA[<p>GZip compression reduces size of payload sent to browser which in turn increases performance for your site. If you are not doing this then stop everything and <a title="Benefits of GZip compression." href="http://developer.yahoo.com/performance/rules.html#gzip">read this</a>. Hopefully you will be convinced. I for one use it all the time. </p>
-
-
-<p> <p>How do we do it in Django? Just include GZip Middleware. How? Easy. In your settings.py file look for MIDDLEWARE_CLASSES and add</p> <blockquote> <p>django.middleware.gzip.GZipMiddleware</p></blockquote> <p>Here it is in my settings.py along with other middleware classes I am using.</p></p>
-
-<pre class="lang:python decode:true " >MIDDLEWARE_CLASSES = (
-    'django.middleware.gzip.GZipMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-)</pre>
-
-
-<p></p>
-
-<p>I created a test page with lots of lorem ipsum and look at the difference in size of data transferred to the browser.</p>
-
-
-<p>Without GZip.</p>
-
-
-<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Django GZip compression" border="0" alt="Django GZip compression" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/03/image3.png" width="599" height="41"></p>
-
-
-<p>With GZip.</p>
-
-
-<p><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Django GZip compression" border="0" alt="Django GZip compression" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2012/03/image4.png" width="600" height="44"></p>
-
-
-<p>&nbsp;</p>
-
-
-<p>Of course there are many other steps you can and you must take to improve performance of your site. Here is the <a title="Rules to increase performance of a website." href="http://developer.yahoo.com/performance/rules.html">link</a> again to the site which you must read if you care about performance.</p>
-
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Customize Response Headers in Django]]></title>

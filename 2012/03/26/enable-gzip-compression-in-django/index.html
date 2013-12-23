@@ -9,9 +9,9 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="GZip compression reduces size of payload sent to browser which in turn increases performance for your site. If you are not doing this then stop &hellip;">
+  <meta name="description" content="Enable gzip compression in Django">
   
-  <meta name="keywords" content="Deepak Kapoor, .Net, JavaScript, LINQ, Android, Html5, Apple" />
+  <meta name="keywords" content="Django, Python" />
 
   
   <!-- http://t.co/dKP3o1e -->
@@ -102,7 +102,7 @@
 <div class="entry-content"><p>GZip compression reduces size of payload sent to browser which in turn increases performance for your site. If you are not doing this then stop everything and <a title="Benefits of GZip compression." href="http://developer.yahoo.com/performance/rules.html#gzip">read this</a>. Hopefully you will be convinced. I for one use it all the time. </p> <p>How do we do it in Django? Just include GZip Middleware. How? Easy. In your settings.py file look for MIDDLEWARE_CLASSES and add</p> <blockquote> <p>django.middleware.gzip.GZipMiddleware</p></blockquote> <p>Here it is in my settings.py along with other middleware classes I am using.</p> 
 
  
-<pre class="lang:python decode:true " >MIDDLEWARE_CLASSES = (
+<pre class="prettyprint">MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -143,12 +143,6 @@
 
 <time datetime="2012-03-26T00:00:00+11:00" pubdate data-updated="true">Mar 26<span>th</span>, 2012</time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/django/'>Django</a>
-  
-</span>
 
 
     </p>
