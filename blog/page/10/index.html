@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="Working through Force.com tutorials I came to the point where I wrote some Apex code. Instead of doing this via Browser based interface, I decided to &hellip;">
+  <meta name="description" content="When starting Eclipse on Windows 7 I came across this error “Failed to load the JNI shared library”. After many trials and errors the solution &hellip;">
   
   <meta name="keywords" content="Deepak Kapoor, .Net, JavaScript, LINQ, Android, Html5, Apple" />
 
@@ -71,66 +71,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/12/13/connecting-to-force-com-from-ide/">Connecting to Force.com From IDE</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-12-13T00:00:00+11:00" pubdate data-updated="true">Dec 13<span>th</span>, 2010</time>
-        
-         | <a href="/2010/12/13/connecting-to-force-com-from-ide/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content">Working through Force.com tutorials I came to the point where I wrote some Apex code. Instead of doing this via Browser based interface, I decided to use Force.com IDE which as you know is an Eclipse plugin. This post documents the steps I went through to get connectivity to the warehouse application created as part of the tutorial.
-
-I created a new Force.com project in IDE and entered my username and password.
-
-<img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/12/201012101021.jpg" alt="201012101021.jpg" width="480" height="472" />
-
-Things did not go well and I got the following message.
-
-<img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/12/201012101025.jpg" alt="201012101025.jpg" width="480" height="225" />
-
-But I thought that I already have a security token. I&#8217;ve been logging into developer.force.com from this computer. However I decided to follow the suggestion in the message and logged into developer.force.com and went through the Reset Security Token process.
-
-<img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/12/201012131251.jpg" alt="201012131251.jpg" width="480" height="200" />
-
-I got the token emailed to me and used is as per the instructions on Reset Security Token page. The instruction is to append the token to the password.
-
-And finally I was connected.
-
-<img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/12/201012131248.jpg" alt="201012131248.jpg" width="480" height="472" />
-
-I could now see my project in the project explorer.
-
-<img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/12/201012101037.jpg" alt="201012101037.jpg" width="323" height="265" />
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -376,6 +316,186 @@ byte[] photoBytes;client.GetPhoto(out photoBytes);
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/11/19/working-with-sql-server-hierarchyid-data-type-in-net-application/">Working With SQL Server HierarchyId Data Type in .NET Application</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-19T00:00:00+11:00" pubdate data-updated="true">Nov 19<span>th</span>, 2010</time>
+        
+         | <a href="/2010/11/19/working-with-sql-server-hierarchyid-data-type-in-net-application/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Recently I was working with some hierarchical data stored in SQL Server. The data was related to products where each product is a package which includes other packages which in turn can include individual products. The data was stored in a table where a a product row had a parentId column which indicated the parent of that product. This is a how we have stored hiearchies in tables. The solution has worked for years but is it the most efficient way to store hiearchichal data? Perhaps not. That’s why SQL Server 2008 had a data type called hierarchyId. This post is about working with&#160; the data type. Rather than divulging details of the application I’m working on commercially, I will use Northwind database as an example to demonstrate concepts talked in here.</p>  <p>&#160;</p>  <h4>Basic Setup</h4>  <p>Northwind database has a table called Employees. This table stores information about an Employee and it also stores information about who an employee reports to. This structure is maintained by using a ReportsTo column in Employees table which links to EmployeeId within the same table.</p>  <p>&#160;</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image25.png" width="237" height="464" /> </p>  <p>As the objective here is to store this information using hierarchyId type, I created a new table called Employees2. To make things simple I only included EmployeeId, LastName and FirstName columns other than EmployeeNode which stores the hierarchical information and PlaceINHieararchy which indicates the place of a particular employee in organizational hierarchy. For example employee A can report to Employee B who reports to Employee C, so employee A’s place in hierarchy is 3. </p>  <p>This is the script I used to create Employees2 table.</p> 
+
+<pre class="lang:tsql decode:true " >
+CREATE TABLE Employees2
+(EmployeeNode hierarchyid NOT NULL PRIMARY KEY NONCLUSTERED, 
+EmployeeId INT NOT NULL, 
+LastName NVARCHAR(20) NOT NULL, 
+FirstName NVARCHAR(10) NOT NULL, 
+PlaceInHierarchy AS EmployeeNode.GetLevel())
+</pre>
+
+<h4>Populating Data </h4>
+
+<p>To have a meaningful example I decided to insert some data into Employees2 table from Employees table. This script inserts data into Employees2 table. It may not be the best way to insert this data especially me using a temp table. But this is a dirty script which means that I’ll only run it once so I am not too worried about its elegance.</p>
+
+<pre class="lang:tsql decode:true " >
+WITH Emp AS 
+	(SELECT 
+	'/'+CAST(EmployeeId AS VARCHAR(49)) AS PATH, 
+	EmployeeId FROM dbo.Employees b 
+	WHERE 
+	b.ReportsTo IS NULL 
+	UNION ALL 
+	SELECT 
+	CAST(Emp.path+'/'+CAST(b.EmployeeId AS VARCHAR(4)) AS VARCHAR(50)), 
+	b.EmployeeId 
+	FROM 
+	dbo.Employees b JOIN Emp ON b.ReportsTo = Emp.EmployeeId)
+SELECT * INTO #temp FROM Emp
+
+
+
+INSERT INTO 
+Employees2(EmployeeNode, 
+EmployeeId, 
+LastName, 
+FirstName)
+SELECT 
+CAST( t.PATH+'/' AS hierarchyId), 
+b.EmployeeID, 
+b.LastName, 
+b.FirstName
+FROM 
+#temp t JOIN dbo.Employees b ON t.EmployeeId = b.EmployeeId
+ORDER BY 1
+</pre>
+
+<p>A simple select from Employees2 table which shows data inserted into employees2 table.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image26.png" width="519" height="196" /> </p>
+
+<h4>Writing .NET Code</h4>
+
+<p>After creating a table and inserting data my first thought was how can I use Entity Framework or LINQ To SQL to do CRUD on Employees2 table. Unfortunately those are not valid options. Microsoft did not provide any support to work with hierarchyId data type in either Entity Framework or LINQ To SQL. A major draw back which I hope will be addressed in future versions of these ORMs.</p>
+
+<p>Lack of support for hierarcyId data type in Entity Framework and LINQ To SQL does not mean that you don’t have any options. Good old raw ADO.NET is still around and comes in handy when working with hierarchyId data type. Another good thing is that Sql Server data type hierarchyId is available as SqlHierarchyId struct in Microsoft.SqlServer.Types assembly. To use the struct I added a reference to the Microsoft.SqlServer.Types assembly. The location of this assembly on my machine is</p>
+
+<p><font color="#0000a0"><strong>C:Program Files (x86)Microsoft SQL Server100SDKAssemblies</strong></font></p>
+
+<p>Next I wanted to write some code which can retrieve data from employees2 table and display it on a console. This method fetches all rows form employees2 table and displays the EmployeeNode column. Note how I store the value of EmployeeNode column into a employeeNode SqlHierarchyId struct and then I call a ToString() method on the struct.</p>
+
+<pre class="lang:c# decode:true " >
+static void GetEmployeeNodes()
+{ 
+  using (SqlConnection cn = new SqlConnection(connectionString)) 
+  { 
+    string query = "SELECT * FROM employees2"; 
+    SqlCommand cmd = new SqlCommand(query, cn); 
+    cn.Open(); 
+    SqlDataReader reader = cmd.ExecuteReader(); 
+
+    while (reader.Read()) 
+    { 
+      SqlHierarchyId employeeNode = new SqlHierarchyId(); 
+      employeeNode = (SqlHierarchyId)reader["EmployeeNode"]; 
+      Console.WriteLine("Employee Node = " + employeeNode.ToString()); 
+    } 
+  }
+}
+</pre>
+
+<p>Output of the method looked like this.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image27.png" width="451" height="114" /> </p>
+
+<p>I also wrote a method which displays ancestors for a particular employee. Getting an ancestor for a node is done by calling GetAncestor method on employeeNode which is of type SqlHierarchyId .</p>
+
+<pre class="lang:c# decode:true " >
+static void GetEmployeeDetails(int employeeId)
+{ 
+  using (SqlConnection cn = new SqlConnection(connectionString)) 
+  { 
+    string query = 
+      "SELECT * FROM employees2 WHERE employeeId = " + employeeId.ToString(); 
+    SqlCommand cmd = new SqlCommand(query, cn); 
+    cn.Open(); 
+    SqlDataReader reader = cmd.ExecuteReader(); 
+		
+    string output = string.Empty; 
+    
+    while (reader.Read()) 
+    { 
+      SqlHierarchyId employeeNode = new SqlHierarchyId(); 
+      employeeNode = (SqlHierarchyId)reader["EmployeeNode"]; 
+      Console.WriteLine("Employee Node = " + employeeNode.ToString()); 
+      output = string.Format("{0} {1}", reader["LastName"], reader["FirstName"]); 
+      var ancestorNode = employeeNode.GetAncestor(1); 
+
+      while (!ancestorNode.IsNull) 
+      { 
+        using (SqlConnection cn2 = new SqlConnection(connectionString)) 
+        { 
+          query = 
+            "Select * from employees2 where EmployeeNode=hierarchyid::Parse(@node)"; 
+          SqlCommand cmd2 = new SqlCommand(query, cn2); 
+          cmd2.Parameters.AddWithValue("@node", ancestorNode.ToString()); 
+          cn2.Open(); 
+          SqlDataReader reader2 = cmd2.ExecuteReader(); 
+					
+          while (reader2.Read()) 
+          { 
+            output += 
+              string.Format("/{0} {1}", reader2["LastName"], reader2["FirstName"]); 
+          } 
+					
+          ancestorNode = ancestorNode.GetAncestor(1); 
+        } 
+      } 
+    } 
+    Console.WriteLine(output); 
+  }
+}
+</pre>
+
+<p>The output I got.</p>
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image28.png" width="450" height="50" /> </p>
+
+<h4>A bit about SqlHierarchyId struct</h4>
+
+<p>SqlHierarchyId struct provides other methods like GetDescendant, GetLevel, GetRoot etc. to retrieve more information. In my personal opinion I think that Microsoft needs to do a little more work on this and make it more useful. Of course the best thing to do will be to provide support for hierarchyId data type in Entity Framework and LINQ To SQL (if it’s not already dead).</p>
+
+<p>I hope you enjoyed reading the post as much as I enjoyed writing it and learning something I didn’t know.</p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/11/">&larr; Older</a>
@@ -440,11 +560,11 @@ byte[] photoBytes;client.GetPhoto(out photoBytes);
       </li>
     
       <li class="post">
-        <a href="/2013/06/19/android-listview-tutorial/">Android - ListView Tutorial</a>
+        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
       </li>
     
       <li class="post">
-        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>
