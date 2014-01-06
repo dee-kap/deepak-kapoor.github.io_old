@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="StyleCop is a source analysis tool for C#. It can be used for analysing source code as opposed to compiled assemblies which is the area for FxCop. &hellip;">
+  <meta name="description" content="Event Log is a central place to log application events. These events can be errors, warnings or just information. Each event log entry in Windows &hellip;">
   
   <meta name="keywords" content="Deepak Kapoor, .Net, JavaScript, LINQ, Android, Html5, Apple" />
 
@@ -71,6 +71,72 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/07/write-to-vista-event-log-using-c/">Write to Vista Event Log Using C#</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-07T00:00:00+10:00" pubdate data-updated="true">Aug 7<span>th</span>, 2008</time>
+        
+         | <a href="/2008/08/07/write-to-vista-event-log-using-c/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">Event Log is a central place to log application events. These events can be errors, warnings or just information. Each event log entry in Windows Vista has a level of event, date and time the event occurred, source of event, an event Id and a task category. While event logs such as Application, System, Security exist by default, you can also create your own event log.
+
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image11.png" border="0" alt="image" width="560" height="342" />
+
+You can also write to event log from your own  application using <strong>System.Diagnostics.EventLog</strong> class. The best practice is to check if the source exists. If it does not then you should create it before you write to it.
+<div>
+<div style="border-style: none; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"><span style="color: #0000ff;">string</span> source = <span style="color: #006080;">"EventLog Demo"</span>;</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;"></pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;"><span style="color: #0000ff;">if</span> (!EventLog.Exists(source))</pre>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">    EventLog.CreateEventSource(source, <span style="color: #006080;">"Application"</span>);</pre>
+</div>
+</div>
+We can now safely write to event log with a statement like this.
+<div>
+<div style="border-style: none; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: #f4f4f4;">
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; font-size: 8pt; width: 100%; color: black; line-height: 12pt; font-family: consolas,'Courier New',courier,monospace; background-color: white;">EventLog.WriteEntry(source, <span style="color: #006080;">"Writing Error"</span>, EventLogEntryType.Error, 7);</pre>
+</div>
+</div>
+In the above statement I am writing an event of type error. There are five EventLogEntryType values available. Event viewer will show the appropriate icon depending on the entry type.
+
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image12.png" border="0" alt="image" width="127" height="99" />
+
+After executing the code we can verify that my event entry is viewable in Event Viewer.
+
+<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image13.png" border="0" alt="image" width="538" height="71" />
+
+Writing application events into Event Log should be a standard message/error logging practice for any application. Windows provides this standard location where it records its own events and this is where you look first when troubleshooting. Thus it makes perfect sense to use this for your own custom applications.
+<div id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:0a7437bc-ec4f-4933-aaaf-272b0892474f" class="wlWriterSmartContent" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/.Net">.Net</a>,<a rel="tag" href="http://technorati.com/tags/C#">C#</a>,<a rel="tag" href="http://technorati.com/tags/Vista">Vista</a></div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -465,56 +531,6 @@ Quite interesting to see how the language has evolved over time. I guess this is
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/07/31/starting-one-net-way/">Starting One .NET Way</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-07-31T00:00:00+10:00" pubdate data-updated="true">Jul 31<span>st</span>, 2008</time>
-        
-         | <a href="/2008/07/31/starting-one-net-way/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content">I have been thinking about splitting my blogging adventures between <a href="http://www.deepakkapoor.net/">personal</a> and <a href="http://www.debugrelease.com/">technical</a> for some time. Due to legitimate reasons such as procrastination I have held back. Finally the day has come when the sun is shining, birds are chirping and most importantly domain of choice is available. Hence a journey starts.
-
-I am planning to put in similar effort and provide valuable content for all .NET developers as I did with my old blog. Other than just code oriented posts I will try to write tips-n-tricks, news, information about products, books and everything that is touched by .NET.
-
-I will also use this blog to conduct an ever going experiment in which I will study the ins and outs of building a community using a blog. Now such a thing has been done many times before. I know many people who have built great communities through blogs. So this is not about re-re-inventing the wheel. This is a learning exercise to observe and participate in the process of creating something.  In any experiment it is fundamental to produce, analyse and report data. Thus I will endeavour to publish a monthly progress report about this site.
-
-This blog runs on <a href="http://www.wordpress.org">WordPress</a>. Now you may ask; why WordPress and why not a .NET based solution? The simple answer is because presently WordPress is the best blogging platform on the planet.  I would love to host it using a .NET/ASP.NET based solution but there isn’t much out there to match the might of WordPress when it comes to blogging. So essentially it is picking the best solution. I adapt the same approach in my consultancy engagements where I study the requirements carefully and recommend the best solution. One DotNet Way uses a free theme provided by <a href="http://www.uniqueblogdesigns.com">Unique Blog Designs</a>. Sometime in future I may move to a customised theme. But that is for later.
-
-I hope you will enjoy your visit here and I hope to see you again.
-
-Till my next post&#8230;
-
-Deepak
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/34/">&larr; Older</a>
@@ -579,11 +595,11 @@ Deepak
       </li>
     
       <li class="post">
-        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+        <a href="/2013/06/19/android-listview-tutorial/">Android - ListView Tutorial</a>
       </li>
     
       <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
+        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
       </li>
     
   </ul>
@@ -600,7 +616,7 @@ Deepak
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Deepak Kapoor -
+  Copyright &copy; 2014 - Deepak Kapoor -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 <!-- Start of StatCounter Code for Default Guide -->

@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="Channel 9 does a &#8221;This Week On Channel 9&#8221; video every week and this week they paid a visit to One .Net Way. They mentioned my post about &hellip;">
+  <meta name="description" content="Tomorrow i.e. Wednesday 10th September, I will present Entity Framework at Wollongong .NET User Group (WDNUG). My presentation will focus on What, &hellip;">
   
   <meta name="keywords" content="Deepak Kapoor, .Net, JavaScript, LINQ, Android, Html5, Apple" />
 
@@ -71,6 +71,46 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/09/09/presenting-entity-framework-at-wdnug/">Presenting Entity Framework at WDNUG</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-09T00:00:00+10:00" pubdate data-updated="true">Sep 9<span>th</span>, 2008</time>
+        
+         | <a href="/2008/09/09/presenting-entity-framework-at-wdnug/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">Tomorrow i.e. Wednesday 10th September, I will present Entity Framework at <a href="http://www.wdnug.org.au/">Wollongong .NET User Group (WDNUG)</a>. My presentation will focus on What, Why and How of Entity Framework. WDNUG meets at CSC Offices in Wollongong. You can find more details of the venue <a href="http://www.wdnug.org.au/Default.aspx?tabid=103">here</a>.
+
+I hope to see you there.
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -365,73 +405,6 @@ static void DisplayInstalledApplications2()
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/08/25/linq-equivalent-of-where-in/">LINQ Equivalent of Where In</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-08-25T00:00:00+10:00" pubdate data-updated="true">Aug 25<span>th</span>, 2008</time>
-        
-         | <a href="/2008/08/25/linq-equivalent-of-where-in/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content">Working with LINQ to SQL I came across a need of writing a LINQ query equivalent of  T-SQL &#8220;Where IN&#8221; clause. This is what T-SQL query looks like.
-
- 
-<pre class="lang:tsql decode:true " >SELECT     CustomerID, CompanyName, ContactName, ContactTitle, Address,
-           City, Region, PostalCode, Country, Phone, Fax
-FROM       Customers
-WHERE      (Country IN ('UK', 'USA', 'Australia'))</pre> 
-
-
-<h4>How do I write Where IN in LINQ?</h4>
-Below is the query which can be used for a &#8220;WHERE IN&#8221; scenario. Query 1 uses query syntax and Query 2 uses lambda expression. I am using using a DataContext for Northwind database. See <a href="http://www.debugrelease.com/linq-to-sql-tutorial/">LINQ To SQL Tutorial</a> to see how to generate a DataContext.
-<h5>LINQ Query 1</h5>
-
- 
-<pre class="lang:c# decode:true " >string[] countries = new string[] { "UK", "USA", "Australia" };
-var customers =
-    from c in context.Customers
-    where countries.Contains(c.Country)
-    select c;</pre> 
-
-
-<h5>LINQ Query 2</h5>
-
- 
-<pre class="lang:c# decode:true " >string[] countries = new string[] { "UK", "USA", "Australia" };
-var customers =
-    context.Customers
-    .Where(c =&gt; countries.Contains(c.Country));
-</pre> 
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/32/">&larr; Older</a>
@@ -496,11 +469,11 @@ var customers =
       </li>
     
       <li class="post">
-        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+        <a href="/2013/06/19/android-listview-tutorial/">Android - ListView Tutorial</a>
       </li>
     
       <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
+        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
       </li>
     
   </ul>
@@ -517,7 +490,7 @@ var customers =
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Deepak Kapoor -
+  Copyright &copy; 2014 - Deepak Kapoor -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 <!-- Start of StatCounter Code for Default Guide -->

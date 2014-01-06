@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="Installing Oracle XE on Ubuntu was a breeze. I downloaded the package and executed it. Ubuntu Software Center kicked in and performed the &hellip;">
+  <meta name="description" content="Google Shortener is a service provided by Google to create short URLs. Google Shortener has been available for some time now but only recently Google &hellip;">
   
   <meta name="keywords" content="Deepak Kapoor, .Net, JavaScript, LINQ, Android, Html5, Apple" />
 
@@ -71,6 +71,79 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/01/15/google-shortener-api-with-dotnet-written-in-c-sharp/">Google Shortener API for .NET Written in C#</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-15T00:00:00+11:00" pubdate data-updated="true">Jan 15<span>th</span>, 2011</time>
+        
+         | <a href="/2011/01/15/google-shortener-api-with-dotnet-written-in-c-sharp/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="https://code.google.com/p/n-gshortener/"><img style="background-image: none; border-right-width: 0px; margin: 0px 10px 10px; padding-left: 0px; padding-right: 0px; display: inline; float: left; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" align="left" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2011/01/image.png" width="56" height="59" /></a>Google Shortener is a service provided by Google to create short URLs. Google Shortener has been available for some time now but only recently Google released a public API to access this service programmatically. Today I decided to try it out and wrote some C# code to work with the API. I will describe what I did in this post.</p>  <h3>A bit about the API</h3>  <p>Like other URL shorteners, Google API also takes in a long URL and gives you back a short one. When you click on the short URL, you end up at the same location on web as you did with your original long URL.</p>  <p>The API itself is implemented as a RESTful service and is very simple. You can read the overview and reference for API <a href="http://code.google.com/apis/urlshortener/overview.html">here</a>.</p>  <h3>.NET Wrapper</h3>  <p>I wanted to use the API in my .NET application so I created a wrapper. I have made the source code available at <a href="https://code.google.com/p/n-gshortener/">code.google.com</a>. Feel free to download and play with it.</p>  <p>There are three methods in Google Shortener API:</p>  <ol>   <li>url.insert – Shrinks a Url. </li>    <li>url.get – Returns the long Url for a valid short url. </li>    <li>url.list – Returns a list of Urls shortened by an authenticated user. Analytics data is also returned by this method. </li> </ol>  <p>If you want analytics for your Url then you must invoke the methods by passing in an API key. You can get your API key from <a href="http://code.google.com/apis/console/">Google API Console</a>.</p>  <p>Enough talk. Let me show you the code. The main class in the wrapper is called Shortener which contains two methods: GetShortUrl() and GetLongUrl(). An API key can be passed in to the constructor of Shortener and the API key will be used for all subsequent requests for that instance.  
+
+<pre class="lang:c# decode:true " >
+public Reply GetShortUrl(string longUrl)
+{
+  string data = &quot;{&quot;longUrl&quot;:&quot;&quot; + longUrl + &quot;&quot;}&quot;;
+  string postUrl = googleShortenerUrl;
+  string response = HttpHelper.HttpPOST(postUrl, data);
+  return DeserializeJSON(response);
+}
+
+public Reply GetLongUrl(string shortUrl)
+{
+  string getUrl = googleShortenerUrl + &quot;&amp;amp;shortUrl=&quot; + shortUrl;
+  string response = HttpHelper.HttpGET(getUrl);
+  return DeserializeJSON(response);
+}
+
+</pre>
+
+The response received from Google is deserialized into a Reply class.  
+  
+<pre class="lang:c# decode:true " >
+public class Reply
+{
+  public string kind { get; set; }
+
+  public string id { get; set; }
+
+  public string longUrl { get; set; }
+
+  public string status { get; set; }
+}
+</pre>
+
+GET and POST are done by using HttpHelper class. <a href="https://code.google.com/p/n-gshortener/">Download</a> the code to see this class.</p>  <h3>Conclusion</h3>  <p>Google Shortener API is as simple as it gets. The API also let’s you retrieve analytics data for URLs. I have created a .NET wrapper for the API and have implemented functionality to get short URLs and long URLs. Next steps for this little project are to implement list method, implement authentication support and make the API a bit more rich by enhancing Reply class to support strongly typed members rather than all strings.</p>  <p>One final time. <a href="https://code.google.com/p/n-gshortener/">Link to code</a>.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -259,66 +332,6 @@ public class GzipCompressor
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/12/13/connecting-to-force-com-from-ide/">Connecting to Force.com From IDE</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-12-13T00:00:00+11:00" pubdate data-updated="true">Dec 13<span>th</span>, 2010</time>
-        
-         | <a href="/2010/12/13/connecting-to-force-com-from-ide/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content">Working through Force.com tutorials I came to the point where I wrote some Apex code. Instead of doing this via Browser based interface, I decided to use Force.com IDE which as you know is an Eclipse plugin. This post documents the steps I went through to get connectivity to the warehouse application created as part of the tutorial.
-
-I created a new Force.com project in IDE and entered my username and password.
-
-<img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/12/201012101021.jpg" alt="201012101021.jpg" width="480" height="472" />
-
-Things did not go well and I got the following message.
-
-<img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/12/201012101025.jpg" alt="201012101025.jpg" width="480" height="225" />
-
-But I thought that I already have a security token. I&#8217;ve been logging into developer.force.com from this computer. However I decided to follow the suggestion in the message and logged into developer.force.com and went through the Reset Security Token process.
-
-<img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/12/201012131251.jpg" alt="201012131251.jpg" width="480" height="200" />
-
-I got the token emailed to me and used is as per the instructions on Reset Security Token page. The instruction is to append the token to the password.
-
-And finally I was connected.
-
-<img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/12/201012131248.jpg" alt="201012131248.jpg" width="480" height="472" />
-
-I could now see my project in the project explorer.
-
-<img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/12/201012101037.jpg" alt="201012101037.jpg" width="323" height="265" />
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/10/">&larr; Older</a>
@@ -383,11 +396,11 @@ I could now see my project in the project explorer.
       </li>
     
       <li class="post">
-        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+        <a href="/2013/06/19/android-listview-tutorial/">Android - ListView Tutorial</a>
       </li>
     
       <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
+        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
       </li>
     
   </ul>
@@ -404,7 +417,7 @@ I could now see my project in the project explorer.
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Deepak Kapoor -
+  Copyright &copy; 2014 - Deepak Kapoor -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 <!-- Start of StatCounter Code for Default Guide -->

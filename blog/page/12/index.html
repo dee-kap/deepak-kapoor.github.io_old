@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="This post is to mark a little milestone for ThereforeSystems. My second post on this site was a LINQ To SQL Tutorial which was a basic tutorial to &hellip;">
+  <meta name="description" content="This article shows you how to generate an Entity Data Model for Entity Framework 4 using Visual Studio 2010. Entity Data Model is widely known by its &hellip;">
   
   <meta name="keywords" content="Deepak Kapoor, .Net, JavaScript, LINQ, Android, Html5, Apple" />
 
@@ -71,6 +71,102 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/11/10/creating-entity-data-model-without-a-database-with-entity-framework-4/">Creating Entity Data Model Without a Database With Entity Framework 4</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-10T00:00:00+11:00" pubdate data-updated="true">Nov 10<span>th</span>, 2010</time>
+        
+         | <a href="/2010/11/10/creating-entity-data-model-without-a-database-with-entity-framework-4/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">This article shows you how to generate an Entity Data Model for Entity Framework 4 using Visual Studio 2010. Entity Data Model is widely known by its acronym EDM. A common misconception among developers is that a EDM is always backed up by a database. This is not accurate as we will see in this article. A database is a storage medium to store the data processed via EDM. Database schemas could also be different from EDM and this difference is resolved by using mapping concepts when the need comes to persist or load data from a physical database.
+
+For this article we will create a model for a fictitious bank called MyBank. To get started we will create a project of type Class Library in Visual Studio 2010. Next we will add a new item of type <strong>ADO.NET Entity Data Model</strong>
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image2.png" border="0" alt="image" width="547" height="451" />
+
+<strong>Entity Data Model wizard</strong> then starts and on the first window of the wizard we are given a choice of either generating our model from an existing database or creating a blank model. For this article we will go with the later. Once we click Finish, our blank model is generated for us. As our model is blank, we will need to create some entities within our model for our Bank. Let’s start by creating a customer entity. By this time our project also contains a MyBank.edmx file and if it is not open then we can open it by double clicking on the file. This opens up the <strong>Entity Model Designer</strong> where we will create our entities. So the customer entity first.
+
+To create our customer entity we right-click on and empty area in the designer and select Entity…
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image3.png" border="0" alt="image" width="493" height="292" />
+
+This brings up the <strong>Add Entity dialog box</strong> where we will enter basic details such as Entity Name, Base type which will be none in this case and Entity set. We will also check the Create key property. It indicates that our customer entity will have a property which will be its unique identifier. We can go with the name “Id” or supply our own name. We will stick with “Id”.
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image4.png" border="0" alt="image" width="364" height="445" />
+
+After clicking OK we see our newly created entity in the designer.
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image5.png" border="0" alt="image" width="154" height="119" />
+
+At this point customer entity can only store Id for  customer. Storing just an Id for a customer is a bit useless regardless of the bank being fictional or not. We will add some more fields to store other information such as name, date of birth etc. To do this we can right-click on customer entity and then click Add –&gt; Scalar Property. Scalar properties in EDM are used to store what I call base-level information which in this case will be first name, last name and date of birth. Navigation Properties are used to store relationships with other entities for example a customer could have accounts in which case we could put a Accounts navigation property on customer entity. For now we will go with scalar property.
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image6.png" border="0" alt="image" width="539" height="395" />
+
+We will add three properties here FirstName, LastName and DateOfBirth.
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image7.png" border="0" alt="image" width="154" height="166" />
+
+By default all our newly added properties store data of type <strong>string</strong>. This is okay for FirstName and LastName but won’t work well for DateOfBirth. We will now change the data type for DateOfBirth. Best way to do this is by opening Model Browser window and then selecting a property and modifying its properties. Sounds a bit confusing? Don’t worry it’s very simple. To make our life easy we can pin Model Browser and Properties window so that they are both viewable at the same time.
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image8.png" border="0" alt="image" width="273" height="532" />
+
+Here by selecting DateOfBirth property in Model Browser we can change its data type in properties window.
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image9.png" border="0" alt="image" width="272" height="533" />
+
+We will now create another entity called Account. We will follow similar steps as we did while creating Customer entity. In Account entity we will create x fields
+<ol>
+	<li>Id: Primary identifier of Account</li>
+	<li>AccountNumber: Used to store the actual account number.</li>
+	<li>BranchNumber: Stores a code which indicates the branch where this account was opened.</li>
+	<li>CurrentBalance: Obvious enough.</li>
+	<li>CreatedDate: Obvious enough.</li>
+</ol>
+Now we should have two entities in our EDM, a Customer entity and an Account entity. Let’s say that a customer can have more than one account. To reflect this properly in our EDM we will create an <strong>Association</strong>. To create an Association we right-click on the designer then click Add –&gt; Association…
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image10.png" border="0" alt="image" width="493" height="311" />
+
+We are now presented with a dialog where we can supply information for this association.
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image11.png" border="0" alt="image" width="411" height="464" />
+
+Because we only have two entities within our designer, Visual Studio has acted clever and read our mind. It has already filled in all the information we need to create this association. We will quickly go through some of what’s already in the dialog box. First thing we have is the name for Association, second and more important is the two end-points it has created (note: this has nothing to do with WCF endpoints). First end point describes the relationship from Customer’s side and the second end point describes the relationship from Account’s side. In Multiplicity drop-down we can see that there are many accounts for a customer. We will now click OK.
+
+Our entities now indicate visually that a one to many relationship exists between customer and account. We can also see that Navigation properties have also been added to both Account and Customer entities.
+
+<img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image12.png" border="0" alt="image" width="358" height="213" />
+
+We have successfully created an Entity Data Model for a fictitious bank which stores information about customers and their accounts. This EDM does not store information in a database. However it is fully functional EDM and we can use it within an application of course the data we create will not be persisted anywhere. In a future article we will see how to generate a physical database form this Entity Data Model.
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -256,44 +352,6 @@ public static void main(String[] args) {
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/08/20/generate-self-signed-certificates-on-windows-7/">Generate Self Signed Certificates on Windows 7</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-08-20T00:00:00+10:00" pubdate data-updated="true">Aug 20<span>th</span>, 2010</time>
-        
-         | <a href="/2010/08/20/generate-self-signed-certificates-on-windows-7/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This post shows you how to generate self signed certificates on Windows 7. To generate self signed certificates you must have IIS 7.5 installed because you will generate your certificate from within IIS manager. </p>  <h4>Step 1</h4>  <p>Launch IIS manager and in Filter type “Certificates” to see the <strong>Server Certificates Feature</strong>.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/image.png" width="540" height="405" /> </p>  <h4>Step 2</h4>  <p>Double click on Server Certificates feature and click on Create <strong>Self-Signed Certificate… </strong>in <strong>Actions</strong> panel on the right.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/image1.png" width="540" height="405" /> </p>  <h4>Step 3</h4>  <p>Give your certificate a friendly name and click OK.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/image2.png" width="540" height="408" /> </p>  <p>Congratulations you have just generated your self signed certificate. You can right click on the certificate you generated and export it to a file.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/13/">&larr; Older</a>
@@ -358,11 +416,11 @@ public static void main(String[] args) {
       </li>
     
       <li class="post">
-        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+        <a href="/2013/06/19/android-listview-tutorial/">Android - ListView Tutorial</a>
       </li>
     
       <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
+        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
       </li>
     
   </ul>
@@ -379,7 +437,7 @@ public static void main(String[] args) {
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Deepak Kapoor -
+  Copyright &copy; 2014 - Deepak Kapoor -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 <!-- Start of StatCounter Code for Default Guide -->

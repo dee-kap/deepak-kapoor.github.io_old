@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="In this article we will look at how to write a Windows Forms Client to access Microsoft Live Search API. Via this API you can use the power of a &hellip;">
+  <meta name="description" content="SQL Server provides with a stored procedure which can be used to get a list of all OLEDB providers on a machine. Stored procedure: &hellip;">
   
   <meta name="keywords" content="Deepak Kapoor, .Net, JavaScript, LINQ, Android, Html5, Apple" />
 
@@ -71,6 +71,50 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/02/11/get-a-list-of-all-oledb-providers-in-sql-server/">Get a List of All OLEDB Providers in SQL Server</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-11T00:00:00+11:00" pubdate data-updated="true">Feb 11<span>th</span>, 2009</time>
+        
+         | <a href="/2009/02/11/get-a-list-of-all-oledb-providers-in-sql-server/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>SQL Server provides with a stored procedure which can be used to get a list of all OLEDB providers on a machine.</p>  <p>Stored procedure:</p>  <p>xp_enum_oledb_providers</p>  <p>Executing this stored procedure which is in master database with the following statement</p>  
+
+<pre class="lang:tsql decode:true " >EXEC master..xp_enum_oledb_providers</pre>
+
+<p>gives a list of all available OLEDB providers on my machine.</p>
+
+<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="238" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image6.png" width="525" border="0" /></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -397,54 +441,6 @@ WHERE [t0].[ProductID] IN (@p0, @p1, @p2, @p3)',N'@p0 int,@p1 int,@p2 int,@p3 in
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/12/23/linqpad-with-intellisense/">LINQPad With Intellisense</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-12-23T00:00:00+11:00" pubdate data-updated="true">Dec 23<span>rd</span>, 2008</time>
-        
-         | <a href="/2008/12/23/linqpad-with-intellisense/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content">I had a look at <a href="http://www.linqpad.net/">LINQPad</a> few months ago when I wrote about how you can use this tool to <a href="http://www.debugrelease.com/view-t-sql-query-generated-by-linq-to-sql-using-linqpad/">view generated LINQ To SQL Queries</a>. There is not doubt that LINQPad comes in as a very handy tool when writing LINQ queries. But writing queries in LINQPad has not been that easy. Until Now!
-
-LINQPad now has <strong>Intellisense</strong>. <a href="http://www.albahari.com/">Joseph Albahari</a> has released this much desired feature. He is running a $17 for single license deal till December 23rd. At 17 bucks you can&#8217;t go wrong. The time it will save you justifies the price many times.
-
-<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/12/image2.png" border="0" alt="image" width="550" height="379" />
-
-If you are new to LINQ and need some guidance then LINQPad also comes with a  collection of sample queries to get you started.
-
-<img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/12/image3.png" border="0" alt="image" width="550" height="379" />
-
-I bought my auto-completion code today and I&#8217;ve been playing with LINQPad like a kid with a new toy. Thanks Joseph for putting together this nice tool.
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/28/">&larr; Older</a>
@@ -509,11 +505,11 @@ I bought my auto-completion code today and I&#8217;ve been playing with LINQPad 
       </li>
     
       <li class="post">
-        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+        <a href="/2013/06/19/android-listview-tutorial/">Android - ListView Tutorial</a>
       </li>
     
       <li class="post">
-        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
+        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
       </li>
     
   </ul>
@@ -530,7 +526,7 @@ I bought my auto-completion code today and I&#8217;ve been playing with LINQPad 
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Deepak Kapoor -
+  Copyright &copy; 2014 - Deepak Kapoor -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 <!-- Start of StatCounter Code for Default Guide -->
