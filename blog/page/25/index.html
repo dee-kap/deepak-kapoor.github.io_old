@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="This snippet shows you how to get information about all CD / DVD drives on your machine using WMI and C#. To run the code you need to add reference &hellip;">
+  <meta name="description" content="This one always gets me off guard so I’m posting this here for more than anything else to remind me. The issue occurs when you configure your MOSS &hellip;">
   
   <meta name="keywords" content="Deepak Kapoor, .Net, JavaScript, LINQ, Android, Html5, Apple" />
 
@@ -71,59 +71,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/03/09/get-cd-or-dvd-drive-information-using-wmi-and-c/">Get CD or DVD Drive Information Using WMI and C#</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-03-09T00:00:00+11:00" pubdate data-updated="true">Mar 9<span>th</span>, 2009</time>
-        
-         | <a href="/2009/03/09/get-cd-or-dvd-drive-information-using-wmi-and-c/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This snippet shows you how to get information about all CD / DVD drives on your machine using WMI and C#. To run the code you need to add reference to System.Management.</p>  <pre class="code"><span style="color: #2b91af">ManagementObjectSearcher </span>mgmtObjects = </pre>
-
-<pre class="code">  <span style="color: blue">new </span><span style="color: #2b91af">ManagementObjectSearcher</span>(<span style="color: #a31515">&quot;Select * from Win32_CDROMDrive&quot;</span>);
-
-<span style="color: blue">foreach </span>(<span style="color: blue">var </span>item <span style="color: blue">in </span>mgmtObjects.Get())
-{
-<span style="color: #2b91af">  Console</span>.WriteLine(<span style="color: #a31515">&quot;Drive Letter - t&quot; </span>+ item[<span style="color: #a31515">&quot;Drive&quot;</span>]);
-<span style="color: #2b91af">  Console</span>.WriteLine(<span style="color: #a31515">&quot;Name - t&quot; </span>+ item[<span style="color: #a31515">&quot;Name&quot;</span>]);
-}</pre>
-<a href="http://11011.net/software/vspaste"></a>
-
-<p>&#160;</p>
-
-<p>This code snippet will print out the letter and the name of all CD or DVD drives on a machine. Here is the output on my PC.</p>
-
-<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="54" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/03/image7.png" width="378" border="0" /></p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -343,6 +290,61 @@ The server principal 'test_user' already exists.</font></pre>
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/02/26/programmatically-take-screenshot-using-c/">Programmatically Take Screenshot Using C#</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-26T00:00:00+11:00" pubdate data-updated="true">Feb 26<span>th</span>, 2009</time>
+        
+         | <a href="/2009/02/26/programmatically-take-screenshot-using-c/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>To do this you will need to add references to System.Drawing and System.Windows.Forms. Make sure that you have following using statements:</p>  
+
+<pre class="lang:c# decode:true " >
+using System;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Windows.Forms;
+</pre>
+
+<p>In your method add this code. It will take a screenshot of your primary screen and save it to a file.</p>
+
+<pre class="lang:c# decode:true " >
+Bitmap bitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width, 
+                  Screen.PrimaryScreen.Bounds.Height);
+Graphics graphics = Graphics.FromImage(bitmap as Image);
+graphics.CopyFromScreen(0, 0, 0, 0, bitmap.Size);
+bitmap.Save(@"c:tempscreenshot.bmp", ImageFormat.Bmp);
+</pre>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/26/">&larr; Older</a>
@@ -407,11 +409,11 @@ The server principal 'test_user' already exists.</font></pre>
       </li>
     
       <li class="post">
-        <a href="/2013/06/19/android-listview-tutorial/">Android - ListView Tutorial</a>
+        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
       </li>
     
       <li class="post">
-        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>
@@ -464,7 +466,7 @@ alt="free hit counters"></a></div></noscript>
   
 
 <script type="text/javascript">
-      var disqus_shortname = 'debugrelease';
+      var disqus_shortname = 'deepakkapoor';
       
         
         var disqus_script = 'count.js';

@@ -9,7 +9,7 @@
   <meta name="author" content="Deepak Kapoor">
 
   
-  <meta name="description" content="To do this you will need to add references to System.Drawing and System.Windows.Forms. Make sure that you have following using statements: using &hellip;">
+  <meta name="description" content="I found this very interesting. When you install Oracle, a user by the name of Scott is always created for you. This users’ password is Tiger. The &hellip;">
   
   <meta name="keywords" content="Deepak Kapoor, .Net, JavaScript, LINQ, Android, Html5, Apple" />
 
@@ -71,61 +71,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/02/26/programmatically-take-screenshot-using-c/">Programmatically Take Screenshot Using C#</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-02-26T00:00:00+11:00" pubdate data-updated="true">Feb 26<span>th</span>, 2009</time>
-        
-         | <a href="/2009/02/26/programmatically-take-screenshot-using-c/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>To do this you will need to add references to System.Drawing and System.Windows.Forms. Make sure that you have following using statements:</p>  
-
-<pre class="lang:c# decode:true " >
-using System;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.Windows.Forms;
-</pre>
-
-<p>In your method add this code. It will take a screenshot of your primary screen and save it to a file.</p>
-
-<pre class="lang:c# decode:true " >
-Bitmap bitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width, 
-                  Screen.PrimaryScreen.Bounds.Height);
-Graphics graphics = Graphics.FromImage(bitmap as Image);
-graphics.CopyFromScreen(0, 0, 0, 0, bitmap.Size);
-bitmap.Save(@"c:tempscreenshot.bmp", ImageFormat.Bmp);
-</pre>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -295,6 +240,50 @@ bitmap.Save(@"c:tempscreenshot.bmp", ImageFormat.Bmp);
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/02/11/get-a-list-of-all-oledb-providers-in-sql-server/">Get a List of All OLEDB Providers in SQL Server</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-11T00:00:00+11:00" pubdate data-updated="true">Feb 11<span>th</span>, 2009</time>
+        
+         | <a href="/2009/02/11/get-a-list-of-all-oledb-providers-in-sql-server/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>SQL Server provides with a stored procedure which can be used to get a list of all OLEDB providers on a machine.</p>  <p>Stored procedure:</p>  <p>xp_enum_oledb_providers</p>  <p>Executing this stored procedure which is in master database with the following statement</p>  
+
+<pre class="lang:tsql decode:true " >EXEC master..xp_enum_oledb_providers</pre>
+
+<p>gives a list of all available OLEDB providers on my machine.</p>
+
+<p><img title="image" style="border-right: 0px; border-top: 0px; display: inline; border-left: 0px; border-bottom: 0px" height="238" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/02/image6.png" width="525" border="0" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/27/">&larr; Older</a>
@@ -359,11 +348,11 @@ bitmap.Save(@"c:tempscreenshot.bmp", ImageFormat.Bmp);
       </li>
     
       <li class="post">
-        <a href="/2013/06/19/android-listview-tutorial/">Android - ListView Tutorial</a>
+        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
       </li>
     
       <li class="post">
-        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
       </li>
     
   </ul>
@@ -416,7 +405,7 @@ alt="free hit counters"></a></div></noscript>
   
 
 <script type="text/javascript">
-      var disqus_shortname = 'debugrelease';
+      var disqus_shortname = 'deepakkapoor';
       
         
         var disqus_script = 'count.js';
