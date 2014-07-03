@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: SQL Server | Deepak Kapoor]]></title>
+  <link href="http://www.deepakkapoor.net/blog/categories/sql-server/atom.xml" rel="self"/>
+  <link href="http://www.deepakkapoor.net/"/>
+  <updated>2013-12-23T22:40:50+11:00</updated>
+  <id>http://www.deepakkapoor.net/</id>
+  <author>
+    <name><![CDATA[Deepak Kapoor]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Search Within SQL Server Database Objects with Red-Gate SQL Search]]></title>
+    <link href="http://www.deepakkapoor.net/2010/11/22/search-within-sql-server-database-objects-with-red-gate-sql-search/"/>
+    <updated>2010-11-22T00:00:00+11:00</updated>
+    <id>http://www.deepakkapoor.net/2010/11/22/search-within-sql-server-database-objects-with-red-gate-sql-search</id>
+    <content type="html"><![CDATA[<p>SQL Search by Red-Gate is a great tool for searching within database objects. It is invaluable on brown field projects where you work with existing databases. My recent experience was working with a database which had hundreds of Stored procedures, Views, Triggers etc. I had to find out all objects which used a particular table. <a href="http://www.red-gate.com/products/SQL_Search/">SQL Search</a> made this job a breeze. SQL Search does a text search across all database objects so you can also look for things like column names.</p>
+
+
+<p>  <p>Taking an example of Northwind database. You could to search for all database objects which have the word “customer” in their text. Below is a screenshot showing the search results.</p>  <p>&#160;<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image29.png" width="539" height="561" /> </p>  <p>The best thing is that <a href="http://www.red-gate.com/products/SQL_Search/">SQL Search</a> is free. </p></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Working With SQL Server HierarchyId Data Type In .NET Application]]></title>
+    <link href="http://www.deepakkapoor.net/2010/11/19/working-with-sql-server-hierarchyid-data-type-in-net-application/"/>
+    <updated>2010-11-19T00:00:00+11:00</updated>
+    <id>http://www.deepakkapoor.net/2010/11/19/working-with-sql-server-hierarchyid-data-type-in-net-application</id>
+    <content type="html"><![CDATA[<p>Recently I was working with some hierarchical data stored in SQL Server. The data was related to products where each product is a package which includes other packages which in turn can include individual products. The data was stored in a table where a a product row had a parentId column which indicated the parent of that product. This is a how we have stored hiearchies in tables. The solution has worked for years but is it the most efficient way to store hiearchichal data? Perhaps not. That’s why SQL Server 2008 had a data type called hierarchyId. This post is about working with&#160; the data type. Rather than divulging details of the application I’m working on commercially, I will use Northwind database as an example to demonstrate concepts talked in here.</p>
+
+
+<p>  <p>&#160;</p>  <h4>Basic Setup</h4>  <p>Northwind database has a table called Employees. This table stores information about an Employee and it also stores information about who an employee reports to. This structure is maintained by using a ReportsTo column in Employees table which links to EmployeeId within the same table.</p>  <p>&#160;</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image25.png" width="237" height="464" /> </p>  <p>As the objective here is to store this information using hierarchyId type, I created a new table called Employees2. To make things simple I only included EmployeeId, LastName and FirstName columns other than EmployeeNode which stores the hierarchical information and PlaceINHieararchy which indicates the place of a particular employee in organizational hierarchy. For example employee A can report to Employee B who reports to Employee C, so employee A’s place in hierarchy is 3. </p>  <p>This is the script I used to create Employees2 table.</p></p>
+
+<pre class="lang:tsql decode:true " >
+CREATE TABLE Employees2
+(EmployeeNode hierarchyid NOT NULL PRIMARY KEY NONCLUSTERED, 
+EmployeeId INT NOT NULL, 
+LastName NVARCHAR(20) NOT NULL, 
+FirstName NVARCHAR(10) NOT NULL, 
+PlaceInHierarchy AS EmployeeNode.GetLevel())
+</pre>
+
+
+
+
+<h4>Populating Data </h4>
+
+
+
+
+<p>To have a meaningful example I decided to insert some data into Employees2 table from Employees table. This script inserts data into Employees2 table. It may not be the best way to insert this data especially me using a temp table. But this is a dirty script which means that I’ll only run it once so I am not too worried about its elegance.</p>
+
+
+
+
+<pre class="lang:tsql decode:true " >
+WITH Emp AS 
+    (SELECT 
+    '/'+CAST(EmployeeId AS VARCHAR(49)) AS PATH, 
+    EmployeeId FROM dbo.Employees b 
+    WHERE 
+    b.ReportsTo IS NULL 
+    UNION ALL 
+    SELECT 
+    CAST(Emp.path+'/'+CAST(b.EmployeeId AS VARCHAR(4)) AS VARCHAR(50)), 
+    b.EmployeeId 
+    FROM 
+    dbo.Employees b JOIN Emp ON b.ReportsTo = Emp.EmployeeId)
+SELECT * INTO #temp FROM Emp
+
+
+
+INSERT INTO 
+Employees2(EmployeeNode, 
+EmployeeId, 
+LastName, 
+FirstName)
+SELECT 
+CAST( t.PATH+'/' AS hierarchyId), 
+b.EmployeeID, 
+b.LastName, 
+b.FirstName
+FROM 
+#temp t JOIN dbo.Employees b ON t.EmployeeId = b.EmployeeId
+ORDER BY 1
+</pre>
+
+
+
+
+<p>A simple select from Employees2 table which shows data inserted into employees2 table.</p>
+
+
+
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image26.png" width="519" height="196" /> </p>
+
+
+
+
+<h4>Writing .NET Code</h4>
+
+
+
+
+<p>After creating a table and inserting data my first thought was how can I use Entity Framework or LINQ To SQL to do CRUD on Employees2 table. Unfortunately those are not valid options. Microsoft did not provide any support to work with hierarchyId data type in either Entity Framework or LINQ To SQL. A major draw back which I hope will be addressed in future versions of these ORMs.</p>
+
+
+
+
+<p>Lack of support for hierarcyId data type in Entity Framework and LINQ To SQL does not mean that you don’t have any options. Good old raw ADO.NET is still around and comes in handy when working with hierarchyId data type. Another good thing is that Sql Server data type hierarchyId is available as SqlHierarchyId struct in Microsoft.SqlServer.Types assembly. To use the struct I added a reference to the Microsoft.SqlServer.Types assembly. The location of this assembly on my machine is</p>
+
+
+
+
+<p><font color="#0000a0"><strong>C:Program Files (x86)Microsoft SQL Server100SDKAssemblies</strong></font></p>
+
+
+
+
+<p>Next I wanted to write some code which can retrieve data from employees2 table and display it on a console. This method fetches all rows form employees2 table and displays the EmployeeNode column. Note how I store the value of EmployeeNode column into a employeeNode SqlHierarchyId struct and then I call a ToString() method on the struct.</p>
+
+
+
+
+<pre class="lang:c# decode:true " >
+static void GetEmployeeNodes()
+{ 
+  using (SqlConnection cn = new SqlConnection(connectionString)) 
+  { 
+    string query = "SELECT * FROM employees2"; 
+    SqlCommand cmd = new SqlCommand(query, cn); 
+    cn.Open(); 
+    SqlDataReader reader = cmd.ExecuteReader(); 
+
+    while (reader.Read()) 
+    { 
+      SqlHierarchyId employeeNode = new SqlHierarchyId(); 
+      employeeNode = (SqlHierarchyId)reader["EmployeeNode"]; 
+      Console.WriteLine("Employee Node = " + employeeNode.ToString()); 
+    } 
+  }
+}
+</pre>
+
+
+
+
+<p>Output of the method looked like this.</p>
+
+
+
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image27.png" width="451" height="114" /> </p>
+
+
+
+
+<p>I also wrote a method which displays ancestors for a particular employee. Getting an ancestor for a node is done by calling GetAncestor method on employeeNode which is of type SqlHierarchyId .</p>
+
+
+
+
+<pre class="lang:c# decode:true " >
+static void GetEmployeeDetails(int employeeId)
+{ 
+  using (SqlConnection cn = new SqlConnection(connectionString)) 
+  { 
+    string query = 
+      "SELECT * FROM employees2 WHERE employeeId = " + employeeId.ToString(); 
+    SqlCommand cmd = new SqlCommand(query, cn); 
+    cn.Open(); 
+    SqlDataReader reader = cmd.ExecuteReader(); 
+        
+    string output = string.Empty; 
+    
+    while (reader.Read()) 
+    { 
+      SqlHierarchyId employeeNode = new SqlHierarchyId(); 
+      employeeNode = (SqlHierarchyId)reader["EmployeeNode"]; 
+      Console.WriteLine("Employee Node = " + employeeNode.ToString()); 
+      output = string.Format("{0} {1}", reader["LastName"], reader["FirstName"]); 
+      var ancestorNode = employeeNode.GetAncestor(1); 
+
+      while (!ancestorNode.IsNull) 
+      { 
+        using (SqlConnection cn2 = new SqlConnection(connectionString)) 
+        { 
+          query = 
+            "Select * from employees2 where EmployeeNode=hierarchyid::Parse(@node)"; 
+          SqlCommand cmd2 = new SqlCommand(query, cn2); 
+          cmd2.Parameters.AddWithValue("@node", ancestorNode.ToString()); 
+          cn2.Open(); 
+          SqlDataReader reader2 = cmd2.ExecuteReader(); 
+                    
+          while (reader2.Read()) 
+          { 
+            output += 
+              string.Format("/{0} {1}", reader2["LastName"], reader2["FirstName"]); 
+          } 
+                    
+          ancestorNode = ancestorNode.GetAncestor(1); 
+        } 
+      } 
+    } 
+    Console.WriteLine(output); 
+  }
+}
+</pre>
+
+
+
+
+<p>The output I got.</p>
+
+
+
+
+<p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image28.png" width="450" height="50" /> </p>
+
+
+
+
+<h4>A bit about SqlHierarchyId struct</h4>
+
+
+
+
+<p>SqlHierarchyId struct provides other methods like GetDescendant, GetLevel, GetRoot etc. to retrieve more information. In my personal opinion I think that Microsoft needs to do a little more work on this and make it more useful. Of course the best thing to do will be to provide support for hierarchyId data type in Entity Framework and LINQ To SQL (if it’s not already dead).</p>
+
+
+
+
+<p>I hope you enjoyed reading the post as much as I enjoyed writing it and learning something I didn’t know.</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Generate SQL Server Database From Entity Data Model]]></title>
+    <link href="http://www.deepakkapoor.net/2010/11/12/generating-sql-server-database-from-entity-data-model/"/>
+    <updated>2010-11-12T00:00:00+11:00</updated>
+    <id>http://www.deepakkapoor.net/2010/11/12/generating-sql-server-database-from-entity-data-model</id>
+    <content type="html"><![CDATA[<p>In an <a href="http://www.debugrelease.com/creating-entity-data-model-without-a-database-with-entity-framework-4/">earlier post</a> we looked at how to generate an Entity Data Model using Visual Studio 2010. The data model we created was not generated from a database. This is a follow up post in which we will generate a database using the model we have already created.</p>
+
+
+<p>  <p>First thing we will do is open the project which contains our EDM. Next we will open Model Browser in Visual Studio.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image13.png" width="272" height="260" /> </p>  <p>To generate a database we need to right click on the root node within Model Browser and click on Generate Database from Model… </p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image19.png" width="540" height="202" /> </p>  <p>Generate Database Wizard is started and the first step is to specify a valid connection to a database. We can create a New Connection which connects to a blank database called MyBank. We can also instruct the wizard to save the connection string in App.config file. </p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image15.png" width="536" height="523" /> </p>  <p>Second step in the wizard generates and displays the SQL script which will create database objects as per our EDM.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image16.png" width="536" height="523" /> </p>  <p>After clicking Finish on the wizard a new file of type .sql is added to the project. The script which was generated by the wizard is saved in this file.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image17.png" width="301" height="140" /></p>  <p>Upon executing the generated script our database objects are created.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image18.png" width="551" height="178" /></p></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Creating Entity Data Model Without A Database With Entity Framework 4]]></title>
+    <link href="http://www.deepakkapoor.net/2010/11/10/creating-entity-data-model-without-a-database-with-entity-framework-4/"/>
+    <updated>2010-11-10T00:00:00+11:00</updated>
+    <id>http://www.deepakkapoor.net/2010/11/10/creating-entity-data-model-without-a-database-with-entity-framework-4</id>
+    <content type="html"><![CDATA[<p>This article shows you how to generate an Entity Data Model for Entity Framework 4 using Visual Studio 2010. Entity Data Model is widely known by its acronym EDM. A common misconception among developers is that a EDM is always backed up by a database. This is not accurate as we will see in this article. A database is a storage medium to store the data processed via EDM. Database schemas could also be different from EDM and this difference is resolved by using mapping concepts when the need comes to persist or load data from a physical database.</p>
+
+<p>For this article we will create a model for a fictitious bank called MyBank. To get started we will create a project of type Class Library in Visual Studio 2010. Next we will add a new item of type <strong>ADO.NET Entity Data Model</strong></p>
+
+<p><img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image2.png" border="0" alt="image" width="547" height="451" /></p>
+
+<p><strong>Entity Data Model wizard</strong> then starts and on the first window of the wizard we are given a choice of either generating our model from an existing database or creating a blank model. For this article we will go with the later. Once we click Finish, our blank model is generated for us. As our model is blank, we will need to create some entities within our model for our Bank. Let’s start by creating a customer entity. By this time our project also contains a MyBank.edmx file and if it is not open then we can open it by double clicking on the file. This opens up the <strong>Entity Model Designer</strong> where we will create our entities. So the customer entity first.</p>
+
+<p>To create our customer entity we right-click on and empty area in the designer and select Entity…</p>
+
+<p><img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image3.png" border="0" alt="image" width="493" height="292" /></p>
+
+<p>This brings up the <strong>Add Entity dialog box</strong> where we will enter basic details such as Entity Name, Base type which will be none in this case and Entity set. We will also check the Create key property. It indicates that our customer entity will have a property which will be its unique identifier. We can go with the name “Id” or supply our own name. We will stick with “Id”.</p>
+
+<p><img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image4.png" border="0" alt="image" width="364" height="445" /></p>
+
+<p>After clicking OK we see our newly created entity in the designer.</p>
+
+<p><img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image5.png" border="0" alt="image" width="154" height="119" /></p>
+
+<p>At this point customer entity can only store Id for  customer. Storing just an Id for a customer is a bit useless regardless of the bank being fictional or not. We will add some more fields to store other information such as name, date of birth etc. To do this we can right-click on customer entity and then click Add –&gt; Scalar Property. Scalar properties in EDM are used to store what I call base-level information which in this case will be first name, last name and date of birth. Navigation Properties are used to store relationships with other entities for example a customer could have accounts in which case we could put a Accounts navigation property on customer entity. For now we will go with scalar property.</p>
+
+<p><img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image6.png" border="0" alt="image" width="539" height="395" /></p>
+
+<p>We will add three properties here FirstName, LastName and DateOfBirth.</p>
+
+<p><img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image7.png" border="0" alt="image" width="154" height="166" /></p>
+
+<p>By default all our newly added properties store data of type <strong>string</strong>. This is okay for FirstName and LastName but won’t work well for DateOfBirth. We will now change the data type for DateOfBirth. Best way to do this is by opening Model Browser window and then selecting a property and modifying its properties. Sounds a bit confusing? Don’t worry it’s very simple. To make our life easy we can pin Model Browser and Properties window so that they are both viewable at the same time.</p>
+
+<p><img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image8.png" border="0" alt="image" width="273" height="532" /></p>
+
+<p>Here by selecting DateOfBirth property in Model Browser we can change its data type in properties window.</p>
+
+<p><img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image9.png" border="0" alt="image" width="272" height="533" /></p>
+
+<p>We will now create another entity called Account. We will follow similar steps as we did while creating Customer entity. In Account entity we will create x fields</p>
+
+<ol>
+    <li>Id: Primary identifier of Account</li>
+    <li>AccountNumber: Used to store the actual account number.</li>
+    <li>BranchNumber: Stores a code which indicates the branch where this account was opened.</li>
+    <li>CurrentBalance: Obvious enough.</li>
+    <li>CreatedDate: Obvious enough.</li>
+</ol>
+
+
+<p>Now we should have two entities in our EDM, a Customer entity and an Account entity. Let’s say that a customer can have more than one account. To reflect this properly in our EDM we will create an <strong>Association</strong>. To create an Association we right-click on the designer then click Add –&gt; Association…</p>
+
+<p><img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image10.png" border="0" alt="image" width="493" height="311" /></p>
+
+<p>We are now presented with a dialog where we can supply information for this association.</p>
+
+<p><img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image11.png" border="0" alt="image" width="411" height="464" /></p>
+
+<p>Because we only have two entities within our designer, Visual Studio has acted clever and read our mind. It has already filled in all the information we need to create this association. We will quickly go through some of what’s already in the dialog box. First thing we have is the name for Association, second and more important is the two end-points it has created (note: this has nothing to do with WCF endpoints). First end point describes the relationship from Customer’s side and the second end point describes the relationship from Account’s side. In Multiplicity drop-down we can see that there are many accounts for a customer. We will now click OK.</p>
+
+<p>Our entities now indicate visually that a one to many relationship exists between customer and account. We can also see that Navigation properties have also been added to both Account and Customer entities.</p>
+
+<p><img style="display: inline; border: 0px;" title="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/11/image12.png" border="0" alt="image" width="358" height="213" /></p>
+
+<p>We have successfully created an Entity Data Model for a fictitious bank which stores information about customers and their accounts. This EDM does not store information in a database. However it is fully functional EDM and we can use it within an application of course the data we create will not be persisted anywhere. In a future article we will see how to generate a physical database form this Entity Data Model.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Connect To SQL Server 2008 From NetBeans IDE On A Mac]]></title>
+    <link href="http://www.deepakkapoor.net/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac/"/>
+    <updated>2010-08-24T00:00:00+10:00</updated>
+    <id>http://www.deepakkapoor.net/2010/08/24/connect-to-sql-server-2008-from-netbeans-ide-on-a-mac</id>
+    <content type="html"><![CDATA[<p>In this post I will show you how to establish a connection to Microsoft SQL Server  from NetBeans IDE.</p>
+
+
+<p>I use a Mac so the screenshots here are from Mac but NetBeans IDE is the same on all other platforms. There should not be any differences.</p>
+
+
+<p>First thing we need to do is download the JDBC driver for Microsoft SQL Server from Microsoft. Current version of driver is 3.0 and it can be downloaded <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=%20a737000d-68d0-4531-b65d-da0f2a735707&amp;displaylang=en">here</a>. Download the drivers for UNIX and extract the archive on your machine. Once you have extracted the archive you'll get a folder sqljdbc_3.0 under which there is another folder enu. Within enu are the jar files which implement JDBC drivers.</p>
+
+
+<p>Now we will start the process to establish our connection to SQL Server from NetBeans. First thing click on Services tab and the Right Click on Databases and then click on New Connection.</p>
+
+
+<p><img title="SQLServerNetBeans.png" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/SQLServerNetBeans.png" border="0" alt="Screen shot 2010-08-23 at 6.20.33 PM.png" width="371" height="316" /></p>
+
+
+<p>You will see this window. Next to Driver Name click on the drop-down and choose New Driver...</p>
+
+
+<p><img title="NewImage.jpg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/NewImage.jpg" border="0" alt="NewImage.jpg" width="540" height="532" /></p>
+
+
+<p>Here click on the Add button and browse to your jar file for SQL Server JDBC driver.</p>
+
+
+<p><img title="NewImage.jpg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/NewImage1.jpg" border="0" alt="NewImage.jpg" width="482" height="379" /></p>
+
+
+<p>NetBeans is now aware of SQL Server JDBC driver.  You can now start creating the connection to SQL Server. Enter the details for SQL Server. You will need the IP address, port which by default is 1433 and username and password.</p>
+
+
+<p><img title="NewImage3.jpg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/NewImage3.jpg" border="0" alt="NewImage3.jpg" width="540" height="554" /></p>
+
+
+<p>Click OK and you will be connected to SQL Server.</p>
+
+
+<p>On the Server tab in NetBeans under Database you'll see your SQL Server. You can browse server objects, view tables, stored procedures etc.</p>
+
+
+<p><img title="NewImage5.jpg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/NewImage5.jpg" border="0" alt="NewImage5.jpg" width="356" height="433" /></p>
+
+
+<p>You can also run SQL queries on your SQL Server from NetBeans IDE.</p>
+
+
+<p><img title="NewImage6.jpg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/NewImage6.jpg" border="0" alt="NewImage6.jpg" width="540" height="489" /></p>
+
+]]></content>
+  </entry>
+  
+</feed>

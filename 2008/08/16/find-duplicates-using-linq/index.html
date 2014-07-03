@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Find Duplicates Using LINQ - Deepak Kapoor</title>
+  <meta name="author" content="Deepak Kapoor">
+
+  
+  <meta name="description" content="How can we find duplicate occurrences of values in a collection? I will demonstrate this here using a collection of cities. City class looks like &hellip;">
+  
+  <meta name="keywords" content="Deepak Kapoor, .Net, JavaScript, LINQ, Android, Html5, Apple" />
+
+  
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.deepakkapoor.net/2008/08/16/find-duplicates-using-linq">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/deepakkapoor" rel="alternate" title="Deepak Kapoor" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=Exo+2:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<link href="/stylesheets/debrel.css?v=1" rel="stylesheet" type="text/css">
+<meta name="google-site-verification" content="lgYJWL_s1AZLFOqJ9ejrQhbIkJcvzpsBZnUBGHcNk-w" />
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Deepak Kapoor</a></h1>
+  
+    <h2>programming and personal notes</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/deepakkapoor" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.deepakkapoor.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <!--<li><a href="/books">Books</a></li>-->
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Find Duplicates Using LINQ</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-16T00:00:00+10:00" pubdate data-updated="true">Aug 16<span>th</span>, 2008</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content">How can we find duplicate occurrences of values in a collection? I will demonstrate this here using a collection of cities. City class looks like this:
+
+ 
+<pre class="lang:c# decode:true " >public class City
+{
+public string Name { get; set; }
+public string Country { get; set; }
+}</pre> 
+
+
+Cities collection is initialised with this code:
+
+<pre class="lang:c# decode:true " >
+List cities =
+new List
+{
+new City{ Name = "Sydney", Country = "Australia" },
+new City{ Name = "Sydney", Country = "Australia" },
+new City{ Name = "New York", Country = "USA" },
+new City{ Name = "Paris", Country = "France" },
+new City{ Name = "Milan", Country = "Spain" },
+new City{ Name = "Melbourne", Country = "Australia" },
+new City{ Name = "Auckland", Country = "New Zealand" },
+new City{ Name = "Tokyo", Country = "Japan" },
+new City{ Name = "New Delhi", Country = "India" },
+new City{ Name = "Hobart", Country = "Australia" },
+new City{ Name = "Boston", Country = "USA"}
+};
+</pre>
+
+Objective is to find countries which occur more than once in the collection and while I am doing that I would also like to know the number of cities for that country. To do this I can use this query. I am using a foreach loop to output my results.
+
+<pre class="lang:c# decode:true " >
+var query =
+from c in cities
+group c by c.Country into g
+where g.Count() &gt; 1
+select new { Country = g.Key, CityCount = g.Count()};</pre>
+<pre class="lang:c# decode:true " > foreach (var item in query)
+{
+Console.WriteLine("Country {0} has {1} cities", item.Country, item.CityCount);
+}
+</pre>
+
+By running the above query I get this output which is correct as there are only two countries in the collection which have more than one city.
+
+<img style="border: 0px;" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/08/image28.png" width="279" height="48" border="0" />
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Deepak Kapoor</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-16T00:00:00+10:00" pubdate data-updated="true">Aug 16<span>th</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/dot-net/'>.NET</a>, <a class='category' href='/blog/categories/microsoft/'>Microsoft</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.deepakkapoor.net/2008/08/16/find-duplicates-using-linq/" data-via="" data-counturl="http://www.deepakkapoor.net/2008/08/16/find-duplicates-using-linq/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2008/08/16/bulk-copy-data-using-sqlbulkcopy-class/" title="Previous Post: Bulk Copy Data Using SQLBulkCopy Class">&laquo; Bulk Copy Data Using SQLBulkCopy Class</a>
+      
+      
+        <a class="basic-alignment right" href="/2008/08/25/linq-equivalent-of-where-in/" title="Next Post: LINQ Equivalent Of Where IN">LINQ Equivalent Of Where IN &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+    <h1>Connect with me</h1>
+
+    <ul id="socialList">
+        <li><a title="Deepak Kapoor on Facebook" href="https://www.facebook.com/pages/Deepak-Kapoor/180331188831904" alt="Facebook"><div class='sprite glyp_facebook'></div></a>
+        </li>
+        <li><a title="Google+" href="https://plus.google.com/u/0/105555323627924521684" alt="Google+"><div class='sprite glyp_google_plus'></div></a>
+        </li>
+        <li><a title="Subscribe to Deepak Kapoor's Feed" href="http://feeds.feedburner.com/DeepakKapoor" alt="RSS"><div class='sprite glyp_rss'></div></a>
+        </li>
+        <li><a title="Follow Deepak Kapoor on Twitter" href="http://www.twitter.com/_deepakkapoor" alt="Twitter"><div class='sprite glyp_twitter'></div></a>
+        </li>
+        <li><a title="LinkedIn profile" href="http://au.linkedin.com/in/kapoordeepak" alt="LinkedIn"><div class='sprite glyp_linked_in'></div></a>
+        </li>
+    </ul>
+</section><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/11/27/octopress-setup-existing-blog-on-another-machine/">Octopress-Setup Existing Blog on Another Machine</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/31/android-expandablelistview-tutorial/">Android - ExpandableListView Tutorial</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/28/linux-install-handbrake-on-linux-mint-15/">Linux - Install Handbrake on Linux Mint 15</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/">Linux VirtualBox - Windows Host Share in Ubuntu Guest</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/03/linux-number-of-files-in-directory/">Linux - Number of Files in Directory</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/24/android-listview-tutorial-with-images-and-text/">Android - ListView Tutorial With Images and Text</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Deepak Kapoor -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=8878331; 
+var sc_invisible=0; 
+var sc_security="f0e88835"; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="free hit
+counters" href="http://statcounter.com/free-hit-counter/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/8878331/0/f0e88835/0/"
+alt="free hit counters"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://plus.google.com/105555323627924521684?rel=author">Google Profile</a>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-975050-1', 'deepakkapoor.net');
+  ga('send', 'pageview');
+
+</script>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'debugrelease';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.deepakkapoor.net/2008/08/16/find-duplicates-using-linq/';
+        var disqus_url = 'http://www.deepakkapoor.net/2008/08/16/find-duplicates-using-linq/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

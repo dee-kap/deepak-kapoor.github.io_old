@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Tools | Deepak Kapoor]]></title>
+  <link href="http://www.deepakkapoor.net/blog/categories/tools/atom.xml" rel="self"/>
+  <link href="http://www.deepakkapoor.net/"/>
+  <updated>2013-12-23T22:40:50+11:00</updated>
+  <id>http://www.deepakkapoor.net/</id>
+  <author>
+    <name><![CDATA[Deepak Kapoor]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ubuntu Font and Zenburn - I like to make my code look good]]></title>
+    <link href="http://www.deepakkapoor.net/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/"/>
+    <updated>2013-06-02T00:00:00+10:00</updated>
+    <id>http://www.deepakkapoor.net/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good</id>
+    <content type="html"><![CDATA[<p>I have been asked many times about the font I use in Visual Studio. Colleagues who visit my cubicle often admire how I have setup Visual Studio or my text editor. The code just looks better on my machine than it does on theirs :) The answer lies in the font and color scheme.</p>
+
+
+
+
+<p>I use Ubuntu Font for all my code editors. This includes Visual Studio, Sublime Text and WebStorm. Earlier I was hooked to Consolas but ever since I discovered Ubuntu Font, I cannot tolerate anything else.</p>
+
+
+
+
+<p><p>Changing font in Visual Studio can be done by going to Tools &mdash;&gt; Options. Then go to Environment &mdash;&gt; Fonts and colors<p></p>
+
+<p><p>In Sublime Text go to Preferences &mdash;&gt; Settings-User and add the following text between curly braces.</p></p>
+
+<p><pre class="prettyprint lang-bash">&ldquo;font_face&rdquo;: &ldquo;Ubuntu mono&rdquo;,
+&ldquo;font_size&rdquo;: 12</pre></p>
+
+<p><a href="http://font.ubuntu.com/">Ubuntu font</a></p>
+
+<p><a href="http://studiostyl.es/schemes/zenburn-2012">Zenburn for Visual Studio</a></p>
+
+<p><a href="http://www.impressivewebs.com/custom-zenburn-theme-for-sublime-text-2/">Zenburn for Sublime Text</a></p>
+
+<p><p>Enjoy beautiful coding.</p></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Axis2 Plugin for Netbeans 7.1.2]]></title>
+    <link href="http://www.deepakkapoor.net/2012/05/25/axis2-plugin-for-netbeans-7-1-2/"/>
+    <updated>2012-05-25T00:00:00+10:00</updated>
+    <id>http://www.deepakkapoor.net/2012/05/25/axis2-plugin-for-netbeans-7-1-2</id>
+    <content type="html"><![CDATA[<p>I upgraded Netbeans today and found that there is no Axis2 plugin available via Tools –&gt; Plugins. Looks like Axis2 support plugin has been discontinued in Netbeans. However the link below works and I was able to install the plugin. This post hopefully will serve as a bookmark when I’m looking for Axis2 plugin in Netbeans next time.</p>
+
+
+<p> <p><a title="http://deadlock.netbeans.org/hudson/job/nbms-and-javadoc/lastStableBuild/artifact/nbbuild/nbms/updates.xml.gz" href="http://deadlock.netbeans.org/hudson/job/nbms-and-javadoc/lastStableBuild/artifact/nbbuild/nbms/updates.xml.gz"><a href="http://deadlock.netbeans.org/hudson/job/nbms-and-javadoc/lastStableBuild/artifact/nbbuild/nbms/updates.xml.gz">http://deadlock.netbeans.org/hudson/job/nbms-and-javadoc/lastStableBuild/artifact/nbbuild/nbms/updates.xml.gz</a></a></p></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Add Javadoc to Netbeans]]></title>
+    <link href="http://www.deepakkapoor.net/2011/01/01/add-javadoc-to-netbeans/"/>
+    <updated>2011-01-01T00:00:00+11:00</updated>
+    <id>http://www.deepakkapoor.net/2011/01/01/add-javadoc-to-netbeans</id>
+    <content type="html"><![CDATA[<p>I installed Netbeans 6.9 on my machine and found that Javadoc is not installed. For example when invoking intellisense for a method in Calendar class I get the following message. </p>
+
+
+<p><img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2011/01/snapshot3.png" title="Javadoc" alt="Javadoc not available" /></p>
+
+
+<p>Javadoc is not installed with Netbeans by default but can easily be installed. This is how it's done.</p>
+
+
+<p>First download documentation from this <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" title="Javadoc download link" target="_blank">link</a>. Get the documentation zip file and copy it to a folder. Next go to Tools --&gt; Java Platforms in Netbeans. This brings up Java Platform Manager. On this screen select the environment e.g. JDk 1.6 and then click on Javadoc tab. Browse to the zip file and click close on Java Platform Manager.</p>
+
+
+<p><img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2011/01/snapshot5copy.png" title="Netbeans-Java Platforms Manager" alt="Netbeans-Java Platforms Manager" /></p>
+
+
+<p>Javadoc will now be available.</p>
+
+
+<p><img src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2011/01/snapshot4.png" /></p>
+
+
+<p></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Running Glassfish In Verbose Mode From NetBeans]]></title>
+    <link href="http://www.deepakkapoor.net/2010/08/23/running-glassfish-in-verbose-mode-from-netbeans/"/>
+    <updated>2010-08-23T00:00:00+10:00</updated>
+    <id>http://www.deepakkapoor.net/2010/08/23/running-glassfish-in-verbose-mode-from-netbeans</id>
+    <content type="html"><![CDATA[<p>The title of this post "Running Glassfish In Verbose Mode From NetBeans" is slightly misleading because what I am showing here is a way to view Glassfish logs within NetBeans IDE.</p>
+
+
+<p>To start Glassfish in verbose mode on a command prompt or Terminal on a mac you'll use this command.</p>
+
+
+<p><strong>asadmin start-domain --verbose</strong></p>
+
+
+<p>This will show you a nice verbose log of Glassfish activity on the Terminal.</p>
+
+
+<p><strong></strong> From NetBeans all you need to do is start Glassfish as you normally would.</p>
+
+
+<p><img title="Screen shot 2010-08-23 at 5.09.05 PM.png" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/Screen-shot-2010-08-23-at-5.09.05-PM1.png" border="0" alt="Start Glassfish" width="375" height="397" /></p>
+
+
+<p>Now click on View Server Log and you'll see a log of all Glassfish activity in NetBeans IDE.</p>
+
+
+<p><img style="float: left;" title="Glassfish2.png" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/Glassfish21.png" border="0" alt="Screen shot 2010-08-23 at 5.20.17 PM.png" width="372" height="417" /></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[LINQPad with Intellisense]]></title>
+    <link href="http://www.deepakkapoor.net/2008/12/23/linqpad-with-intellisense/"/>
+    <updated>2008-12-23T00:00:00+11:00</updated>
+    <id>http://www.deepakkapoor.net/2008/12/23/linqpad-with-intellisense</id>
+    <content type="html"><![CDATA[<p>I had a look at <a href="http://www.linqpad.net/">LINQPad</a> few months ago when I wrote about how you can use this tool to <a href="http://www.debugrelease.com/view-t-sql-query-generated-by-linq-to-sql-using-linqpad/">view generated LINQ To SQL Queries</a>. There is not doubt that LINQPad comes in as a very handy tool when writing LINQ queries. But writing queries in LINQPad has not been that easy. Until Now!</p>
+
+<p>LINQPad now has <strong>Intellisense</strong>. <a href="http://www.albahari.com/">Joseph Albahari</a> has released this much desired feature. He is running a $17 for single license deal till December 23rd. At 17 bucks you can&rsquo;t go wrong. The time it will save you justifies the price many times.</p>
+
+<p><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/12/image2.png" border="0" alt="image" width="550" height="379" /></p>
+
+<p>If you are new to LINQ and need some guidance then LINQPad also comes with a  collection of sample queries to get you started.</p>
+
+<p><img style="border-right: 0px; border-top: 0px; border-left: 0px; border-bottom: 0px" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/12/image3.png" border="0" alt="image" width="550" height="379" /></p>
+
+<p>I bought my auto-completion code today and I&rsquo;ve been playing with LINQPad like a kid with a new toy. Thanks Joseph for putting together this nice tool.</p>
+]]></content>
+  </entry>
+  
+</feed>

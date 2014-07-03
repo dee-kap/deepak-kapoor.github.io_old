@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Windows | Deepak Kapoor]]></title>
+  <link href="http://www.deepakkapoor.net/blog/categories/windows/atom.xml" rel="self"/>
+  <link href="http://www.deepakkapoor.net/"/>
+  <updated>2013-12-23T22:40:50+11:00</updated>
+  <id>http://www.deepakkapoor.net/</id>
+  <author>
+    <name><![CDATA[Deepak Kapoor]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Failed To Load The JNI Shared Library On Windows 7]]></title>
+    <link href="http://www.deepakkapoor.net/2010/11/27/failed-to-load-the-jni-shared-library-on-windows-7/"/>
+    <updated>2010-11-27T00:00:00+11:00</updated>
+    <id>http://www.deepakkapoor.net/2010/11/27/failed-to-load-the-jni-shared-library-on-windows-7</id>
+    <content type="html"><![CDATA[<p>When starting Eclipse on Windows 7 I came across this error “Failed to load the JNI shared library”. After many trials and errors the solution revealed itself. The problem was that I did not have 64 bit JVM on my machine. I had been running 32 bit JVM and that was the culprit. <strong>If you get this error then Install 64 bit JVM</strong>. <a href="http://www.java.com/en/download/manual.jsp">Here is a link</a> where you can find 64 bit JVM.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Generate Self Signed Certificates On Windows 7]]></title>
+    <link href="http://www.deepakkapoor.net/2010/08/20/generate-self-signed-certificates-on-windows-7/"/>
+    <updated>2010-08-20T00:00:00+10:00</updated>
+    <id>http://www.deepakkapoor.net/2010/08/20/generate-self-signed-certificates-on-windows-7</id>
+    <content type="html"><![CDATA[<p>This post shows you how to generate self signed certificates on Windows 7. To generate self signed certificates you must have IIS 7.5 installed because you will generate your certificate from within IIS manager. </p>
+
+
+<p>  <h4>Step 1</h4>  <p>Launch IIS manager and in Filter type “Certificates” to see the <strong>Server Certificates Feature</strong>.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/image.png" width="540" height="405" /> </p>  <h4>Step 2</h4>  <p>Double click on Server Certificates feature and click on Create <strong>Self-Signed Certificate… </strong>in <strong>Actions</strong> panel on the right.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/image1.png" width="540" height="405" /> </p>  <h4>Step 3</h4>  <p>Give your certificate a friendly name and click OK.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/08/image2.png" width="540" height="408" /> </p>  <p>Congratulations you have just generated your self signed certificate. You can right click on the certificate you generated and export it to a file.</p></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Easiest Way to Generate Connection String And Verify Database Connectivity]]></title>
+    <link href="http://www.deepakkapoor.net/2010/07/30/easiest-way-to-generate-connection-string-and-verify-database-connectivity/"/>
+    <updated>2010-07-30T00:00:00+10:00</updated>
+    <id>http://www.deepakkapoor.net/2010/07/30/easiest-way-to-generate-connection-string-and-verify-database-connectivity</id>
+    <content type="html"><![CDATA[<p>There are two things which I as a consultant / developer come across many times. One is verifying connectivity to a database which is often a cause of production issues and second is creating valid connection string in the least amount of time. This is the way I do it. Hopefully it will be of help to you.</p>
+
+
+<p>  <p>First of all forget that you have Visual Studio, SSMS or anything so big and fancy. You just want to get a connection string baked up pronto. I usually end up creating a .udl file. UDL which stands for Universal Data Link allows you to establish a connection and then stores the connection string in text format. Doing this is very simple. Create a file in any folder or desktop and call it <strong>test.udl</strong>. </p>  <p>Now double click the file and you’ll get a window where you can enter your connection properties.</p>  <p>&#160;<img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image2.png" width="377" height="473" /> </p>  <p>You can also select different providers.</p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image3.png" width="377" height="473" /> </p>  <p>Once you have filled in the information about your server, security and database just click on Test Connection to verify connectivity. Click OK to close the window.</p>  <p>To get a connection string with information you just entered just open the test.udl file in a text editor and you’ll see the connection string. </p>  <p>&#160;<img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image4.png" width="582" height="68" /> </p>  <p>That’s it. Simple and easy ninja style.</p></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Find All Data Providers Installed On A Machine]]></title>
+    <link href="http://www.deepakkapoor.net/2010/07/29/find-all-data-providers-installed-on-a-machine/"/>
+    <updated>2010-07-29T00:00:00+10:00</updated>
+    <id>http://www.deepakkapoor.net/2010/07/29/find-all-data-providers-installed-on-a-machine</id>
+    <content type="html"><![CDATA[<p>This post shows you how to find Data Providers installed on a machine. Data providers in .NET Framework provide the plumbing necessary to connect to databases. There are different data providers available which can connect to SQL Server, Oracle or other databases through OleDb. You can find the data providers installed on your machine by looking at Machine.config file. In particular you will be looking for DbProviderFactories element under System.Data. In the screenshot below you can see data providers installed on my machine.</p>
+
+
+<p>  <p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image.png" width="539" height="141" /> </p>  <p>A list of data providers can also be retrieved by code. This sample shows you how to retrieve a list of data providers in code.</p></p>
+
+<pre class="lang:c# decode:true " >DataTable dataProviders = DbProviderFactories.GetFactoryClasses();
+            
+foreach (DataRow provider in dataProviders.Rows)
+{
+  Console.WriteLine(provider[0].ToString());
+}</pre>
+
+
+<p></p>
+
+<p>In the code above I am displaying the name of provider. Here is my output.</p>
+
+
+
+
+<p><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/07/image1.png" width="387" height="84" /></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Turn On MSDTC Windows 7]]></title>
+    <link href="http://www.deepakkapoor.net/2010/05/20/turn-on-msdtc-windows-7/"/>
+    <updated>2010-05-20T00:00:00+10:00</updated>
+    <id>http://www.deepakkapoor.net/2010/05/20/turn-on-msdtc-windows-7</id>
+    <content type="html"><![CDATA[<p>Here is a step by step guide to turn on MSDTC on Windows 7. MSDTC settings are somewhat hidden in Windows 7 and I could not get to them as I did on Windows XP or Server 2003. I found a way and I’m putting it out here. </p>
+
+
+<p>  <h4>Step 1</h4>  <p>Run dcomcnfg. This will open MMC with Component Services snapin.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="dcomcnfg" border="0" alt="dcomcnfg" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/05/image.png" width="427" height="235" /> </p>  <h4>Step 2</h4>  <p>Expand Distributed Transaction Coordinator folder</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/05/image1.png" width="540" height="418" /> </p>  <h4>Step 3</h4>  <p>Right click on Local DTC and click Properties. Click on Security tab. Here you can modify DTC settings.</p>  <p><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2010/05/image2.png" width="462" height="505" /></p></p>
+]]></content>
+  </entry>
+  
+</feed>

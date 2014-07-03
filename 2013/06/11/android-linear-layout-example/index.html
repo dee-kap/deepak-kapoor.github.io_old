@@ -1,0 +1,518 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Android - Linear Layout Example - Deepak Kapoor</title>
+  <meta name="author" content="Deepak Kapoor">
+
+  
+  <meta name="description" content="Andorid LinearLayout example which shows you the basics and usage of Weight, layout_width and layout_height properties">
+  
+  <meta name="keywords" content="Android, LinearLayout, Weight, layout_height, layout_weight, java, google" />
+
+  
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.deepakkapoor.net/2013/06/11/android-linear-layout-example">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/deepakkapoor" rel="alternate" title="Deepak Kapoor" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=Exo+2:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<link href="/stylesheets/debrel.css?v=1" rel="stylesheet" type="text/css">
+<meta name="google-site-verification" content="lgYJWL_s1AZLFOqJ9ejrQhbIkJcvzpsBZnUBGHcNk-w" />
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Deepak Kapoor</a></h1>
+  
+    <h2>programming and personal notes</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/deepakkapoor" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.deepakkapoor.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <!--<li><a href="/books">Books</a></li>-->
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Android - Linear Layout Example</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-11T00:00:00+10:00" pubdate data-updated="true">Jun 11<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>In Android Layouts are containers in which you place your widgets like buttons, images, lists etc. Two of the most useful layouts are LinearLayout and RelativeLayout. In this post I will talk about LinearLayout.</p>  <p>LinearLayout extends android.view.ViewGroup which extends android.view.View object. As the name suggests, LinearLayout is used to place widgets in a linear manner. By default widgets are stacked vertically as shown in the image below.</p>  <p><img title="verticalLayout" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="verticalLayout" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/verticalLayout.gif" width="245" height="435" /></p>  <p>Here is another example of an app running in the emulator.</p>  <p><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image.png" width="479" height="215" /></p>  <p>To get this layout you can use the following xml</p>  <pre class="prettyprint">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+              android:orientation=&quot;vertical&quot;
+              android:layout_width=&quot;fill_parent&quot;
+              android:layout_height=&quot;fill_parent&quot;&gt;
+    &lt;TextView
+            android:layout_width=&quot;fill_parent&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;Hello World, MyActivity&quot;
+            /&gt;
+    &lt;TextView
+            android:layout_width=&quot;fill_parent&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;New Text&quot;
+            android:id=&quot;@+id/textView&quot; android:layout_gravity=&quot;center&quot;/&gt;
+    &lt;Button
+            android:layout_width=&quot;fill_parent&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:text=&quot;New Button&quot;
+            android:id=&quot;@+id/button&quot; android:layout_gravity=&quot;center&quot;/&gt;
+    &lt;WebView
+            android:layout_width=&quot;fill_parent&quot;
+            android:layout_height=&quot;fill_parent&quot;
+            android:id=&quot;@+id/webView&quot;/&gt;
+&lt;/LinearLayout&gt;</pre>
+
+<p>Other than stacking widgets vertically, LinearLayout can also stack them horizontally. All you need to do is change android:orientation to be horizontal <code>android:orientation=”horizontal”</code></p>
+
+<p>Let’s look at some slightly advance concepts. First one is the fill model. In the code above you will notice that android:layout_width and android:layout_height are either set to fill_parent or wrap_content. These values are very useful when placing widgets in a LinearLayout or for that matter any kind of layout. </p>
+
+<p>I will use this new example to explain few concepts. In this layout I have three TextView objects placed within a LinearLayout. To make them standout I have added some color. Here is the code.</p>
+
+ 
+<pre class="prettyprint" >&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" &gt;
+
+    &lt;TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Text View 1"
+            android:background="#bfffd9"
+            android:textColor="#000000"/&gt;
+
+    &lt;TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Text View 2"
+            android:background="#ffd4b4"
+            android:textColor="#000000"/&gt;
+
+    &lt;TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Text View 3"
+            android:background="#a9d2ff"
+            android:textColor="#000000"/&gt;
+&lt;/LinearLayout&gt;
+</pre> 
+
+
+<p>The view rendered by the code above will be</p>
+
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image1.png" width="240" height="320" /></p>
+
+<p>Let’s play a bit with the height property. I will set android:LayoutHeight of second TextView to be fill_parent. Doing so results in this</p>
+
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image2.png" width="240" height="320" /></p>
+
+<p>What happened to the third TextView? Where did it go? Technically it is still there but you cannot see it. The way this works is that the layout system places TextView 1, it then puts the second TextView if there is space available and then the third one if there is space available. Because the second TextView has taken up the remaing space, there is no space left for third TextView. </p>
+
+<p>What if I change Layout_Height of second TextView to wrap_content and for the third TextView make it fill_parent. Here is the full code.</p>
+
+ 
+<pre class="prettyprint" >&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" &gt;
+
+    &lt;TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Text View 1"
+            android:background="#bfffd9"
+            android:textColor="#000000"/&gt;
+
+    &lt;TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Text View 2"
+            android:background="#ffd4b4"
+            android:textColor="#000000"/&gt;
+
+    &lt;TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="Text View 3"
+            android:background="#a9d2ff"
+            android:textColor="#000000"/&gt;
+&lt;/LinearLayout&gt;
+</pre> 
+
+
+<p>This will give us</p>
+
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image3.png" width="240" height="320" /></p>
+
+<p>There is another important concept when it comes to placing widgets and that is “Weight”. Let’s look at the effect of weight on our TextViews. By default all widgets placed inside LinearLayout have the same weight i.e. zero. Let’s see what happens if we increase the weight of our first TextView to be 1.</p>
+
+ 
+<pre class="prettyprint" >&lt;TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Text View 1"
+            android:background="#bfffd9"
+            android:textColor="#000000"
+            android:layout_weight="1" /&gt;</pre> 
+
+
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image4.png" width="240" height="320" /></p>
+
+<p>See how first TextView has pushed the other two down. One way to look at this is that first TextView is heavier (we are talking about weight here) than the other two and so takes up more room.</p>
+
+<p>What if we assign the same value for layout_weight to all our TextViews.</p>
+
+ 
+<pre class="prettyprint" >&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" &gt;
+
+    &lt;TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Text View 1"
+            android:background="#bfffd9"
+            android:textColor="#000000"
+            android:layout_weight="1"
+            /&gt;
+
+    &lt;TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Text View 2"
+            android:background="#ffd4b4"
+            android:textColor="#000000"
+            android:layout_weight="1"/&gt;
+
+    &lt;TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Text View 3"
+            android:background="#a9d2ff"
+            android:textColor="#000000"
+            android:layout_weight="1"/&gt;
+&lt;/LinearLayout&gt;
+</pre> 
+
+
+<p>We get this</p>
+
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image5.png" width="240" height="320" /></p>
+
+<p>All three TextViews have the same height. Do you see the power of layout_weight here? One more example where we want the first and second TextView to take up half of the space combined and let the third one take the other half. This can be done by setting the layout_weight of our third TextView to be 2.</p>
+
+ 
+<pre class="prettyprint" >&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" &gt;
+
+    &lt;TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Text View 1"
+            android:background="#bfffd9"
+            android:textColor="#000000"
+            android:layout_weight="1"
+            /&gt;
+
+    &lt;TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Text View 2"
+            android:background="#ffd4b4"
+            android:textColor="#000000"
+            android:layout_weight="1"/&gt;
+
+    &lt;TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Text View 3"
+            android:background="#a9d2ff"
+            android:textColor="#000000"
+            android:layout_weight="2"/&gt;
+&lt;/LinearLayout&gt;
+</pre> 
+
+
+<p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2013/06/image6.png" width="240" height="320" /></p>
+
+<p>Other than layout_width, layout_height and layout_weight, there are many other attributes available which have significant affect on widget’s placement within a layout container. I will leave them for another day. </p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Deepak Kapoor</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-11T00:00:00+10:00" pubdate data-updated="true">Jun 11<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/android/'>Android</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.deepakkapoor.net/2013/06/11/android-linear-layout-example/" data-via="" data-counturl="http://www.deepakkapoor.net/2013/06/11/android-linear-layout-example/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/" title="Previous Post: Ubuntu Font and Zenburn - I like to make my code look good">&laquo; Ubuntu Font and Zenburn - I like to make my code look good</a>
+      
+      
+        <a class="basic-alignment right" href="/2013/06/24/android-listview-tutorial-with-images-and-text/" title="Next Post: Android   - ListView tutorial with images and text">Android   - ListView tutorial with images and text &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+    <h1>Connect with me</h1>
+
+    <ul id="socialList">
+        <li><a title="Deepak Kapoor on Facebook" href="https://www.facebook.com/pages/Deepak-Kapoor/180331188831904" alt="Facebook"><div class='sprite glyp_facebook'></div></a>
+        </li>
+        <li><a title="Google+" href="https://plus.google.com/u/0/105555323627924521684" alt="Google+"><div class='sprite glyp_google_plus'></div></a>
+        </li>
+        <li><a title="Subscribe to Deepak Kapoor's Feed" href="http://feeds.feedburner.com/DeepakKapoor" alt="RSS"><div class='sprite glyp_rss'></div></a>
+        </li>
+        <li><a title="Follow Deepak Kapoor on Twitter" href="http://www.twitter.com/_deepakkapoor" alt="Twitter"><div class='sprite glyp_twitter'></div></a>
+        </li>
+        <li><a title="LinkedIn profile" href="http://au.linkedin.com/in/kapoordeepak" alt="LinkedIn"><div class='sprite glyp_linked_in'></div></a>
+        </li>
+    </ul>
+</section><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/11/27/octopress-setup-existing-blog-on-another-machine/">Octopress-Setup Existing Blog on Another Machine</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/31/android-expandablelistview-tutorial/">Android - ExpandableListView Tutorial</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/28/linux-install-handbrake-on-linux-mint-15/">Linux - Install Handbrake on Linux Mint 15</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/">Linux VirtualBox - Windows Host Share in Ubuntu Guest</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/03/linux-number-of-files-in-directory/">Linux - Number of Files in Directory</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/24/android-listview-tutorial-with-images-and-text/">Android - ListView Tutorial With Images and Text</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Deepak Kapoor -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=8878331; 
+var sc_invisible=0; 
+var sc_security="f0e88835"; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="free hit
+counters" href="http://statcounter.com/free-hit-counter/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/8878331/0/f0e88835/0/"
+alt="free hit counters"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://plus.google.com/105555323627924521684?rel=author">Google Profile</a>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-975050-1', 'deepakkapoor.net');
+  ga('send', 'pageview');
+
+</script>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'debugrelease';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.deepakkapoor.net/2013/06/11/android-linear-layout-example/';
+        var disqus_url = 'http://www.deepakkapoor.net/2013/06/11/android-linear-layout-example/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

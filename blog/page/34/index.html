@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Deepak Kapoor</title>
+  <meta name="author" content="Deepak Kapoor">
+
+  
+  <meta name="description" content="Introduction With .NET Framework 3.5 Microsoft released Language Integrated Query aka LINQ. LINQ enables developers to query data sources using a &hellip;">
+  
+  <meta name="keywords" content="Deepak Kapoor, .Net, JavaScript, LINQ, Android, Html5, Apple" />
+
+  
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.deepakkapoor.net/blog/page/34">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/deepakkapoor" rel="alternate" title="Deepak Kapoor" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=Exo+2:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<link href="/stylesheets/debrel.css?v=1" rel="stylesheet" type="text/css">
+<meta name="google-site-verification" content="lgYJWL_s1AZLFOqJ9ejrQhbIkJcvzpsBZnUBGHcNk-w" />
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Deepak Kapoor</a></h1>
+  
+    <h2>programming and personal notes</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/deepakkapoor" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.deepakkapoor.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <!--<li><a href="/books">Books</a></li>-->
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/07/31/linq-to-sql-tutorial/">LINQ to SQL Tutorial</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-31T00:00:00+10:00" pubdate data-updated="true">Jul 31<span>st</span>, 2008</time>
+        
+         | <a href="/2008/07/31/linq-to-sql-tutorial/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h4>Introduction</h4>  <p>With .NET Framework 3.5 Microsoft released Language Integrated Query aka LINQ. LINQ enables developers to query data sources using a query like syntax with both C# and VB.NET. These data sources can be collections, SQL Server databases, XML, DataSets etc. Other than what is supplied by Microsoft, LINQ is also extensible. This means that you can query data sources beyond what Microsoft ships. Examples of such implementations are LINQ To Flickr, LINQ To Amazon, LINQ to Google etc. In this article I will show you how you can use LINQ To SQL to perform CRUD operations on a SQL Server database. I will use Northwind database and build an ASP.NET application to demonstrated the capabilities of LINQ To SQL. You can download Northwind database <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=06616212-0356-46A0-8DA2-EEBC53A68034&amp;displaylang=en">here</a>.</p>  <h4>Toolset for this article</h4>  <ol>   <li>Visual Studio 2008 </li>    <li>.NET Framework 3.5 (This is already installed if you have Visual Studio 2008) </li>    <li>SQL Server 2005 (You can also work with SQL Server Express) </li> </ol>  <h4>Solution Structure</h4>  <p>For this article we will need two projects. One is a data layer (created as a Class Library)which we will generate and the other is an ASP.NET Web Application. The solutions structure looks like this in Solution Explorer.</p>  <p><img style="border-right-width: 0px; margin: 0px 10px 10px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="LINQ" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/07/image-thumb3.png" width="297" height="280" /></p>  <h4>Creating Data Layer</h4>  <p>Before we generate our data layer we must create a new connection in Server Explorer which points to Northwind database.</p>  <p><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="LINQ" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/07/image-thumb8.png" width="251" height="311" /></p>  <p>We will now generate our data layer using LINQ To SQL. To do this you need to add a new item to the data layer project of type LINQ to SQL Classes. We will name it Northwind as shown below.</p>  <p><img style="border-right-width: 0px; margin: 0px 10px 10px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="LINQ" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/07/image41.png" width="540" height="381" /></p>  <p>After adding a LINQ to SQL Class we are presented with a designer surface. Here we can simply drag the tables which will become part of our data layer. For this article we will drag all tables on the designer by selecting them all in one go. Our designer should look like this after dragging all tables on it.</p>  <p><img style="border-right-width: 0px; margin: 0px 10px 10px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="LINQ" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/07/image30-thumb.png" width="451" height="638" /></p>  <p>We should now build our solution to make sure everything is okay. And that&#8217;s it. We have successfully generated our data layer. In Solution Explorer we can see that we have two new files namely Northwind.dbml.layout and Northwind.designer.cs. We can also see that references required to compile and run our code have been added by Visual Studio.</p>  <p><img style="border-right-width: 0px; margin: 0px 10px 10px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="LINQ" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/07/image36.png" width="282" height="509" /></p>  <p>The .cs file contains the code for our data layer. Let&#8217;s examine the code that has been generated for us. We will look at the Region class.</p>  
+
+<pre class="prettyprint" >
+[Table(Name="dbo.Region")]
+public partial class Region : INotifyPropertyChanging, INotifyPropertyChanged
+</pre>
+
+<p>The class itself is decorated with Table attribute and the Name property has been assigned the actual table name we have in our database. Region class also implements INotifyPropertyChanging and INotifyPropertyChanged interfaces. These interfaces are used for databinding. Region class also contains one property per column. Let&#8217;s look at the RegionDescription property.</p>
+
+<pre class="prettyprint" >
+[Column(Storage="_RegionDescription", DbType="NChar(50) NOT NULL",
+CanBeNull=false)]
+public string RegionDescription
+{
+  get
+  {
+    return this._RegionDescription;
+  }
+  set
+  {
+    if ((this._RegionDescription != value))
+    {
+      this.OnRegionDescriptionChanging(value);
+      this.SendPropertyChanging();
+      this._RegionDescription = value;
+      this.SendPropertyChanged("RegionDescription");
+      this.OnRegionDescriptionChanged();
+    }
+  }
+}
+</pre>
+
+<p>Columns are decorated with Column attribute and values are passed in for Storage, DbType and CanBeNull which indicates if the column can be null or not.</p>
+
+<h4>Using Data Layer</h4>
+
+<p>Now that we have generated our data layer. We will work on ASP.NET web application where we will use our data layer. To keep things simple we will create a web forms to search for customers and display search results. We will also create a web form to insert new customers. Let&#8217;s start by creating our web form for customer search. For this we will use the Default.aspx page. We will place few controls on the web form. These controls will give us search parameters and a button which will do the search and display results when clicked. This is what the form will look like after placing our controls.</p>
+
+<p><img style="border-right-width: 0px; margin: 0px 10px 10px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="LINQ" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/07/image-thumb13-thumb.png" width="396" height="160" /></p>
+
+<p>We will also place a GridView control on our form to display search results. We will now put in some code in our button&#8217;s click event handler to do the search and display results in GridView. Make sure that we have a reference to Data Layer project, System.Data.Linq and appropriate using statement. Here is what our button click event handler will contain.</p>
+
+<pre class="prettyprint" >
+protected void buttonSearch_Click(object sender, EventArgs e)
+{
+  using (NorthwindDataContext context = new NorthwindDataContext())
+  {
+    var customers =
+      from c in context.Customers
+      select c;
+
+    gridViewCustomers.DataSource = customers;
+    gridViewCustomers.DataBind();
+  }
+}
+</pre>
+
+<p>This code will query the customers table in northwind database and will return all customers. We will now modify it slightly to accept customer name and company name as parameters for our query. After modification our event handler looks like this.</p>
+
+<pre class="prettyprint" >
+protected void buttonSearch_Click(object sender, EventArgs e)
+{
+  using (NorthwindDataContext context = new NorthwindDataContext())
+  {
+    var customers =
+      from c in context.Customers
+      where (c.ContactName.Contains(textBoxCustomerName.Text.Trim())
+      &amp;&amp;
+      c.CompanyName.Contains(textBoxCompanyName.Text.Trim()))
+      select c;
+
+	gridViewCustomers.DataSource = customers;
+    gridViewCustomers.DataBind();
+  }
+}
+</pre>
+
+<p>Our search results will now be filtered.</p>
+
+<p>Let us now created a data entry form for customers.&#160; We will insert a new web form in our ASP.NET project and call it CustomerEntry. To start with we will make sure that our form contains fields required to insert a customer. Our form after completion will look like this.</p>
+
+<p><img style="border-right-width: 0px; margin: 0px 10px 10px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" border="0" alt="LINQ" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2008/07/image.png" width="357" height="549" /></p>
+
+<p>We expect a new row to be inserted into customers table when Save Customer button is clicked. This code achieves data insertion into customers table for us.</p>
+
+<pre class="prettyprint" >
+protected void buttonSave_Click(object sender, EventArgs e)
+{
+  using (NorthwindDataContext context = new NorthwindDataContext())
+  {
+    Customer customer = new Customer
+    {
+      CustomerID = textBoxCustomerID.Text,
+	  CompanyName = textBoxCompanyName.Text,
+	  ContactName = textBoxCustomerName.Text,
+	  ContactTitle = textBoxTitle.Text,
+	  Address = textBoxAddress.Text,
+	  City = textBoxCity.Text,
+	  Region = textBoxRegion.Text,
+	  PostalCode = textBoxPostalCode.Text,
+	  Country = textBoxCountry.Text,
+	  Phone = textBoxPhone.Text,
+	  Fax = textBoxFax.Text
+	};
+
+	context.Customers.InsertOnSubmit(customer);
+	context.SubmitChanges();
+  }
+}
+</pre>
+
+<p>Similarly an existing row in database can be updated by first retrieving the data and then submitting it via DataContext.</p>
+
+<h4>Conclusion</h4>
+
+<p>In this tutorial we have not written a single SQL statement to retrieve or insert data into a database. This is the beauty of LINQ To SQL. Further our retrieval code while in C# looks a lot like a query. We can already appreciate the benefits of such a streamlined and unified approach in dealing with data.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/33/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+    <h1>Connect with me</h1>
+
+    <ul id="socialList">
+        <li><a title="Deepak Kapoor on Facebook" href="https://www.facebook.com/pages/Deepak-Kapoor/180331188831904" alt="Facebook"><div class='sprite glyp_facebook'></div></a>
+        </li>
+        <li><a title="Google+" href="https://plus.google.com/u/0/105555323627924521684" alt="Google+"><div class='sprite glyp_google_plus'></div></a>
+        </li>
+        <li><a title="Subscribe to Deepak Kapoor's Feed" href="http://feeds.feedburner.com/DeepakKapoor" alt="RSS"><div class='sprite glyp_rss'></div></a>
+        </li>
+        <li><a title="Follow Deepak Kapoor on Twitter" href="http://www.twitter.com/_deepakkapoor" alt="Twitter"><div class='sprite glyp_twitter'></div></a>
+        </li>
+        <li><a title="LinkedIn profile" href="http://au.linkedin.com/in/kapoordeepak" alt="LinkedIn"><div class='sprite glyp_linked_in'></div></a>
+        </li>
+    </ul>
+</section><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/11/27/octopress-setup-existing-blog-on-another-machine/">Octopress-Setup Existing Blog on Another Machine</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/31/android-expandablelistview-tutorial/">Android - ExpandableListView Tutorial</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/28/linux-install-handbrake-on-linux-mint-15/">Linux - Install Handbrake on Linux Mint 15</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/">Linux VirtualBox - Windows Host Share in Ubuntu Guest</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/03/linux-number-of-files-in-directory/">Linux - Number of Files in Directory</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/24/android-listview-tutorial-with-images-and-text/">Android - ListView Tutorial With Images and Text</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Deepak Kapoor -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=8878331; 
+var sc_invisible=0; 
+var sc_security="f0e88835"; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="free hit
+counters" href="http://statcounter.com/free-hit-counter/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/8878331/0/f0e88835/0/"
+alt="free hit counters"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://plus.google.com/105555323627924521684?rel=author">Google Profile</a>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-975050-1', 'deepakkapoor.net');
+  ga('send', 'pageview');
+
+</script>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'debugrelease';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

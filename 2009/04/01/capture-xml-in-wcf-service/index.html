@@ -1,0 +1,575 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Capture XML In WCF Service - Deepak Kapoor</title>
+  <meta name="author" content="Deepak Kapoor">
+
+  
+  <meta name="description" content="Working on a project where we wrote WCF Services a need was identified to capture the raw xml passed in to the service operation and also capture the &hellip;">
+  
+  <meta name="keywords" content="Deepak Kapoor, .Net, JavaScript, LINQ, Android, Html5, Apple" />
+
+  
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.deepakkapoor.net/2009/04/01/capture-xml-in-wcf-service">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/deepakkapoor" rel="alternate" title="Deepak Kapoor" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=Exo+2:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<link href="/stylesheets/debrel.css?v=1" rel="stylesheet" type="text/css">
+<meta name="google-site-verification" content="lgYJWL_s1AZLFOqJ9ejrQhbIkJcvzpsBZnUBGHcNk-w" />
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Deepak Kapoor</a></h1>
+  
+    <h2>programming and personal notes</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/deepakkapoor" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.deepakkapoor.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <!--<li><a href="/books">Books</a></li>-->
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Capture XML in WCF Service</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-01T00:00:00+11:00" pubdate data-updated="true">Apr 1<span>st</span>, 2009</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content">Working on a project where we wrote WCF Services a need was identified to capture the raw xml passed in to the service operation and also capture the reply xml sent back by the service. WCF does not provide such facility out of the box but it can be easily implemented using behaviours. In this article we will look at how to capture raw xml messages when a call is made to a service.
+
+As an example we will create a simple service which implements one operation called SayHello. Our service contract will look like this.
+<pre class="lang:c# decode:true">[ServiceContract]
+public interface IHelloService
+{ 
+  [OperationContract] 
+  string SayHello(string name);
+}</pre>
+In the operation “SayHello” we will return a string. Here is the implementation of IHelloService contract.
+<pre class="lang:c# decode:true">public class HelloService : IHelloService
+{  
+  public string SayHello(string name) 
+  { 
+    return string.Concat("Hello ", name); 
+  }
+}</pre>
+We will host our Service In a Windows Forms application so that we can easily view xml we capture. Just to get a feel for it, our host application will look like this. Clicking the button will start the service and as calls are made we will see request and response content in the tabs.
+
+<img style="display: inline; border-width: 0px;" title="image" alt="image" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/04/image.png" width="540" height="540" border="0" />
+<h4>Capturing XML</h4>
+To capture XML we need to implement two interfaces IDispatchMessageInspector and IServiceBehavior. The way our solution works is that we will add our implementation of IDispatchMessageInspector to MessageInspectors collection on endpoints used by our ServiceHost.
+
+We will first implement IDispatchMessaageInspector in a class called Inspector.
+<pre class="lang:c# decode:true">public class Inspector : IDispatchMessageInspector
+{ 
+  ///  
+  /// Stores contents of Request message 
+  /// passed to the service. 
+  ///  
+  /// The request XML. 
+  public string Request { get; set; } 
+
+  ///  
+  /// Stores contents of Response messge 
+  /// which is sent back to the client. 
+  ///  
+  /// The response XML. 
+  public string Response { get; set; } 
+
+  #region IDispatchMessageInspector Members 
+
+  ///  
+  /// Called after an inbound message has been received but 
+  /// before the message is dispatched to the intended operation. 
+  ///  
+  ///The request message. 
+  ///The incoming channel. 
+  ///The current service instance. 
+  ///  /// The object used to correlate state. 
+  ///  
+  public object AfterReceiveRequest(
+    ref System.ServiceModel.Channels.Message request, 
+    System.ServiceModel.IClientChannel channel, 
+    System.ServiceModel.InstanceContext instanceContext) 
+    { 
+      Request = request.ToString(); 
+      return null; 
+    } 
+
+  ///  
+  /// Called after the operation has returned but before the reply message is sent. 
+  ///  
+  ///The reply message. 
+  /// This value is null if the operation is one way.
+  ///The correlation object returned from the 
+  /// AfterReceiveRequest method. 
+  public void BeforeSendReply(ref System.ServiceModel.Channels.Message reply, 
+    object correlationState) 
+    { 
+      Response = reply.ToString(); 
+    } 
+  #endregion
+
+}</pre>
+Next we need to create a custom behaviour by implementing IServiceBehavior. The only method we are interested in this interface is the ApplyDispatchBehavior method. Here is our implementation of IServiceBehavior.
+<pre class="lang:c# decode:true">public class CustomBehavior : IServiceBehavior
+{ 
+
+  #region IServiceBehavior Members 
+  ///  
+  /// Provides the ability to pass custom data to binding elements 
+  /// to support the contract implementation. 
+  ///  
+  ///The service description of the service. 
+  ///The host of the service. 
+  ///The service endpoints. 
+  ///Custom objects to which binding elements have access. 
+  ///  
+  public void AddBindingParameters(ServiceDescription serviceDescription, 
+    System.ServiceModel.ServiceHostBase serviceHostBase, 
+    System.Collections.ObjectModel.Collection endpoints, 
+	System.ServiceModel.Channels.BindingParameterCollection bindingParameters) 
+  { 
+    return; 
+  } 
+
+  ///  
+  /// Provides the ability to change run-time property values or 
+  /// insert custom extension objects such as error handlers, 
+  /// message or parameter interceptors, 
+  /// security extensions, and other custom extension objects. 
+  ///  
+  ///The service description. 
+  ///The host that is currently being built. 
+  public void ApplyDispatchBehavior(ServiceDescription serviceDescription, System.ServiceModel.ServiceHostBase serviceHostBase) 
+  { 
+    foreach (ChannelDispatcher dispatcher in serviceHostBase.ChannelDispatchers) 
+    { 
+      dispatcher.Endpoints
+	    .ToList()
+        .ForEach(x =&gt; x.DispatchRuntime.MessageInspectors.Add(new Inspector())); 
+    } 
+  } 
+
+  ///  
+  /// Provides the ability to inspect the service host and 
+  /// the service description to confirm that the service 
+  /// can run successfully. 
+  ///  
+  ///The service description. 
+  ///The service host that is currently being constructed. 
+  ///  
+  public void Validate(ServiceDescription serviceDescription, System.ServiceModel.ServiceHostBase serviceHostBase) 
+  { 
+    return; 
+  }
+
+  #endregion
+
+}</pre>
+As said earlier, we will host our service in a Windows Forms application and we would like to display messages in the UI. For this we need access to messages outside the Inspector class we created above. This can be done by raising events when messages are captured. To do just that we will extend our Inspector class with two events and raise them from AfterReceiveRequest and BeforeSendReply methods.
+<pre class="lang:c# decode:true">/// 
+/// Triggered from AfterReceiveRequest method.
+/// 
+public event EventHandler RaiseRequestReceived;
+
+/// 
+/// Triggered from BeforeSendReply method.
+/// 
+public event EventHandler RaiseSendingReply;
+
+protected void OnRaiseRequestReceived(string message)
+{ 
+  EventHandler handler = RaiseRequestReceived; 
+  if (handler != null) 
+  { 
+    handler(this, new InspectorEventArgs(message)); 
+  }
+}
+
+protected void OnRaiseSendingReply(string message)
+{ 
+  EventHandler handler = RaiseSendingReply;
+  if (handler != null) 
+  { 
+    handler(this, new InspectorEventArgs(message)); 
+  }
+}</pre>
+And we will also modify AfterReceiveRequest and BeforeSendReply to raise these events.
+<pre class="lang:c# decode:true">/// 
+/// Called after an inbound message has been received but
+/// before the message is dispatched to the intended operation.
+///
+/// This method will also raise RaiseRequestReceived event.
+/// 
+///The request message.
+///The incoming channel.
+///The current service instance.
+/// 
+/// The object used to correlate state.
+/// 
+public object AfterReceiveRequest( ref System.ServiceModel.Channels.Message request, 
+System.ServiceModel.IClientChannel channel, 
+System.ServiceModel.InstanceContext instanceContext)
+{ 
+  Request = request.ToString(); 
+  OnRaiseRequestReceived(Request); 
+  return null;
+}
+
+/// 
+/// Called after the operation has returned but before the reply message is sent.
+///
+/// This method will also raise RaiseSendReply event.
+/// 
+///The reply message.
+/// This value is null if the operation is one way.
+///The correlation object returned from the
+/// AfterReceiveRequest method.
+public void BeforeSendReply(ref System.ServiceModel.Channels.Message reply, object correlationState)
+{ 
+  Response = reply.ToString(); 
+  OnRaiseSendingReply(Response);
+}</pre>
+InspectorEventArgs is a simple class used to store and pass information with our events.
+<pre class="lang:c# decode:true">public class InspectorEventArgs : EventArgs
+{ 
+  public InspectorEventArgs(string message) 
+  { 
+    this.Message = message; 
+  } 
+
+  public string Message { get; set; }
+}</pre>
+<h4>Hosting The Service And Using Inspector</h4>
+Now we are at the point where we can use our behaviour to capture request and response messages. First of all we need to put in some code to host our service. This code will go in the click event handler for our button. There are two main things do here. First we add our custom behaviour to the Behaviors collection of our host and second we hook up the events that are raised by our Inspector class.
+<pre class="lang:c# decode:true">private void buttonStartService_Click(object sender, EventArgs e)
+{ 
+  // Add our Custom Behaviour to the list of behaviours 
+  host.Description.Behaviors.Add(behavior); 
+
+  // start the service 
+  host.Open(); 
+
+  // add event handlers 
+  foreach (ChannelDispatcher dispatcher in host.ChannelDispatchers) 
+  { 
+    foreach (var endPoint in dispatcher.Endpoints) 
+    { 
+
+	  // get a list of MessageInspectors that are of type Inspector 
+      var query = (from ex in endPoint.DispatchRuntime.MessageInspectors 
+        where ex.GetType() == typeof(Inspector) 
+        select ex).Cast(); 
+
+      // hook up the events 
+      foreach (var item in query) 
+      { 
+        item.RaiseRequestReceived += 
+		  new EventHandler(Form1_RaiseRequestReceived); 
+
+        item.RaiseSendingReply += 
+		  new EventHandler(Form1_RaiseSendingReply); 
+      } 
+    } 
+  }
+}</pre>
+Now when HelloService is called we will see request and response xml in our Windows Forms application which is also a host for HelloService. We will use WebBrowser controls to display XML. Displaying XML in the WebBrowser control is not just setting a property. There is little but not too much work involved. I picked up a nice technique from this <a href="http://www.c-sharpcorner.com/Forums/ShowMessages.aspx?ThreadID=51473">link</a>.
+<pre class="lang:c# decode:true">/// 
+/// Writes xml to browser.
+/// WebBrowser control does render xml properly and to get around
+/// I am using this handy tip from this link.
+/// http://www.c-sharpcorner.com/Forums/ShowMessages.aspx?ThreadID=51473
+/// 
+///The browser.
+///The message.
+private void WriteToBrowser(WebBrowser browser, string message)
+{ 
+  XslCompiledTransform xTrans = new XslCompiledTransform(); 
+  xTrans.Load("default.xslt"); 
+  StringReader sr = new StringReader(message); 
+  XmlReader xReader = XmlReader.Create(sr); 
+  System.IO.MemoryStream ms = new MemoryStream(); 
+  xTrans.Transform(xReader, null, ms); 
+  ms.Position = 0; 
+  browser.DocumentStream = ms;
+}</pre>
+<h4>Creating The Client</h4>
+Client for HelloService is a simple Windows Forms application with a text box, button and a label. You can download the code at the end of this article and see it for yourself.
+<h4>The Output</h4>
+Here are screenshots of both client and host showing request and response XML.
+
+<img style="display: inline; border-width: 0px;" title="WCF Request" alt="WCF Request" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/04/image1.png" width="540" height="324" border="0" />
+
+<img style="display: inline; border-width: 0px;" title="WCF Response" alt="WCF Response" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/04/image2.png" width="540" height="324" border="0" />
+
+<img style="display: inline; border-width: 0px;" title="WCF Client" alt="WCF Client" src="https://googledrive.com/host/0B6PDO8HPEQZNZWpTRms0ZWtlaUU/uploads/2009/04/image3.png" width="393" height="175" border="0" />
+
+I hope you found this article interesting. If yes, then how about <a href="http://feeds.feedburner.com/debug-release">subscribing to the feed</a> :)
+
+<a href="http://bit.ly/debug-release-wcf-capture-xml">Code on GitHub</a>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Deepak Kapoor</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-01T00:00:00+11:00" pubdate data-updated="true">Apr 1<span>st</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/dot-net/'>.NET</a>, <a class='category' href='/blog/categories/microsoft/'>Microsoft</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.deepakkapoor.net/2009/04/01/capture-xml-in-wcf-service/" data-via="" data-counturl="http://www.deepakkapoor.net/2009/04/01/capture-xml-in-wcf-service/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2009/03/31/get-width-and-height-of-image-in-c/" title="Previous Post: Get Width And Height Of Image In C#">&laquo; Get Width And Height Of Image In C#</a>
+      
+      
+        <a class="basic-alignment right" href="/2009/04/27/ssms-tools-for-sql-server-2008/" title="Next Post: SSMS Tools For SQL Server 2008">SSMS Tools For SQL Server 2008 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+    <h1>Connect with me</h1>
+
+    <ul id="socialList">
+        <li><a title="Deepak Kapoor on Facebook" href="https://www.facebook.com/pages/Deepak-Kapoor/180331188831904" alt="Facebook"><div class='sprite glyp_facebook'></div></a>
+        </li>
+        <li><a title="Google+" href="https://plus.google.com/u/0/105555323627924521684" alt="Google+"><div class='sprite glyp_google_plus'></div></a>
+        </li>
+        <li><a title="Subscribe to Deepak Kapoor's Feed" href="http://feeds.feedburner.com/DeepakKapoor" alt="RSS"><div class='sprite glyp_rss'></div></a>
+        </li>
+        <li><a title="Follow Deepak Kapoor on Twitter" href="http://www.twitter.com/_deepakkapoor" alt="Twitter"><div class='sprite glyp_twitter'></div></a>
+        </li>
+        <li><a title="LinkedIn profile" href="http://au.linkedin.com/in/kapoordeepak" alt="LinkedIn"><div class='sprite glyp_linked_in'></div></a>
+        </li>
+    </ul>
+</section><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/11/27/octopress-setup-existing-blog-on-another-machine/">Octopress-Setup Existing Blog on Another Machine</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/31/linux-set-wireless-bit-rate-permanently-on-ubuntu-or-linux-mint/">Linux - Set Wireless Bit Rate Permanently on Ubuntu or Linux Mint</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/31/android-expandablelistview-tutorial/">Android - ExpandableListView Tutorial</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/28/linux-install-handbrake-on-linux-mint-15/">Linux - Install Handbrake on Linux Mint 15</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/26/linux-virtualbox-windows-host-share-in-ubuntu-guest/">Linux VirtualBox - Windows Host Share in Ubuntu Guest</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/25/linux-setgid-on-directory-and-share-directory-with-users/">Linux - Setgid on Directory and Share Directory With Users</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/07/03/linux-number-of-files-in-directory/">Linux - Number of Files in Directory</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/24/android-listview-tutorial-with-images-and-text/">Android - ListView Tutorial With Images and Text</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/11/android-linear-layout-example/">Android - Linear Layout Example</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/02/ubuntu-font-and-zenburn-i-like-to-make-my-code-look-good/">Ubuntu Font and Zenburn - I Like to Make My Code Look Good</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Deepak Kapoor -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=8878331; 
+var sc_invisible=0; 
+var sc_security="f0e88835"; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="free hit
+counters" href="http://statcounter.com/free-hit-counter/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/8878331/0/f0e88835/0/"
+alt="free hit counters"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://plus.google.com/105555323627924521684?rel=author">Google Profile</a>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-975050-1', 'deepakkapoor.net');
+  ga('send', 'pageview');
+
+</script>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'debugrelease';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
